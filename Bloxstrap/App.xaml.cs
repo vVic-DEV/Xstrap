@@ -18,15 +18,15 @@ namespace Bloxstrap
 #else
         public const string ProjectName = "Froststrap";
 #endif
-        public const string ProjectOwner = "returnrqt";
-        public const string ProjectRepository = "returnrqt/Froststrap";
-        public const string ProjectDownloadLink = "https://github.com/returnrqt/Froststrap/releases";
+        public const string ProjectOwner = "Meddsam";
+        public const string ProjectRepository = "Meddsam/Froststrap";
+        public const string ProjectDownloadLink = "https://github.com/Meddsam/Froststrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
-        public const string ProjectSupportLink = "https://github.com/returnrqt/Froststrap/issues/new";
+        public const string ProjectSupportLink = "https://github.com/Meddsam/Froststrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
-        // one day ill add studio support
+        // Bloxshade Support
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 
         // simple shorthand for extremely frequently used and long string - this goes under HKCU
