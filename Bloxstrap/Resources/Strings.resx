@@ -413,9 +413,6 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
 	<data name="Enums.Theme.Purple" xml:space="preserve">
     <value>Purple</value>
   </data>
-  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
-    <value>Custom</value>
-  </data>
 	<data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
   </data>

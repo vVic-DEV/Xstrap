@@ -504,8 +504,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
         }
 
-        private CancellationTokenSource? _searchCancellationTokenSource;
-
         private void ShowDeleteAllFlagsConfirmation()
         {
             // Show a confirmation message box to the user
