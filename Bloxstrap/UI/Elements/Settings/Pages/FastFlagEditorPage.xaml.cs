@@ -6,8 +6,9 @@ using System.Collections.ObjectModel;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.Elements.Dialogs;
-using Newtonsoft.Json.Linq;
-using System.Xml.Linq;
+using Microsoft.Win32;
+using System.Windows.Media.Animation;
+
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
@@ -16,18 +17,29 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class FastFlagEditorPage
     {
-        // believe me when i say there is absolutely zero point to using mvvm for this
-        // using a datagrid is a codebehind thing only and thats it theres literally no way around it
+
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
 
-        private bool _showPresets = false;
-        private string _searchFilter = "";
+        private bool _showPresets = true;
+        private string _searchFilter = string.Empty;
+        private string _lastSearch = string.Empty;
+        private DateTime _lastSearchTime = DateTime.MinValue;
+        private const int _debounceDelay = 70;
+
+
 
         public FastFlagEditorPage()
         {
             InitializeComponent();
+            SetDefaultStates();
         }
+
+        private void SetDefaultStates()
+        {
+            TogglePresetsButton.IsChecked = true;
+        }
+
 
         private void ReloadList()
         {
@@ -39,24 +51,20 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
+                // Skip preset flags if not shown
                 if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
 
-                if (!pair.Key.ToLower().Contains(_searchFilter.ToLower()))
+                // Skip if flag name doesn't match the search filter
+                if (!pair.Key.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase) &&
+                    !pair.Value.ToString()?.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase) == true)
                     continue;
 
                 var entry = new FastFlag
                 {
-                    // Enabled = true,
                     Name = pair.Key,
                     Value = pair.Value.ToString()!
                 };
-
-                /* if (entry.Name.StartsWith("Disable"))
-                {
-                    entry.Enabled = false;
-                    entry.Name = entry.Name[7..];
-                } */
 
                 _fastFlagList.Add(entry);
             }
@@ -67,11 +75,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (selectedEntry is null)
                 return;
 
-            var newSelectedEntry = _fastFlagList.Where(x => x.Name == selectedEntry.Name).FirstOrDefault();
-
+            var newSelectedEntry = _fastFlagList.FirstOrDefault(x => x.Name == selectedEntry.Name);
             if (newSelectedEntry is null)
                 return;
-            
+
             DataGrid.SelectedItem = newSelectedEntry;
             DataGrid.ScrollIntoView(newSelectedEntry);
         }
@@ -186,7 +193,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (lastIndex == -1)
                     json += '}';
                 else
-                    json = json.Substring(0, lastIndex+1);
+                    json = json.Substring(0, lastIndex + 1);
             }
 
             try
@@ -204,7 +211,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             catch (Exception ex)
             {
-                Frontend.ShowMessageBox(                    
+                Frontend.ShowMessageBox(
                     String.Format(Strings.Menu_FastFlagEditor_InvalidJSON, ex.Message),
                     MessageBoxImage.Error
                 );
@@ -217,7 +224,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (list.Count > 16)
             {
                 var result = Frontend.ShowMessageBox(
-                    Strings.Menu_FastFlagEditor_LargeConfig, 
+                    Strings.Menu_FastFlagEditor_LargeConfig,
                     MessageBoxImage.Warning,
                     MessageBoxButton.YesNo
                 );
@@ -343,40 +350,235 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (sender is not ToggleButton button)
                 return;
 
-            _showPresets = button.IsChecked ?? false;
+            _showPresets = button.IsChecked ?? true;
             ReloadList();
         }
 
         private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, object> FFlagsForExporting = new Dictionary<string, object>();
+            var flags = App.FastFlags.Prop;
 
-            var IncludePresetsDialog = Frontend.ShowMessageBox(
-                Strings.Menu_FastFlagEditor_ExportJson_IncludePresets,
-                MessageBoxImage.Question, 
-                MessageBoxButton.YesNo
-                );
+            // Group by flag prefix using regex (e.g., DFFlag, DFInt, FFlag, etc.)
+            var groupedFlags = flags
+                .GroupBy(kvp =>
+                {
+                    var match = System.Text.RegularExpressions.Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
+                    return match.Success ? match.Value : "Other";
+                })
+                .OrderBy(g => g.Key); // Prefix group ordering (alphabetical)
 
-            foreach (var Flag in App.FastFlags.Prop)
+            var formattedJson = new StringBuilder();
+            formattedJson.AppendLine("{");
+
+            int totalItems = flags.Count;
+            int writtenItems = 0;
+            int groupIndex = 0;
+
+            foreach (var group in groupedFlags)
             {
-                if (App.FastFlags.IsPreset(Flag.Key) && IncludePresetsDialog != MessageBoxResult.Yes) 
-                    continue;
+                // Optional: blank line between groups
+                if (groupIndex > 0)
+                    formattedJson.AppendLine();
 
-                FFlagsForExporting.Add(Flag.Key, Flag.Value);
+                // Sort entries in this group by the length of the full line string
+                var sortedGroup = group
+                    .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
+
+                foreach (var kvp in sortedGroup)
+                {
+                    writtenItems++;
+                    bool isLast = (writtenItems == totalItems);
+                    string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
+
+                    if (!isLast)
+                        line += ",";
+
+                    formattedJson.AppendLine(line);
+                }
+
+                groupIndex++;
             }
 
-            string json = JsonSerializer.Serialize(FFlagsForExporting, new JsonSerializerOptions { WriteIndented = true });
-            Clipboard.SetDataObject(json);
-            Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
+            formattedJson.AppendLine("}");
+
+            // Save the formatted JSON to a file
+            SaveJSONToFile(formattedJson.ToString());
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (sender is not TextBox textbox)
-                return;
 
-            _searchFilter = textbox.Text;
+        private void CopyJSONButton_Click1(object sender, RoutedEventArgs e)
+        {
+            string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
+
+            Clipboard.SetText(json);
+        }
+
+        private void CopyJSONButton_Click2(object sender, RoutedEventArgs e)
+        {
+            var flags = App.FastFlags.Prop;
+
+            // Group by flag prefix using regex (e.g., DFFlag, DFInt, FFlag, etc.)
+            var groupedFlags = flags
+                .GroupBy(kvp =>
+                {
+                    var match = System.Text.RegularExpressions.Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
+                    return match.Success ? match.Value : "Other";
+                })
+                .OrderBy(g => g.Key); // Prefix group ordering (alphabetical)
+
+            var formattedJson = new StringBuilder();
+            formattedJson.AppendLine("{");
+
+            int totalItems = flags.Count;
+            int writtenItems = 0;
+            int groupIndex = 0;
+
+            foreach (var group in groupedFlags)
+            {
+                // Optional: blank line between groups
+                if (groupIndex > 0)
+                    formattedJson.AppendLine();
+
+                // Sort entries in this group by the length of the full line string
+                // Fix for the null reference issue
+                var sortedGroup = group
+                    .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
+
+
+                foreach (var kvp in sortedGroup)
+                {
+                    writtenItems++;
+                    bool isLast = (writtenItems == totalItems);
+                    string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
+
+                    if (!isLast)
+                        line += ",";
+
+                    formattedJson.AppendLine(line);
+                }
+
+                groupIndex++;
+            }
+
+            formattedJson.AppendLine("}");
+
+            Clipboard.SetText(formattedJson.ToString());
+        }
+
+
+        private void SaveJSONToFile(string json)
+        {
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "JSON files (*.json)|*.json|Text files (*.txt)|*.txt",
+                Title = "Save JSON or TXT File",
+                FileName = "BloxstrapExport.json"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+
+                    var filePath = saveFileDialog.FileName;
+                    if (string.IsNullOrEmpty(Path.GetExtension(filePath)))
+                    {
+                        filePath += ".json";
+                    }
+
+                    File.WriteAllText(filePath, json);
+                    Frontend.ShowMessageBox("JSON file saved successfully!", MessageBoxImage.Information);
+                }
+                catch (IOException ioEx)
+                {
+                    Frontend.ShowMessageBox($"Error saving file: {ioEx.Message}", MessageBoxImage.Error);
+                }
+                catch (UnauthorizedAccessException uaEx)
+                {
+                    Frontend.ShowMessageBox($"Permission error: {uaEx.Message}", MessageBoxImage.Error);
+                }
+                catch (Exception ex)
+                {
+                    Frontend.ShowMessageBox($"Unexpected error: {ex.Message}", MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private CancellationTokenSource? _searchCancellationTokenSource;
+
+        private void ShowDeleteAllFlagsConfirmation()
+        {
+            // Show a confirmation message box to the user
+            if (Frontend.ShowMessageBox(
+                "Are you sure you want to delete all flags?",
+                MessageBoxImage.Warning,
+                MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+            {
+                return; // Exit if the user cancels the action
+            }
+
+            // Exit if there are no flags to delete
+            if (!HasFlagsToDelete())
+            {
+                ShowInfoMessage("There are no flags to delete.");
+                return;
+            }
+
+            try
+            {
+                DeleteAllFlags();
+                ReloadUI();
+            }
+            catch (Exception ex)
+            {
+                HandleError(ex);
+            }
+        }
+
+        private bool HasFlagsToDelete()
+        {
+            return _fastFlagList.Any() || App.FastFlags.Prop.Any();
+        }
+
+        private void DeleteAllFlags()
+        {
+
+            _fastFlagList.Clear();
+
+
+            foreach (var key in App.FastFlags.Prop.Keys.ToList())
+            {
+                App.FastFlags.SetValue(key, null);
+            }
+        }
+
+        private void ReloadUI()
+        {
             ReloadList();
         }
+
+        private void ShowInfoMessage(string message)
+        {
+            Frontend.ShowMessageBox(message, MessageBoxImage.Information, MessageBoxButton.OK);
+        }
+
+        private void HandleError(Exception ex)
+        {
+            // Display and log the error message
+            Frontend.ShowMessageBox($"An error occurred while deleting flags:\n{ex.Message}", MessageBoxImage.Error, MessageBoxButton.OK);
+            LogError(ex); // Logging error in a centralized method
+        }
+
+        private void LogError(Exception ex)
+        {
+            // Detailed logging for developers
+            Console.WriteLine(ex.ToString());
+        }
+
+
+        private void DeleteAllButton_Click(object sender, RoutedEventArgs e) => ShowDeleteAllFlagsConfirmation();
+
+
     }
 }
+
