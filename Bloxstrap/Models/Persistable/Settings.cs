@@ -4,6 +4,7 @@ namespace Bloxstrap.Models.Persistable
 {
     public class Settings
     {
+        // Will sort it out later
         // bloxstrap configuration
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.FluentAeroDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
