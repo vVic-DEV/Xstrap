@@ -770,7 +770,7 @@ Are you sure you want to continue?</value>
     <value>Show preset flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Fast Flag Editor</value>
+    <value>FastFlag Editor</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
     <value>Go back</value>
@@ -831,7 +831,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Rendering mode</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>FastFlags</value>
+    <value>FastFlag Settings</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Font files</value>

@@ -3393,7 +3393,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fast Flag Editor.
+        ///   Looks up a localized string similar to FastFlag Editor.
         /// </summary>
         public static string Menu_FastFlagEditor_Title {
             get {
@@ -3874,7 +3874,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FastFlags.
+        ///   Looks up a localized string similar to FastFlag Settings.
         /// </summary>
         public static string Menu_FastFlags_Title {
             get {
