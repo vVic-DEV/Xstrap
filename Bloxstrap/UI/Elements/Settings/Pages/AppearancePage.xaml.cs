@@ -11,8 +11,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     {
         public AppearancePage()
         {
-            DataContext = new AppearanceViewModel(this);
             InitializeComponent();
+            this.DataContext = new AppearanceViewModel(this);
         }
 
         public void CustomThemeSelection(object sender, SelectionChangedEventArgs e)

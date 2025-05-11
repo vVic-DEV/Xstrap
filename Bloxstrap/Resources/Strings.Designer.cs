@@ -2826,6 +2826,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change the app themes, make sure to check out the custom themes we have built in..
+        /// </summary>
+        public static string Menu_Appearance_Global_Theme_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance_Global.Theme.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Global Theme.
         /// </summary>
         public static string Menu_Appearance_Global_Theme_Title {
@@ -4096,11 +4105,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto close when the game closes.
+        /// </summary>
+        public static string Menu_Integrations_Custom_AutoCloseOnGame {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.AutoCloseOnGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here, you can have other programs launch with Roblox automatically..
         /// </summary>
         public static string Menu_Integrations_Custom_Description {
             get {
                 return ResourceManager.GetString("Menu.Integrations.Custom.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game ID.
+        /// </summary>
+        public static string Menu_Integrations_Custom_GameID {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.GameID", resourceCulture);
             }
         }
         
@@ -4137,6 +4164,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_Custom_NoneSelected {
             get {
                 return ResourceManager.GetString("Menu.Integrations.Custom.NoneSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run on a specific game.
+        /// </summary>
+        public static string Menu_Integrations_Custom_SpecifyGame {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.SpecifyGame", resourceCulture);
             }
         }
         

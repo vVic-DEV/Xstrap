@@ -9,17 +9,18 @@ namespace Bloxstrap
         private readonly InterProcessLock _lock = new("Watcher");
 
         private readonly WatcherData? _watcherData;
-        
+
         private readonly NotifyIconWrapper? _notifyIcon;
 
         public readonly ActivityWatcher? ActivityWatcher;
 
         public readonly DiscordRichPresence? RichPresence;
 
+        public readonly IntegrationWatcher? IntegrationWatcher;
+
         public Watcher()
         {
             const string LOG_IDENT = "Watcher";
-
 
             if (!_lock.IsAcquired)
             {
@@ -62,11 +63,10 @@ namespace Bloxstrap
                     };
                 }
 
-                if (App.Settings.Prop.UseDiscordRichPresence && !App.State.Prop.WatcherRunning)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Running rpc");
+                if (App.Settings.Prop.UseDiscordRichPresence)
                     RichPresence = new(ActivityWatcher);
-                }
+
+                IntegrationWatcher = new IntegrationWatcher(ActivityWatcher);
             }
 
             _notifyIcon = new(this);
@@ -126,10 +126,9 @@ namespace Bloxstrap
         {
             App.Logger.WriteLine("Watcher::Dispose", "Disposing Watcher");
 
+            IntegrationWatcher?.Dispose();
             _notifyIcon?.Dispose();
             RichPresence?.Dispose();
-
-            App.State.Prop.WatcherRunning = false;
 
             GC.SuppressFinalize(this);
         }

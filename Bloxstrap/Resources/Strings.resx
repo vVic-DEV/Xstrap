@@ -833,6 +833,18 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Font files</value>
   </data>
+  <data name="Menu.Integrations.Custom.SpecifyGame" xml:space="preserve">
+    <value>Run on a specific game</value>
+  </data>
+	<data name="Menu.Integrations.Custom.GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+	<data name="Menu.Integrations.Custom.AutoCloseOnGame" xml:space="preserve">
+    <value>Auto close when the game closes</value>
+  </data>
+  <data name="Menu.Appearance_Global.Theme.Description" xml:space="preserve">
+    <value>Change the app themes, make sure to check out the custom themes we have built in.</value>
+  </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Icon files</value>
   </data>
