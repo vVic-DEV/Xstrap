@@ -383,8 +383,8 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Dark</value>
   </data>
-  <data name="Enums.Theme.OldDark" xml:space="preserve">
-    <value>Old Dark</value>
+  <data name="Enums.Theme.ClassicDark" xml:space="preserve">
+    <value>Classic Dark</value>
   </data>
 	<data name="Enums.Theme.Yellow" xml:space="preserve">
     <value>Yellow</value>

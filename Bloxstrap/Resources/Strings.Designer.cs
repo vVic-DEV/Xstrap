@@ -2107,6 +2107,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classic Dark.
+        /// </summary>
+        public static string Enums_Theme_ClassicDark {
+            get {
+                return ResourceManager.GetString("Enums.Theme.ClassicDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cyan.
         /// </summary>
         public static string Enums_Theme_Cyan {
@@ -2139,15 +2148,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_Theme_Light {
             get {
                 return ResourceManager.GetString("Enums.Theme.Light", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Old Dark.
-        /// </summary>
-        public static string Enums_Theme_OldDark {
-            get {
-                return ResourceManager.GetString("Enums.Theme.OldDark", resourceCulture);
             }
         }
         

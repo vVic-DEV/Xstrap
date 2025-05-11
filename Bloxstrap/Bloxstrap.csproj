@@ -32,7 +32,7 @@
     <Resource Include="Resources\MessageBox\Information.png" />
     <Resource Include="Resources\MessageBox\Question.png" />
     <Resource Include="Resources\MessageBox\Warning.png" />
-    <EmbeddedResource Include="UI\Style\Editor-Theme-OldDark.xshd" />
+    <EmbeddedResource Include="UI\Style\Editor-Theme-ClassicDark.xshd" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Dark.xshd" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Light.xshd" />
   </ItemGroup>

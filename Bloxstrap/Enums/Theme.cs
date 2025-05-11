@@ -6,7 +6,7 @@
         Default,
         Dark,
         Light,
-        OldDark,
+        ClassicDark,
         Purple,
         Blue,
         Cyan,
