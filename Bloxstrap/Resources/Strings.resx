@@ -596,7 +596,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Special Thanks</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>A Bloxstrap Fork.</value>
+    <value>A Bloxstrap/Fishstrap Fork.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord server</value>
