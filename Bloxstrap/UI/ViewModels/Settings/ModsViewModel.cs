@@ -53,6 +53,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 TextFontTask.NewState = dialog.FileName;
             }
 
+
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
         }
