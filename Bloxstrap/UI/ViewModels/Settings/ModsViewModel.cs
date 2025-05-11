@@ -9,7 +9,6 @@ using Windows.Win32.Foundation;
 
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.Models.SettingTasks;
 using Bloxstrap.AppData;
 
 namespace Bloxstrap.UI.ViewModels.Settings
@@ -43,8 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 string type = dialog.FileName.Substring(dialog.FileName.Length-3, 3).ToLowerInvariant();
 
-                if (!FontHeaders.ContainsKey(type) 
-                    || !FontHeaders.Any(x => File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(x.Value)))
+                if (!FontHeaders.ContainsKey(type) || !File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(FontHeaders[type]))
                 {
                     Frontend.ShowMessageBox(Strings.Menu_Mods_Misc_CustomFont_Invalid, MessageBoxImage.Error);
                     return;

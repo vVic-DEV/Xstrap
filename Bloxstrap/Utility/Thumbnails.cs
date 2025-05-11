@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Voidstrap.Utility
+namespace Bloxstrap.Utility
 {
     internal static class Thumbnails
     {

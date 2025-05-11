@@ -14,6 +14,7 @@ namespace Bloxstrap.Models.Persistable
         public Theme Theme { get; set; } = Theme.Default;
         public bool CheckForUpdates { get; set; } = true;
         public bool ConfirmLaunches { get; set; } = true;
+        public bool FixTeleports { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;

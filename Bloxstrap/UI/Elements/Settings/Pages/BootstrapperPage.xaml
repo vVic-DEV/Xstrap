@@ -31,9 +31,23 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Title}"
+    Description="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding BackgroundUpdates, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
 Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
 Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
             <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <controls:OptionControl
+    Description="Allows for cross-game teleportation with multiple instances. (Fixes error 773)"
+    Header="Allow cross-game teleportation"
+    IsEnabled="{Binding InnerContent.IsChecked, ElementName=AllowMultipleInstancesOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding FixTeleportsEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
     </StackPanel>
 </ui:UiPage>

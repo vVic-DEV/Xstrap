@@ -1,4 +1,4 @@
-﻿namespace Voidstrap.Models.APIs.Roblox
+﻿namespace Bloxstrap.Models.APIs.Roblox
 {
     internal class ThumbnailRequest
     {

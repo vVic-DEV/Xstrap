@@ -28,8 +28,6 @@
         public static string CustomThemes { get; private set; } = "";
 
         public static string Application { get; private set; } = "";
-
-        public static string Fonts => Path.Combine("content\\fonts");
         public static string CustomFont => Path.Combine("content\\fonts\\CustomFont.ttf");
 
         public static bool Initialized => !String.IsNullOrEmpty(Base);

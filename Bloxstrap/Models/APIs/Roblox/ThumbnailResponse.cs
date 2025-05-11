@@ -1,4 +1,4 @@
-﻿namespace Bkix.Models.APIs.Roblox
+﻿namespace Bloxstrap.Models.APIs.Roblox
 {
     /// <summary>
     /// Roblox.Web.Responses.Thumbnails.ThumbnailResponse

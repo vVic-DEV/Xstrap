@@ -1,4 +1,4 @@
-﻿namespace Voidstrap.Models
+﻿namespace Bloxstrap.Models
 {
     internal class ThumbnailCacheEntry
     {

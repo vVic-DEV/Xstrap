@@ -57,12 +57,6 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding BackgroundUpdates, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
     x:Name="FlagStateOption"
     Header="{x:Static resources:Strings.Menu_Channel_VersionHash_Title}" 
     Description="{x:Static resources:Strings.Menu_Channel_VersionHash_Desription}"
