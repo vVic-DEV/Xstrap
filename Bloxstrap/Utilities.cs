@@ -19,8 +19,6 @@ namespace Bloxstrap
             }
             catch (Win32Exception ex)
             {
-                // lmfao
-
                 if (ex.NativeErrorCode != (int)ErrorCode.CO_E_APPNOTFOUND)
                     throw;
 
