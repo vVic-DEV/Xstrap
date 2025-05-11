@@ -674,11 +674,11 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
     <value>Preview</value>
   </data>
-  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+  <data name="Menu.Appearance.Launcher.Description" xml:space="preserve">
     <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.</value>
   </data>
-  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>Style</value>
+  <data name="Menu.Appearance.Launcher.Title" xml:space="preserve">
+    <value>Launcher</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>Appearance</value>

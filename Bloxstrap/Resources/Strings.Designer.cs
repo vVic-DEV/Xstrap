@@ -2880,29 +2880,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose how it should look. Dark theme does not apply to Legacy/Vista..
+        /// </summary>
+        public static string Menu_Appearance_Launcher_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Launcher.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launcher.
+        /// </summary>
+        public static string Menu_Appearance_Launcher_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Launcher.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
         public static string Menu_Appearance_Preview {
             get {
                 return ResourceManager.GetString("Menu.Appearance.Preview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose how it should look. Dark theme does not apply to Legacy/Vista..
-        /// </summary>
-        public static string Menu_Appearance_Style_Description {
-            get {
-                return ResourceManager.GetString("Menu.Appearance.Style.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Style.
-        /// </summary>
-        public static string Menu_Appearance_Style_Title {
-            get {
-                return ResourceManager.GetString("Menu.Appearance.Style.Title", resourceCulture);
             }
         }
         
