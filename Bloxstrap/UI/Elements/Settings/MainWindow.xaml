@@ -44,9 +44,9 @@
             Icon="Info20" Timeout="10000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="10" >
             <ui:Snackbar.Background>
                 <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                    <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
-                    <GradientStop Offset="0.70" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
-                    <GradientStop Offset="1.00" Color="{DynamicResource WindowBackgroundColorThird}"/>
+                    <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimaryWithOpacity}"/>
+                    <GradientStop Offset="0.70" Color="{DynamicResource WindowBackgroundColorSecondaryWithOpacity}"/>
+                    <GradientStop Offset="1.00" Color="{DynamicResource WindowBackgroundColorThirdWithOpacity}"/>
                 </LinearGradientBrush>
             </ui:Snackbar.Background>
         </ui:Snackbar>

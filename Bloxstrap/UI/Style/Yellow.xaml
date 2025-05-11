@@ -7,4 +7,7 @@
     <Color x:Key="WindowBackgroundColorPrimary">#B6B000</Color>
     <Color x:Key="WindowBackgroundColorSecondary">#7F7A00</Color>
     <Color x:Key="WindowBackgroundColorThird">#656211</Color>
+    <Color x:Key="WindowBackgroundColorPrimaryWithOpacity">#8CB6B000</Color>
+    <Color x:Key="WindowBackgroundColorSecondaryWithOpacity">#8C7F7A00</Color>
+    <Color x:Key="WindowBackgroundColorThirdWithOpacity">#8C656211</Color>
 </ResourceDictionary>
