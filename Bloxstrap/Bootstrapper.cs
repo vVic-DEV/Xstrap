@@ -229,8 +229,6 @@ namespace Bloxstrap
                 }
             }
 
-            CleanupVersionsFolder(); // cleanup after background updater
-
             if (!_noConnection)
             {
                 // we are checking if eurotrucks2 exists in client directory
@@ -875,36 +873,9 @@ namespace Bloxstrap
 
         #region Roblox Install
 
-        private static bool TryDeleteRobloxInDirectory(string dir)
-        {
-            string clientPath = Path.Combine(dir, "RobloxPlayerBeta.exe");
-            if (!File.Exists(dir))
-            {
-                clientPath = Path.Combine(dir, "RobloxStudioBeta.exe");
-                if (!File.Exists(dir))
-                    return true; // ok???
-            }
-
-            try
-            {
-                File.Delete(clientPath);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public static void CleanupVersionsFolder()
+        private void CleanupVersionsFolder()
         {
             const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
-
-            if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Background updater tried to cleanup, stopping!");
-                return;
-            }
 
             foreach (string dir in Directory.GetDirectories(Paths.Versions))
             {
