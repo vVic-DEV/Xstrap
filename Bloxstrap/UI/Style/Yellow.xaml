@@ -4,10 +4,10 @@
     <SolidColorBrush x:Key="NewTextEditorLink" Color="#3A9CEA" />
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#19000000" />
     <Color x:Key="ControlFillColorDefault">#19000000</Color>
-    <Color x:Key="WindowBackgroundColorPrimary">#B6B000</Color>
-    <Color x:Key="WindowBackgroundColorSecondary">#7F7A00</Color>
-    <Color x:Key="WindowBackgroundColorThird">#656211</Color>
-    <Color x:Key="WindowBackgroundColorPrimaryWithOpacity">#8CB6B000</Color>
-    <Color x:Key="WindowBackgroundColorSecondaryWithOpacity">#8C7F7A00</Color>
-    <Color x:Key="WindowBackgroundColorThirdWithOpacity">#8C656211</Color>
+    <Color x:Key="WindowBackgroundColorPrimary">#DCC600</Color>
+    <Color x:Key="WindowBackgroundColorSecondary">#B08E03</Color>
+    <Color x:Key="WindowBackgroundColorThird">#926C02</Color>
+    <Color x:Key="WindowBackgroundColorPrimaryWithOpacity">#8CDCC600</Color>
+    <Color x:Key="WindowBackgroundColorSecondaryWithOpacity">#8CB08E03</Color>
+    <Color x:Key="WindowBackgroundColorThirdWithOpacity">#8C926C02</Color>
 </ResourceDictionary>
