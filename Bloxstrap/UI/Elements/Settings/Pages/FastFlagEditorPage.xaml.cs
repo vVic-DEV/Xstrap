@@ -576,7 +576,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void DeleteAllButton_Click(object sender, RoutedEventArgs e) => ShowDeleteAllFlagsConfirmation();
 
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is not TextBox textbox)
+                return;
 
+            _searchFilter = textbox.Text;
+            ReloadList();
+        }
     }
 }
-

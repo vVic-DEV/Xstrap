@@ -116,7 +116,8 @@
                 FocusVisualStyle="{x:Null}"
                 FontSize="14"
                 Icon="Search48"
-                PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}">
+                PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}"
+                TextChanged="SearchTextBox_TextChanged">
             </ui:TextBox>
         </Grid>
 
