@@ -73,6 +73,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+
         public static List<string> Languages => Locale.GetLanguages();
 
         public string SelectedLanguage
