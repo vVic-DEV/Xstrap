@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using System.Drawing;
+using Microsoft.Win32;
 
 namespace Bloxstrap.Extensions
 {

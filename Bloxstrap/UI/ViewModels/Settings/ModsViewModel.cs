@@ -17,40 +17,36 @@ namespace Bloxstrap.UI.ViewModels.Settings
     {
         private void OpenModsFolder() => Process.Start("explorer.exe", Paths.Modifications);
 
-        private readonly Dictionary<string, byte[]> FontHeaders = new()
+        private static readonly Dictionary<string, byte[]> FontHeaders = new()
         {
-            { "ttf", new byte[4] { 0x00, 0x01, 0x00, 0x00 } },
-            { "otf", new byte[4] { 0x4F, 0x54, 0x54, 0x4F } },
-            { "ttc", new byte[4] { 0x74, 0x74, 0x63, 0x66 } } 
+            { "ttf", new byte[] { 0x00, 0x01, 0x00, 0x00 } },
+            { "otf", new byte[] { 0x4F, 0x54, 0x54, 0x4F } },
+            { "ttc", new byte[] { 0x74, 0x74, 0x63, 0x66 } }
         };
 
         private void ManageCustomFont()
         {
-            if (!String.IsNullOrEmpty(TextFontTask.NewState))
+            if (!string.IsNullOrEmpty(TextFontTask.NewState))
             {
-                TextFontTask.NewState = "";
+                TextFontTask.NewState = string.Empty;
             }
             else
             {
-                var dialog = new OpenFileDialog
+                var dialog = new OpenFileDialog { Filter = $"{Strings.Menu_FontFiles}|*.ttf;*.otf;*.ttc" };
+
+                if (dialog.ShowDialog() != true) return;
+
+                string type = Path.GetExtension(dialog.FileName).TrimStart('.').ToLowerInvariant();
+                byte[] fileHeader = File.ReadAllBytes(dialog.FileName).Take(4).ToArray();
+
+                if (!FontHeaders.TryGetValue(type, out var expectedHeader) || !expectedHeader.SequenceEqual(fileHeader))
                 {
-                    Filter = $"{Strings.Menu_FontFiles}|*.ttf;*.otf;*.ttc"
-                };
-
-                if (dialog.ShowDialog() != true)
-                    return;
-
-                string type = dialog.FileName.Substring(dialog.FileName.Length-3, 3).ToLowerInvariant();
-
-                if (!FontHeaders.ContainsKey(type) || !File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(FontHeaders[type]))
-                {
-                    Frontend.ShowMessageBox(Strings.Menu_Mods_Misc_CustomFont_Invalid, MessageBoxImage.Error);
+                    Frontend.ShowMessageBox("Custom Font Invalid", MessageBoxImage.Error);
                     return;
                 }
 
                 TextFontTask.NewState = dialog.FileName;
             }
-
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
