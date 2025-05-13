@@ -48,5 +48,60 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 }
             }
         }
+
+        public CleanerOptions SelectedCleanUpMode
+        {
+            get => App.Settings.Prop.CleanerOptions;
+            set => App.Settings.Prop.CleanerOptions = value;
+        }
+
+        public IEnumerable<CleanerOptions> CleanerOptions { get; } = CleanerOptionsEx.Selections;
+
+        public CleanerOptions CleanerOption
+        {
+            get => App.Settings.Prop.CleanerOptions;
+            set
+            {
+                App.Settings.Prop.CleanerOptions = value;
+            }
+        }
+
+        private List<string> CleanerItems = App.Settings.Prop.CleanerDirectories;
+
+        public bool CleanerLogs
+        {
+            get => CleanerItems.Contains("RobloxLogs");
+            set
+            {
+                if (value)
+                    CleanerItems.Add("RobloxLogs");
+                else
+                    CleanerItems.Remove("RobloxLogs"); // should we try catch it?
+            }
+        }
+
+        public bool CleanerCache
+        {
+            get => CleanerItems.Contains("RobloxCache");
+            set
+            {
+                if (value)
+                    CleanerItems.Add("RobloxCache");
+                else
+                    CleanerItems.Remove("RobloxCache");
+            }
+        }
+
+        public bool CleanerFroststrap
+        {
+            get => CleanerItems.Contains("FroststrapLogs");
+            set
+            {
+                if (value)
+                    CleanerItems.Add("FroststrapLogs");
+                else
+                    CleanerItems.Remove("FroststrapLogs");
+            }
+        }
     }
 }

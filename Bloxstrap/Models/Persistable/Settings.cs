@@ -12,6 +12,8 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
+        public CleanerOptions CleanerOptions { get; set; } = CleanerOptions.Never;
+        public List<string> CleanerDirectories { get; set; } = new List<string>();
         public bool CheckForUpdates { get; set; } = true;
         public bool ConfirmLaunches { get; set; } = true;
         public bool FixTeleports { get; set; } = false;
