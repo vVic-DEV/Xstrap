@@ -2547,6 +2547,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contributors.
+        /// </summary>
+        public static string Menu_About_Contributors_Contributors {
+            get {
+                return ResourceManager.GetString("Menu.About.Contributors.Contributors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to These are the people who have made notable contributions to Froststrap/Bloxstrap, helping make it what it is..
         /// </summary>
         public static string Menu_About_Contributors_Description {
@@ -2556,20 +2565,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Feature Ideas.
+        ///   Looks up a localized string similar to Inspirations.
         /// </summary>
-        public static string Menu_About_Contributors_FeatureIdeas {
+        public static string Menu_About_Contributors_Insipirations {
             get {
-                return ResourceManager.GetString("Menu.About.Contributors.FeatureIdeas", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Special Thanks.
-        /// </summary>
-        public static string Menu_About_Contributors_SpecialThanks {
-            get {
-                return ResourceManager.GetString("Menu.About.Contributors.SpecialThanks", resourceCulture);
+                return ResourceManager.GetString("Menu.About.Contributors.Insipirations", resourceCulture);
             }
         }
         
@@ -3532,7 +3532,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In Roblox, buffer array length is how much data is temporarily stored before being processed or sent..
+        ///   Looks up a localized string similar to Buffer Array Length is how much data is temporarily stored before being processed or sent..
         /// </summary>
         public static string Menu_FastFlags_Presets_BufferArray_Description {
             get {

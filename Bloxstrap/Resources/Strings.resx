@@ -589,11 +589,11 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
     <value>These are the people who have made notable contributions to Froststrap/Bloxstrap, helping make it what it is.</value>
   </data>
-  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Feature Ideas</value>
+  <data name="Menu.About.Contributors.Contributors" xml:space="preserve">
+    <value>Contributors</value>
   </data>
-  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>Special Thanks</value>
+  <data name="Menu.About.Contributors.Insipirations" xml:space="preserve">
+    <value>Inspirations</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>A Bloxstrap/Fishstrap Fork.</value>
