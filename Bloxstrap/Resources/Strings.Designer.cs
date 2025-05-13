@@ -2619,7 +2619,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Bloxstrap/Fishstrap Fork..
+        ///   Looks up a localized string similar to A Fishstrap/Bloxstrap Fork..
         /// </summary>
         public static string Menu_About_Description {
             get {
