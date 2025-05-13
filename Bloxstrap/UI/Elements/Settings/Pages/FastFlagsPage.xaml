@@ -8,7 +8,7 @@
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d"
-      d:DesignHeight="1500" d:DesignWidth="800"
+      d:DesignHeight="1600" d:DesignWidth="800"
       Title="FastFlagsPage"
       Scrollable="True"
       Loaded="Page_Loaded">
@@ -28,11 +28,76 @@
 
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
-        <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Title}"
-    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
-        </controls:OptionControl>
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_System_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_System_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+
+                <controls:OptionControl
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PreferredGPU_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PreferredGPU_Description}">
+                    <ComboBox  Margin="5,0,0,0" Padding="10,5,10,5" Width="200" 
+                        ItemsSource="{Binding GPUs.Keys, Mode=OneWay}" 
+                        SelectedItem="{Binding SelectedGPU, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+
+                <controls:OptionControl Description="{x:Static resources:Strings.Menu_FastFlags_Presets_ForceLogicalProcessor_Description}" Header="{x:Static resources:Strings.Menu_FastFlags_Presets_ForceLogicalProcessor_Title}">
+                    <ComboBox
+                        Width="200"
+                        Margin="5,0,0,0"
+                        Padding="10,5,10,5"
+                        ItemsSource="{Binding CpuThreads}"
+                        SelectedItem="{Binding SelectedCpuThreads, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Key}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TaskSchedulerAvoidSleep_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TaskSchedulerAvoidSleep_Description}"> 
+                    <ui:ToggleSwitch IsChecked="{Binding TaskSchedulerAvoidingSleep, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MemoryProbing_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MemoryProbing_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding MemoryProbing, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightCulling_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LightCulling_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding LightCulling, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+
+            </StackPanel>
+        </ui:CardExpander>
+
+
+
 
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
@@ -50,7 +115,8 @@
 
             <StackPanel>
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Title}">
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Title}"
+                        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Description}">
                     <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MSAALevels.Keys, Mode=OneTime}" Text="{Binding SelectedMSAALevel, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -61,32 +127,39 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePlayerShadows_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePlayerShadows_Title}">
                     <ui:ToggleSwitch IsChecked="{Binding DisablePlayerShadows, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePostFX_Title}"
-            HelpLink="https://create.roblox.com/docs/environment/post-processing-effects">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePostFX_Title}"
+    HelpLink="https://create.roblox.com/docs/environment/post-processing-effects">
                     <ui:ToggleSwitch IsChecked="{Binding DisablePostFX, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableTerrainTextures_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableTerrainTextures_Title}">
                     <ui:ToggleSwitch IsChecked="{Binding DisableTerrainTextures, Mode=TwoWay}" />
                 </controls:OptionControl>
 
+
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureRemover_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureRemover_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding TextureRemover, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
+    HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
                     <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" 
+    Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+    HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology">
                     <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -96,48 +169,111 @@
                     </ComboBox>
                 </controls:OptionControl>
 
+
+                <controls:OptionControl
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderOcclusion_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderOcclusion_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding RenderOcclusion, Mode=TwoWay}" />
+                </controls:OptionControl>
+
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
+                    HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
                     <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}">
-                    <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rendering-mode" >
+                    <ComboBox
+                Width="200"
+                Margin="5,0,0,0"
+                Padding="10,5,10,5"
+                ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}"
+                Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </controls:OptionControl>
-
-                <controls:OptionControl
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PreferredGPU_Title}"
-    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PreferredGPU_Description}">
-                    <ComboBox  Margin="5,0,0,0" Padding="10,5,10,5" Width="200" 
-        ItemsSource="{Binding GPUs.Keys, Mode=OneWay}" 
-        SelectedItem="{Binding SelectedGPU, Mode=TwoWay}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" />
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureQuality_Title}">
-                    <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding TextureQualities.Keys, Mode=OneTime}" Text="{Binding SelectedTextureQuality, Mode=TwoWay}">
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureQuality_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureQuality_Description}">
+                    <ComboBox
+                Width="200"
+                Margin="5,0,0,0"
+                Padding="10,5,10,5"
+                ItemsSource="{Binding TextureQualities.Keys, Mode=OneTime}"
+                Text="{Binding SelectedTextureQuality, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </controls:OptionControl>
+
+
+                <controls:OptionControl
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_StartingGraphicLevel_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_StartingGraphicLevel_Description}">
+                    <ComboBox
+        Width="200"
+        Margin="5,0,0,0"
+        Padding="10,5,10,5"
+        ItemsSource="{Binding RomarkStartMappings.Keys , Mode=OneTime}"
+        Text="{Binding SelectedRomarkStart, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicLevel_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicLevel_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-level">
+                    <ComboBox
+        Width="200"
+        Margin="5,0,0,0"
+        Padding="10,5,10,5"
+        ItemsSource="{Binding QualityLevels.Keys , Mode=OneTime}"
+        Text="{Binding SelectedQualityLevel, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+                
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureSkipping_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureSkipping_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#texture-skipping">
+                    <ComboBox
+        Width="200"
+        Margin="5,0,0,0"
+        Padding="10,5,10,5"
+        ItemsSource="{Binding TextureSkippings.Keys, Mode=OneTime}"
+        Text="{Binding SelectedTextureSkipping, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+
+
             </StackPanel>
         </ui:CardExpander>
 
@@ -149,75 +285,139 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_UserInterface}" />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_UserInterface_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{StaticResource TextFillColorTertiaryBrush}" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_UserInterface_Description}" />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
 
             <StackPanel>
+
+
+
+                <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_IngameMenu}" />
+                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_IngameMenu_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+
+                    <StackPanel>
+                        <controls:OptionControl 
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_VRToggle_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding VRToggle, Mode=TwoWay}" />
+                        </controls:OptionControl>
+                        <controls:OptionControl 
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding SoothsayerCheck, Mode=TwoWay}" />
+                        </controls:OptionControl>
+                        <controls:OptionControl 
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding LanguageSelector, Mode=TwoWay}" />
+                        </controls:OptionControl>
+                        <controls:OptionControl 
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding Framerate, Mode=TwoWay}" />
+                        </controls:OptionControl>
+                        <controls:OptionControl 
+                        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding ChatTranslation, Mode=TwoWay}" />
+                        </controls:OptionControl>
+                    </StackPanel>
+                </ui:CardExpander>
+
+
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FullscreenTitlebar_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FullscreenTitlebar_Description}">
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FullscreenTitlebar_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FullscreenTitlebar_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-full-screen-title-bar">
                     <ui:ToggleSwitch IsChecked="{Binding FullscreenTitlebarDisabled, Mode=TwoWay}" />
                 </controls:OptionControl>
 
-                <controls:OptionControl
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Title}" 
-    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Description}"
-    HelpLink="https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981">
-                    <ui:ToggleSwitch IsChecked="{Binding ChromeUI, Mode=TwoWay}" />
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
+                    Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}" 
+                    HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
+                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HideGUI, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}" 
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
-                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding GuiHidingId, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-            x:Name="FontPaddingOption"
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}">
+                    x:Name="FontPaddingOption"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Title}" 
+                    Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}">
                     <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FontSize, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
                 </controls:OptionControl>
             </StackPanel>
         </ui:CardExpander>
 
-        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
                 <Grid>
-                    <Grid.ColumnDefinitions>
+                    <d:Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_IngameMenu}" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_IngameMenu_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </d:Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Network_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{StaticResource TextFillColorTertiaryBrush}" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Network_Description}" />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
-
             <StackPanel>
-                <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_VRToggle_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding VRToggle, Mode=TwoWay}" />
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-telemetry">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
                 </controls:OptionControl>
-                <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding SoothsayerCheck, Mode=TwoWay}" />
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_ReduceLagSpikes_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_ReduceLagSpikes_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes">
+                    <ui:ToggleSwitch IsChecked="{Binding ReduceLagSpikes, Mode=TwoWay}" />
                 </controls:OptionControl>
-                <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding LanguageSelector, Mode=TwoWay}" />
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_NoPayloadLimit_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_NoPayloadLimit_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#no-payload-limit">
+                    <ui:ToggleSwitch IsChecked="{Binding NoPayloadLimit, Mode=TwoWay}" />
                 </controls:OptionControl>
-                <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding Framerate, Mode=TwoWay}" />
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RCore_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RCore_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rcore">
+                    <ui:ToggleSwitch IsChecked="{Binding RobloxCore, Mode=TwoWay}" />
                 </controls:OptionControl>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LargeReplicator_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LargeReplicator_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#large-replicator">
+                    <ui:ToggleSwitch IsChecked="{Binding EnableLargeReplicator, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FasterLoading_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FasterLoading_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding FasterLoading, Mode=TwoWay}" />
+                </controls:OptionControl>
+
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding ChatTranslation, Mode=TwoWay}" />
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_BufferArray_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BufferArray_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering">
+                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding BufferArrayLength, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
                 </controls:OptionControl>
             </StackPanel>
         </ui:CardExpander>
@@ -249,36 +449,6 @@
                     <ui:ToggleSwitch IsChecked="{Binding PingBreakdown, Mode=TwoWay}" />
                 </controls:OptionControl>
             </StackPanel>
-    </ui:CardExpander>
-
-        <!--<ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
-        <ui:CardExpander.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="14" Text="text" />
-                </StackPanel>
-            </Grid>
-        </ui:CardExpander.Header>
-
-        <StackPanel>
-            
-        </StackPanel>
-    </ui:CardExpander>-->
-
-        <!--<controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Title}"
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </controls:OptionControl>-->
+        </ui:CardExpander>
     </StackPanel>
 </ui:UiPage>

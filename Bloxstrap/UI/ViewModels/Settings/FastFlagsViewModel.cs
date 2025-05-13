@@ -101,26 +101,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool GoogleToggle
-        {
-            get => string.Equals(App.FastFlags.GetPreset("VoiceChat.VoiceChat1"), "False", StringComparison.OrdinalIgnoreCase);
-            set
-            {
-                if (value)
-                {
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat1", "False");
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat2", "https://google.com");
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat3", "https://google.com");
-                }
-                else
-                {
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat1", "True");
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat2", null);
-                    App.FastFlags.SetPreset("VoiceChat.VoiceChat3", null);
-                }
-            }
-        }
-
         public bool LightCulling
         {
             get => App.FastFlags.GetPreset("Rendering.GpuCulling") == "True";
@@ -131,64 +111,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool RainbowTheme
-        {
-            get => App.FastFlags.GetPreset("UI.RainbowText") == "True";
-            set => App.FastFlags.SetPreset("UI.RainbowText", value ? "True" : null);
-        }
-
         public bool MemoryProbing
         {
             get => App.FastFlags.GetPreset("Memory.Probe") == "True";
             set => App.FastFlags.SetPreset("Memory.Probe", value ? "True" : null);
         }
 
-        public bool MoreSensetivityNumbers
-        {
-            get => App.FastFlags.GetPreset("UI.SensetivityNumbers") == "False";
-            set => App.FastFlags.SetPreset("UI.SensetivityNumbers", value ? "False" : null);
-        }
-
-        public bool NoGuiBlur
-        {
-            get => App.FastFlags.GetPreset("UI.NoGuiBlur") == "0";
-            set => App.FastFlags.SetPreset("UI.NoGuiBlur", value ? "0" : null);
-        }
-
-        public bool Layered
-        {
-            get => App.FastFlags.GetPreset("Layered.Clothing") == "-1";
-            set => App.FastFlags.SetPreset("Layered.Clothing", value ? "-1" : null);
-        }
-
-        public bool UnlimitedCameraZoom
-        {
-            get => App.FastFlags.GetPreset("Rendering.Camerazoom") == "2147483647";
-            set => App.FastFlags.SetPreset("Rendering.Camerazoom", value ? "2147483647" : null);
-        }
-
-        public bool FpsFix
-        {
-            get => App.FastFlags.GetPreset("FpsFix.Log")?.Equals("False") ?? false;
-            set => App.FastFlags.SetPreset("FpsFix.Log", value ? "False" : null);
-        }
-
-        public bool Preload
-        {
-            get => App.FastFlags.GetPreset("Preload.Preload2") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("Preload.Preload2", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.SoundPreload", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.Texture", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.TeleportPreload", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.FontsPreload", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.ItemPreload", value ? "True" : null);
-                App.FastFlags.SetPreset("Preload.Teleport2", value ? "True" : null);
-            }
-        }
-
-        public bool LoadFaster
+        public bool FasterLoading
         {
             get => App.FastFlags.GetPreset("Network.AssetPreloadding") == "2147483647";
             set
@@ -196,16 +125,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.AssetPreloadding", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.MaxAssetPreload", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
-            }
-        }
-
-        public bool TextSizeChanger
-        {
-            get => App.FastFlags.GetPreset("UI.TextSize1") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("UI.TextSize1", value ? "True" : null);
-                App.FastFlags.SetPreset("UI.TextSize2", value ? "True" : null);
             }
         }
 
@@ -219,17 +138,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool Threading
-        {
-            get => App.FastFlags.GetPreset("Hyper.Threading1") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("Hyper.Threading1", value ? "True" : null);
-                App.FastFlags.SetPreset("Hyper.Threading2", value ? "True" : null);
-            }
-        }
-
-        public bool LessLagSpikes
+        public bool ReduceLagSpikes
         {
             get => App.FastFlags.GetPreset("Network.DefaultBps") == "64000";
             set
@@ -286,37 +195,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Debug.PingBreakdown", value ? "True" : null);
         }
 
-        public bool EnableDarkMode
-        {
-            get => App.FastFlags.GetPreset("DarkMode.BlueMode") == "False";
-            set => App.FastFlags.SetPreset("DarkMode.BlueMode", value ? "False" : null);
-        }
-
-
-        public bool ChatBubble
-        {
-            get => App.FastFlags.GetPreset("UI.Chatbubble") == "False";
-            set => App.FastFlags.SetPreset("UI.Chatbubble", value ? "False" : null);
-        }
-
-        public bool NoMoreMiddle
-        {
-            get => App.FastFlags.GetPreset("UI.RemoveMiddle") == "False";
-            set => App.FastFlags.SetPreset("UI.RemoveMiddle", value ? "False" : null);
-        }
-
-        public bool DisplayFps
-        {
-            get => App.FastFlags.GetPreset("Rendering.DisplayFps") == "True";
-            set => App.FastFlags.SetPreset("Rendering.DisplayFps", value ? "True" : null);
-        }
-
-        public bool GrayAvatar
-        {
-            get => App.FastFlags.GetPreset("Rendering.GrayAvatar") == "0";
-            set => App.FastFlags.SetPreset("Rendering.GrayAvatar", value ? "0" : null);
-        }
-
         public bool UseFastFlagManager
         {
             get => App.Settings.Prop.UseFastFlagManager;
@@ -329,36 +207,21 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.Framerate", value == 0 ? null : value);
         }
 
-        public int VolChatLimit
+        public int BufferArrayLength
         {
-            get => int.TryParse(App.FastFlags.GetPreset("VoiceChat.VoiceChat4"), out int x) ? x : 1000;
-            set => App.FastFlags.SetPreset("VoiceChat.VoiceChat4", value > 0 ? value.ToString() : null);
+            get => int.TryParse(App.FastFlags.GetPreset("Recommended.Buffer"), out int x) ? x : 0;
+            set => App.FastFlags.SetPreset("Recommended.Buffer", value == 0 ? null : value);
         }
 
         public int HideGUI
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.Hide"), out int x) ? x : 0;
-            set => App.FastFlags.SetPreset("UI.Hide", value > 0 ? value.ToString() : null);
+            set
+            {
+                App.FastFlags.SetPreset("UI.Hide", value > 0 ? value.ToString() : null);
+                App.FastFlags.SetPreset("UI.Hide.Toggles", value > 0 ? "True" : null);
+            }
         }
-
-        public int MtuSize
-        {
-            get => int.TryParse(App.FastFlags.GetPreset("Network.Mtusize"), out int x) ? x : 0;
-            set => App.FastFlags.SetPreset("Network.Mtusize", value > 0 ? value.ToString() : null);
-        }
-
-        public bool EnableCustomDisconnectError
-        {
-            get => App.FastFlags.GetPreset("UI.CustomDisconnectError1") == "True";
-            set => App.FastFlags.SetPreset("UI.CustomDisconnectError1", value ? "True" : null);
-        }
-
-        public string? CustomDisconnectError
-        {
-            get => App.FastFlags.GetPreset("UI.CustomDisconnectError2");
-            set => App.FastFlags.SetPreset("UI.CustomDisconnectError2", value);
-        }
-
 
         public IReadOnlyDictionary<MSAAMode, string?> MSAALevels => FastFlagManager.MSAAModes;
 
@@ -411,59 +274,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
         }
 
-        public bool MoreLighting
-        {
-            get => App.FastFlags.GetPreset("Rendering.BrighterVisual") == "True";
-            set => App.FastFlags.SetPreset("Rendering.BrighterVisual", value ? "True" : null);
-        }
-
-        public bool RemoveGrass
-        {
-            get => App.FastFlags.GetPreset("Rendering.Nograss1") == "0";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.Nograss1", value ? "0" : null);
-                App.FastFlags.SetPreset("Rendering.Nograss2", value ? "0" : null);
-                App.FastFlags.SetPreset("Rendering.Nograss3", value ? "0" : null);
-            }
-        }
-
         public string? FlagState
         {
             get => App.FastFlags.GetPreset("Debug.FlagState");
             set => App.FastFlags.SetPreset("Debug.FlagState", value);
-        }
-
-        public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
-
-        public InGameMenuVersion SelectedIGMenuVersion
-        {
-            get
-            {
-                foreach (var version in IGMenuVersions)
-                {
-                    bool flagsMatch = true;
-
-                    foreach (var flag in version.Value)
-                    {
-                        foreach (var presetFlag in FastFlagManager.PresetFlags.Where(x => x.Key.StartsWith($"UI.Menu.Style.{flag.Key}")))
-                        {
-                            if (App.FastFlags.GetValue(presetFlag.Value) != flag.Value)
-                                flagsMatch = false;
-                        }
-                    }
-
-                    if (flagsMatch)
-                        return version.Key;
-                }
-
-                return IGMenuVersions.First().Key;
-            }
-            set
-            {
-                foreach (var flag in IGMenuVersions[value])
-                    App.FastFlags.SetPreset($"UI.Menu.Style.{flag.Key}", flag.Value);
-            }
         }
 
         public IReadOnlyDictionary<LightingMode, string> LightingModes => FastFlagManager.LightingModes;
@@ -494,42 +308,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 else
                 {
                     App.FastFlags.SetPreset("Rendering.TextureSkipping.Skips", TextureSkippings[value]);
-                }
-            }
-        }
-
-        public IReadOnlyDictionary<DistanceRendering, string?> DistanceRenderings => FastFlagManager.DistanceRenderings;
-
-        public DistanceRendering SelectedDistanceRendering
-        {
-            get => DistanceRenderings.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.Distance.Chunks")).Key;
-            set
-            {
-                if (value == DistanceRendering.Chunks1x)
-                {
-                    App.FastFlags.SetPreset("Rendering.Distance.Chunks", null);
-                }
-                else
-                {
-                    App.FastFlags.SetPreset("Rendering.Distance.Chunks", DistanceRenderings[value]);
-                }
-            }
-        }
-
-        public IReadOnlyDictionary<DynamicResolution, string?> DynamicResolutions => FastFlagManager.DynamicResolutions;
-
-        public DynamicResolution SelectedDynamicResolution
-        {
-            get => DynamicResolutions.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.Dynamic.Resolution")).Key;
-            set
-            {
-                if (value == DynamicResolution.Resolution1)
-                {
-                    App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", null);
-                }
-                else
-                {
-                    App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", DynamicResolutions[value]);
                 }
             }
         }
@@ -582,12 +360,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.AvoidSleep", value ? "True" : null);
         }
 
-        public bool AdsToggle
-        {
-            get => App.FastFlags.GetPreset("UI.Disable.Ads") == "True";
-            set => App.FastFlags.SetPreset("UI.Disable.Ads", value ? "True" : null);
-        }
-
         public bool DisablePlayerShadows
         {
             get => App.FastFlags.GetPreset("Rendering.ShadowIntensity") == "0";
@@ -610,40 +382,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool EnableGraySky
-        {
-            get => App.FastFlags.GetPreset("Rendering.GraySky") == "True";
-            set => App.FastFlags.SetPreset("Rendering.GraySky", value ? "True" : null);
-        }
         public int? FontSize
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.FontSize"), out int x) ? x : 1;
             set => App.FastFlags.SetPreset("UI.FontSize", value == 1 ? null : value);
         }
 
-        public bool RedFont
-        {
-            get => App.FastFlags.GetPreset("UI.RedFont") == "rbxasset://fonts/families/BuilderSans.json";
-            set => App.FastFlags.SetPreset("UI.RedFont", value ? "rbxasset://fonts/families/BuilderSans.json" : null);
-        }
-
         public bool DisableTerrainTextures
         {
             get => App.FastFlags.GetPreset("Rendering.TerrainTextureQuality") == "0";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
-            }
-        }
-
-        public bool Prerender
-        {
-            get => App.FastFlags.GetPreset("Rendering.Prerender") == "True" && App.FastFlags.GetPreset("Rendering.PrerenderV2") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.Prerender", value ? "True" : null);
-                App.FastFlags.SetPreset("Rendering.PrerenderV2", value ? "True" : null);
-            }
+            set => App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
         }
 
         public IReadOnlyDictionary<string, string?>? GPUs => GetGPUs();
@@ -654,23 +402,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value == "Automatic" ? null : value);
         }
 
-        public string ForceBuggyVulkan
-        {
-            get => App.FastFlags.GetPreset("Rendering.ForceVulkan") ?? "Automatic";
-            set => App.FastFlags.SetPreset("Rendering.ForceVulkan", value == "Automatic" ? null : value);
-        }
-
-        public bool PartyToggle
-        {
-            get => App.FastFlags.GetPreset("VoiceChat.VoiceChat4") == "False";
-            set
-            {
-                string presetValue = value ? "False" : "True";
-                App.FastFlags.SetPreset("VoiceChat.VoiceChat4", presetValue);
-                App.FastFlags.SetPreset("VoiceChat.VoiceChat5", presetValue);
-            }
-        }
-
         public bool GetFlagAsBool(string flagKey, string falseValue = "False")
         {
             return App.FastFlags.GetPreset(flagKey) != falseValue;
@@ -679,12 +410,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public void SetFlagFromBool(string flagKey, bool value, string falseValue = "False")
         {
             App.FastFlags.SetPreset(flagKey, value ? null : falseValue);
-        }
-
-        public bool ChromeUI
-        {
-            get => GetFlagAsBool("UI.Menu.ChromeUI");
-            set => SetFlagFromBool("UI.Menu.ChromeUI", value);
         }
 
         public bool VRToggle
@@ -703,12 +428,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.FastFlags.GetPreset("Menu.LanguageSelector") != "0";
             set => SetFlagFromBool("Menu.LanguageSelector", value, "0");
-        }
-
-        public bool Haptics
-        {
-            get => GetFlagAsBool("Menu.Haptics");
-            set => SetFlagFromBool("Menu.Haptics", value);
         }
 
         public bool Framerate
@@ -822,7 +541,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 OnPropertyChanged(nameof(SelectedCpuThreads));
                 App.FastFlags.SetPreset("Rendering.CpuCore7", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                if (value.Value != null && int.TryParse(value.Value, out int parsedValue))
+                if (value.Value != null && int.TryParse(value.Value, out int parsedValue)) // sets cputhreads to the selected amount minus 1
                 {
                     int adjustedValue = Math.Max(parsedValue - 1, 1); // Ensure the value does not go below on one
                     App.FastFlags.SetPreset("Rendering.CpuThreads", adjustedValue.ToString());

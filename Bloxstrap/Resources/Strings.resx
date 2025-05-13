@@ -827,6 +827,9 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering mode</value>
   </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
+    <value>Configure the rendering api for Roblox. Press Alt Enter when going to Fullscreen if using Direct3D. Setting to Vulkan may cause some bugs!</value>
+  </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
     <value>FastFlag Settings</value>
   </data>
@@ -1043,11 +1046,116 @@ Some text might not be translated to preferred language.</value>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + New UI)</value>
   </data>
+  <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Description" xml:space="preserve">
+    <value>Configure the logical cores to run Roblox.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Title" xml:space="preserve">
+    <value>Force CPU Logical Cores</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">
+    <value>Prevents task scheduler from sleeping.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Title" xml:space="preserve">
+    <value>Avoid Task Scheduler Sleep</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MemoryProbing.Description" xml:space="preserve">
+    <value>Optimize memory usage for low end PCs.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MemoryProbing.Title" xml:space="preserve">
+    <value>Memory Probing</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightCulling.Description" xml:space="preserve">
+    <value>Optimizes light rendering by reducing unnecessary light calculation, could result in input lag.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.LightCulling.Title" xml:space="preserve">
+    <value>Light Culling</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.System.Title" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.System.Description" xml:space="preserve">
+    <value>Configure settings that changes how your pc behaves with Roblox</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Network.Title" xml:space="preserve">
+    <value>Network and Input Delay</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.Categories.Network.Description" xml:space="preserve">
+    <value>Configures your Network settings</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderOcclusion.Title" xml:space="preserve">
+    <value>Render Occlusion</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.RenderOcclusion.Description" xml:space="preserve">
+    <value>Render Occlusion Prohibits object behind walls from loadding resulting in better performance.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureRemover.Title" xml:space="preserve">
+    <value>Remove Textures</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.TextureRemover.Description" xml:space="preserve">
+    <value>Removes roblox built in material textures only.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.StartingGraphicLevel.Title" xml:space="preserve">
+    <value>Starting Graphic Level</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.StartingGraphicLevel.Description" xml:space="preserve">
+    <value>Set the initial Graphic bar amount when joinning a game.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.OverrideGraphicLevel.Title" xml:space="preserve">
+    <value>Override Graphic Level</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.OverrideGraphicLevel.Description" xml:space="preserve">
+    <value>Locks texture quality to your selected setting, allowing for high render distance with low quality if set to 1.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureSkipping.Title" xml:space="preserve">
+    <value>Texture Skipping</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.TextureSkipping.Description" xml:space="preserve">
+    <value>Higher values may blur icons and remove textures at levels 4-8.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.ReduceLagSpikes.Title" xml:space="preserve">
+    <value>Reduce Lag Spikes</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.ReduceLagSpikes.Description" xml:space="preserve">
+    <value>Prevent lag spikes by smoothing out the network output.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.NoPayloadLimit.Title" xml:space="preserve">
+    <value>No Payload Limit</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.NoPayloadLimit.Description" xml:space="preserve">
+    <value>Disables network data transfer limit, could lead to network overhead if packets are too large, use at your own risk.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.RCore.Title" xml:space="preserve">
+    <value>RCore</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.RCore.Description" xml:space="preserve">
+    <value>Stabilizes connection by optimizing roblox's core.</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.LargeReplicator.Title" xml:space="preserve">
+    <value>Large Replicator</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.LargeReplicator.Description" xml:space="preserve">
+    <value>Increases the speed of large reads and writes.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FasterLoading.Title" xml:space="preserve">
+    <value>Faster Loading</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.FasterLoading.Description" xml:space="preserve">
+    <value>Decreases wait time by optimizing loading speeds.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BufferArray.Title" xml:space="preserve">
+    <value>Buffer Array Length</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.BufferArray.Description" xml:space="preserve">
+    <value>In Roblox, buffer array length is how much data is temporarily stored before being processed or sent.</value>
+  </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Rendering and Graphics</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface.Title" xml:space="preserve">
     <value>User Interface and Layout</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface.Description" xml:space="preserve">
+    <value>Configure UI settings</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Allow Froststrap to manage Fast Flags</value>
@@ -1057,6 +1165,9 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Description" xml:space="preserve">
+    <value>Smooth out jagged edges. Higher values increases smoothness.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
     <value>Disable post-processing effects</value>
@@ -1069,6 +1180,9 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Texture quality</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Description" xml:space="preserve">
+    <value>Adjust the quality of textures. Higher levels increase quality.</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
     <value>Level 0 (Lowest)</value>
@@ -1558,7 +1672,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Roblox Menu</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.IngameMenu.Description" xml:space="preserve">
-    <value>Debloat Roblox menu with FFlags</value>
+    <value>Debloat Roblox menu with FFlags (keep disabled to remove)</value>
   </data>
   <data name="Common.Deployment" xml:space="preserve">
     <value>Deployment</value>
