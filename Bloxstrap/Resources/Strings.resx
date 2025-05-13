@@ -689,6 +689,12 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automatically update Froststrap</value>
   </data>
+  <data name="Menu.Behaviour.AllowCrossGameTeleportation.Description" xml:space="preserve">
+    <value>Allows for cross-game teleportation with multiple instances. (Fixes error 773)</value>
+  </data>
+	<data name="Menu.Behaviour.AllowCrossGameTeleportation.Title" xml:space="preserve">
+    <value>Allow cross-game teleportation</value>
+  </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevent against closures of your existing game from accidentally launching another one.</value>
   </data>

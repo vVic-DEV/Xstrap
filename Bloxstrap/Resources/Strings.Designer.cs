@@ -2961,6 +2961,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allows for cross-game teleportation with multiple instances. (Fixes error 773).
+        /// </summary>
+        public static string Menu_Behaviour_AllowCrossGameTeleportation_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.AllowCrossGameTeleportation.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow cross-game teleportation.
+        /// </summary>
+        public static string Menu_Behaviour_AllowCrossGameTeleportation_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.AllowCrossGameTeleportation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ansel support is required for shaders..
         /// </summary>
         public static string Menu_Behaviour_AnselBanner {
