@@ -102,7 +102,7 @@
                         </Style>
                     </CheckBox.Style>
                 </CheckBox>
-                <Button Background="#302020" Margin="0,0,15,0" MinWidth="100" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click">
+                <Button Background="{DynamicResource SystemAccentBrush}" Margin="0,0,15,0" MinWidth="100" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                             <Style.Triggers>

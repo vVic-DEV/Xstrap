@@ -1146,7 +1146,7 @@ Some text might not be translated to preferred language.</value>
     <value>Buffer Array Length</value>
   </data>
 	<data name="Menu.FastFlags.Presets.BufferArray.Description" xml:space="preserve">
-    <value>In Roblox, buffer array length is how much data is temporarily stored before being processed or sent.</value>
+    <value>Buffer Array Length is how much data is temporarily stored before being processed or sent.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Rendering and Graphics</value>
