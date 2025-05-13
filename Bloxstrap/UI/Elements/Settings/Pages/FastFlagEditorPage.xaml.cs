@@ -472,7 +472,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 Filter = "JSON files (*.json)|*.json|Text files (*.txt)|*.txt",
                 Title = "Save JSON or TXT File",
-                FileName = "BloxstrapExport.json"
+                FileName = "FroststrapExport.json"
             };
 
             if (saveFileDialog.ShowDialog() == true)
@@ -576,13 +576,100 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void DeleteAllButton_Click(object sender, RoutedEventArgs e) => ShowDeleteAllFlagsConfirmation();
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private CancellationTokenSource? _searchCancellationTokenSource;
+
+        private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (sender is not TextBox textbox)
+            if (sender is not TextBox textbox) return;
+
+            string newSearch = textbox.Text.Trim();
+
+            // Return early if the search text hasn't changed or the debounce delay hasn't passed
+            if (newSearch == _lastSearch && (DateTime.Now - _lastSearchTime).TotalMilliseconds < _debounceDelay)
                 return;
 
-            _searchFilter = textbox.Text;
-            ReloadList();
+            // Cancel the previous search operation if ongoing
+            _searchCancellationTokenSource?.Cancel();
+            _searchCancellationTokenSource = new CancellationTokenSource();
+
+            _searchFilter = newSearch;
+            _lastSearch = newSearch;
+            _lastSearchTime = DateTime.Now;
+
+            try
+            {
+                // Apply debounce delay using Task.Delay without blocking the UI
+                await Task.Delay(_debounceDelay, _searchCancellationTokenSource.Token);
+
+                // If the task was cancelled, exit early
+                if (_searchCancellationTokenSource.Token.IsCancellationRequested)
+                    return;
+
+                // Reload the list and show search suggestion after debounce delay
+                Dispatcher.Invoke(() =>
+                {
+                    ReloadList();
+                    ShowSearchSuggestion(newSearch);
+                });
+            }
+            catch (TaskCanceledException)
+            {
+                // Handle task cancellation gracefully
+            }
+        }
+
+
+        private void ShowSearchSuggestion(string searchFilter)
+        {
+            if (string.IsNullOrWhiteSpace(searchFilter))
+            {
+                AnimateSuggestionVisibility(0);
+                return;
+            }
+
+            // Smarter search: Prioritize matches that start with the filter
+            var bestMatch = App.FastFlags.Prop.Keys
+                .Where(flag => flag.Contains(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(flag => !flag.StartsWith(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .ThenBy(flag => flag.IndexOf(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .ThenBy(flag => flag.Length)
+                .FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(bestMatch))
+            {
+                SuggestionTextBlock.Text = $"Looking For ({bestMatch})?";
+                AnimateSuggestionVisibility(1);
+            }
+            else
+            {
+                AnimateSuggestionVisibility(0);
+            }
+        }
+
+
+        private void AnimateSuggestionVisibility(double targetOpacity)
+        {
+            var opacityAnimation = new DoubleAnimation
+            {
+                To = targetOpacity,
+                Duration = TimeSpan.FromMilliseconds(95),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            opacityAnimation.Completed += (s, e) =>
+            {
+                if (targetOpacity == 0)
+                {
+                    SuggestionTextBlock.Visibility = Visibility.Collapsed;
+                }
+            };
+
+            if (targetOpacity > 0)
+            {
+                SuggestionTextBlock.Visibility = Visibility.Visible;
+            }
+
+            SuggestionTextBlock.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
         }
     }
 }
