@@ -142,13 +142,6 @@
                     <ui:ToggleSwitch IsChecked="{Binding DisableTerrainTextures, Mode=TwoWay}" />
                 </controls:OptionControl>
 
-
-                <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureRemover_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureRemover_Description}" >
-                    <ui:ToggleSwitch IsChecked="{Binding TextureRemover, Mode=TwoWay}" />
-                </controls:OptionControl>
-
                 <controls:OptionControl 
     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 

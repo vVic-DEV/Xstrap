@@ -4351,24 +4351,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Removes roblox built in material textures only..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_TextureRemover_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.TextureRemover.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove Textures.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_TextureRemover_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.TextureRemover.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Higher values may blur icons and remove textures at levels 4-8..
         /// </summary>
         public static string Menu_FastFlags_Presets_TextureSkipping_Description {

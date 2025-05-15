@@ -59,6 +59,11 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
+	<EmbeddedResource Include="Resources\HighGraphics.json" />
+    <EmbeddedResource Include="Resources\OptimalGraphics.json" />
+	<EmbeddedResource Include="Resources\BalancedGraphics.json" />
+	<EmbeddedResource Include="Resources\LowGraphics.json" />
+	<EmbeddedResource Include="Resources\TrashGraphics.json" />
   </ItemGroup>
 
   <ItemGroup>

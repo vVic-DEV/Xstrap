@@ -37,10 +37,6 @@ namespace Bloxstrap
             // frm quality level
             { "Rendering.FrmQuality", "DFIntDebugFRMQualityLevelOverride" },
 
-            // No Texture
-            { "Rendering.RemoveTexture1", "FFlagTextureUseACR3" },
-            { "Rendering.RemoveTexture2", "FIntTextureUseACRHundredthPercent" },
-
             // Less lag spikes
             { "Network.DefaultBps", "DFIntBandwidthManagerApplicationDefaultBps" },
             { "Network.MaxWorkCatchupMs", "DFIntBandwidthManagerDataSenderMaxWorkCatchupMs" },

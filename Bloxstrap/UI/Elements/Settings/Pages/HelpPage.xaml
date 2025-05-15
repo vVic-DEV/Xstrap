@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="HelpPage"
-      Scrollable="False">
+      Scrollable="True">
     <StackPanel>
         <TextBlock Text="{x:Static resources:Strings.Menu_Help_Description}" FontSize="13" />
 

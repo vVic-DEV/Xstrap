@@ -1232,12 +1232,6 @@ Some text might not be translated to preferred language.</value>
 	<data name="Menu.FastFlags.Presets.RenderOcclusion.Description" xml:space="preserve">
     <value>Render Occlusion Prohibits object behind walls from loadding resulting in better performance.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.TextureRemover.Title" xml:space="preserve">
-    <value>Remove Textures</value>
-  </data>
-	<data name="Menu.FastFlags.Presets.TextureRemover.Description" xml:space="preserve">
-    <value>Removes roblox built in material textures only.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.StartingGraphicLevel.Title" xml:space="preserve">
     <value>Starting Graphic Level</value>
   </data>

@@ -128,16 +128,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool TextureRemover
-        {
-            get => App.FastFlags.GetPreset("Rendering.RemoveTexture1") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.RemoveTexture1", value ? "True" : null);
-                App.FastFlags.SetPreset("Rendering.RemoveTexture2", value ? "10000" : null);
-            }
-        }
-
         public bool ReduceLagSpikes
         {
             get => App.FastFlags.GetPreset("Network.DefaultBps") == "64000";
