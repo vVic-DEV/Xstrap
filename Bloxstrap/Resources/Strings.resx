@@ -129,6 +129,12 @@
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
     <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Froststrap.</value>
   </data>
+  <data name="Menu.Help.Title" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Menu.Help.Description" xml:space="preserve">
+    <value>This will help you find ways to fix your issues. (will take you to wiki page)</value>
+  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Froststrap before uninstalling.</value>
   </data>
@@ -219,6 +225,93 @@
   <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
+<data name="Menu.Help.FFlagIssues" xml:space="preserve">
+  <value>Common FFlag Issues</value>
+</data>
+<data name="Menu.Help.GrayAvatars" xml:space="preserve">
+  <value>[Gray Avatars](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars)</value>
+</data>
+<data name="Menu.Help.BlurryIconsTextures" xml:space="preserve">
+  <value>[Blurry Icons/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures)</value>
+</data>
+<data name="Menu.Help.LaggyAnimation" xml:space="preserve">
+  <value>[Laggy Animation](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations)</value>
+</data>
+<data name="Menu.Help.FrameStutters" xml:space="preserve">
+  <value>[Frame Stutters](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters)</value>
+</data>
+<data name="Menu.Help.LightingProblems" xml:space="preserve">
+  <value>[Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems)</value>
+</data>
+<data name="Menu.Help.BuggedMeshes" xml:space="preserve">
+  <value>[Bugged Meshes](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes)</value>
+</data>
+<data name="Menu.Help.GraySky" xml:space="preserve">
+  <value>[Gray Sky](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky)</value>
+</data>
+<data name="Menu.Help.BlackTextures" xml:space="preserve">
+  <value>[Black Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
+</data>
+<data name="Menu.Help.RainbowUiTextures" xml:space="preserve">
+  <value>[Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
+</data>
+<data name="Menu.Help.LoaddingIssues" xml:space="preserve">
+  <value>[Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
+</data>
+<data name="Menu.Help.FPSCappedWhenUncapped" xml:space="preserve">
+  <value>[FPS capped when uncapped](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>
+</data>
+<data name="Menu.Help.QualityLevelNotChanging" xml:space="preserve">
+  <value>[Quality Level Not Changing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing)</value>
+</data>
+<data name="Menu.Help.BlackSky" xml:space="preserve">
+  <value>[Black Sky When Camera Turning](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera)</value>
+</data>
+<data name="Menu.Help.RobloxCrashing" xml:space="preserve">
+  <value>[Roblox Crashing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update)</value>
+</data>
+<data name="Menu.Help.WhiteSkyAndWhiteScreen" xml:space="preserve">
+  <value>[White Sky / White Screen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
+</data>
+<data name="Menu.Help.Crashonfastcameraturn" xml:space="preserve">
+  <value>[Crash on fast camera turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
+</data>
+<data name="Menu.Help.BootstrapperIssues" xml:space="preserve">
+  <value>Bootstrapper Issues</value>
+</data>
+<data name="Menu.Help.DiscordRichPresenceNotWorking" xml:space="preserve">
+  <value>[Discord Rich Presence Broken](https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work)</value>
+</data>
+<data name="Menu.Help.SetupFailed" xml:space="preserve">
+  <value>[Custom bootstrapper setup failed](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed)</value>
+</data>
+<data name="Menu.Help.ConnectivityIssue" xml:space="preserve">
+  <value>[Connectivity Issue](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue)</value>
+</data>
+<data name="Menu.Help.Features" xml:space="preserve">
+  <value>Features</value>
+</data>
+<data name="Menu.Help.ServerInformation" xml:space="preserve">
+  <value>[Server Information](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing)</value>
+</data>
+<data name="Menu.Help.GameHistory" xml:space="preserve">
+  <value>[Game History](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing)</value>
+</data>
+<data name="Menu.Help.DiscordRichPresence" xml:space="preserve">
+  <value>[Discord Rich Presence](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence)</value>
+</data>
+<data name="Menu.Help.MessageLogsAndPlayerLogs" xml:space="preserve">
+  <value>[Message Logs and Player Logs](https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs)</value>
+</data>
+<data name="Menu.Help.CrossGameTeleportation" xml:space="preserve">
+  <value>[Allow Cross-game Teleportation](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation)</value>
+</data>
+<data name="Menu.Help.MultiInstanceLaunching" xml:space="preserve">
+  <value>[Multi Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
+</data>
+<data name="Menu.Help.Cleaner" xml:space="preserve">
+  <value>[Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
+</data>
   <data name="Common.Presets" xml:space="preserve">
     <value>Presets</value>
   </data>
@@ -849,7 +942,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Direct3D exclusive fullscreen using Alt+Enter is enabled by default.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferred escape menu version</value>
+    <value>Preferred escape Menu version</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox reduces your rendering quality depending on how your display is scaled in Windows.</value>
@@ -1404,7 +1497,7 @@ Froststrap was installed at "{1}".</value>
     <value>You currently do not have the WebView2 runtime installed. Some Roblox features will not work properly without it, such as the desktop app. Would you like to download it now?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Froststrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
+    <value>Froststrap was unable to create shortcuts for the Desktop and Start Menu. Try creating them later through the settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
@@ -1413,7 +1506,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings.</value>
+    <value>These are general shortcuts that bring up a multi-choice launch Menu. Shortcuts for specific functions can be created later in the settings.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
     <value>Configure how Froststrap can be readily launched.</value>
@@ -1422,7 +1515,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <value>General</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>These are the shortcuts that bring up the multi-choice launch menu.</value>
+    <value>These are the shortcuts that bring up the multi-choice launch Menu.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
     <value>Function</value>
@@ -1723,7 +1816,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Roblox Menu</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.IngameMenu.Description" xml:space="preserve">
-    <value>Debloat Roblox menu with FFlags (keep disabled to remove)</value>
+    <value>Debloat Roblox Menu with FFlags (keep disabled to remove)</value>
   </data>
   <data name="Common.Deployment" xml:space="preserve">
     <value>Deployment</value>

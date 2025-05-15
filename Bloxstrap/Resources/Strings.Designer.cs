@@ -1504,7 +1504,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Froststrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings..
+        ///   Looks up a localized string similar to Froststrap was unable to create shortcuts for the Desktop and Start Menu. Try creating them later through the settings..
         /// </summary>
         public static string Dialog_CannotCreateShortcuts {
             get {
@@ -2408,7 +2408,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings..
+        ///   Looks up a localized string similar to These are general shortcuts that bring up a multi-choice launch Menu. Shortcuts for specific functions can be created later in the settings..
         /// </summary>
         public static string Installer_Install_Shortcuts_Description {
             get {
@@ -3611,7 +3611,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fast Flags are extremely powerful, being that they are intended to only be used by Roblox engineers. While they can be very useful, manually configuring them can cause serious issues with stability and functionality. Do NOT use the editor if you are unsure of what you are doing.
         ///
-        ///Do NOT use this to import large &quot;flag lists&quot; made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware of [rest of string was truncated]&quot;;.
+        ///Do NOT use this to import large &quot;flag lists&quot; made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Menu_FastFlagEditor_Warning_Text {
             get {
@@ -3712,7 +3712,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debloat Roblox menu with FFlags (keep disabled to remove).
+        ///   Looks up a localized string similar to Debloat Roblox Menu with FFlags (keep disabled to remove).
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_IngameMenu_Description {
             get {
@@ -3838,7 +3838,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preferred escape menu version.
+        ///   Looks up a localized string similar to Preferred escape Menu version.
         /// </summary>
         public static string Menu_FastFlags_Presets_EscapeMenuVersion_Title {
             get {
@@ -4504,6 +4504,285 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Black Sky When Camera Turning](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera).
+        /// </summary>
+        public static string Menu_Help_BlackSky {
+            get {
+                return ResourceManager.GetString("Menu.Help.BlackSky", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Black Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures).
+        /// </summary>
+        public static string Menu_Help_BlackTextures {
+            get {
+                return ResourceManager.GetString("Menu.Help.BlackTextures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Blurry Icons/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures).
+        /// </summary>
+        public static string Menu_Help_BlurryIconsTextures {
+            get {
+                return ResourceManager.GetString("Menu.Help.BlurryIconsTextures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bootstrapper Issues.
+        /// </summary>
+        public static string Menu_Help_BootstrapperIssues {
+            get {
+                return ResourceManager.GetString("Menu.Help.BootstrapperIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Bugged Meshes](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes).
+        /// </summary>
+        public static string Menu_Help_BuggedMeshes {
+            get {
+                return ResourceManager.GetString("Menu.Help.BuggedMeshes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner).
+        /// </summary>
+        public static string Menu_Help_Cleaner {
+            get {
+                return ResourceManager.GetString("Menu.Help.Cleaner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Connectivity Issue](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue).
+        /// </summary>
+        public static string Menu_Help_ConnectivityIssue {
+            get {
+                return ResourceManager.GetString("Menu.Help.ConnectivityIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Crash on fast camera turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast).
+        /// </summary>
+        public static string Menu_Help_Crashonfastcameraturn {
+            get {
+                return ResourceManager.GetString("Menu.Help.Crashonfastcameraturn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Allow Cross-game Teleportation](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation).
+        /// </summary>
+        public static string Menu_Help_CrossGameTeleportation {
+            get {
+                return ResourceManager.GetString("Menu.Help.CrossGameTeleportation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will help you find ways to fix your issues. (will take you to wiki page).
+        /// </summary>
+        public static string Menu_Help_Description {
+            get {
+                return ResourceManager.GetString("Menu.Help.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Discord Rich Presence](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence).
+        /// </summary>
+        public static string Menu_Help_DiscordRichPresence {
+            get {
+                return ResourceManager.GetString("Menu.Help.DiscordRichPresence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Discord Rich Presence Broken](https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work).
+        /// </summary>
+        public static string Menu_Help_DiscordRichPresenceNotWorking {
+            get {
+                return ResourceManager.GetString("Menu.Help.DiscordRichPresenceNotWorking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features.
+        /// </summary>
+        public static string Menu_Help_Features {
+            get {
+                return ResourceManager.GetString("Menu.Help.Features", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common FFlag Issues.
+        /// </summary>
+        public static string Menu_Help_FFlagIssues {
+            get {
+                return ResourceManager.GetString("Menu.Help.FFlagIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [FPS capped when uncapped](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped).
+        /// </summary>
+        public static string Menu_Help_FPSCappedWhenUncapped {
+            get {
+                return ResourceManager.GetString("Menu.Help.FPSCappedWhenUncapped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Frame Stutters](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters).
+        /// </summary>
+        public static string Menu_Help_FrameStutters {
+            get {
+                return ResourceManager.GetString("Menu.Help.FrameStutters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Game History](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing).
+        /// </summary>
+        public static string Menu_Help_GameHistory {
+            get {
+                return ResourceManager.GetString("Menu.Help.GameHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Gray Avatars](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars).
+        /// </summary>
+        public static string Menu_Help_GrayAvatars {
+            get {
+                return ResourceManager.GetString("Menu.Help.GrayAvatars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Gray Sky](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky).
+        /// </summary>
+        public static string Menu_Help_GraySky {
+            get {
+                return ResourceManager.GetString("Menu.Help.GraySky", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Laggy Animation](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations).
+        /// </summary>
+        public static string Menu_Help_LaggyAnimation {
+            get {
+                return ResourceManager.GetString("Menu.Help.LaggyAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems).
+        /// </summary>
+        public static string Menu_Help_LightingProblems {
+            get {
+                return ResourceManager.GetString("Menu.Help.LightingProblems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue).
+        /// </summary>
+        public static string Menu_Help_LoaddingIssues {
+            get {
+                return ResourceManager.GetString("Menu.Help.LoaddingIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Message Logs and Player Logs](https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs).
+        /// </summary>
+        public static string Menu_Help_MessageLogsAndPlayerLogs {
+            get {
+                return ResourceManager.GetString("Menu.Help.MessageLogsAndPlayerLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Multi Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching).
+        /// </summary>
+        public static string Menu_Help_MultiInstanceLaunching {
+            get {
+                return ResourceManager.GetString("Menu.Help.MultiInstanceLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Quality Level Not Changing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing).
+        /// </summary>
+        public static string Menu_Help_QualityLevelNotChanging {
+            get {
+                return ResourceManager.GetString("Menu.Help.QualityLevelNotChanging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics).
+        /// </summary>
+        public static string Menu_Help_RainbowUiTextures {
+            get {
+                return ResourceManager.GetString("Menu.Help.RainbowUiTextures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Roblox Crashing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update).
+        /// </summary>
+        public static string Menu_Help_RobloxCrashing {
+            get {
+                return ResourceManager.GetString("Menu.Help.RobloxCrashing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Server Information](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing).
+        /// </summary>
+        public static string Menu_Help_ServerInformation {
+            get {
+                return ResourceManager.GetString("Menu.Help.ServerInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Custom bootstrapper setup failed](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed).
+        /// </summary>
+        public static string Menu_Help_SetupFailed {
+            get {
+                return ResourceManager.GetString("Menu.Help.SetupFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Menu_Help_Title {
+            get {
+                return ResourceManager.GetString("Menu.Help.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [White Sky / White Screen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white).
+        /// </summary>
+        public static string Menu_Help_WhiteSkyAndWhiteScreen {
+            get {
+                return ResourceManager.GetString("Menu.Help.WhiteSkyAndWhiteScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon files.
         /// </summary>
         public static string Menu_IconFiles {
@@ -5123,7 +5402,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the shortcuts that bring up the multi-choice launch menu..
+        ///   Looks up a localized string similar to These are the shortcuts that bring up the multi-choice launch Menu..
         /// </summary>
         public static string Menu_Shortcuts_General_Description {
             get {
