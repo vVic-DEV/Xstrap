@@ -58,46 +58,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
-        public const string Enabled = "True";
-        public const string Disabled = "False";
-
         public bool DisableTelemetry
         {
-            get => App.FastFlags?.GetPreset("Telemetry.EpCounter") == "True";
+            get => App.FastFlags?.GetPreset("Telemetry.TelemetryV2Url") == "0.0.0.0";
             set
             {
-                if (App.FastFlags == null) return;
-
-                App.FastFlags.SetPreset("Telemetry.EpCounter", value ? Enabled : Disabled);
-
-                var telemetryPresets = new Dictionary<string, string>
-                {
-                    { "Telemetry.EpCounter", value ? Enabled : Disabled },
-                    { "Telemetry.EpStats", value ? Enabled : Disabled },
-                    { "Telemetry.Event", value ? Enabled : Disabled },
-                    { "Telemetry.Point", value ? Enabled : Disabled },
-                    { "Telemetry.GraphicsQualityUsage", value ? Disabled : Enabled },
-                    { "Telemetry.GpuVsCpuBound", value ? Disabled : Enabled },
-                    { "Telemetry.RenderFidelity", value ? Disabled : Enabled },
-                    { "Telemetry.RenderDistance", value ? Disabled : Enabled },
-                    { "Telemetry.PhysicsSolverPerf", value ? Disabled : Enabled },
-                    { "Telemetry.AudioPlugin", value ? Disabled : Enabled },
-                    { "Telemetry.FmodErrors", value ? Disabled : Enabled },
-                    { "Telemetry.SoundLength", value ? Disabled : Enabled },
-                    { "Telemetry.AssetRequestV1", value ? Disabled : Enabled },
-                    { "Telemetry.DeviceRAM", value ? Disabled : Enabled },
-                    { "Telemetry.TelemetryFlush", value ? Disabled : Enabled },
-                    { "Telemetry.V2FrameRateMetrics", value ? Disabled : Enabled },
-                    { "Telemetry.GlobalSkipUpdating", value ? Disabled : Enabled },
-                    { "Telemetry.CallbackSafety", value ? Disabled : Enabled },
-                    { "Telemetry.V2PointEncoding", value ? Disabled : Enabled },
-                    { "Telemetry.ReplaceSeparator", value ? Disabled : Enabled }
-                };
-
-                foreach (var (key, presetValue) in telemetryPresets)
-                {
-                    App.FastFlags.SetPreset(key, presetValue);
-                }
+                App.FastFlags.SetPreset("Telemetry.TelemetryV2Url", value ? "0.0.0.0" : null);
+                App.FastFlags.SetPreset("Telemetry.RemoveHardcodedV2URL", value ? "True" : null);
             }
         }
 
