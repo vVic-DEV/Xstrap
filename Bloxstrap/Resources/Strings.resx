@@ -223,7 +223,7 @@
     <value>OK</value>
   </data>
   <data name="Menu.Help.Description" xml:space="preserve">
-    <value>This will give you information about fixes and other information (will take you to wiki page)</value>
+    <value>This will provide you with information about fixes and other details (it will direct you to the wiki page).</value>
   </data>
   <data name="Menu.Help.FFlagIssues" xml:space="preserve">
     <value>Common FFlag Issues</value>
@@ -311,6 +311,9 @@
   </data>
   <data name="Menu.Help.Cleaner" xml:space="preserve">
     <value>[Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
+  </data>
+  <data name="Menu.Help.CustomLaunchers" xml:space="preserve">
+    <value>[Custom Launchers](https://github.com/Meddsam/Froststrap/wiki/Features#custom-launchers)</value>
   </data>
   <data name="Menu.Help.FFlagGuide" xml:space="preserve">
     <value>FFlag Guide</value>

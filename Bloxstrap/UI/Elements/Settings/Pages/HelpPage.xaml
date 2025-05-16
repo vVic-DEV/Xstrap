@@ -77,6 +77,7 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MessageLogsAndPlayerLogs}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CrossGameTeleportation}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MultiInstanceLaunching}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CustomLaunchers}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Cleaner}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>

@@ -4567,7 +4567,16 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will give you information about fixes and other information (will take you to wiki page).
+        ///   Looks up a localized string similar to [Custom Launchers](https://github.com/Meddsam/Froststrap/wiki/Features#custom-launchers).
+        /// </summary>
+        public static string Menu_Help_CustomLaunchers {
+            get {
+                return ResourceManager.GetString("Menu.Help.CustomLaunchers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will provide you with information about fixes and other details (it will direct you to the wiki page)..
         /// </summary>
         public static string Menu_Help_Description {
             get {
