@@ -17,10 +17,17 @@
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}"
             Description="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Description}">
-            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding ThemeIcons, Mode=OneWay}" SelectedValuePath="IconType" SelectedValue="{Binding Theme, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="16" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Height="16" Source="{Binding ImageSource, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{Binding Path=IconType, Converter={StaticResource EnumNameConverter}}" />
+                        </Grid>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

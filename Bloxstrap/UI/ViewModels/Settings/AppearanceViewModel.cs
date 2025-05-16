@@ -58,6 +58,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
             foreach (var entry in BootstrapperIconEx.Selections)
                 Icons.Add(new BootstrapperIconEntry { IconType = entry });
 
+            foreach (var entry in ThemeEx.Selections)
+                ThemeIcons.Add(new ThemeEntry { IconType = (Theme)entry });
+
             PopulateCustomThemes();
         }
 
@@ -103,6 +106,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public bool CustomThemesExpanded => App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.CustomDialog;
 
         public ObservableCollection<BootstrapperIconEntry> Icons { get; set; } = new();
+        public ObservableCollection<ThemeEntry> ThemeIcons { get; set; } = new();
 
         public BootstrapperIcon Icon
         {

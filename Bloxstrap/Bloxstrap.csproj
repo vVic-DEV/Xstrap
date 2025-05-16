@@ -49,6 +49,18 @@
 	<EmbeddedResource Include="Resources\IconBloxstrap.ico" />
     <EmbeddedResource Include="Resources\IconEarly2015.ico" />
     <EmbeddedResource Include="Resources\IconLate2015.ico" />
+	<EmbeddedResource Include="Resources\Blue.ico" />
+	<EmbeddedResource Include="Resources\ClassicDark.ico" />
+	<EmbeddedResource Include="Resources\Cyan.ico" />
+	<EmbeddedResource Include="Resources\Dark.ico" />
+	<EmbeddedResource Include="Resources\Default.ico" />
+	<EmbeddedResource Include="Resources\Green.ico" />
+	<EmbeddedResource Include="Resources\Light.ico" />
+	<EmbeddedResource Include="Resources\Orange.ico" />
+	<EmbeddedResource Include="Resources\Pink.ico" />
+	<EmbeddedResource Include="Resources\Red.ico" />
+	<EmbeddedResource Include="Resources\Purple.ico" />
+	<EmbeddedResource Include="Resources\Yellow.ico" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
@@ -59,11 +71,11 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
-	<EmbeddedResource Include="Resources\HighGraphics.json" />
-    <EmbeddedResource Include="Resources\OptimalGraphics.json" />
-	<EmbeddedResource Include="Resources\BalancedGraphics.json" />
-	<EmbeddedResource Include="Resources\LowGraphics.json" />
-	<EmbeddedResource Include="Resources\TrashGraphics.json" />
+	<EmbeddedResource Include="Resources\BuiltInFlags\HighGraphics" />
+	<EmbeddedResource Include="Resources\BuiltInFlags\OptimalGraphics" />
+	<EmbeddedResource Include="Resources\BuiltInFlags\BalancedGraphics" />
+	<EmbeddedResource Include="Resources\BuiltInFlags\LowGraphics" />
+	<EmbeddedResource Include="Resources\BuiltInFlags\TrashGraphics" />
   </ItemGroup>
 
   <ItemGroup>
