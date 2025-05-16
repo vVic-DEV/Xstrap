@@ -4146,18 +4146,18 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Locks texture quality to your selected setting, allowing for high render distance with low quality if set to 1..
         /// </summary>
-        public static string Menu_FastFlags_Presets_OverrideGraphicLevel_Description {
+        public static string Menu_FastFlags_Presets_OverrideGraphicQuality_Description {
             get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.OverrideGraphicLevel.Description", resourceCulture);
+                return ResourceManager.GetString("Menu.FastFlags.Presets.OverrideGraphicQuality.Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Override Graphic Level.
+        ///   Looks up a localized string similar to Override Graphic Quality.
         /// </summary>
-        public static string Menu_FastFlags_Presets_OverrideGraphicLevel_Title {
+        public static string Menu_FastFlags_Presets_OverrideGraphicQuality_Title {
             get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.OverrideGraphicLevel.Title", resourceCulture);
+                return ResourceManager.GetString("Menu.FastFlags.Presets.OverrideGraphicQuality.Title", resourceCulture);
             }
         }
         
@@ -4567,11 +4567,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will help you find ways to fix your issues. (will take you to wiki page).
+        ///   Looks up a localized string similar to This will give you information about fixes and other information (will take you to wiki page).
         /// </summary>
         public static string Menu_Help_Description {
             get {
                 return ResourceManager.GetString("Menu.Help.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Disable Full-Screen Title Bar](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-full-screen-title-bar).
+        /// </summary>
+        public static string Menu_Help_DisableFullScreenTitleBar {
+            get {
+                return ResourceManager.GetString("Menu.Help.DisableFullScreenTitleBar", resourceCulture);
             }
         }
         
@@ -4599,6 +4608,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_Features {
             get {
                 return ResourceManager.GetString("Menu.Help.Features", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FFlag Guide.
+        /// </summary>
+        public static string Menu_Help_FFlagGuide {
+            get {
+                return ResourceManager.GetString("Menu.Help.FFlagGuide", resourceCulture);
             }
         }
         
@@ -4666,6 +4684,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Large Replicator](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#large-replicator).
+        /// </summary>
+        public static string Menu_Help_LargeReplicator {
+            get {
+                return ResourceManager.GetString("Menu.Help.LargeReplicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems).
         /// </summary>
         public static string Menu_Help_LightingProblems {
@@ -4693,11 +4720,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Multi Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching).
+        ///   Looks up a localized string similar to [Multi-Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching).
         /// </summary>
         public static string Menu_Help_MultiInstanceLaunching {
             get {
                 return ResourceManager.GetString("Menu.Help.MultiInstanceLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Override Graphic Quality](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-quality).
+        /// </summary>
+        public static string Menu_Help_OverrideGraphicQuality {
+            get {
+                return ResourceManager.GetString("Menu.Help.OverrideGraphicQuality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Payload Limit](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#payload-limit).
+        /// </summary>
+        public static string Menu_Help_PayloadLimit {
+            get {
+                return ResourceManager.GetString("Menu.Help.PayloadLimit", resourceCulture);
             }
         }
         
@@ -4716,6 +4761,42 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_RainbowUiTextures {
             get {
                 return ResourceManager.GetString("Menu.Help.RainbowUiTextures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [RCore](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rcore).
+        /// </summary>
+        public static string Menu_Help_RCore {
+            get {
+                return ResourceManager.GetString("Menu.Help.RCore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Recommended Buffering](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering).
+        /// </summary>
+        public static string Menu_Help_RecommendedBuffering {
+            get {
+                return ResourceManager.GetString("Menu.Help.RecommendedBuffering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Reduce Lag Spikes](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes).
+        /// </summary>
+        public static string Menu_Help_ReduceLagSpikes {
+            get {
+                return ResourceManager.GetString("Menu.Help.ReduceLagSpikes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Rendering Modes](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rendering-mode).
+        /// </summary>
+        public static string Menu_Help_RenderingModes {
+            get {
+                return ResourceManager.GetString("Menu.Help.RenderingModes", resourceCulture);
             }
         }
         
@@ -4743,6 +4824,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_SetupFailed {
             get {
                 return ResourceManager.GetString("Menu.Help.SetupFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Telemetry](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#telemetry).
+        /// </summary>
+        public static string Menu_Help_Telemetry {
+            get {
+                return ResourceManager.GetString("Menu.Help.Telemetry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Texture Skipping](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#texture-skipping).
+        /// </summary>
+        public static string Menu_Help_TextureSkipping {
+            get {
+                return ResourceManager.GetString("Menu.Help.TextureSkipping", resourceCulture);
             }
         }
         

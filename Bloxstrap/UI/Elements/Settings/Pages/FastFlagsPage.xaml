@@ -231,8 +231,8 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicLevel_Title}"
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicLevel_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicQuality_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_OverrideGraphicQuality_Description}"
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-level">
                     <ComboBox
         Width="200"

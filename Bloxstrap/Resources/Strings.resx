@@ -132,9 +132,6 @@
   <data name="Menu.Help.Title" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="Menu.Help.Description" xml:space="preserve">
-    <value>This will help you find ways to fix your issues. (will take you to wiki page)</value>
-  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Froststrap before uninstalling.</value>
   </data>
@@ -225,93 +222,129 @@
   <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
-<data name="Menu.Help.FFlagIssues" xml:space="preserve">
-  <value>Common FFlag Issues</value>
-</data>
-<data name="Menu.Help.GrayAvatars" xml:space="preserve">
-  <value>[Gray Avatars](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars)</value>
-</data>
-<data name="Menu.Help.BlurryIconsTextures" xml:space="preserve">
-  <value>[Blurry Icons/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures)</value>
-</data>
-<data name="Menu.Help.LaggyAnimation" xml:space="preserve">
-  <value>[Laggy Animation](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations)</value>
-</data>
-<data name="Menu.Help.FrameStutters" xml:space="preserve">
-  <value>[Frame Stutters](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters)</value>
-</data>
-<data name="Menu.Help.LightingProblems" xml:space="preserve">
-  <value>[Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems)</value>
-</data>
-<data name="Menu.Help.BuggedMeshes" xml:space="preserve">
-  <value>[Bugged Meshes](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes)</value>
-</data>
-<data name="Menu.Help.GraySky" xml:space="preserve">
-  <value>[Gray Sky](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky)</value>
-</data>
-<data name="Menu.Help.BlackTextures" xml:space="preserve">
-  <value>[Black Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
-</data>
-<data name="Menu.Help.RainbowUiTextures" xml:space="preserve">
-  <value>[Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
-</data>
-<data name="Menu.Help.LoaddingIssues" xml:space="preserve">
-  <value>[Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
-</data>
-<data name="Menu.Help.FPSCappedWhenUncapped" xml:space="preserve">
-  <value>[FPS capped when uncapped](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>
-</data>
-<data name="Menu.Help.QualityLevelNotChanging" xml:space="preserve">
-  <value>[Quality Level Not Changing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing)</value>
-</data>
-<data name="Menu.Help.BlackSky" xml:space="preserve">
-  <value>[Black Sky When Camera Turning](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera)</value>
-</data>
-<data name="Menu.Help.RobloxCrashing" xml:space="preserve">
-  <value>[Roblox Crashing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update)</value>
-</data>
-<data name="Menu.Help.WhiteSkyAndWhiteScreen" xml:space="preserve">
-  <value>[White Sky / White Screen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
-</data>
-<data name="Menu.Help.Crashonfastcameraturn" xml:space="preserve">
-  <value>[Crash on fast camera turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
-</data>
-<data name="Menu.Help.BootstrapperIssues" xml:space="preserve">
-  <value>Bootstrapper Issues</value>
-</data>
-<data name="Menu.Help.DiscordRichPresenceNotWorking" xml:space="preserve">
-  <value>[Discord Rich Presence Broken](https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work)</value>
-</data>
-<data name="Menu.Help.SetupFailed" xml:space="preserve">
-  <value>[Custom bootstrapper setup failed](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed)</value>
-</data>
-<data name="Menu.Help.ConnectivityIssue" xml:space="preserve">
-  <value>[Connectivity Issue](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue)</value>
-</data>
-<data name="Menu.Help.Features" xml:space="preserve">
-  <value>Features</value>
-</data>
-<data name="Menu.Help.ServerInformation" xml:space="preserve">
-  <value>[Server Information](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing)</value>
-</data>
-<data name="Menu.Help.GameHistory" xml:space="preserve">
-  <value>[Game History](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing)</value>
-</data>
-<data name="Menu.Help.DiscordRichPresence" xml:space="preserve">
-  <value>[Discord Rich Presence](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence)</value>
-</data>
-<data name="Menu.Help.MessageLogsAndPlayerLogs" xml:space="preserve">
-  <value>[Message Logs and Player Logs](https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs)</value>
-</data>
-<data name="Menu.Help.CrossGameTeleportation" xml:space="preserve">
-  <value>[Allow Cross-game Teleportation](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation)</value>
-</data>
-<data name="Menu.Help.MultiInstanceLaunching" xml:space="preserve">
-  <value>[Multi Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
-</data>
-<data name="Menu.Help.Cleaner" xml:space="preserve">
-  <value>[Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
-</data>
+  <data name="Menu.Help.Description" xml:space="preserve">
+    <value>This will give you information about fixes and other information (will take you to wiki page)</value>
+  </data>
+  <data name="Menu.Help.FFlagIssues" xml:space="preserve">
+    <value>Common FFlag Issues</value>
+  </data>
+  <data name="Menu.Help.GrayAvatars" xml:space="preserve">
+    <value>[Gray Avatars](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars)</value>
+  </data>
+  <data name="Menu.Help.BlurryIconsTextures" xml:space="preserve">
+    <value>[Blurry Icons/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures)</value>
+  </data>
+  <data name="Menu.Help.LaggyAnimation" xml:space="preserve">
+    <value>[Laggy Animation](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations)</value>
+  </data>
+  <data name="Menu.Help.FrameStutters" xml:space="preserve">
+    <value>[Frame Stutters](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters)</value>
+  </data>
+  <data name="Menu.Help.LightingProblems" xml:space="preserve">
+    <value>[Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems)</value>
+  </data>
+  <data name="Menu.Help.BuggedMeshes" xml:space="preserve">
+    <value>[Bugged Meshes](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes)</value>
+  </data>
+  <data name="Menu.Help.GraySky" xml:space="preserve">
+    <value>[Gray Sky](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky)</value>
+  </data>
+  <data name="Menu.Help.BlackTextures" xml:space="preserve">
+    <value>[Black Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
+   </data>
+  <data name="Menu.Help.RainbowUiTextures" xml:space="preserve">
+    <value>[Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
+  </data>
+  <data name="Menu.Help.LoaddingIssues" xml:space="preserve">
+    <value>[Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
+  </data>
+  <data name="Menu.Help.FPSCappedWhenUncapped" xml:space="preserve">
+    <value>[FPS capped when uncapped](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>
+  </data>
+  <data name="Menu.Help.QualityLevelNotChanging" xml:space="preserve">
+    <value>[Quality Level Not Changing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing)</value>
+  </data>
+  <data name="Menu.Help.BlackSky" xml:space="preserve">
+    <value>[Black Sky When Camera Turning](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera)</value>
+  </data>
+  <data name="Menu.Help.RobloxCrashing" xml:space="preserve">
+    <value>[Roblox Crashing](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update)</value>
+  </data>
+  <data name="Menu.Help.WhiteSkyAndWhiteScreen" xml:space="preserve">
+    <value>[White Sky / White Screen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
+  </data>
+  <data name="Menu.Help.Crashonfastcameraturn" xml:space="preserve">
+    <value>[Crash on fast camera turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
+  </data>
+  <data name="Menu.Help.BootstrapperIssues" xml:space="preserve">
+    <value>Bootstrapper Issues</value>
+  </data>
+  <data name="Menu.Help.DiscordRichPresenceNotWorking" xml:space="preserve">
+    <value>[Discord Rich Presence Broken](https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work)</value>
+  </data>
+  <data name="Menu.Help.SetupFailed" xml:space="preserve">
+    <value>[Custom bootstrapper setup failed](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed)</value>
+  </data>
+  <data name="Menu.Help.ConnectivityIssue" xml:space="preserve">
+    <value>[Connectivity Issue](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue)</value>
+  </data>
+  <data name="Menu.Help.Features" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="Menu.Help.ServerInformation" xml:space="preserve">
+    <value>[Server Information](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing)</value>
+  </data>
+  <data name="Menu.Help.GameHistory" xml:space="preserve">
+    <value>[Game History](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing)</value>
+  </data>
+  <data name="Menu.Help.DiscordRichPresence" xml:space="preserve">
+    <value>[Discord Rich Presence](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence)</value>
+  </data>
+  <data name="Menu.Help.MessageLogsAndPlayerLogs" xml:space="preserve">
+    <value>[Message Logs and Player Logs](https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs)</value>
+  </data>
+  <data name="Menu.Help.CrossGameTeleportation" xml:space="preserve">
+    <value>[Allow Cross-game Teleportation](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation)</value>
+  </data>
+  <data name="Menu.Help.MultiInstanceLaunching" xml:space="preserve">
+    <value>[Multi-Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
+  </data>
+  <data name="Menu.Help.Cleaner" xml:space="preserve">
+    <value>[Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
+  </data>
+  <data name="Menu.Help.FFlagGuide" xml:space="preserve">
+    <value>FFlag Guide</value>
+  </data>
+  <data name="Menu.Help.RecommendedBuffering" xml:space="preserve">
+    <value>[Recommended Buffering](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering)</value>
+  </data>
+  <data name="Menu.Help.RenderingModes" xml:space="preserve">
+    <value>[Rendering Modes](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rendering-mode)</value>
+  </data>
+  <data name="Menu.Help.OverrideGraphicQuality" xml:space="preserve">
+    <value>[Override Graphic Quality](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-quality)</value>
+  </data>
+  <data name="Menu.Help.TextureSkipping" xml:space="preserve">
+    <value>[Texture Skipping](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#texture-skipping)</value>
+  </data>
+  <data name="Menu.Help.DisableFullScreenTitleBar" xml:space="preserve">
+    <value>[Disable Full-Screen Title Bar](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-full-screen-title-bar)</value>
+  </data>
+  <data name="Menu.Help.Telemetry" xml:space="preserve">
+    <value>[Telemetry](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#telemetry)</value>
+  </data>
+  <data name="Menu.Help.ReduceLagSpikes" xml:space="preserve">
+    <value>[Reduce Lag Spikes](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes)</value>
+  </data>
+  <data name="Menu.Help.LargeReplicator" xml:space="preserve">
+    <value>[Large Replicator](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#large-replicator)</value>
+  </data>
+  <data name="Menu.Help.RCore" xml:space="preserve">
+    <value>[RCore](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rcore)</value>
+  </data>
+  <data name="Menu.Help.PayloadLimit" xml:space="preserve">
+    <value>[Payload Limit](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#payload-limit)</value>
+  </data>
   <data name="Common.Presets" xml:space="preserve">
     <value>Presets</value>
   </data>
@@ -1238,10 +1271,10 @@ Some text might not be translated to preferred language.</value>
 	<data name="Menu.FastFlags.Presets.StartingGraphicLevel.Description" xml:space="preserve">
     <value>Set the initial Graphic bar amount when joinning a game.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.OverrideGraphicLevel.Title" xml:space="preserve">
-    <value>Override Graphic Level</value>
+  <data name="Menu.FastFlags.Presets.OverrideGraphicQuality.Title" xml:space="preserve">
+    <value>Override Graphic Quality</value>
   </data>
-	<data name="Menu.FastFlags.Presets.OverrideGraphicLevel.Description" xml:space="preserve">
+	<data name="Menu.FastFlags.Presets.OverrideGraphicQuality.Description" xml:space="preserve">
     <value>Locks texture quality to your selected setting, allowing for high render distance with low quality if set to 1.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureSkipping.Title" xml:space="preserve">

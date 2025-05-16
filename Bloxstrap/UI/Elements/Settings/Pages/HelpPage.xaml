@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- FastFlag Issues -->
-            <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Bug16" HeaderText="{x:Static resources:Strings.Menu_Help_FFlagIssues}" IsExpanded="True">
+            <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="ErrorCircle24" HeaderText="{x:Static resources:Strings.Menu_Help_FFlagIssues}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_GrayAvatars}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BlurryIconsTextures}" Margin="0,0,0,4" />
@@ -51,8 +51,25 @@
                 </StackPanel>
             </controls:Expander>
 
+            <!-- Guide for Fast Flags -->
+            <controls:Expander HeaderIcon="ErrorCircle24" HeaderText="{x:Static resources:Strings.Menu_Help_FFlagGuide}" IsExpanded="True" Grid.Column="2" Margin="5,0,10,0">
+                <StackPanel>
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RecommendedBuffering}" Margin="0,0,0,4"/>
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RenderingModes}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_OverrideGraphicQuality}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_TextureSkipping}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_DisableFullScreenTitleBar}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Telemetry}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_ReduceLagSpikes}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_LargeReplicator}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RCore}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_PayloadLimit}" Margin="0,0,0,4" />
+                </StackPanel>
+            </controls:Expander>
+
+
             <!-- Features -->
-            <controls:Expander HeaderIcon="Edit20" HeaderText="{x:Static resources:Strings.Menu_Help_Features}" IsExpanded="True" Grid.Column="2" Margin="5,0,10,0">
+            <controls:Expander HeaderIcon="Edit20" HeaderText="{x:Static resources:Strings.Menu_Help_Features}" IsExpanded="True" Grid.Column="1" Margin="4,140,4,-140"  >
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_ServerInformation}" Margin="0,0,0,4"/>
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_GameHistory}" Margin="0,0,0,4" />
@@ -63,6 +80,8 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Cleaner}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
+
+
         </Grid>
     </StackPanel>
 </ui:UiPage>
