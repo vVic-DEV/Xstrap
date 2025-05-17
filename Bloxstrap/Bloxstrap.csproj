@@ -71,11 +71,11 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
-	<EmbeddedResource Include="Resources\BuiltInFlags\HighGraphics" />
-	<EmbeddedResource Include="Resources\BuiltInFlags\OptimalGraphics" />
-	<EmbeddedResource Include="Resources\BuiltInFlags\BalancedGraphics" />
-	<EmbeddedResource Include="Resources\BuiltInFlags\LowGraphics" />
-	<EmbeddedResource Include="Resources\BuiltInFlags\TrashGraphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\High Graphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\Optimal Graphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\Balanced Graphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\Low Graphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\Trash Graphics" />
   </ItemGroup>
 
   <ItemGroup>

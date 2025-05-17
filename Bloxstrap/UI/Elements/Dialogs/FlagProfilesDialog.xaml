@@ -16,7 +16,6 @@
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
-        WindowBackdropType="Mica"
         WindowStartupLocation="CenterScreen">
     <ui:UiWindow.Resources>
         <converters:RangeConverter x:Key="ValidationConverter" From="0" />
@@ -27,7 +26,7 @@
             <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
                 <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
                 <GradientStop Offset="0.90" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
-                <GradientStop Offset="1.10" Color="{DynamicResource WindowBackgroundColorThird}"/>
+                <GradientStop Offset="1.05" Color="{DynamicResource WindowBackgroundColorThird}"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -68,6 +67,29 @@
                     </Grid.RowDefinitions>
                     <ListView x:Name="LoadProfile">
                         
+                    </ListView>
+                    <TextBlock Grid.Row="0" IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=SaveProfile}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Preset Flags">
+                <Grid Margin="11">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="LoadPresetProfile">
+
                     </ListView>
                     <TextBlock Grid.Row="0" IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray">
                         <TextBlock.Style>
@@ -132,6 +154,12 @@
                                 <MultiDataTrigger>
                                     <MultiDataTrigger.Conditions>
                                         <Condition Binding="{Binding ElementName=Tabs, Path=SelectedIndex}" Value="1" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=Tabs, Path=SelectedIndex}" Value="2" />
                                     </MultiDataTrigger.Conditions>
                                     <Setter Property="IsEnabled" Value="True" />
                                 </MultiDataTrigger>

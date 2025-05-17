@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -199,9 +200,86 @@ namespace Bloxstrap
                 }
 
                 App.FastFlags.Save();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                Frontend.ShowMessageBox(ex.Message,MessageBoxImage.Error);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+        }
+
+        public void LoadPresetProfile(string? name, bool? clearFlags)
+        {
+            string LOGGER_STRING = "LoadProfile::Profiles";
+
+            if (string.IsNullOrEmpty(name))
+                return;
+
+            try
+            {
+                string profileJson = null!;
+                var assembly = Assembly.GetExecutingAssembly();
+                string resourcePrefix = "Bloxstrap.Resources.PresetFlags.";
+
+                // Check if name matches an embedded resource profile
+                string resourceFullName = resourcePrefix + name;
+                string? foundResource = assembly.GetManifestResourceNames()
+                                               .FirstOrDefault(r => r.Equals(resourceFullName, StringComparison.OrdinalIgnoreCase));
+
+                if (foundResource != null)
+                {
+                    // Load from embedded resource
+                    using Stream stream = assembly.GetManifestResourceStream(foundResource)!;
+                    using StreamReader reader = new StreamReader(stream);
+                    profileJson = reader.ReadToEnd();
+
+                    App.Logger.WriteLine(LOGGER_STRING, $"Loading embedded preset profile {name}");
+                }
+                else
+                {
+                    // Load from disk (user profiles)
+                    string BaseDir = Paths.SavedFlagProfiles;
+
+                    if (!Directory.Exists(BaseDir))
+                        Directory.CreateDirectory(BaseDir);
+
+                    string[] Files = Directory.GetFiles(BaseDir);
+                    string FoundFile = Files.FirstOrDefault(f => Path.GetFileName(f) == name) ?? string.Empty;
+
+                    if (string.IsNullOrEmpty(FoundFile))
+                        throw new FileNotFoundException($"Profile file '{name}' not found.");
+
+                    profileJson = File.ReadAllText(FoundFile);
+
+                    App.Logger.WriteLine(LOGGER_STRING, $"Loading user profile from file {name}");
+                }
+
+                // Deserialize the profile JSON
+                T? settings = JsonSerializer.Deserialize<T>(profileJson);
+
+                if (settings is null)
+                    throw new ArgumentNullException("Deserialization returned null");
+
+                if (clearFlags == true)
+                {
+                    Prop = settings;
+                }
+                else
+                {
+                    if (settings is IDictionary<string, object> settingsDict && Prop is IDictionary<string, object> propDict)
+                    {
+                        foreach (var kvp in settingsDict)
+                        {
+                            if (kvp.Value != null)
+                                propDict[kvp.Key] = kvp.Value;
+                        }
+                    }
+                }
+
+                App.FastFlags.Save();
+            }
+            catch (Exception ex)
+            {
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
             }
         }
     }
