@@ -556,15 +556,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Essential.
-        /// </summary>
-        public static string Common_Essential {
-            get {
-                return ResourceManager.GetString("Common.Essential", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Experimental.
         /// </summary>
         public static string Common_Experimental {
@@ -759,6 +750,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Profiles {
             get {
                 return ResourceManager.GetString("Common.Profiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended.
+        /// </summary>
+        public static string Common_Recommended {
+            get {
+                return ResourceManager.GetString("Common.Recommended", resourceCulture);
             }
         }
         
@@ -3703,6 +3703,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Faster rendering speed on GPUs which work better with BGRA..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BGRA_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BGRA.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DX11 BGRA Support.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BGRA_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BGRA.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buffer Array Length is how much data is temporarily stored before being processed or sent..
         /// </summary>
         public static string Menu_FastFlags_Presets_BufferArray_Description {
@@ -3717,6 +3735,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_BufferArray_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.BufferArray.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bypasses Vulkan GPU support checks to allow running on unsupported or buggy hardware; may cause severe rendering issues.&quot;.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BypassVulkan_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BypassVulkan.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bypass Vulkan.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BypassVulkan_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BypassVulkan.Title", resourceCulture);
             }
         }
         
@@ -3825,6 +3861,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Roblox Built-In Ads.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableAds_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableAds.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Ads.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableAds_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableAds.Title", resourceCulture);
             }
         }
         
@@ -3964,7 +4018,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Force CPU Logical Cores.
+        ///   Looks up a localized string similar to Force Logical CPU Cores.
         /// </summary>
         public static string Menu_FastFlags_Presets_ForceLogicalProcessor_Title {
             get {
@@ -4005,6 +4059,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_FullscreenTitlebar_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FullscreenTitlebar.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turns the Sky Gray,Dosent work if the game has custom skybox..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_GraySky_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.GraySky.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gray Sky.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_GraySky_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.GraySky.Title", resourceCulture);
             }
         }
         
@@ -4122,6 +4194,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_LightingTechnology_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.LightingTechnology.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduces the quality of poly meshes to improve rendering performance or reduce memory usage..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_LowPolyMeshes_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.LowPolyMeshes.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low Poly Meshes.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_LowPolyMeshes_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.LowPolyMeshes.Title", resourceCulture);
             }
         }
         
@@ -4288,6 +4378,51 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Helps Roblox increase the target fps to your refresh rate, Default value is 60..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RefreshRate_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RefreshRate.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh Rate.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RefreshRate_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RefreshRate.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removes Roblox Built-In Grass..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RemoveGrass_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RemoveGrass.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Grass.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RemoveGrass_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RemoveGrass.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure Experimental Graphic/Rendering Settings..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Rendering_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Rendering.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure the rendering api for Roblox. Press Alt Enter when going to Fullscreen if using Direct3D. Setting to Vulkan may cause some bugs!.
         /// </summary>
         public static string Menu_FastFlags_Presets_RenderingMode_Description {
@@ -4302,24 +4437,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_RenderingMode_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.RenderingMode.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Render Occlusion Prohibits object behind walls from loadding resulting in better performance..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_RenderOcclusion_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.RenderOcclusion.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Render Occlusion.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_RenderOcclusion_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.RenderOcclusion.Title", resourceCulture);
             }
         }
         
@@ -4419,6 +4536,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_TextureSkipping_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.TextureSkipping.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lowers the quality of Particle Effects for better Performance..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_WorserParticles_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.WorserParticles.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low Quality Particles.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_WorserParticles_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.WorserParticles.Title", resourceCulture);
             }
         }
         
@@ -4581,6 +4716,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_BuggedMeshes {
             get {
                 return ResourceManager.GetString("Menu.Help.BuggedMeshes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Built-In Lists](https://github.com/Meddsam/Froststrap/wiki/Features#built-in-lists).
+        /// </summary>
+        public static string Menu_Help_BuiltInLists {
+            get {
+                return ResourceManager.GetString("Menu.Help.BuiltInLists", resourceCulture);
             }
         }
         
@@ -4806,6 +4950,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_PayloadLimit {
             get {
                 return ResourceManager.GetString("Menu.Help.PayloadLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Preset Flag Viewer](https://github.com/Meddsam/Froststrap/wiki/Features#preset-flag-viewer).
+        /// </summary>
+        public static string Menu_Help_PresetFlagViewer {
+            get {
+                return ResourceManager.GetString("Menu.Help.PresetFlagViewer", resourceCulture);
             }
         }
         

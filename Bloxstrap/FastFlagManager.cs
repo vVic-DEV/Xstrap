@@ -18,15 +18,8 @@ namespace Bloxstrap
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
-            // Activity watcher
-            { "Network.Log", "FLogNetwork" },
-            { "Players.LogLevel", "FStringDebugLuaLogLevel" },
-            { "Players.LogPattern", "FStringDebugLuaLogPattern" },
-
             // Preset Flags
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
-            { "No.Mouse.Latency", "FIntActivatedCountTimerMSMouse" },
-            { "No.Keyboard.Latency", "FIntActivatedCountTimerMSKeyboard" },
 
             // Recommended Buffering
             { "Recommended.Buffer", "FIntRakNetResendBufferArrayLength" },
@@ -34,7 +27,19 @@ namespace Bloxstrap
             // Memory Probing
             { "Memory.Probe", "DFFlagPerformanceControlEnableMemoryProbing3" },
 
-            // frm quality level
+            // BGRA
+            { "Rendering.BGRA", "FFlagD3D11SupportBGRA" },
+
+            // Gray Sky
+            { "Graphic.GraySky", "FFlagDebugSkyGray" },
+
+            // Low Poly Meshes
+            { "Rendering.LowPolyMeshes1", "DFIntCSGLevelOfDetailSwitchingDistance" },
+            { "Rendering.LowPolyMeshes2", "DFIntCSGLevelOfDetailSwitchingDistanceL12" },
+            { "Rendering.LowPolyMeshes3", "DFIntCSGLevelOfDetailSwitchingDistanceL23" },
+            { "Rendering.LowPolyMeshes4", "DFIntCSGLevelOfDetailSwitchingDistanceL34" },
+
+            // Frm Quality Level
             { "Rendering.FrmQuality", "DFIntDebugFRMQualityLevelOverride" },
 
             // Less lag spikes
@@ -46,6 +51,7 @@ namespace Bloxstrap
             { "Network.MeshPreloadding", "DFFlagEnableMeshPreloading2" },
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
+            { "Network.CliInKb", "DFIntCLI61964inKB" },
 
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },
@@ -57,15 +63,28 @@ namespace Bloxstrap
             { "Network.Payload7", "DFIntCliTcMaxPayloadSnd" },
             { "Network.Payload8", "DFIntRccTcMaxPayloadSnd" },
 
+            // Disable Ads
+            { "UI.DisableAds1", "FFlagAdServiceEnabled" },
+            { "UI.DisableAds2", "FFlagEnableSponsoredAdsGameCarouselTooltip3" },
+            { "UI.DisableAds3", "FFlagEnableSponsoredAdsPerTileTooltipExperienceFooter" },
+            { "UI.DisableAds4", "FFlagEnableSponsoredAdsSeeAllGamesListTooltip" },
+            { "UI.DisableAds5", "FFlagEnableSponsoredTooltipForAvatarCatalog2" },
+            { "UI.DisableAds6", "FFlagLuaAppSponsoredGridTiles" },
+
+            // Worser Particles
+            { "Rendering.WorserParticles1", "FFlagFixOutdatedParticles2" },
+            { "Rendering.WorserParticles2", "FFlagFixOutdatedTimeScaleParticles" },
+            { "Rendering.WorserParticles3", "FFlagFixParticleAttachmentCulling" },
+            { "Rendering.WorserParticles4", "FFlagFixParticleEmissionBias2" },
+
             // Remove Grass
-            { "Rendering.Nograss1", "FIntFRMMinGrassDistance" },
-            { "Rendering.Nograss2", "FIntFRMMaxGrassDistance" },
-            { "Rendering.Nograss3", "FIntRenderGrassDetailStrands" },
+            { "Rendering.RemoveGrass1", "FIntFRMMinGrassDistance" },
+            { "Rendering.RemoveGrass2", "FIntFRMMaxGrassDistance" },
+            { "Rendering.RemoveGrass3", "FIntRenderGrassDetailStrands" },
 
             // Other FFlags
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
-            { "Rendering.DisableScaling2", "DFFlagDebugOverrideDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
             { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
 
@@ -73,7 +92,7 @@ namespace Bloxstrap
             { "Debug.FlagState", "FStringDebugShowFlagState" },
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
 
-            // Cpu Optimization
+            // Force Logical Processors
             { "Rendering.CpuCore1", "DFIntInterpolationNumParallelTasks" },
             { "Rendering.CpuCore2", "DFIntMegaReplicatorNumParallelTasks" },
             { "Rendering.CpuCore3", "DFIntNetworkClusterPacketCacheNumParallelTasks" },
@@ -83,11 +102,11 @@ namespace Bloxstrap
             { "Rendering.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
             { "Rendering.CpuThreads", "DFIntRuntimeConcurrency"},
 
-            //Light Cullings
+            // Light Cullings
             { "Rendering.GpuCulling", "FFlagFastGPULightCulling3" },
             { "Rendering.CpuCulling", "FFlagDebugForceFSMCPULightCulling" },           
 
-            //Unlimited Camera Distance
+            // Unlimited Camera Distance
             { "Rendering.Camerazoom","FIntCameraMaxZoomDistance" },
 
             // Rendering engines
@@ -112,17 +131,6 @@ namespace Bloxstrap
             { "Rendering.TextureSkipping.Skips", "FIntDebugTextureManagerSkipMips" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
-
-            // VoiceChat Google
-            { "VoiceChat.VoiceChat1", "FFlagTopBarUseNewBadge" },
-            { "VoiceChat.VoiceChat2", "FStringTopBarBadgeLearnMoreLink" },
-            { "VoiceChat.VoiceChat3", "FStringVoiceBetaBadgeLearnMoreLink" },
-
-            // VoiceChat Other
-            { "VoiceChat.VoiceChat4", "DFIntVoiceChatVolumeThousandths" },
-            { "VoiceChat.VoiceChat5", "FFlagEnablePartyVoiceOnlyForUnfilteredThreads" },
-            { "VoiceChat.VoiceChat6", "FFlagEnablePartyVoiceOnlyForEligibleUsers" },
-
 
             // Guis
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
@@ -153,7 +161,7 @@ namespace Bloxstrap
             //MTU Size
             { "Network.Mtusize","DFIntConnectionMTUSize" },
 
-            //Dynamic Render Resolution
+            // Dynamic Render Resolution
             { "Rendering.Dynamic.Resolution","DFIntDebugDynamicRenderKiloPixels"},
 
             // Fullscreen bar
@@ -164,33 +172,23 @@ namespace Bloxstrap
             { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
             { "Rendering.ShadowMapBias", "FIntRenderShadowmapBias" },
 
-            //Romark
+            // Romark
             { "Rendering.Start.Graphic", "FIntRomarkStartWithGraphicQualityLevel" },
+
+            // Refresh Rate
+            { "System.TargetRefreshRate", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
     
-            // Preferred GPU
+            // GPU
             { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
             { "Rendering.DXT", "FStringGraphicsDisableUnalignedDxtGPUNameBlacklist"},
-
-            // useless
-            { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
-            { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
-            { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
-            { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
-            { "UI.Menu.Style.ReportButtonCutOff", "FFlagFixReportButtonCutOff" },
+            { "Rendering.BypassVulkan", "FStringVulkanBuggyRenderpassList2"},
 
             // Menu stuff
             { "Menu.VRToggles", "FFlagAlwaysShowVRToggleV3" },
             { "Menu.Feedback", "FFlagDisableFeedbackSoothsayerCheck" },
             { "Menu.LanguageSelector", "FIntV1MenuLanguageSelectionFeaturePerMillageRollout" },
-            { "Menu.Haptics", "FFlagAddHapticsToggle" },
             { "Menu.Framerate", "FFlagGameBasicSettingsFramerateCap5"},
             { "Menu.ChatTranslation", "FFlagChatTranslationSettingEnabled3" },
-
-
-            { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
-            { "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
-            { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" },
-            { "UI.Menu.Style.ABTest.4", "FFlagEnableInGameMenuChromeABTest4" }
         };
 
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
@@ -263,6 +261,15 @@ namespace Bloxstrap
             { DynamicResolution.Resolution7, "3686" },
             { DynamicResolution.Resolution8, "8294" },
             { DynamicResolution.Resolution9, "33178 " },
+        };
+
+        public static IReadOnlyDictionary<RefreshRate, string?> RefreshRates => new Dictionary<RefreshRate, string?>
+        {
+            { RefreshRate.Default, null },
+            { RefreshRate.RefreshRate1, "60" },
+            { RefreshRate.RefreshRate2, "120" },
+            { RefreshRate.RefreshRate3, "144" },
+            { RefreshRate.RefreshRate4, "240" },
         };
 
         public static IReadOnlyDictionary<RomarkStart, string?> RomarkStartMappings => new Dictionary<RomarkStart, string?>

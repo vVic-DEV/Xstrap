@@ -68,6 +68,29 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool WorserParticles
+        {
+            get => App.FastFlags?.GetPreset("Rendering.WorserParticles1") == "False";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.WorserParticles1", value ? "False" : null);
+                App.FastFlags.SetPreset("Rendering.WorserParticles2", value ? "False" : null);
+                App.FastFlags.SetPreset("Rendering.WorserParticles3", value ? "False" : null);
+                App.FastFlags.SetPreset("Rendering.WorserParticles4", value ? "False" : null);
+            }
+        }
+
+        public bool RemoveGrass
+        {
+            get => App.FastFlags?.GetPreset("Rendering.RemoveGrass1") == "0";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.RemoveGrass1", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.RemoveGrass2", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.RemoveGrass3", value ? "0" : null);
+            }
+        }
+
         public bool LightCulling
         {
             get => App.FastFlags.GetPreset("Rendering.GpuCulling") == "True";
@@ -84,6 +107,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Memory.Probe", value ? "True" : null);
         }
 
+        public bool BGRA
+        {
+            get => App.FastFlags.GetPreset("Rendering.BGRA") == "True";
+            set => App.FastFlags.SetPreset("Rendering.BGRA", value ? "True" : null);
+        }
+
         public bool FasterLoading
         {
             get => App.FastFlags.GetPreset("Network.AssetPreloadding") == "2147483647";
@@ -92,16 +121,30 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.AssetPreloadding", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.MaxAssetPreload", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
+                App.FastFlags.SetPreset("Network.MeshPreloadding", value ? "True" : null);
+                App.FastFlags.SetPreset("Network.CliInKb", value ? "2147483647" : null);
+            }
+        }
+
+        public bool LowPolyMeshes
+        {
+            get => App.FastFlags.GetPreset("Rendering.LowPolyMeshes1") == "0";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.LowPolyMeshes1", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.LowPolyMeshes2", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.LowPolyMeshes3", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.LowPolyMeshes4", value ? "0" : null);
             }
         }
 
         public bool ReduceLagSpikes
         {
-            get => App.FastFlags.GetPreset("Network.DefaultBps") == "64000";
+            get => App.FastFlags.GetPreset("Network.DefaultBps") == "796850000";
             set
             {
-                App.FastFlags.SetPreset("Network.DefaultBps", value ? "64000" : null);
-                App.FastFlags.SetPreset("Network.MaxWorkCatchupMs", value ? "20" : null);
+                App.FastFlags.SetPreset("Network.DefaultBps", value ? "796850000" : null);
+                App.FastFlags.SetPreset("Network.MaxWorkCatchupMs", value ? "5" : null);
             }
         }
 
@@ -144,6 +187,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.LargeReplicatorWrite", value ? "True" : null);
                 App.FastFlags.SetPreset("Network.LargeReplicatorRead", value ? "True" : null);
             }
+        }
+
+        public bool DisableAds
+        {
+            get => App.FastFlags.GetPreset("UI.DisableAds1") == "False";
+            set
+            {
+                App.FastFlags.SetPreset("UI.DisableAds1", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.DisableAds2", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.DisableAds3", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.DisableAds4", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.DisableAds5", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.DisableAds6", value ? "False" : null);
+            }
+        }
+
+        public bool GraySky
+        {
+            get => App.FastFlags.GetPreset("Graphic.GraySky") == "True";
+            set => App.FastFlags.SetPreset("Graphic.GraySky", value ? "True" : null);
         }
 
         public bool PingBreakdown
@@ -359,6 +422,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public string BypassVulkan
+        {
+            get => App.FastFlags.GetPreset("Rendering.BypassVulkan") ?? "Automatic";
+            set => App.FastFlags.SetPreset("Rendering.BypassVulkan", value == "Automatic" ? null : value);
+        }
+
         public bool GetFlagAsBool(string flagKey, string falseValue = "False")
         {
             return App.FastFlags.GetPreset(flagKey) != falseValue;
@@ -413,6 +482,24 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 else
                 {
                     App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", DynamicResolutions[value]);
+                }
+            }
+        }
+
+        public IReadOnlyDictionary<RefreshRate, string?> RefreshRates => FastFlagManager.RefreshRates;
+
+        public RefreshRate SelectedRefreshRate
+        {
+            get => RefreshRates.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("System.TargetRefreshRate")).Key;
+            set
+            {
+                if (value == RefreshRate.RefreshRate1)
+                {
+                    App.FastFlags.SetPreset("System.TargetRefreshRate", null);
+                }
+                else
+                {
+                    App.FastFlags.SetPreset("System.TargetRefreshRate", RefreshRates[value]);
                 }
             }
         }

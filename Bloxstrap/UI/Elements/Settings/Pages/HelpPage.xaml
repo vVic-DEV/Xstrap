@@ -14,7 +14,7 @@
     <StackPanel>
         <TextBlock Text="{x:Static resources:Strings.Menu_Help_Description}" FontSize="13" />
 
-        <Grid Margin="0,8,0,0">
+        <Grid Margin="0,8,0,0" Height="443">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -78,10 +78,11 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CrossGameTeleportation}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MultiInstanceLaunching}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CustomLaunchers}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BuiltInLists}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_PresetFlagViewer}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Cleaner}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
-
 
         </Grid>
     </StackPanel>

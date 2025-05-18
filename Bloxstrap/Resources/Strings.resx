@@ -309,7 +309,13 @@
   <data name="Menu.Help.MultiInstanceLaunching" xml:space="preserve">
     <value>[Multi-Instance Launching](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
   </data>
-  <data name="Menu.Help.Cleaner" xml:space="preserve">
+  <data name="Menu.Help.PresetFlagViewer" xml:space="preserve">
+    <value>[Preset Flag Viewer](https://github.com/Meddsam/Froststrap/wiki/Features#preset-flag-viewer)</value>
+  </data>
+  <data name="Menu.Help.BuiltInLists" xml:space="preserve">
+    <value>[Built-In Lists](https://github.com/Meddsam/Froststrap/wiki/Features#built-in-lists)</value>
+  </data>
+	<data name="Menu.Help.Cleaner" xml:space="preserve">
     <value>[Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
   </data>
   <data name="Menu.Help.CustomLaunchers" xml:space="preserve">
@@ -351,8 +357,8 @@
   <data name="Common.Presets" xml:space="preserve">
     <value>Presets</value>
   </data>
-  <data name="Common.Essential" xml:space="preserve">
-    <value>Essential</value>
+  <data name="Common.Recommended" xml:space="preserve">
+    <value>Recommended</value>
   </data>
   <data name="Common.Experimental" xml:space="preserve">
     <value>Experimental</value>
@@ -1235,8 +1241,8 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Description" xml:space="preserve">
     <value>Configure the logical cores to run Roblox.</value>
   </data>
-	<data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Title" xml:space="preserve">
-    <value>Force CPU Logical Cores</value>
+  <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Title" xml:space="preserve">
+    <value>Force Logical CPU Cores</value>
   </data>
   <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">
     <value>Prevents task scheduler from sleeping.</value>
@@ -1267,12 +1273,6 @@ Some text might not be translated to preferred language.</value>
   </data>
 	<data name="Menu.FastFlags.Presets.Categories.Network.Description" xml:space="preserve">
     <value>Configures your Network settings</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.RenderOcclusion.Title" xml:space="preserve">
-    <value>Render Occlusion</value>
-  </data>
-	<data name="Menu.FastFlags.Presets.RenderOcclusion.Description" xml:space="preserve">
-    <value>Render Occlusion Prohibits object behind walls from loadding resulting in better performance.</value>
   </data>
   <data name="Menu.FastFlags.Presets.StartingGraphicLevel.Title" xml:space="preserve">
     <value>Starting Graphic Level</value>
@@ -1358,8 +1358,59 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.MSAA.Description" xml:space="preserve">
+	<data name="Menu.FastFlags.Presets.MSAA.Description" xml:space="preserve">
     <value>Smooth out jagged edges. Higher values increases smoothness.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableAds.Description" xml:space="preserve">
+    <value>Disable Roblox Built-In Ads</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.DisableAds.Title" xml:space="preserve">
+    <value>Disable Ads</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BypassVulkan.Description" xml:space="preserve">
+    <value>Bypasses Vulkan GPU support checks to allow running on unsupported or buggy hardware; may cause severe rendering issues."</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BypassVulkan.Title" xml:space="preserve">
+    <value>Bypass Vulkan</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RefreshRate.Title" xml:space="preserve">
+    <value>Refresh Rate</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RefreshRate.Description" xml:space="preserve">
+    <value>Helps Roblox increase the target fps to your refresh rate, Default value is 60.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BGRA.Title" xml:space="preserve">
+    <value>DX11 BGRA Support</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BGRA.Description" xml:space="preserve">
+    <value>Faster rendering speed on GPUs which work better with BGRA.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LowPolyMeshes.Description" xml:space="preserve">
+    <value>Reduces the quality of poly meshes to improve rendering performance or reduce memory usage.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LowPolyMeshes.Title" xml:space="preserve">
+    <value>Low Poly Meshes</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Rendering.Description" xml:space="preserve">
+    <value>Configure Experimental Graphic/Rendering Settings.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.GraySky.Title" xml:space="preserve">
+    <value>Gray Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.GraySky.Description" xml:space="preserve">
+    <value>Turns the Sky Gray,Dosent work if the game has custom skybox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RemoveGrass.Title" xml:space="preserve">
+    <value>Remove Grass</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.RemoveGrass.Description" xml:space="preserve">
+    <value>Removes Roblox Built-In Grass.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WorserParticles.Title" xml:space="preserve">
+    <value>Low Quality Particles</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.WorserParticles.Description" xml:space="preserve">
+    <value>Lowers the quality of Particle Effects for better Performance.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
     <value>Disable post-processing effects</value>
