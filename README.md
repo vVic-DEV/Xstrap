@@ -1,5 +1,5 @@
 > [!CAUTION]
-> The only official place to download Froststrap is this GitHub repository. Any other websites offering downloads or claiming to be us are not controlled by us (e.g. Froststrap.org, Froststrap.com). We strongly recommend **not** downloading from any unofficial sources.
+> The only official place to download Froststrap is this GitHub repository. Any other websites offering downloads or claiming to be us are not controlled by us (Example: Froststrap.org, Froststrap.com). We strongly recommend **not** downloading from any unofficial sources.
 >
 > This project has nothing to do with Hellstrap/Voidstrap, so please don't bring drama from that bootstrapper
 
@@ -39,6 +39,8 @@ Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/n
 - Removed editor warnings & validation
 - A Bunch Of Preset Flags
 - More Fast Flag Editor Features
+- Built-In Flag Lists
+- Check which flags are toggleable in settings
 
 ### 📦 Channels
 - Block Roblox updates
