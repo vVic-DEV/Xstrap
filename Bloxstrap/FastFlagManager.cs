@@ -20,6 +20,7 @@ namespace Bloxstrap
         {
             // Activity Watcher
             { "Players.LogLevel", "FStringDebugLuaLogLevel" },
+            { "Players.LogPattern", "FStringDebugLuaLogPattern" },
 
             // Preset Flags
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
