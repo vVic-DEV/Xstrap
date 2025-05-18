@@ -18,6 +18,9 @@ namespace Bloxstrap
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
+            // Activity Watcher
+            { "Players.LogLevel", "FStringDebugLuaLogLevel" },
+
             // Preset Flags
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
 

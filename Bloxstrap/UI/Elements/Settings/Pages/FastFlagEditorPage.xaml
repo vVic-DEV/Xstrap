@@ -202,11 +202,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static resources:Strings.Common_Name}" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding Value}"
-                    Header="{x:Static resources:Strings.Common_Value}" />
+                <DataGridTextColumn Width="425"  Binding="{Binding Name}" Header="{x:Static resources:Strings.Common_Name}" />
+                <DataGridTextColumn Width="*" Binding="{Binding Value}" Header="{x:Static resources:Strings.Common_Value}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -3460,7 +3460,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your own Fast Flags. Double click a column to edit..
+        ///   Looks up a localized string similar to Manage your FastFlags. A checkmark in Preset means it’s a toggle in FFlag Settings, a crossmark means it isn’t..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
