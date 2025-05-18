@@ -194,8 +194,14 @@
                 </Style>
             </DataGrid.CellStyle>
 
-
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Preset" x:Name="PresetColumn">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="50" Width="25" Source="{Binding Preset}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static resources:Strings.Common_Name}" />
                 <DataGridTextColumn
                     Width="*"

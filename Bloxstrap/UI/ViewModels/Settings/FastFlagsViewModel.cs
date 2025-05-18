@@ -328,17 +328,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool RenderOcclusion
-        {
-            get => App.FastFlags.GetPreset("Rendering.Occlusion1") == "True";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.Occlusion1", value ? "True" : null);
-                App.FastFlags.SetPreset("Rendering.Occlusion2", value ? "True" : null);
-                App.FastFlags.SetPreset("Rendering.Occlusion3", value ? "True" : null);
-            }
-        }
-
         public int? FontSize
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.FontSize"), out int x) ? x : 1;
@@ -351,12 +340,23 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
         }
 
+        public int MtuSize
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Network.Mtusize"), out int x) ? x : 0;
+            set => App.FastFlags.SetPreset("Network.Mtusize", value > 0 ? value.ToString() : null);
+        }
+
         public IReadOnlyDictionary<string, string?>? GPUs => GetGPUs();
 
         public string SelectedGPU
         {
             get => App.FastFlags.GetPreset("Rendering.PreferredGPU") ?? "Automatic";
-            set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value == "Automatic" ? null : value);
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.PreferredGPU", value == "Automatic" ? null : value);
+                App.FastFlags.SetPreset("Rendering.DXT", value == "Automatic" ? null : value);
+
+            }
         }
 
         public bool GetFlagAsBool(string flagKey, string falseValue = "False")
@@ -397,6 +397,24 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => GetFlagAsBool("Menu.ChatTranslation");
             set => SetFlagFromBool("Menu.ChatTranslation", value);
+        }
+
+        public IReadOnlyDictionary<DynamicResolution, string?> DynamicResolutions => FastFlagManager.DynamicResolutions;
+
+        public DynamicResolution SelectedDynamicResolution
+        {
+            get => DynamicResolutions.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.Dynamic.Resolution")).Key;
+            set
+            {
+                if (value == DynamicResolution.Resolution1)
+                {
+                    App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", null);
+                }
+                else
+                {
+                    App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", DynamicResolutions[value]);
+                }
+            }
         }
 
         public bool ResetConfiguration

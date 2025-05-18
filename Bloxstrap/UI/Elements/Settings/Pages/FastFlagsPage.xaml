@@ -93,6 +93,26 @@
                 </controls:OptionControl>
 
 
+                <controls:OptionControl                     
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DynamicReso_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DynamicReso_Title}"
+                    HelpLink="https://www.vdocipher.com/blog/video-resolution">
+                    <ComboBox
+                Width="200"
+                Margin="5,0,0,0"
+                Padding="10,5,10,5"
+                ItemsSource="{Binding DynamicResolutions.Keys, Mode=OneTime}"
+                Text="{Binding SelectedDynamicResolution, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
+                </controls:OptionControl>
+
+
             </StackPanel>
         </ui:CardExpander>
 
@@ -160,13 +180,6 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                </controls:OptionControl>
-
-
-                <controls:OptionControl
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderOcclusion_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderOcclusion_Description}" >
-                    <ui:ToggleSwitch IsChecked="{Binding RenderOcclusion, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -247,7 +260,7 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </controls:OptionControl>
-                
+
                 <controls:OptionControl 
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureSkipping_Title}"
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureSkipping_Description}"
@@ -269,6 +282,8 @@
 
             </StackPanel>
         </ui:CardExpander>
+
+        <TextBlock Text="{x:Static resources:Strings.Common_Essential}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
@@ -412,6 +427,14 @@
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering">
                     <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding BufferArrayLength, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
                 </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MTU_Title}" 
+Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MTU_Description}">
+                    <ui:TextBox Width="200" Margin="5,0,0,0" Padding="10,5,10,5" PreviewTextInput="ValidateUInt32" Text="{Binding MtuSize, Mode=TwoWay}" />
+                </controls:OptionControl>
+                
+                
             </StackPanel>
         </ui:CardExpander>
 

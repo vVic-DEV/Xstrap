@@ -51,20 +51,26 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
-                // Skip preset flags if not shown
                 if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
 
-                // Skip if flag name doesn't match the search filter
-                if (!pair.Key.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase) &&
-                    !pair.Value.ToString()?.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase) == true)
+                if (!pair.Key.ToLower().Contains(_searchFilter.ToLower()))
                     continue;
 
                 var entry = new FastFlag
                 {
                     Name = pair.Key,
-                    Value = pair.Value.ToString()!
+                    Value = pair.Value.ToString()!,
                 };
+
+                if (presetFlags.Contains(pair.Key))
+                {
+                    entry.Preset = "pack://application:,,,/Resources/Checkmark.ico";
+                }
+                else
+                {
+                    entry.Preset = "pack://application:,,,/Resources/CrossMark.ico";
+                }
 
                 _fastFlagList.Add(entry);
             }
@@ -75,7 +81,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (selectedEntry is null)
                 return;
 
-            var newSelectedEntry = _fastFlagList.FirstOrDefault(x => x.Name == selectedEntry.Name);
+            var newSelectedEntry = _fastFlagList.Where(x => x.Name == selectedEntry.Name).FirstOrDefault();
+
             if (newSelectedEntry is null)
                 return;
 
@@ -349,6 +356,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (sender is not ToggleButton button)
                 return;
+
+            DataGrid.Columns[0].Visibility = button.IsChecked ?? false ? Visibility.Visible : Visibility.Collapsed;
 
             _showPresets = button.IsChecked ?? true;
             ReloadList();

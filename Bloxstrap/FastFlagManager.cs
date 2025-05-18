@@ -150,6 +150,12 @@ namespace Bloxstrap
             { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite3"},
             { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead3"},
 
+            //MTU Size
+            { "Network.Mtusize","DFIntConnectionMTUSize" },
+
+            //Dynamic Render Resolution
+            { "Rendering.Dynamic.Resolution","DFIntDebugDynamicRenderKiloPixels"},
+
             // Fullscreen bar
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
 
@@ -158,16 +164,12 @@ namespace Bloxstrap
             { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
             { "Rendering.ShadowMapBias", "FIntRenderShadowmapBias" },
 
-            // Render Occlusion
-            { "Rendering.Occlusion1", "DFFlagUseVisBugChecks" },
-            { "Rendering.Occlusion2", "FFlagEnableVisBugChecks27" },
-            { "Rendering.Occlusion3", "FFlagVisBugChecksThreadYield" },
-
             //Romark
             { "Rendering.Start.Graphic", "FIntRomarkStartWithGraphicQualityLevel" },
     
             // Preferred GPU
             { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
+            { "Rendering.DXT", "FStringGraphicsDisableUnalignedDxtGPUNameBlacklist"},
 
             // useless
             { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
@@ -247,6 +249,20 @@ namespace Bloxstrap
             { TextureQuality.Low, "1" },
             { TextureQuality.Medium, "2" },
             { TextureQuality.High, "3" },
+        };
+
+        public static IReadOnlyDictionary<DynamicResolution, string?> DynamicResolutions => new Dictionary<DynamicResolution, string?>
+        {
+            { DynamicResolution.Default, null },
+            { DynamicResolution.Resolution1, "37" },
+            { DynamicResolution.Resolution2, "77" },
+            { DynamicResolution.Resolution3, "230" },
+            { DynamicResolution.Resolution4, "410" },
+            { DynamicResolution.Resolution5, "922" },
+            { DynamicResolution.Resolution6, "2074" },
+            { DynamicResolution.Resolution7, "3686" },
+            { DynamicResolution.Resolution8, "8294" },
+            { DynamicResolution.Resolution9, "33178 " },
         };
 
         public static IReadOnlyDictionary<RomarkStart, string?> RomarkStartMappings => new Dictionary<RomarkStart, string?>

@@ -22,6 +22,8 @@
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
+	<Resource Include="Resources\Checkmark.ico" />
+	<Resource Include="Resources\CrossMark.ico" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
@@ -71,11 +73,16 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
-	<EmbeddedResource Include="Resources\PresetFlags\High Graphics" />
-	<EmbeddedResource Include="Resources\PresetFlags\Optimal Graphics" />
-	<EmbeddedResource Include="Resources\PresetFlags\Balanced Graphics" />
-	<EmbeddedResource Include="Resources\PresetFlags\Low Graphics" />
-	<EmbeddedResource Include="Resources\PresetFlags\Trash Graphics" />
+	<EmbeddedResource Include="Resources\PresetFlags\Mahorgas Default Graphics V3 (best flag pack here)" />
+	<EmbeddedResource Include="Resources\PresetFlags\Mahorgas Low Graphics V8 (best flag pack here)" />
+	<EmbeddedResource Include="Resources\PresetFlags\Mahorgas Trash Graphics V14 (best flag pack here)" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof High Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof Optimal Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof Balanced Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof Low Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof Trash Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Obsurd V3 x Unterial V5" />
+	<EmbeddedResource Include="Resources\PresetFlags\5070 Latency Pack V26" />
   </ItemGroup>
 
   <ItemGroup>

@@ -556,6 +556,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Essential.
+        /// </summary>
+        public static string Common_Essential {
+            get {
+                return ResourceManager.GetString("Common.Essential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experimental.
+        /// </summary>
+        public static string Common_Experimental {
+            get {
+                return ResourceManager.GetString("Common.Experimental", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Common_Export {
@@ -3838,6 +3856,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adjusts the resolution in game, such as 720p, 1080p, 1440p, and 4k. Similar to adjusting video quality on YouTube..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DynamicReso_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DynamicReso.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dynamic Resolution.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DynamicReso_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DynamicReso.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferred escape Menu version.
         /// </summary>
         public static string Menu_FastFlags_Presets_EscapeMenuVersion_Title {
@@ -4122,6 +4158,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_MSAA_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.MSAA.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure bytes of data that are transferred over your network. 1396 is the default..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_MTU_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.MTU.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MTU Size.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_MTU_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.MTU.Title", resourceCulture);
             }
         }
         
