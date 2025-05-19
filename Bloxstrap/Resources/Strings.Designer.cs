@@ -3114,7 +3114,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disables Hardware Acceleration. will take effect after restarting the application..
+        ///   Looks up a localized string similar to Disables Hardware Acceleration. will take effect after restarting the application, This only removes hardware accel on froststrap only..
         /// </summary>
         public static string Menu_Behaviour_HardwareAcceleration_Description {
             get {

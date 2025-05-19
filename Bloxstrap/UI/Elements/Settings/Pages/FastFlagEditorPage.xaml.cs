@@ -8,6 +8,8 @@ using Wpf.Ui.Mvvm.Contracts;
 using Bloxstrap.UI.Elements.Dialogs;
 using Microsoft.Win32;
 using System.Windows.Media.Animation;
+using System.Windows.Input;
+using System.Windows.Media;
 
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
@@ -587,13 +589,113 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private CancellationTokenSource? _searchCancellationTokenSource;
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+
+        private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (sender is not TextBox textbox)
+            if (sender is not TextBox textbox) return;
+
+            string newSearch = textbox.Text.Trim();
+
+            // Return early if the search text hasn't changed or the debounce delay hasn't passed
+            if (newSearch == _lastSearch && (DateTime.Now - _lastSearchTime).TotalMilliseconds < _debounceDelay)
                 return;
 
-            _searchFilter = textbox.Text;
-            ReloadList();
+            // Cancel the previous search operation if ongoing
+            _searchCancellationTokenSource?.Cancel();
+            _searchCancellationTokenSource = new CancellationTokenSource();
+
+            _searchFilter = newSearch;
+            _lastSearch = newSearch;
+            _lastSearchTime = DateTime.Now;
+
+            try
+            {
+                // Apply debounce delay using Task.Delay without blocking the UI
+                await Task.Delay(_debounceDelay, _searchCancellationTokenSource.Token);
+
+                // If the task was cancelled, exit early
+                if (_searchCancellationTokenSource.Token.IsCancellationRequested)
+                    return;
+
+                // Reload the list and show search suggestion after debounce delay
+                Dispatcher.Invoke(() =>
+                {
+                    ReloadList();
+                    ShowSearchSuggestion(newSearch);
+                });
+            }
+            catch (TaskCanceledException)
+            {
+                // Handle task cancellation gracefully
+            }
+        }
+
+
+        private void ShowSearchSuggestion(string searchFilter)
+        {
+            if (string.IsNullOrWhiteSpace(searchFilter))
+            {
+                AnimateSuggestionVisibility(0);
+                return;
+            }
+
+            var bestMatch = App.FastFlags.Prop.Keys
+                .Where(flag => flag.Contains(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(flag => !flag.StartsWith(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .ThenBy(flag => flag.IndexOf(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .ThenBy(flag => flag.Length)
+                .FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(bestMatch))
+            {
+                SuggestionKeywordRun.Text = bestMatch;
+                AnimateSuggestionVisibility(1);
+            }
+            else
+            {
+                AnimateSuggestionVisibility(0);
+            }
+        }
+
+        private void SuggestionTextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var suggestion = SuggestionKeywordRun.Text;
+            if (!string.IsNullOrEmpty(suggestion))
+            {
+                SearchTextBox.Text = suggestion;
+                SearchTextBox.CaretIndex = suggestion.Length;
+            }
+        }
+
+        private void AnimateSuggestionVisibility(double targetOpacity)
+        {
+            var opacityAnimation = new DoubleAnimation
+            {
+                To = targetOpacity,
+                Duration = TimeSpan.FromMilliseconds(120),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            var translateAnimation = new DoubleAnimation
+            {
+                To = targetOpacity > 0 ? 0 : 10,
+                Duration = TimeSpan.FromMilliseconds(120),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            opacityAnimation.Completed += (s, e) =>
+            {
+                if (targetOpacity == 0)
+                {
+                    SuggestionTextBlock.Visibility = Visibility.Collapsed;
+                }
+            };
+
+            if (targetOpacity > 0)
+                SuggestionTextBlock.Visibility = Visibility.Visible;
+
+            SuggestionTextBlock.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            SuggestionTranslateTransform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
         }
     }
 }

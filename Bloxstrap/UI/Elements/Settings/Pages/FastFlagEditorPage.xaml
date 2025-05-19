@@ -104,6 +104,7 @@
             <ui:TextBox
                 x:Name="SearchTextBox"
                 Grid.Row="2"
+                Margin="0,10,0,0"
                 Height="32"
                 HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Center"
@@ -114,6 +115,27 @@
                 PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}"
                 TextChanged="SearchTextBox_TextChanged">
             </ui:TextBox>
+
+            <TextBlock
+                x:Name="SuggestionTextBlock"
+                Cursor="Hand"
+                MouseLeftButtonUp="SuggestionTextBlock_MouseLeftButtonUp"
+                Margin="12,0,11,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="13.85"
+                Foreground="#FF51A2ED"
+                Opacity="0"
+                Visibility="Collapsed"
+                RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="SuggestionTranslateTransform" X="10" />
+                </TextBlock.RenderTransform>
+                    <Run Text="Looking For" />
+                    <Run x:Name="SuggestionKeywordRun" Text="" FontWeight="Bold" />
+                    <Run Text="?" />
+            </TextBlock>
+
         </Grid>
 
         <DataGrid
