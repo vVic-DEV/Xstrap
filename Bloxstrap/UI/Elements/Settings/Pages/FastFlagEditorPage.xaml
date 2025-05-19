@@ -96,7 +96,7 @@
 
 
 
-        <!--  Search Container with Enhanced Suggestion Text inside  -->
+        <!--  Search Container with suggestion box better than voidstrap ez -->
         <Grid
             Grid.Row="3"
             Height="40"
@@ -104,7 +104,6 @@
             <ui:TextBox
                 x:Name="SearchTextBox"
                 Grid.Row="2"
-                Margin="0,10,0,0"
                 Height="32"
                 HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Center"
@@ -115,7 +114,6 @@
                 PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}"
                 TextChanged="SearchTextBox_TextChanged">
             </ui:TextBox>
-
             <TextBlock
                 x:Name="SuggestionTextBlock"
                 Cursor="Hand"
@@ -135,7 +133,6 @@
                     <Run x:Name="SuggestionKeywordRun" Text="" FontWeight="Bold" />
                     <Run Text="?" />
             </TextBlock>
-
         </Grid>
 
         <DataGrid

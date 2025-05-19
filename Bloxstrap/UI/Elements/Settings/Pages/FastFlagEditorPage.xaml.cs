@@ -589,18 +589,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private CancellationTokenSource? _searchCancellationTokenSource;
 
-
         private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is not TextBox textbox) return;
 
             string newSearch = textbox.Text.Trim();
 
-            // Return early if the search text hasn't changed or the debounce delay hasn't passed
             if (newSearch == _lastSearch && (DateTime.Now - _lastSearchTime).TotalMilliseconds < _debounceDelay)
                 return;
 
-            // Cancel the previous search operation if ongoing
             _searchCancellationTokenSource?.Cancel();
             _searchCancellationTokenSource = new CancellationTokenSource();
 
@@ -610,14 +607,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             try
             {
-                // Apply debounce delay using Task.Delay without blocking the UI
                 await Task.Delay(_debounceDelay, _searchCancellationTokenSource.Token);
 
-                // If the task was cancelled, exit early
                 if (_searchCancellationTokenSource.Token.IsCancellationRequested)
                     return;
 
-                // Reload the list and show search suggestion after debounce delay
                 Dispatcher.Invoke(() =>
                 {
                     ReloadList();
@@ -626,7 +620,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             catch (TaskCanceledException)
             {
-                // Handle task cancellation gracefully
             }
         }
 
