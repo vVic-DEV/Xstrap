@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Contracts;
@@ -35,13 +36,16 @@ namespace Bloxstrap.UI.Elements.Base
 
         protected override void OnSourceInitialized(EventArgs e)
         {
+            base.OnSourceInitialized(e);
+
             if (App.Settings.Prop.WPFSoftwareRender || App.LaunchSettings.NoGPUFlag.Active)
             {
                 if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
+                {
+                    // SoftwareOnly means hardware accel is removed for whoever is reading this!
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
+                }
             }
-
-            base.OnSourceInitialized(e);
         }
     }
 }

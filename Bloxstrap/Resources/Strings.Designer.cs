@@ -3114,6 +3114,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disables Hardware Acceleration. will take effect after restarting the application..
+        /// </summary>
+        public static string Menu_Behaviour_HardwareAcceleration_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.HardwareAcceleration.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Hardware Acceleration.
+        /// </summary>
+        public static string Menu_Behaviour_HardwareAcceleration_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.HardwareAcceleration.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously. May cause issues with desktop app..
         /// </summary>
         public static string Menu_Behaviour_MultiInstances_Description {

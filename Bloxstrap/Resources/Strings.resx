@@ -830,6 +830,12 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automatically update Froststrap</value>
   </data>
+  <data name="Menu.Behaviour.HardwareAcceleration.Description" xml:space="preserve">
+    <value>Disables Hardware Acceleration. will take effect after restarting the application.</value>
+  </data>
+	<data name="Menu.Behaviour.HardwareAcceleration.Title" xml:space="preserve">
+    <value>Disable Hardware Acceleration</value>
+  </data>
   <data name="Menu.Behaviour.AllowCrossGameTeleportation.Description" xml:space="preserve">
     <value>Allows for cross-game teleportation with multiple instances. (Fixes error 773)</value>
   </data>

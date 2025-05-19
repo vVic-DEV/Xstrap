@@ -114,21 +114,6 @@
                 PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}"
                 TextChanged="SearchTextBox_TextChanged">
             </ui:TextBox>
-            <TextBlock
-                x:Name="SuggestionTextBlock"
-                Margin="12,0,11,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                FontSize="13.85"
-                Foreground="#FF51A2ED"
-                Opacity="0"
-                RenderTransformOrigin="0.5,0.5"
-                Text="{Binding ElementName=SearchTextBox, Path=Text, UpdateSourceTrigger=PropertyChanged}"
-                Visibility="Collapsed">
-                <TextBlock.RenderTransform>
-                    <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
-                </TextBlock.RenderTransform>
-            </TextBlock>
         </Grid>
 
         <DataGrid

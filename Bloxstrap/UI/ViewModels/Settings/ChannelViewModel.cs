@@ -1,4 +1,5 @@
-﻿using Bloxstrap.AppData;
+﻿using System.Windows.Media;
+using Bloxstrap.AppData;
 using Bloxstrap.RobloxInterfaces;
 
 namespace Bloxstrap.UI.ViewModels.Settings
@@ -14,6 +15,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.CheckForUpdates;
             set => App.Settings.Prop.CheckForUpdates = value;
+        }
+
+        public bool HardwareAccelerationDisabled
+        {
+            get => App.Settings.Prop.WPFSoftwareRender;
+            set => App.Settings.Prop.WPFSoftwareRender = value;
         }
 
         private async Task LoadChannelDeployInfo(string channel)
