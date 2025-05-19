@@ -55,7 +55,6 @@ namespace Bloxstrap
             { "Network.MeshPreloadding", "DFFlagEnableMeshPreloading2" },
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
-            { "Network.CliInKb", "DFIntCLI61964inKB" },
 
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },

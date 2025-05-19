@@ -91,7 +91,7 @@
     <PackageReference Include="Markdig" Version="0.40.0" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.183">
       <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
-      <PrivateAssets>all</PrivateAssets>
+    <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 	<PackageReference Include="AvalonEdit" Version="6.3.0.90" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
@@ -108,10 +108,10 @@
 
   <ItemGroup>
     <AssemblyAttribute Include="Bloxstrap.Models.Attributes.BuildMetadataAttribute">
-      <_Parameter1>$([System.DateTime]::UtcNow.ToString("s"))Z</_Parameter1>
-      <_Parameter2>$(COMPUTERNAME)\$(USERNAME)</_Parameter2>
-      <_Parameter3>$(CommitHash)</_Parameter3>
-      <_Parameter4>$(CommitRef)</_Parameter4>
+    <_Parameter1>$([System.DateTime]::UtcNow.ToString("s"))Z</_Parameter1>
+    <_Parameter2>$(COMPUTERNAME)\$(USERNAME)</_Parameter2>
+    <_Parameter3>$(CommitHash)</_Parameter3>
+    <_Parameter4>$(CommitRef)</_Parameter4>
     </AssemblyAttribute>
   </ItemGroup>
 
@@ -126,8 +126,8 @@
   <Target Name="AssembleCsWin32InputPaths" BeforeTargets="GenerateMSBuildEditorConfigFileCore">
     <!-- Roslyn only allows source generators to see msbuild properties, to lift msbuild items into semicolon-delimited properties. -->
     <PropertyGroup>
-      <CsWin32InputMetadataPaths>@(ProjectionMetadataWinmd->'%(FullPath)','|')</CsWin32InputMetadataPaths>
-      <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath)','|')</CsWin32InputDocPaths>
+    <CsWin32InputMetadataPaths>@(ProjectionMetadataWinmd->'%(FullPath)','|')</CsWin32InputMetadataPaths>
+    <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath)','|')</CsWin32InputDocPaths>
     </PropertyGroup>
   </Target>
 
@@ -139,14 +139,14 @@
 
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
+    <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <AutoGen>True</AutoGen>
+    <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Update="Resources\Strings.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Strings.resx</DependentUpon>
+    <DesignTime>True</DesignTime>
+    <AutoGen>True</AutoGen>
+    <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
