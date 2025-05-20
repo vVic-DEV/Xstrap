@@ -81,6 +81,8 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BuiltInLists}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_PresetFlagViewer}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Cleaner}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_DisableHardwareAcceleration}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BetterSuggestionBox}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
 

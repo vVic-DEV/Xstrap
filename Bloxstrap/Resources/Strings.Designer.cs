@@ -4342,7 +4342,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select the GPU that Roblox will use for rendering. Useful if you have 2 or more GPUs on your PC..
+        ///   Looks up a localized string similar to Select the GPU that Roblox will use for rendering. Useful if you have 2 or more GPUs on your PC. (enables dxt too).
         /// </summary>
         public static string Menu_FastFlags_Presets_PreferredGPU_Description {
             get {
@@ -4693,6 +4693,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box.
+        /// </summary>
+        public static string Menu_Help_BetterSuggestionBox {
+            get {
+                return ResourceManager.GetString("Menu.Help.BetterSuggestionBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [Black Sky When Camera Turning](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera).
         /// </summary>
         public static string Menu_Help_BlackSky {
@@ -4806,6 +4815,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_DisableFullScreenTitleBar {
             get {
                 return ResourceManager.GetString("Menu.Help.DisableFullScreenTitleBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Disable Hardware Acceleration](https://github.com/Meddsam/Froststrap/wiki/Features#disable-hardware-acceleration).
+        /// </summary>
+        public static string Menu_Help_DisableHardwareAcceleration {
+            get {
+                return ResourceManager.GetString("Menu.Help.DisableHardwareAcceleration", resourceCulture);
             }
         }
         
