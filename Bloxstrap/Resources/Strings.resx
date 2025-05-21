@@ -956,7 +956,7 @@ There are {0} conflicting flag definitions:
     <value>Delete selected</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your FastFlags. A checkmark in Preset means it’s a toggle in FFlag Settings, a crossmark means it isn’t.</value>
+    <value>Manage your FastFlags. A checkmark in Preset means the flag is available in FFlag Settings, a cross means it isn’t.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>

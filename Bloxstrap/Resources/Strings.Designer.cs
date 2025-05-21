@@ -3532,7 +3532,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your FastFlags. A checkmark in Preset means it’s a toggle in FFlag Settings, a crossmark means it isn’t..
+        ///   Looks up a localized string similar to Manage your FastFlags. A checkmark in Preset means the flag is available in FFlag Settings, a cross means it isn’t..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
