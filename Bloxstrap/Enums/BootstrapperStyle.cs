@@ -8,8 +8,8 @@
         ProgressDialog,
         ClassicFluentDialog,
         ByfronDialog,
-        [EnumName(StaticName = "Froststrap")]
         FluentDialog,
+        CustomFluentDialog,
         FluentAeroDialog,
         CustomDialog
     }

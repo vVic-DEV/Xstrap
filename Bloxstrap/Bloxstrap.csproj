@@ -24,6 +24,7 @@
     <Resource Include="Bloxstrap.ico" />
 	<Resource Include="Resources\Checkmark.ico" />
 	<Resource Include="Resources\CrossMark.ico" />
+	<Resource Include="Resources\Froststrap Custom Background.png" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
