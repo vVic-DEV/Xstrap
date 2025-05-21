@@ -97,18 +97,18 @@ namespace Bloxstrap
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
 
             // Force Logical Processors
-            { "Rendering.CpuCore1", "DFIntInterpolationNumParallelTasks" },
-            { "Rendering.CpuCore2", "DFIntMegaReplicatorNumParallelTasks" },
-            { "Rendering.CpuCore3", "DFIntNetworkClusterPacketCacheNumParallelTasks" },
-            { "Rendering.CpuCore4", "DFIntReplicationDataCacheNumParallelTasks" },
-            { "Rendering.CpuCore5", "FIntLuaGcParallelMinMultiTasks" },
-            { "Rendering.CpuCore6", "FIntSmoothClusterTaskQueueMaxParallelTasks" },
-            { "Rendering.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
-            { "Rendering.CpuThreads", "DFIntRuntimeConcurrency"},
+            { "System.CpuCore1", "DFIntInterpolationNumParallelTasks" },
+            { "System.CpuCore2", "DFIntMegaReplicatorNumParallelTasks" },
+            { "System.CpuCore3", "DFIntNetworkClusterPacketCacheNumParallelTasks" },
+            { "System.CpuCore4", "DFIntReplicationDataCacheNumParallelTasks" },
+            { "System.CpuCore5", "FIntLuaGcParallelMinMultiTasks" },
+            { "System.CpuCore6", "FIntSmoothClusterTaskQueueMaxParallelTasks" },
+            { "System.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
+            { "System.CpuThreads", "DFIntRuntimeConcurrency"},
 
             // Light Cullings
-            { "Rendering.GpuCulling", "FFlagFastGPULightCulling3" },
-            { "Rendering.CpuCulling", "FFlagDebugForceFSMCPULightCulling" },           
+            { "System.GpuCulling", "FFlagFastGPULightCulling3" },
+            { "System.CpuCulling", "FFlagDebugForceFSMCPULightCulling" },           
 
             // Unlimited Camera Distance
             { "Rendering.Camerazoom","FIntCameraMaxZoomDistance" },
@@ -185,9 +185,9 @@ namespace Bloxstrap
             { "System.TargetRefreshRate3", "FIntRefreshRateLowerBound" },
     
             // GPU
-            { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
-            { "Rendering.DXT", "FStringGraphicsDisableUnalignedDxtGPUNameBlacklist"},
-            { "Rendering.BypassVulkan", "FStringVulkanBuggyRenderpassList2"},
+            { "System.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
+            { "System.DXT", "FStringGraphicsDisableUnalignedDxtGPUNameBlacklist"},
+            { "System.BypassVulkan", "FStringVulkanBuggyRenderpassList2"},
 
             // Menu stuff
             { "Menu.VRToggles", "FFlagAlwaysShowVRToggleV3" },

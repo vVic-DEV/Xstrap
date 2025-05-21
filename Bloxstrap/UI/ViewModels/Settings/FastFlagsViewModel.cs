@@ -93,11 +93,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool LightCulling
         {
-            get => App.FastFlags.GetPreset("Rendering.GpuCulling") == "True";
+            get => App.FastFlags.GetPreset("System.GpuCulling") == "True";
             set
             {
-                App.FastFlags.SetPreset("Rendering.GpuCulling", value ? "True" : null);
-                App.FastFlags.SetPreset("Rendering.CpuCulling", value ? "True" : null);
+                App.FastFlags.SetPreset("System.GpuCulling", value ? "True" : null);
+                App.FastFlags.SetPreset("System.CpuCulling", value ? "True" : null);
             }
         }
 
@@ -423,19 +423,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public string SelectedGPU
         {
-            get => App.FastFlags.GetPreset("Rendering.PreferredGPU") ?? "Automatic";
+            get => App.FastFlags.GetPreset("System.PreferredGPU") ?? "Automatic";
             set
             {
-                App.FastFlags.SetPreset("Rendering.PreferredGPU", value == "Automatic" ? null : value);
-                App.FastFlags.SetPreset("Rendering.DXT", value == "Automatic" ? null : value);
+                App.FastFlags.SetPreset("System.PreferredGPU", value == "Automatic" ? null : value);
+                App.FastFlags.SetPreset("System.DXT", value == "Automatic" ? null : value);
 
             }
         }
 
         public string BypassVulkan
         {
-            get => App.FastFlags.GetPreset("Rendering.BypassVulkan") ?? "Automatic";
-            set => App.FastFlags.SetPreset("Rendering.BypassVulkan", value == "Automatic" ? null : value);
+            get => App.FastFlags.GetPreset("System.BypassVulkan") ?? "Automatic";
+            set => App.FastFlags.SetPreset("System.BypassVulkan", value == "Automatic" ? null : value);
         }
 
         public bool GetFlagAsBool(string flagKey, string falseValue = "False")
@@ -598,35 +598,35 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get
             {
-                string currentValue = App.FastFlags.GetPreset("Rendering.CpuCore1") ?? "Automatic";
+                string currentValue = App.FastFlags.GetPreset("System.CpuCore1") ?? "Automatic";
                 return CpuThreads?.FirstOrDefault(kvp => kvp.Key == currentValue) ?? default;
             }
             set
             {
-                App.FastFlags.SetPreset("Rendering.CpuCore1", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore1", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore2", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore2", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore3", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore3", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore4", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore4", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore5", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore5", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore6", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore6", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
-                App.FastFlags.SetPreset("Rendering.CpuCore7", value.Value);
+                App.FastFlags.SetPreset("System.CpuCore7", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
                 if (value.Value != null && int.TryParse(value.Value, out int parsedValue)) // sets cputhreads to the selected amount minus 1
                 {
                     int adjustedValue = Math.Max(parsedValue - 1, 1); // Ensure the value does not go below on one
-                    App.FastFlags.SetPreset("Rendering.CpuThreads", adjustedValue.ToString());
+                    App.FastFlags.SetPreset("System.CpuThreads", adjustedValue.ToString());
                     OnPropertyChanged(nameof(SelectedCpuThreads));
                 }
                 else
                 {
                     // Handle the case where value.Value is null or not a valid integer
-                    App.FastFlags.SetPreset("Rendering.CpuThreads", null);
+                    App.FastFlags.SetPreset("System.CpuThreads", null);
                     OnPropertyChanged(nameof(SelectedCpuThreads));
                 }
 
