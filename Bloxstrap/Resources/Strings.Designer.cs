@@ -3775,6 +3775,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This only works on low-end devices.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_AndroidVfs_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.AndroidVfs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potato Graphics.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_AndroidVfs_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.AndroidVfs.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Faster rendering speed on GPUs which work better with BGRA..
         /// </summary>
         public static string Menu_FastFlags_Presets_BGRA_Description {
@@ -4005,15 +4023,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_EscapeMenuVersion_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.EscapeMenuVersion.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure CPU Cores that runs roblox. (the value will be selected minus 1).
-        /// </summary>
-        public static string Menu_FastFlags_Presets_ez_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.ez.Description", resourceCulture);
             }
         }
         
@@ -4774,7 +4783,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box.
+        ///   Looks up a localized string similar to [Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box).
         /// </summary>
         public static string Menu_Help_BetterSuggestionBox {
             get {

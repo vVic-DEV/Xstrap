@@ -211,18 +211,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            if (list.Count > 16)
-            {
-                var result = Frontend.ShowMessageBox(
-                    Strings.Menu_FastFlagEditor_LargeConfig,
-                    MessageBoxImage.Warning,
-                    MessageBoxButton.YesNo
-                );
-
-                if (result != MessageBoxResult.Yes)
-                    return;
-            }
-
             var conflictingFlags = App.FastFlags.Prop.Where(x => list.ContainsKey(x.Key)).Select(x => x.Key);
             bool overwriteConflicting = false;
 

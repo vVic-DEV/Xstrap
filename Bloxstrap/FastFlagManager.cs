@@ -127,6 +127,9 @@ namespace Bloxstrap
             // Task Scheduler Avoid sleep
             { "Rendering.AvoidSleep", "DFFlagTaskSchedulerAvoidSleep" },
 
+            // Low Quality on Low-End Devices
+            { "Rendering.AndroidVfs", "FStringAndroidVfsLowspecHwCondition" },
+
             // Lighting technology
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },

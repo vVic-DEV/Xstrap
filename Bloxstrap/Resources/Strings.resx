@@ -325,7 +325,7 @@
     <value>[Disable Hardware Acceleration](https://github.com/Meddsam/Froststrap/wiki/Features#disable-hardware-acceleration)</value>
   </data>
 	<data name="Menu.Help.BetterSuggestionBox" xml:space="preserve">
-    <value>[Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box</value>
+    <value>[Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box)</value>
   </data>
   <data name="Menu.Help.FFlagGuide" xml:space="preserve">
     <value>FFlag Guide</value>
@@ -1276,8 +1276,14 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceProcessor.Description" xml:space="preserve">
     <value>Configure CPU Cores that runs roblox. (the value will be selected minus 1)</value>
+  </data> 
+  <data name="Menu.FastFlags.Presets.AndroidVfs.Title" xml:space="preserve">
+    <value>Potato Graphics</value>
   </data>
-	<data name="Menu.FastFlags.Presets.ForceProcessor.Title" xml:space="preserve">
+  <data name="Menu.FastFlags.Presets.AndroidVfs.Description" xml:space="preserve">
+    <value>This only works on low-end devices</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.ForceProcessor.Title" xml:space="preserve">
     <value>Force CPU Cores</value>
   </data>
   <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">

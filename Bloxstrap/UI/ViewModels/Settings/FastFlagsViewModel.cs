@@ -202,6 +202,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.BGRA", value ? "True" : null);
         }
 
+        public bool AndroidVfs
+        {
+            get => App.FastFlags.GetPreset("Rendering.AndroidVfs") == "{\"and\":[ {\"=\":[\"app_bitness()\",32]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}";
+            set => App.FastFlags.SetPreset("Rendering.AndroidVfs", value ? "{\"and\":[ {\"=\":[\"app_bitness()\",32]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}" : null);
+        }
+
         public bool FasterLoading
         {
             get => App.FastFlags.GetPreset("Network.AssetPreloadding") == "2147483647";
