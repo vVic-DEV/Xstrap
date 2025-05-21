@@ -86,6 +86,7 @@ namespace Bloxstrap
             { "Rendering.RemoveGrass3", "FIntRenderGrassDetailStrands" },
 
             // Other FFlags
+            { "Rendering.LimitFramerate", "FFlagTaskSchedulerLimitTargetFpsTo2402" },
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
@@ -179,7 +180,9 @@ namespace Bloxstrap
             { "Rendering.Start.Graphic", "FIntRomarkStartWithGraphicQualityLevel" },
 
             // Refresh Rate
-            { "System.TargetRefreshRate", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
+            { "System.TargetRefreshRate1", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
+            { "System.TargetRefreshRate2", "FIntTargetRefreshRate" },
+            { "System.TargetRefreshRate3", "FIntRefreshRateLowerBound" },
     
             // GPU
             { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
@@ -263,16 +266,20 @@ namespace Bloxstrap
             { DynamicResolution.Resolution6, "2074" },
             { DynamicResolution.Resolution7, "3686" },
             { DynamicResolution.Resolution8, "8294" },
-            { DynamicResolution.Resolution9, "33178 " },
+            { DynamicResolution.Resolution9, "33178" },
         };
 
         public static IReadOnlyDictionary<RefreshRate, string?> RefreshRates => new Dictionary<RefreshRate, string?>
         {
             { RefreshRate.Default, null },
-            { RefreshRate.RefreshRate1, "60" },
+            { RefreshRate.RefreshRate1, "75" },
             { RefreshRate.RefreshRate2, "120" },
             { RefreshRate.RefreshRate3, "144" },
-            { RefreshRate.RefreshRate4, "240" },
+            { RefreshRate.RefreshRate4, "165" },
+            { RefreshRate.RefreshRate5, "180" },
+            { RefreshRate.RefreshRate6, "240" },
+
+
         };
 
         public static IReadOnlyDictionary<RomarkStart, string?> RomarkStartMappings => new Dictionary<RomarkStart, string?>
