@@ -82,7 +82,6 @@
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
                     <ui:NavigationItem Content="Settings" PageType="{x:Type pages:ChannelPage}" Icon="Settings20" Tag="channel" />
-                    <ui:NavigationItem Visibility="Collapsed" Content="Froststrap" PageType="{x:Type pages:BloxstrapPage}" Icon="FoodFish24" Tag="shortcuts" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle28" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>

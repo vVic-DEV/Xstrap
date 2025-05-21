@@ -4009,6 +4009,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure CPU Cores that runs roblox. (the value will be selected minus 1).
+        /// </summary>
+        public static string Menu_FastFlags_Presets_ez_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.ez.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decreases wait time by optimizing loading speeds..
         /// </summary>
         public static string Menu_FastFlags_Presets_FasterLoading_Description {
@@ -4095,6 +4104,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_ForceLogicalProcessor_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.ForceLogicalProcessor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure CPU Cores that runs roblox. (the value will be selected minus 1).
+        /// </summary>
+        public static string Menu_FastFlags_Presets_ForceProcessor_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.ForceProcessor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force CPU Cores.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_ForceProcessor_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.ForceProcessor.Title", resourceCulture);
             }
         }
         

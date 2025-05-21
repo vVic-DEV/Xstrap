@@ -1274,6 +1274,12 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Title" xml:space="preserve">
     <value>Force Logical CPU Cores</value>
   </data>
+  <data name="Menu.FastFlags.Presets.ForceProcessor.Description" xml:space="preserve">
+    <value>Configure CPU Cores that runs roblox. (the value will be selected minus 1)</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.ForceProcessor.Title" xml:space="preserve">
+    <value>Force CPU Cores</value>
+  </data>
   <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">
     <value>Prevents task scheduler from sleeping.</value>
   </data>

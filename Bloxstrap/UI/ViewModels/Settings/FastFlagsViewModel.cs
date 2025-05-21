@@ -10,9 +10,10 @@ using Wpf.Ui.Mvvm.Contracts;
 using System.Windows.Documents;
 using System.Runtime.InteropServices;
 
+using System;
+
 public static class SystemInfo
 {
-    // Define the SYSTEM_INFO structure
     [StructLayout(LayoutKind.Sequential)]
     public struct SYSTEM_INFO
     {
@@ -22,27 +23,115 @@ public static class SystemInfo
         public IntPtr lpMinimumApplicationAddress;
         public IntPtr lpMaximumApplicationAddress;
         public IntPtr dwActiveProcessorMask;
-        public uint dwNumberOfProcessors; // This field contains the number of logical processors
+        public uint dwNumberOfProcessors;  // Logical processors
         public uint dwProcessorType;
         public uint dwAllocationGranularity;
         public ushort wProcessorLevel;
         public ushort wProcessorRevision;
     }
 
-    // Import the GetSystemInfo function from kernel32.dll
     [DllImport("kernel32.dll")]
     private static extern void GetSystemInfo(out SYSTEM_INFO lpSystemInfo);
 
-    // Method to get the number of logical processors
     public static int GetLogicalProcessorCount()
     {
-        // Call the Windows API to get system information
-        GetSystemInfo(out SYSTEM_INFO systemInfo);
+        GetSystemInfo(out SYSTEM_INFO sysInfo);
+        return (int)sysInfo.dwNumberOfProcessors;
+    }
 
-        // Return the number of logical processors
-        return (int)systemInfo.dwNumberOfProcessors;
+    public enum LOGICAL_PROCESSOR_RELATIONSHIP : uint
+    {
+        ProcessorCore = 0,
+        NumaNode = 1,
+        Cache = 2,
+        ProcessorPackage = 3,
+        Group = 4,
+        All = 0xffff
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
+    {
+        public UIntPtr ProcessorMask;
+        public LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
+        public ProcessorInfoUnion ProcessorInformation;
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    public struct ProcessorInfoUnion
+    {
+        [FieldOffset(0)]
+        public ProcessorCore ProcessorCore;
+
+        [FieldOffset(0)]
+        public NumaNode NumaNode;
+
+        [FieldOffset(0)]
+        public CacheDescriptor Cache;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct ProcessorCore
+    {
+        public byte Flags;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct NumaNode
+    {
+        public uint NodeNumber;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct CacheDescriptor
+    {
+        public byte Level;
+        public byte Associativity;
+        public ushort LineSize;
+        public uint Size;
+        public uint Type;
+    }
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    private static extern bool GetLogicalProcessorInformation(IntPtr Buffer, ref uint ReturnLength);
+
+    public static int GetPhysicalCoreCount()
+    {
+        uint returnLength = 0;
+        GetLogicalProcessorInformation(IntPtr.Zero, ref returnLength);
+
+        IntPtr ptr = Marshal.AllocHGlobal((int)returnLength);
+        try
+        {
+            if (!GetLogicalProcessorInformation(ptr, ref returnLength))
+            {
+                throw new System.ComponentModel.Win32Exception(Marshal.GetLastWin32Error());
+            }
+
+            int size = Marshal.SizeOf(typeof(SYSTEM_LOGICAL_PROCESSOR_INFORMATION));
+            int count = (int)returnLength / size;
+
+            int coreCount = 0;
+            for (int i = 0; i < count; i++)
+            {
+                IntPtr current = IntPtr.Add(ptr, i * size);
+                var info = Marshal.PtrToStructure<SYSTEM_LOGICAL_PROCESSOR_INFORMATION>(current);
+
+                if (info.Relationship == LOGICAL_PROCESSOR_RELATIONSHIP.ProcessorCore)
+                {
+                    coreCount++;
+                }
+            }
+
+            return coreCount;
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(ptr);
+        }
     }
 }
+
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -639,5 +728,62 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             }
         }
+
+        public static IReadOnlyDictionary<string, string?> GetCpuCoreMinThreadCount()
+        {
+            const string LOG_IDENT = "FFlagPresets::GetCpuCoreMinThreadCount";
+            Dictionary<string, string?> cpuThreads = new();
+
+            // Add the "Automatic" option
+            cpuThreads.Add("Automatic", null);
+
+            try
+            {
+                // Use physical core count or logical, whichever you want:
+                int coreCount = SystemInfo.GetPhysicalCoreCount(); // or GetLogicalProcessorCount()
+
+                // Add options for 1, 2, ..., coreCount
+                for (int i = 1; i <= coreCount; i++)
+                {
+                    cpuThreads.Add(i.ToString(), i.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to get CPU thread count: {ex.Message}");
+            }
+
+            return cpuThreads;
+        }
+
+        public IReadOnlyDictionary<string, string?>? CpuCoreMinThreadCount => GetCpuCoreMinThreadCount();
+
+        public KeyValuePair<string, string?> SelectedCpuCoreMinThreadCount
+        {
+            get
+            {
+                string currentValue = App.FastFlags.GetPreset("System.CpuCoreMinThreadCount") ?? "Automatic";
+                return CpuThreads?.FirstOrDefault(kvp => kvp.Key == currentValue) ?? default;
+            }
+            set
+            {
+                // Save selected value as-is
+                App.FastFlags.SetPreset("System.CpuCoreMinThreadCount", value.Value);
+                OnPropertyChanged(nameof(SelectedCpuThreads));
+
+                if (value.Value != null && int.TryParse(value.Value, out int parsedValue))
+                {
+                    // Adjust to at least 0 (not below)
+                    int adjustedValue = Math.Max(parsedValue - 1, 1);
+                    App.FastFlags.SetPreset("System.CpuCoreMinThreadCount", adjustedValue.ToString());
+                }
+                else
+                {
+                    App.FastFlags.SetPreset("System.CpuCoreMinThreadCount", null);
+                }
+                OnPropertyChanged(nameof(SelectedCpuCoreMinThreadCount));
+            }
+        }
+
     }
 }

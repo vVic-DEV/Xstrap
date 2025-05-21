@@ -106,6 +106,9 @@ namespace Bloxstrap
             { "System.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
             { "System.CpuThreads", "DFIntRuntimeConcurrency"},
 
+            // Cpu cores
+            { "System.CpuCoreMinThreadCount", "FIntTaskSchedulerAsyncTasksMinimumThreadCount"},
+
             // Light Cullings
             { "System.GpuCulling", "FFlagFastGPULightCulling3" },
             { "System.CpuCulling", "FFlagDebugForceFSMCPULightCulling" },           
