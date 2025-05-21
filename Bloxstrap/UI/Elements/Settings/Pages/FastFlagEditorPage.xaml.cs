@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Input;
 using System.Windows.Media;
 
-
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
     /// <summary>
@@ -19,8 +18,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class FastFlagEditorPage
     {
-
-
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
 
         private bool _showPresets = true;
@@ -28,8 +25,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private string _lastSearch = string.Empty;
         private DateTime _lastSearchTime = DateTime.MinValue;
         private const int _debounceDelay = 70;
-
-
 
         public FastFlagEditorPage()
         {
@@ -42,11 +37,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             TogglePresetsButton.IsChecked = true;
         }
 
-
         private void ReloadList()
         {
-            var selectedEntry = DataGrid.SelectedItem as FastFlag;
-
             _fastFlagList.Clear();
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
@@ -56,23 +48,17 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
 
-                if (!pair.Key.ToLower().Contains(_searchFilter.ToLower()))
+                if (!pair.Key.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
                     continue;
 
                 var entry = new FastFlag
                 {
                     Name = pair.Key,
-                    Value = pair.Value.ToString()!,
+                    Value = pair.Value?.ToString() ?? string.Empty,
+                    Preset = presetFlags.Contains(pair.Key)
+                        ? "pack://application:,,,/Resources/Checkmark.ico"
+                        : "pack://application:,,,/Resources/CrossMark.ico"
                 };
-
-                if (presetFlags.Contains(pair.Key))
-                {
-                    entry.Preset = "pack://application:,,,/Resources/Checkmark.ico";
-                }
-                else
-                {
-                    entry.Preset = "pack://application:,,,/Resources/CrossMark.ico";
-                }
 
                 _fastFlagList.Add(entry);
             }
@@ -80,16 +66,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (DataGrid.ItemsSource is null)
                 DataGrid.ItemsSource = _fastFlagList;
 
-            if (selectedEntry is null)
-                return;
+            UpdateTotalFlagsCount();
+        }
 
-            var newSelectedEntry = _fastFlagList.Where(x => x.Name == selectedEntry.Name).FirstOrDefault();
-
-            if (newSelectedEntry is null)
-                return;
-
-            DataGrid.SelectedItem = newSelectedEntry;
-            DataGrid.ScrollIntoView(newSelectedEntry);
+        private void UpdateTotalFlagsCount()
+        {
+            TotalFlagsTextBlock.Text = $"Total flags: {_fastFlagList.Count}";
         }
 
         private void ClearSearch(bool refresh = true)
@@ -144,17 +126,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 entry = new FastFlag
                 {
-                    // Enabled = true,
                     Name = name,
                     Value = value
                 };
 
-                if (!name.Contains(_searchFilter))
+                if (!name.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
                     ClearSearch();
 
-                _fastFlagList.Add(entry);
-
                 App.FastFlags.SetValue(entry.Name, entry.Value);
+                _fastFlagList.Add(entry);
             }
             else
             {
@@ -169,7 +149,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     refresh = true;
                 }
 
-                if (!name.Contains(_searchFilter))
+                if (!name.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
                 {
                     ClearSearch(false);
                     refresh = true;
@@ -178,11 +158,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (refresh)
                     ReloadList();
 
-                entry = _fastFlagList.Where(x => x.Name == name).FirstOrDefault();
+                entry = _fastFlagList.FirstOrDefault(x => x.Name == name);
             }
 
             DataGrid.SelectedItem = entry;
             DataGrid.ScrollIntoView(entry);
+            UpdateTotalFlagsCount();
         }
 
         private void ImportJSON(string json)
@@ -221,7 +202,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             catch (Exception ex)
             {
                 Frontend.ShowMessageBox(
-                    String.Format(Strings.Menu_FastFlagEditor_InvalidJSON, ex.Message),
+                    string.Format(Strings.Menu_FastFlagEditor_InvalidJSON, ex.Message),
                     MessageBoxImage.Error
                 );
 
@@ -249,10 +230,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 int count = conflictingFlags.Count();
 
-                string message = String.Format(
+                string message = string.Format(
                     Strings.Menu_FastFlagEditor_ConflictingImport,
                     count,
-                    String.Join(", ", conflictingFlags.Take(25))
+                    string.Join(", ", conflictingFlags.Take(25))
                 );
 
                 if (count > 25)
@@ -276,13 +257,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (val is null)
                     continue;
 
-                App.FastFlags.SetValue(pair.Key, pair.Value);
+                App.FastFlags.SetValue(pair.Key, val);
             }
 
             ClearSearch();
         }
 
-        // refresh list on page load to synchronize with preset page
         private void Page_Loaded(object sender, RoutedEventArgs e) => ReloadList();
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
@@ -313,7 +293,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     App.FastFlags.SetValue(oldName, null);
                     App.FastFlags.SetValue(newName, entry.Value);
 
-                    if (!newName.Contains(_searchFilter))
+                    if (!newName.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
                         ClearSearch();
 
                     entry.Name = newName;
@@ -321,13 +301,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     break;
 
                 case "Value":
-                    string oldValue = entry.Value;
                     string newValue = textbox.Text;
-
                     App.FastFlags.SetValue(entry.Name, newValue);
-
                     break;
             }
+
+            UpdateTotalFlagsCount();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -352,6 +331,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 _fastFlagList.Remove(entry);
                 App.FastFlags.SetValue(entry.Name, null);
             }
+
+            UpdateTotalFlagsCount();
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
@@ -369,14 +350,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             var flags = App.FastFlags.Prop;
 
-            // Group by flag prefix using regex (e.g., DFFlag, DFInt, FFlag, etc.)
             var groupedFlags = flags
                 .GroupBy(kvp =>
                 {
-                    var match = System.Text.RegularExpressions.Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
+                    var match = Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
                     return match.Success ? match.Value : "Other";
                 })
-                .OrderBy(g => g.Key); // Prefix group ordering (alphabetical)
+                .OrderBy(g => g.Key);
 
             var formattedJson = new StringBuilder();
             formattedJson.AppendLine("{");
@@ -387,11 +367,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             foreach (var group in groupedFlags)
             {
-                // Optional: blank line between groups
                 if (groupIndex > 0)
                     formattedJson.AppendLine();
 
-                // Sort entries in this group by the length of the full line string
                 var sortedGroup = group
                     .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
 
@@ -412,15 +390,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             formattedJson.AppendLine("}");
 
-            // Save the formatted JSON to a file
             SaveJSONToFile(formattedJson.ToString());
         }
-
 
         private void CopyJSONButton_Click1(object sender, RoutedEventArgs e)
         {
             string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
-
             Clipboard.SetText(json);
         }
 
@@ -428,14 +403,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             var flags = App.FastFlags.Prop;
 
-            // Group by flag prefix using regex (e.g., DFFlag, DFInt, FFlag, etc.)
             var groupedFlags = flags
                 .GroupBy(kvp =>
                 {
-                    var match = System.Text.RegularExpressions.Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
+                    var match = Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
                     return match.Success ? match.Value : "Other";
                 })
-                .OrderBy(g => g.Key); // Prefix group ordering (alphabetical)
+                .OrderBy(g => g.Key);
 
             var formattedJson = new StringBuilder();
             formattedJson.AppendLine("{");
@@ -446,15 +420,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             foreach (var group in groupedFlags)
             {
-                // Optional: blank line between groups
                 if (groupIndex > 0)
                     formattedJson.AppendLine();
 
-                // Sort entries in this group by the length of the full line string
-                // Fix for the null reference issue
                 var sortedGroup = group
                     .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
-
 
                 foreach (var kvp in sortedGroup)
                 {
@@ -475,7 +445,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             Clipboard.SetText(formattedJson.ToString());
         }
-
 
         private void SaveJSONToFile(string json)
         {

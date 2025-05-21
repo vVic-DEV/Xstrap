@@ -1362,7 +1362,7 @@ Some text might not be translated to preferred language.</value>
     <value>MTU Size</value>
   </data>
   <data name="Menu.FastFlags.Presets.MTU.Description" xml:space="preserve">
-    <value>Configure bytes of data that are transferred over your network. 1396 is the default.</value>
+    <value>Configure bytes of data that are transferred over your network. Can only set between 576-1492.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DynamicReso.Title" xml:space="preserve">
     <value>Dynamic Resolution</value>

@@ -92,11 +92,14 @@
                 VerticalAlignment="Top"
                 Click="ToggleButton_Click"
                 Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" />
+            <TextBlock x:Name="TotalFlagsTextBlock" 
+                Margin="10,5" 
+                Text="Total flags: 0" />
         </WrapPanel>
 
 
 
-        <!--  Search Container with suggestion box better than voidstrap ez -->
+        <!--  Search Container with suggestion box -->
         <Grid
             Grid.Row="3"
             Height="40"

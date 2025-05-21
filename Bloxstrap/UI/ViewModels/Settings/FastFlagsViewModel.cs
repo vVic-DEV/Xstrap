@@ -416,7 +416,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public int MtuSize
         {
             get => int.TryParse(App.FastFlags.GetPreset("Network.Mtusize"), out int x) ? x : 0;
-            set => App.FastFlags.SetPreset("Network.Mtusize", value > 0 ? value.ToString() : null);
+            set
+            {
+                int clamped = Math.Max(0, Math.Min(1492, value));
+                App.FastFlags.SetPreset(
+                    "Network.Mtusize",
+                    clamped >= 576 ? clamped.ToString() : null
+                );
+            }
         }
 
         public IReadOnlyDictionary<string, string?>? GPUs => GetGPUs();

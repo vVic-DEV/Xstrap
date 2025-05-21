@@ -4324,7 +4324,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure bytes of data that are transferred over your network. 1396 is the default..
+        ///   Looks up a localized string similar to Configure bytes of data that are transferred over your network. Can only set between 576-1492..
         /// </summary>
         public static string Menu_FastFlags_Presets_MTU_Description {
             get {

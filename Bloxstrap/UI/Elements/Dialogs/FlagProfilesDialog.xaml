@@ -119,12 +119,6 @@
                                     </MultiDataTrigger.Conditions>
                                     <Setter Property="Visibility" Value="Visible" />
                                 </MultiDataTrigger>
-                                <MultiDataTrigger>
-                                    <MultiDataTrigger.Conditions>
-                                        <Condition Binding="{Binding ElementName=Tabs, Path=SelectedIndex}" Value="2" />
-                                    </MultiDataTrigger.Conditions>
-                                    <Setter Property="Visibility" Value="Visible" />
-                                </MultiDataTrigger>
                             </Style.Triggers>
                             <Setter Property="Visibility" Value="Hidden" />
                         </Style>
