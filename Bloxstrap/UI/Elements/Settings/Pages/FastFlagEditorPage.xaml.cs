@@ -10,7 +10,6 @@ using Microsoft.Win32;
 using System.Windows.Media.Animation;
 using System.Windows.Input;
 using System.Windows.Media;
-using Bloxstrap.Models;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
@@ -19,17 +18,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class FastFlagEditorPage
     {
-        // Stores the history of flag states for Undo
-        private readonly Stack<Dictionary<string, bool>> _undoStack = new();
-
-        // Stores the history of flag states for Redo
-        private readonly Stack<Dictionary<string, bool>> _redoStack = new();
-
-        // Current flags (example storage)
-        private Dictionary<string, bool> _flags = new();
-
-        private Dictionary<string, bool> FastFlags = new();
-
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
 
         private bool _showPresets = true;
@@ -42,22 +30,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
             SetDefaultStates();
-            this.PreviewKeyDown += FastFlagEditorPage_PreviewKeyDown;
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Set keyboard focus
-            Keyboard.Focus(this);
-
-            // Hook PreviewKeyDown globally on the Window
-            Window parentWindow = Window.GetWindow(this);
-            if (parentWindow != null)
-            {
-                parentWindow.PreviewKeyDown -= FastFlagEditorPage_PreviewKeyDown; // avoid duplicates
-                parentWindow.PreviewKeyDown += FastFlagEditorPage_PreviewKeyDown;
-            }
-            ReloadList();
         }
 
         private void SetDefaultStates()
@@ -279,90 +251,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             ClearSearch();
         }
 
-        private void SaveStateForUndo()
-        {
-            // Clone current flags dictionary deeply
-            var snapshot = new Dictionary<string, bool>(_flags);
-
-            _undoStack.Push(snapshot);
-
-            // Clear redo stack because new action invalidates redo history
-            _redoStack.Clear();
-        }
-
-
-        private void Undo()
-        {
-            if (_undoStack.Count > 0)
-            {
-                var lastState = _undoStack.Pop();
-                _redoStack.Push(CloneCurrentFlags());
-                LoadFlags(lastState);
-            }
-            MessageBox.Show("Undo triggered");
-        }
-
-        private void Redo()
-        {
-            if (_redoStack.Count > 0)
-            {
-                var nextState = _redoStack.Pop();
-                _undoStack.Push(CloneCurrentFlags());
-                LoadFlags(nextState);
-            }
-            MessageBox.Show("Redo triggered");
-        }
-
-        private Dictionary<string, bool> CloneCurrentFlags()
-        {
-            // Creates a shallow copy of the dictionary
-            return new Dictionary<string, bool>(FastFlags);
-        }
-
-        private void LoadFlags(Dictionary<string, bool> flags)
-        {
-            // Replace the current dictionary with the provided one
-            FastFlags = new Dictionary<string, bool>(flags);
-
-            // Refresh the DataGrid
-            DataGrid.ItemsSource = null;
-            DataGrid.ItemsSource = FastFlags.Select(kvp => new { Name = kvp.Key, Value = kvp.Value }).ToList();
-        }
-
-        private void FastFlagEditorPage_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-            {
-                if (e.Key == Key.Z)
-                {
-                    e.Handled = true;
-                    Undo();
-                }
-                else if (e.Key == Key.Y)
-                {
-                    e.Handled = true;
-                    Redo();
-                }
-            }
-        }
-
-        private void RefreshUI()
-        {
-            // For example, if you have a DataGrid named DataGrid:
-            DataGrid.ItemsSource = null;
-            DataGrid.ItemsSource = _flags.Select(kvp => new { Name = kvp.Key, Value = kvp.Value }).ToList();
-        }
-
-        private void ChangeFlag(string flagName, bool newValue)
-        {
-            SaveStateForUndo();
-
-            _flags[flagName] = newValue;
-
-            RefreshUI();
-        }
-
-
+        private void Page_Loaded(object sender, RoutedEventArgs e) => ReloadList();
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
