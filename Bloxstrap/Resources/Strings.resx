@@ -256,7 +256,7 @@
     <value>[Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
   </data>
   <data name="Menu.Help.LoaddingIssues" xml:space="preserve">
-    <value>[Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
+    <value>[Loading Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
   </data>
   <data name="Menu.Help.FPSCappedWhenUncapped" xml:space="preserve">
     <value>[FPS capped when uncapped](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>

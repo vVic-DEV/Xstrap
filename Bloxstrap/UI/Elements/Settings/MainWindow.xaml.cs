@@ -17,18 +17,6 @@ namespace Bloxstrap.UI.Elements.Settings
     {
         private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
-        private void ShowRenderingMode()
-        {
-            bool isDisabled = App.Settings.Prop.WPFSoftwareRender;
-            string mode = isDisabled
-                ? "Software Rendering (Hardware Acceleration Disabled)"
-                : "Hardware Rendering (Hardware Acceleration Enabled)";
-
-            MessageBox.Show($"Current rendering mode: {mode}", "Rendering Mode", MessageBoxButton.OK, MessageBoxImage.Information);
-            MessageBox.Show($"IsFirstLaunch={App.Settings.Prop.IsFirstLaunch}\nWPFSoftwareRender={App.Settings.Prop.WPFSoftwareRender}");
-        }
-
-
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();
@@ -39,7 +27,6 @@ namespace Bloxstrap.UI.Elements.Settings
             DataContext = viewModel;
 
             InitializeComponent();
-            ShowRenderingMode();
 
             App.Logger.WriteLine("MainWindow", "Initializing settings window");
 
