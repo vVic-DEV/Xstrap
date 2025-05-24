@@ -840,7 +840,8 @@ Would you like to upgrade your currently installed version?</value>
     <value>Preview</value>
   </data>
   <data name="Menu.Appearance.Launcher.Description" xml:space="preserve">
-    <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.</value>
+    <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.
+Get Custom Launchers from Bloxstrap Discord Server</value>
   </data>
   <data name="Menu.Appearance.Launcher.Title" xml:space="preserve">
     <value>Launcher</value>

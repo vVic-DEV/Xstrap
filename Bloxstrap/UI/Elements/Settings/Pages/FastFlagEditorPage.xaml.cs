@@ -381,13 +381,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             SaveJSONToFile(formattedJson.ToString());
         }
 
-        private void CopyJSONButton_Click1(object sender, RoutedEventArgs e)
-        {
-            string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
-            Clipboard.SetText(json);
-        }
-
-        private void CopyJSONButton_Click2(object sender, RoutedEventArgs e)
+        private void CopyJSONButton_Click(object sender, RoutedEventArgs e)
         {
             var flags = App.FastFlags.Prop;
 

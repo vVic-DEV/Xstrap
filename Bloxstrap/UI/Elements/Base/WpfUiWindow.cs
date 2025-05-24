@@ -34,15 +34,54 @@ namespace Bloxstrap.UI.Elements.Base
 #endif
         }
 
+        // In your settings property class (or however you persist)
+        private bool? _isFirstLaunch;
+        public bool IsFirstLaunch
+        {
+            get
+            {
+                if (_isFirstLaunch == null)
+                    _isFirstLaunch = true;  // default true for first launch
+                return _isFirstLaunch.Value;
+            }
+            set => _isFirstLaunch = value;
+        }
+
+        private bool? _wpfSoftwareRender;
+        public bool WPFSoftwareRender
+        {
+            get
+            {
+                if (_wpfSoftwareRender == null)
+                    _wpfSoftwareRender = false; // default false
+                return _wpfSoftwareRender.Value;
+            }
+            set => _wpfSoftwareRender = value;
+        }
+
+
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
+
+            try
+            {
+                if (App.Settings.Prop.IsFirstLaunch)
+                {
+                    App.Settings.Prop.WPFSoftwareRender = true;
+                    App.Settings.Prop.IsFirstLaunch = false;
+                    App.Settings.Save();  // Make sure this actually writes your settings file
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("OnSourceInitialized", $"Settings update failed: {ex}");
+            }
 
             if (App.Settings.Prop.WPFSoftwareRender || App.LaunchSettings.NoGPUFlag.Active)
             {
                 if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
                 {
-                    // SoftwareOnly means hardware accel is removed for whoever is reading this!
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
                 }
             }

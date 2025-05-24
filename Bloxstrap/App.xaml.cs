@@ -3,14 +3,18 @@ using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Shell;
 using System.Windows.Threading;
-
 using Microsoft.Win32;
+using System.Net.Http;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Linq;
+using System.IO;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Bloxstrap
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
 #if QA_BUILD
@@ -26,12 +30,9 @@ namespace Bloxstrap
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
-        // Bloxshade Support
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 
-        // simple shorthand for extremely frequently used and long string - this goes under HKCU
         public const string UninstallKey = $@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{ProjectName}";
-
         public const string ApisKey = $"Software\\{ProjectName}";
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
@@ -42,12 +43,15 @@ namespace Bloxstrap
 
         public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
-        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
-        public static readonly string RobloxCookiesFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Roblox\LocalStorage\RobloxCookies.dat");
+        public static bool IsActionBuild => !string.IsNullOrEmpty(BuildMetadata.CommitRef);
+
+        public static readonly string RobloxCookiesFilePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            @"Roblox\LocalStorage\RobloxCookies.dat");
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
-        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+        public static bool IsStudioVisible => !string.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -70,31 +74,25 @@ namespace Bloxstrap
         );
 
         private static bool _showingExceptionDialog = false;
-        
+
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
-
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
-
             Environment.Exit(exitCodeNum);
         }
 
         public static void SoftTerminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
-
             Logger.WriteLine("App::SoftTerminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
-
             Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-
             Logger.WriteLine("App::GlobalExceptionHandler", "An exception occurred");
-
             FinalizeExceptionHandling(e.Exception);
         }
 
@@ -121,7 +119,7 @@ namespace Bloxstrap
             if (Bootstrapper?.Dialog != null)
             {
                 if (Bootstrapper.Dialog.TaskbarProgressValue == 0)
-                    Bootstrapper.Dialog.TaskbarProgressValue = 1; // make sure it's visible
+                    Bootstrapper.Dialog.TaskbarProgressValue = 1;
 
                 Bootstrapper.Dialog.TaskbarProgressState = TaskbarItemProgressState.Error;
             }
@@ -139,7 +137,7 @@ namespace Bloxstrap
             {
                 var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
 
-                if (releaseInfo is null || releaseInfo.Assets is null)
+                if (releaseInfo?.Assets == null)
                 {
                     Logger.WriteLine(LOG_IDENT, "Encountered invalid data");
                     return null;
@@ -150,14 +148,13 @@ namespace Bloxstrap
             catch (Exception ex)
             {
                 Logger.WriteException(LOG_IDENT, ex);
+                return null;
             }
-
-            return null;
         }
 
         public static void SendLog()
         {
-            
+            // Intentionally empty or implement your logging logic here
         }
 
         public static void AssertWindowsOSVersion()
@@ -165,13 +162,13 @@ namespace Bloxstrap
             const string LOG_IDENT = "App::AssertWindowsOSVersion";
 
             int major = Environment.OSVersion.Version.Major;
-            if (major < 10) // Windows 10 and newer only
+            if (major < 10)
             {
                 Logger.WriteLine(LOG_IDENT, $"Detected unsupported Windows version ({Environment.OSVersion.Version}).");
 
                 if (!LaunchSettings.QuietFlag.Active)
                     Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
-                
+
                 Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
             }
         }
@@ -186,25 +183,25 @@ namespace Bloxstrap
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
-            string userAgent = $"{ProjectName}/{Version}";
+            var userAgent = new StringBuilder($"{ProjectName}/{Version}");
 
             if (IsActionBuild)
             {
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
 
                 if (IsProductionBuild)
-                    userAgent += $" (Production)";
+                    userAgent.Append(" (Production)");
                 else
-                    userAgent += $" (Artifact {BuildMetadata.CommitHash}, {BuildMetadata.CommitRef})";
+                    userAgent.Append($" (Artifact {BuildMetadata.CommitHash}, {BuildMetadata.CommitRef})");
             }
             else
             {
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
 
 #if QA_BUILD
-                userAgent += " (QA)";
+                userAgent.Append(" (QA)");
 #else
-                userAgent += $" (Build {Convert.ToBase64String(Encoding.UTF8.GetBytes(BuildMetadata.Machine))})";
+                userAgent.Append($" (Build {Convert.ToBase64String(Encoding.UTF8.GetBytes(BuildMetadata.Machine))})");
 #endif
             }
 
@@ -213,34 +210,32 @@ namespace Bloxstrap
             Logger.WriteLine(LOG_IDENT, $"Temp path is {Paths.Temp}");
             Logger.WriteLine(LOG_IDENT, $"WindowsStartMenu path is {Paths.WindowsStartMenu}");
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
-            HttpClient.DefaultRequestHeaders.Add("User-Agent", userAgent);
+
+            if (!HttpClient.DefaultRequestHeaders.UserAgent.Any())
+                HttpClient.DefaultRequestHeaders.Add("User-Agent", userAgent.ToString());
 
             LaunchSettings = new LaunchSettings(e.Args);
 
-            // installation check begins here
             using var uninstallKey = Registry.CurrentUser.OpenSubKey(UninstallKey);
             string? installLocation = null;
             bool fixInstallLocation = false;
-            
-            if (uninstallKey?.GetValue("InstallLocation") is string value)
+
+            if (uninstallKey?.GetValue("InstallLocation") is string installLocValue)
             {
-                if (Directory.Exists(value))
+                if (Directory.Exists(installLocValue))
                 {
-                    installLocation = value;
+                    installLocation = installLocValue;
                 }
                 else
                 {
-                    // check if user profile folder has been renamed
-                    var match = Regex.Match(value, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
+                    var match = Regex.Match(installLocValue, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
 
                     if (match.Success)
                     {
-                        string newLocation = value.Replace(match.Value, Paths.UserProfile, StringComparison.InvariantCultureIgnoreCase);
+                        string newLocation = installLocValue.Replace(match.Value, Paths.UserProfile, StringComparison.InvariantCultureIgnoreCase);
 
                         if (Directory.Exists(newLocation))
                         {
@@ -251,12 +246,10 @@ namespace Bloxstrap
                 }
             }
 
-            // silently change install location if we detect a portable run
-            if (installLocation is null && Directory.GetParent(Paths.Process)?.FullName is string processDir)
+            if (installLocation == null && Directory.GetParent(Paths.Process)?.FullName is string processDir)
             {
-                var files = Directory.GetFiles(processDir).Select(x => Path.GetFileName(x)).ToArray();
+                var files = Directory.GetFiles(processDir).Select(Path.GetFileName).ToArray();
 
-                // check if settings.json and state.json are the only files in the folder
                 if (files.Length <= 3 && files.Contains("Settings.json") && files.Contains("State.json"))
                 {
                     installLocation = processDir;
@@ -264,7 +257,7 @@ namespace Bloxstrap
                 }
             }
 
-            if (fixInstallLocation && installLocation is not null)
+            if (fixInstallLocation && installLocation != null)
             {
                 var installer = new Installer
                 {
@@ -279,24 +272,22 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    // force reinstall
-                    installLocation = null;
+                    installLocation = null; // force reinstall
                 }
             }
 
-            if (installLocation is null)
+            if (installLocation == null)
             {
                 Logger.Initialize(true);
                 AssertWindowsOSVersion();
                 Logger.WriteLine(LOG_IDENT, "Not installed, launching the installer");
-                AssertWindowsOSVersion(); // prevent new installs from unsupported operating systems
+                AssertWindowsOSVersion();
                 LaunchHandler.LaunchInstaller();
             }
             else
             {
                 Paths.Initialize(installLocation);
 
-                // ensure executable is in the install directory
                 if (Paths.Process != Paths.Application && !File.Exists(Paths.Application))
                     File.Copy(Paths.Process, Paths.Application);
 
@@ -324,13 +315,10 @@ namespace Bloxstrap
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
 
-                WindowsRegistry.RegisterApis(); // we want to register those early on
-                                                // so we wont have any issues with bloxshade
+                WindowsRegistry.RegisterApis();
 
                 LaunchHandler.ProcessLaunchArgs();
             }
-
-            // you must *explicitly* call terminate when everything is done, it won't be called implicitly
         }
     }
 }

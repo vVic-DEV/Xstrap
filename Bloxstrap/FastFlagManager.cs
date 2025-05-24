@@ -55,6 +55,7 @@ namespace Bloxstrap
             { "Network.MeshPreloadding", "DFFlagEnableMeshPreloading2" },
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
+            { "Network.MaxApi", "DFIntApiRateLimit" },
 
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },
@@ -164,9 +165,9 @@ namespace Bloxstrap
             { "Network.RCore6", "DFIntSignalRCoreHubMaxBackoffMs"},
 
             // Large Replicator
-            { "Network.EnableLargeReplicator", "FFlagLargeReplicatorEnabled5"},
-            { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite3"},
-            { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead3"},
+            { "Network.EnableLargeReplicator", "FFlagLargeReplicatorEnabled6"},
+            { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite4"},
+            { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead4"},
 
             //MTU Size
             { "Network.Mtusize","DFIntConnectionMTUSize" },
@@ -189,6 +190,8 @@ namespace Bloxstrap
             { "System.TargetRefreshRate1", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
             { "System.TargetRefreshRate2", "FIntTargetRefreshRate" },
             { "System.TargetRefreshRate3", "FIntRefreshRateLowerBound" },
+            { "System.TargetRefreshRate4", "DFIntGraphicsOptimizationModeMaxFrameTimeTargetMs" },
+            { "System.TargetRefreshRate5", "DFIntGraphicsOptimizationModeMinFrameTimeTargetMs" },
     
             // GPU
             { "System.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},

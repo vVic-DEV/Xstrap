@@ -62,17 +62,10 @@
             <ui:Button
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"
-                Click="CopyJSONButton_Click1"
+                Click="CopyJSONButton_Click"
                 ClipToBounds="True"
                 Content="Copy all"
                 Icon="Clipboard16"/>
-            <ui:Button
-                Margin="0,0,10,16"
-                VerticalAlignment="Top"
-                Click="CopyJSONButton_Click2"
-                ClipToBounds="True"
-                Content="Copy Pretty JSON"
-                Icon="Copy16"/>
             <ui:Button
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"

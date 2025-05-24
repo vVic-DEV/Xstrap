@@ -31,7 +31,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
 
-            dialog.Message = String.Format(App.Settings.Prop.DownloadingStringFormat, "RobloxApp.zip", 30, 150);
+            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
+                dialog.Message = Strings.Bootstrapper_StylePreview_ImageCancel;
+            else
+                dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();

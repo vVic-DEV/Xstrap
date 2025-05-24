@@ -2997,7 +2997,8 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose how it should look. Dark theme does not apply to Legacy/Vista..
+        ///   Looks up a localized string similar to Choose how it should look. Dark theme does not apply to Legacy/Vista.
+        ///Get Custom Launchers from Bloxstrap Discord Server.
         /// </summary>
         public static string Menu_Appearance_Launcher_Description {
             get {

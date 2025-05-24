@@ -24,8 +24,6 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
-using System.Threading.Channels;
-using System.Windows.Controls;
 
 namespace Bloxstrap
 {
@@ -246,21 +244,12 @@ namespace Bloxstrap
                 }
             }
 
+            CleanupVersionsFolder(); // cleanup after background updater
+
             bool allModificationsApplied = true;
+
             if (!_noConnection)
             {
-                // we are checking if eurotrucks2 exists in client directory
-                if (
-                    File.Exists(Path.Combine(AppData.Directory, App.RobloxAnselAppName))
-                    )
-                {
-                    Frontend.ShowMessageBox(
-                        Strings.Bootstrapper_Dialog_AnselDisabled,
-                        MessageBoxImage.Warning
-                    );
-                    await UpgradeRoblox();
-                }
-
                 if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
                 {
                     bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
@@ -326,10 +315,6 @@ namespace Bloxstrap
         /// Will throw whatever HttpClient can throw
         /// </summary>
         /// <returns></returns>
-        /// <summary>
-        /// Will throw whatever HttpClient can throw
-        /// </summary>
-        /// <returns></returns>
         private async Task GetLatestVersionInfo()
         {
             const string LOG_IDENT = "Bootstrapper::GetLatestVersionInfo";
@@ -346,138 +331,52 @@ namespace Bloxstrap
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
-            // CHANNEL CHANGE MODE
-
-            void EnrollChannel()
+            if (App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data))
             {
-                if (match.Groups.Count == 2)
-                {
-                    Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
-                }
-                else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
-                {
-                    Deployment.Channel = value.ToLowerInvariant();
-                }
+                App.Logger.WriteLine(LOG_IDENT, $"Channel set to {App.LaunchSettings.ChannelFlag.Data} from arguments");
+                Deployment.Channel = App.LaunchSettings.ChannelFlag.Data.ToLowerInvariant();
             }
-
-            switch (App.Settings.Prop.ChannelChangeMode)
+            else if (match.Groups.Count == 2)
             {
-                case ChannelChangeMode.Automatic:
-                    App.Logger.WriteLine(LOG_IDENT, "Enrolling into channel");
-
-                    EnrollChannel();
-                    break;
-                case ChannelChangeMode.Prompt:
-                    App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
-
-                    if (
-                        (!match.Success || match.Groups.Count != 2)
-                        &&
-                        match.Groups[2].Value != App.Settings.Prop.Channel
-                        )
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Channel is either equal or incorrectly formatted");
-                        break;
-                    }
-
-                    string DisplayChannel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
-
-                    var Result = Frontend.ShowMessageBox(
-                    String.Format(Strings.Bootstrapper_Bootstrapper_Dialog_PromptChannelChange,
-                    DisplayChannel, App.Settings.Prop.Channel),
-                    MessageBoxImage.Question,
-                    MessageBoxButton.YesNo
-                    );
-
-                    if (Result == MessageBoxResult.Yes)
-                        EnrollChannel();
-                    break;
-                case ChannelChangeMode.Ignore:
-                    App.Logger.WriteLine(LOG_IDENT, "Ignoring channel enrollment");
-                    break;
+                Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
+            }
+            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
+            {
+                Deployment.Channel = value.ToLowerInvariant();
             }
 
             if (String.IsNullOrEmpty(Deployment.Channel))
                 Deployment.Channel = Deployment.DefaultChannel;
 
             App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
-
-            ClientVersion clientVersion;
-
-            try
+            if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
-                clientVersion = await Deployment.GetInfo(Deployment.Channel);
+                ClientVersion clientVersion;
+
+                try
+                {
+                    clientVersion = await Deployment.GetInfo();
+                }
+                catch (InvalidChannelException ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
+
+                    Deployment.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo();
+                }
+
+                key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+
+                _latestVersionGuid = clientVersion.VersionGuid;
+                _latestVersion = Utilities.ParseVersionSafe(clientVersion.Version);
             }
-            catch (InvalidChannelException ex)
+            else
             {
-                // copied from v2.5.4
-                // we are keeping similar logic just updated for newer apis
-
-                // If channel does not exist
-                if (ex.StatusCode == HttpStatusCode.NotFound)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
-                }
-                // If channel is not available to the user (private/internal release channel)
-                else if (ex.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because {App.Settings.Prop.Channel} is restricted for public use.");
-
-                    // Only prompt if user has channel switching mode set to something other than Automatic.
-                    if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
-                    {
-                        Frontend.ShowMessageBox(
-                            String.Format(
-                                Strings.Boostrapper_Dialog_UnauthorizedChannel,
-                                Deployment.Channel,
-                                Deployment.DefaultChannel
-                            ),
-                            MessageBoxImage.Information
-                        );
-                    }
-                }
-                else
-                {
-                    throw;
-                }
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo(Deployment.Channel);
-
-                App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                App.Settings.Save();
+                App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
+                _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
+                // we can't determine the version
             }
 
-            if (clientVersion.IsBehindDefaultChannel)
-            {
-                MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
-                {
-                    ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
-                        String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
-                        MessageBoxImage.Warning,
-                        MessageBoxButton.YesNo
-                    ),
-                    ChannelChangeMode.Automatic => MessageBoxResult.Yes,
-                    ChannelChangeMode.Ignore => MessageBoxResult.No,
-                    _ => MessageBoxResult.None
-                };
-
-                if (action == MessageBoxResult.Yes)
-                {
-                    App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
-
-                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo(Deployment.Channel);
-                }
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
-            }
-
-            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
-
-            _latestVersionGuid = clientVersion.VersionGuid;
-            _latestVersion = Utilities.ParseVersionSafe(clientVersion.Version);
             _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
@@ -690,7 +589,8 @@ namespace Bloxstrap
             // launch custom integrations now
             foreach (var integration in App.Settings.Prop.CustomIntegrations)
             {
-                if (!integration.SpecifyGame) {
+                if (!integration.SpecifyGame)
+                {
                     App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
 
                     int pid = 0;
@@ -722,10 +622,10 @@ namespace Bloxstrap
             {
                 using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
-                var watcherData = new WatcherData 
-                { 
-                    ProcessId = _appPid, 
-                    LogFile = logFileName, 
+                var watcherData = new WatcherData
+                {
+                    ProcessId = _appPid,
+                    LogFile = logFileName,
                     AutoclosePids = autoclosePids
                 };
 
@@ -1024,24 +924,6 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
 
-            bool CancelUpgrade = !App.Settings.Prop.UpdateRoblox;
-
-            if (CancelUpgrade)
-            {
-                SetStatus(Strings.Bootstrapper_Status_CancelUpgrade);
-                App.Logger.WriteLine(LOG_IDENT, "Upgrading disabled, cancelling the upgrade.");
-                Thread.Sleep(2000);
-            }
-
-            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory))
-            {
-                Frontend.ShowMessageBox(Strings.Bootstrapper_Dialog_NoUpgradeWithoutClient, MessageBoxImage.Warning, MessageBoxButton.OK);
-            }
-            else if (CancelUpgrade)
-            {
-                return;
-            }
-
             if (String.IsNullOrEmpty(AppData.State.VersionGuid))
                 SetStatus(Strings.Bootstrapper_Status_Installing);
             else
@@ -1213,24 +1095,6 @@ namespace Bloxstrap
 
             allPackageHashes.AddRange(App.RobloxState.Prop.Player.PackageHashes.Values);
             allPackageHashes.AddRange(App.RobloxState.Prop.Studio.PackageHashes.Values);
-
-            foreach (string hash in cachedPackageHashes)
-            {
-                if (!allPackageHashes.Contains(hash))
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
-
-                    try
-                    {
-                        File.Delete(Path.Combine(Paths.Downloads, hash));
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
-                }
-            }
 
             App.Logger.WriteLine(LOG_IDENT, "Registering approximate program size...");
 

@@ -21,6 +21,7 @@ namespace Bloxstrap.Models.Persistable
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
+        public bool IsFirstLaunch { get; set; } = true;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;

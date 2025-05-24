@@ -215,6 +215,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 App.FastFlags.SetPreset("Network.AssetPreloadding", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.MaxAssetPreload", value ? "2147483647" : null);
+                App.FastFlags.SetPreset("Network.MaxApi", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
                 App.FastFlags.SetPreset("Network.MeshPreloadding", value ? "True" : null);
             }
@@ -616,6 +617,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("System.TargetRefreshRate1", RefreshRates[value]);
                     App.FastFlags.SetPreset("System.TargetRefreshRate2", RefreshRates[value]);
                     App.FastFlags.SetPreset("System.TargetRefreshRate3", RefreshRates[value]);
+                    App.FastFlags.SetPreset("System.TargetRefreshRate4", RefreshRates[value]);
+                    App.FastFlags.SetPreset("System.TargetRefreshRate5", RefreshRates[value]);
                 }
             }
         }
