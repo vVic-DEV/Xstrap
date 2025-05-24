@@ -5036,7 +5036,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Loadding Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue).
+        ///   Looks up a localized string similar to [Loading Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue).
         /// </summary>
         public static string Menu_Help_LoaddingIssues {
             get {

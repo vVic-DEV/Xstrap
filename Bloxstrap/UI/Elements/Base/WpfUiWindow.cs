@@ -82,6 +82,7 @@ namespace Bloxstrap.UI.Elements.Base
             {
                 if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
                 {
+                    new FrameworkPropertyMetadata(1);
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
                 }
             }
