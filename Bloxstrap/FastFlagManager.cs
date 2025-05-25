@@ -105,6 +105,7 @@ namespace Bloxstrap
             { "System.CpuCore5", "FIntLuaGcParallelMinMultiTasks" },
             { "System.CpuCore6", "FIntSmoothClusterTaskQueueMaxParallelTasks" },
             { "System.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
+            { "System.CpuCore8", "FIntTaskSchedulerAutoThreadLimit" },
             { "System.CpuThreads", "DFIntRuntimeConcurrency"},
 
             // Cpu cores

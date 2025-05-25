@@ -274,7 +274,7 @@
     <value>[White Sky / White Screen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
   </data>
   <data name="Menu.Help.Crashonfastcameraturn" xml:space="preserve">
-    <value>[Crashing When Moving Camera Quickly](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
+    <value>[Crash On Fast Camera Turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
   </data>
   <data name="Menu.Help.BootstrapperIssues" xml:space="preserve">
     <value>Bootstrapper Issues</value>
@@ -1907,7 +1907,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Channel</value>
   </data>
   <data name="Menu.ChannelChanger.Description" xml:space="preserve">
-    <value>Sets the deployment channel for Froststrap. Do not change unless you what you’re doing!</value>
+    <value>Sets the deployment channel. Do not change unless you what you’re doing!</value>
   </data>
   <data name="Common.Version" xml:space="preserve">
     <value>Version</value>

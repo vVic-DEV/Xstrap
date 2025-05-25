@@ -3429,7 +3429,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sets the deployment channel for Froststrap. Do not change unless you what you’re doing!.
+        ///   Looks up a localized string similar to Sets the deployment channel. Do not change unless you what you’re doing!.
         /// </summary>
         public static string Menu_ChannelChanger_Description {
             get {
@@ -4872,7 +4872,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Crashing When Moving Camera Quickly](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast).
+        ///   Looks up a localized string similar to [Crash On Fast Camera Turn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast).
         /// </summary>
         public static string Menu_Help_Crashonfastcameraturn {
             get {

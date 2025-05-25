@@ -727,11 +727,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     int adjustedValue = Math.Max(parsedValue - 1, 1); // Ensure the value does not go below on one
                     App.FastFlags.SetPreset("System.CpuThreads", adjustedValue.ToString());
                     OnPropertyChanged(nameof(SelectedCpuThreads));
+                    App.FastFlags.SetPreset("System.CpuCore8", adjustedValue.ToString());
+                    OnPropertyChanged(nameof(SelectedCpuThreads));
                 }
                 else
                 {
                     // Handle the case where value.Value is null or not a valid integer
                     App.FastFlags.SetPreset("System.CpuThreads", null);
+                    OnPropertyChanged(nameof(SelectedCpuThreads));
+                    App.FastFlags.SetPreset("System.CpuCore8", null);
                     OnPropertyChanged(nameof(SelectedCpuThreads));
                 }
 
