@@ -81,15 +81,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 value = value.Trim();
                 Task.Run(() => LoadChannelDeployInfo(value));
-                
-                if (value.ToLower() == "live" || value.ToLower() == "zlive") // we are replacing those to prevent any issues
-                {
-                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                } else {
-                    App.Settings.Prop.Channel = value;
-                }
+
+                App.Settings.Prop.Channel = value;
             }
         }
+
 
         public string ChannelHash
         {
