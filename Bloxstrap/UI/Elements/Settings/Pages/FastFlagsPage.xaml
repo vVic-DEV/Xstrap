@@ -138,6 +138,64 @@
             </ui:CardExpander.Header>
 
             <StackPanel>
+
+
+                <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="14" Text="Basic Flags" />
+                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="These are very basic fflags. Self explanatory" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+                    <StackPanel>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePlayerShadows_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding DisablePlayerShadows, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePostFX_Title}"
+                    HelpLink="https://create.roblox.com/docs/environment/post-processing-effects">
+                            <ui:ToggleSwitch IsChecked="{Binding DisablePostFX, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableTerrainTextures_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding DisableTerrainTextures, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding RemoveGrass, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding GraySky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableClouds_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding DisableSky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_GrayAvatars_Title}">
+                            <ui:ToggleSwitch IsChecked="{Binding GraySky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+
+                    </StackPanel>
+                </ui:CardExpander>
+
+
                 <controls:OptionControl 
                         Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Title}"
                         Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Description}">
@@ -151,25 +209,9 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePlayerShadows_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding DisablePlayerShadows, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisablePostFX_Title}"
-                    HelpLink="https://create.roblox.com/docs/environment/post-processing-effects">
-                    <ui:ToggleSwitch IsChecked="{Binding DisablePostFX, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableTerrainTextures_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding DisableTerrainTextures, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Title}"
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Description}">
-                    <ui:ToggleSwitch IsChecked="{Binding RemoveGrass, Mode=TwoWay}" />
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MinimalRendering_Title}"
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MinimalRendering_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -177,12 +219,6 @@
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
                     HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
                     <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Title}"
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Description}">
-                    <ui:ToggleSwitch IsChecked="{Binding GraySky, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -327,10 +363,22 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_NoDisconnectMessage_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_NoDisconnectMessage_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding NoDisconnectMessage, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableAds_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableAds_Description}"
                     HelpLink="https://create.roblox.com/docs/production/promotion/advertise-on-roblox">
-                    <ui:ToggleSwitch IsChecked="{Binding FullscreenTitlebarDisabled, Mode=TwoWay}" />
+                    <ui:ToggleSwitch IsChecked="{Binding DisableAds, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HidesPurchaseUI_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_HidesPurchaseUI_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding RemoveBuyGui, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -357,13 +405,31 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Misc" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Misc" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="Privacy" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Configure settings that helps protect your privacy" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
-
             <StackPanel>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Title}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-telemetry">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WebView2Telemetry_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WebView2Telemetry_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableWebview2Telemetry, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Tencent_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Tencent_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding BlockTencent, Mode=TwoWay}" />
+                </controls:OptionControl>
 
             </StackPanel>
         </ui:CardExpander>
@@ -448,12 +514,6 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Description}">
-                    <ui:TextBox Width="200" Margin="5,0,0,0" Padding="10,5,10,5" PreviewTextInput="ValidateUInt32" Text="{Binding FPSBufferPercentage, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding AndroidVfs, Mode=TwoWay}" />
@@ -470,6 +530,12 @@
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LowPolyMeshes_Description}"
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#low-poly-meshes" >
                     <ui:ToggleSwitch IsChecked="{Binding LowPolyMeshes, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Description}">
+                    <ui:TextBox Width="200" Margin="5,0,0,0" Padding="10,5,10,5" PreviewTextInput="ValidateUInt32" Text="{Binding FPSBufferPercentage, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl
@@ -545,13 +611,6 @@
             <StackPanel>
 
                 <controls:OptionControl
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Description}"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Title}"
-                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-telemetry">
-                    <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_ReduceLagSpikes_Description}"
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_ReduceLagSpikes_Title}"
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes">
@@ -599,6 +658,36 @@
                 </controls:OptionControl>
                 
                 
+            </StackPanel>
+        </ui:CardExpander>
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="Misc" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Fun FFlags" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+            <StackPanel>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_UnthemedInstances_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_UnthemedInstances_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding UnthemedInstances, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreCharacters_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreCharacters_Description}">
+                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding TextElongation, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
+                </controls:OptionControl>
+
             </StackPanel>
         </ui:CardExpander>
 

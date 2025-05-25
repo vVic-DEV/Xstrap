@@ -1453,11 +1453,59 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.NewFPSSystem.Description" xml:space="preserve">
     <value>Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better.</value>
   </data>
+  <data name="Menu.FastFlags.Presets.UnthemedInstances.Title" xml:space="preserve">
+    <value>Extended Color Support</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.UnthemedInstances.Description" xml:space="preserve">
+    <value>Applies a variety of random colors to text and UI elements that typically lack color. Note: This setting may cause certain games to look strange and discolored.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MinimalRendering.Title" xml:space="preserve">
+    <value>Minimal Rendering</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MinimalRendering.Description" xml:space="preserve">
+    <value>Renders certain terrain and textures at a lower quality, potentially improving performance.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableClouds.Title" xml:space="preserve">
+    <value>Disable Clouds</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.GrayAvatars.Title" xml:space="preserve">
+    <value>Gray Avatars</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HidesPurchaseUI.Title" xml:space="preserve">
+    <value>Hide Purchase UI</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HidesPurchaseUI.Description" xml:space="preserve">
+    <value>Disables or Hides the Gamepass purchase UI to prevent it from appearing during gameplay.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WebView2Telemetry.Description" xml:space="preserve">
+    <value>Note: This setting disables a large majority of Roblox's WebView2 telemetry, but not all.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WebView2Telemetry.Title" xml:space="preserve">
+    <value>Webview2 Telemetry</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Tencent.Description" xml:space="preserve">
+    <value>Note: This setting blocks some data collection by Tencent and the Chinese government, but not all.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Tencent.Title" xml:space="preserve">
+    <value>Block Tencent</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MoreCharacters.Description" xml:space="preserve">
+    <value>Spams alternate letters in CoreGui and game UI, excluding some elements.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MoreCharacters.Title" xml:space="preserve">
+    <value>More Characters</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Description" xml:space="preserve">
+    <value>Waits for internet to return instead of showing a disconnect message.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Title" xml:space="preserve">
+    <value>No Disconnect Message</value>
+  </data>
   <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Title" xml:space="preserve">
     <value>FPS Buffer Percent</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Description" xml:space="preserve">
-    <value>Determines how much extra time Roblox will take to create new frames before they are shown. Note: Can directly improve DFIntMaxFrameBufferSize</value>
+    <value>Determines how much extra time Roblox takes to prepare frames (0–100). Can improve DFIntMaxFrameBufferSize.</value>
   </data>
   <data name="Menu.FastFlags.Presets.RemoveGrass.Title" xml:space="preserve">
     <value>Disable Grass</value>
@@ -1953,7 +2001,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Disable Roblox telemetry</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry.Description" xml:space="preserve">
-    <value>Note: This only disables some of Roblox’s telemetry, not all.</value>
+    <value>Note: This setting disables a large majority of Roblox's telemetry, but not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
     <value>Telemetry</value>

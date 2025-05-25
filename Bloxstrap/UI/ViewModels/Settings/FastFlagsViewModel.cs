@@ -177,6 +177,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool DisableWebview2Telemetry
+        {
+            get => App.FastFlags?.GetPreset("Telemetry.Webview1") == "www.youtube-nocookie.com";
+            set
+            {
+                App.FastFlags.SetPreset("Telemetry.Webview1", value ? "www.youtube-nocookie.com" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview2", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview3", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview4", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview5", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview6", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview7", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview8", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Webview9", value ? "0" : null);
+            }
+        }
+
+        public bool BlockTencent
+        {
+            get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "XiJinpingProMafia";
+            set
+            {
+                App.FastFlags.SetPreset("Telemetry.Tencent1", value ? "XiJinpingProMafia" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent2", value ? "XiJinpingProMafia" : null);
+            }
+        }
+
         public bool WorserParticles
         {
             get => App.FastFlags?.GetPreset("Rendering.WorserParticles1") == "False";
@@ -208,6 +235,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("System.GpuCulling", value ? "True" : null);
                 App.FastFlags.SetPreset("System.CpuCulling", value ? "True" : null);
             }
+        }
+
+        public bool GrayAvatars
+        {
+            get => App.FastFlags.GetPreset("Rendering.GrayAvatars") == "0";
+            set => App.FastFlags.SetPreset("Rendering.GrayAvatars", value ? "0" : null);
         }
 
         public bool MemoryProbing
@@ -244,6 +277,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.MaxApi", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
                 App.FastFlags.SetPreset("Network.MeshPreloadding", value ? "True" : null);
+                App.FastFlags.SetPreset("Network.ClientAssetPreloading", value ? "True" : null);
             }
         }
 
@@ -510,6 +544,46 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.FastFlags.GetPreset("Rendering.AvoidSleep") == "True";
             set => App.FastFlags.SetPreset("Rendering.AvoidSleep", value ? "True" : null);
+        }
+
+        public bool MinimalRendering
+        {
+            get => App.FastFlags.GetPreset("Rendering.MinimalRendering") == "True";
+            set => App.FastFlags.SetPreset("Rendering.MinimalRendering", value ? "True" : null);
+        }
+
+        public bool DisableSky
+        {
+            get => App.FastFlags.GetPreset("Rendering.NoFrmBloom") == "False";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.NoFrmBloom", value ? "False" : null);
+                App.FastFlags.SetPreset("Rendering.FRMRefactor", value ? "False" : null);
+            }
+        }
+
+        public bool UnthemedInstances
+        {
+            get => App.FastFlags.GetPreset("UI.UnthemedInstances") == "True";
+            set => App.FastFlags.SetPreset("UI.UnthemedInstances", value ? "True" : null);
+        }
+
+        public bool RemoveBuyGui
+        {
+            get => App.FastFlags.GetPreset("UI.RemoveBuyGui") == "True";
+            set => App.FastFlags.SetPreset("UI.RemoveBuyGui", value ? "True" : null);
+        }
+
+        public bool NoDisconnectMessage
+        {
+            get => App.FastFlags.GetPreset("UI.NoDisconnectMsg") == "2147483647";
+            set => App.FastFlags.SetPreset("UI.NoDisconnectMsg", value ? "2147483647" : null);
+        }
+
+        public int? TextElongation
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("UI.TextElongation"), out int x) ? x : 1;
+            set => App.FastFlags.SetPreset("UI.TextElongation", value == 1 ? null : value);
         }
 
         public bool DisablePlayerShadows

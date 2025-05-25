@@ -56,6 +56,7 @@ namespace Bloxstrap
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
             { "Network.MaxApi", "DFIntApiRateLimit" },
+            { "Network.ClientAssetPreloading", "DFFlagTeleportClientAssetPreloadingEnabled9" },
 
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },
@@ -131,6 +132,44 @@ namespace Bloxstrap
             { "Telemetry.Point", "FFlagDebugDisableTelemetryPoint" },
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
             { "Telemetry.RemoveHardcodedV2URL", "DFFlagTelemetryRemoveHardcodedV2URL" },
+
+            // Disable webview2 telemetry
+            { "Telemetry.Webview1", "DFStringWebviewUrlAllowlist" },
+            { "Telemetry.Webview2", "DFFlagWindowsWebViewTelemetryEnabled" },
+            { "Telemetry.Webview3", "DFIntMacWebViewTelemetryThrottleHundredthsPercent" },
+            { "Telemetry.Webview4", "DFIntWindowsWebViewTelemetryThrottleHundredthsPercent" },
+            { "Telemetry.Webview5", "FIntStudioWebView2TelemetryHundredthsPercent" },
+            { "Telemetry.Webview6", "FFlagSyncWebViewCookieToEngine2" },
+            { "Telemetry.Webview7", "FFlagUpdateHTTPCookieStorageFromWKWebView" },
+            { "Telemetry.Webview8", "FFlagEnableIOSWebViewCookieSyncFix" },
+            { "Telemetry.Webview9", "FIntBootstrapperWebView2InstallationTelemetryHundredthPercent" },
+
+            // Block Tencent
+            { "Telemetry.Tencent1", "FStringTencentAuthPath" },
+            { "Telemetry.Tencent2", "FLogTencentAuthPath" },
+
+            
+            // Minimal Rendering
+            { "Rendering.MinimalRendering", "FFlagDebugRenderingSetDeterministic"},
+
+            // Remove Sky/Clouds
+            { "Rendering.NoFrmBloom", "FFlagRenderNoLowFrmBloom"},
+            { "Rendering.FRMRefactor", "FFlagFRMRefactor"},
+
+            // Unthemed Instances
+            { "UI.UnthemedInstances", "FFlagDebugDisplayUnthemedInstances" },
+
+            // Remove Buy Gui
+            { "UI.RemoveBuyGui", "DFFlagOrder66" },
+
+            // More characters in text
+            { "UI.TextElongation", "FIntDebugTextElongationFactor" },
+
+            // No Disconnect Message
+            { "UI.NoDisconnectMsg", "DFIntDefaultTimeoutTimeMs" },
+
+            // Gray Avatars
+            { "Rendering.GrayAvatars", "DFIntTextureCompositorActiveJobs" },
 
             // Cpu cores
             { "System.CpuCoreMinThreadCount", "FIntTaskSchedulerAsyncTasksMinimumThreadCount"},
