@@ -3185,7 +3185,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “Allows for more than one Roblox instance to be opened simultaneously. May cause issues with desktop app..
+        ///   Looks up a localized string similar to Allows for more than one Roblox instance to be opened simultaneously. May cause issues with desktop app..
         /// </summary>
         public static string Menu_Behaviour_MultiInstances_Description {
             get {
@@ -3531,7 +3531,8 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings..
+        ///   Looks up a localized string similar to Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in 
+        ///Froststrap’s FastFlag Settings..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
@@ -4134,11 +4135,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Force Async Threads”.
+        ///   Looks up a localized string similar to Force Async Threads.
         /// </summary>
         public static string Menu_FastFlags_Presets_ForceProcessor_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.ForceProcessor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determines how much extra time Roblox will take to create new frames before they are shown. Note: Can directly improve DFIntMaxFrameBufferSize.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_FPSBufferPercentage_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.FPSBufferPercentage.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FPS Buffer Percent.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_FPSBufferPercentage_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.FPSBufferPercentage.Title", resourceCulture);
             }
         }
         
@@ -4386,6 +4405,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_NewFPSSystem_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.NewFPSSystem.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New FPS System.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_NewFPSSystem_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.NewFPSSystem.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Potentially improves network performance by applying SignalR optimizations to RCore..
         /// </summary>
         public static string Menu_FastFlags_Presets_NoPayloadLimit_Description {
@@ -4413,7 +4450,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Override Graphics Quality Level”.
+        ///   Looks up a localized string similar to Override Graphics Quality Level.
         /// </summary>
         public static string Menu_FastFlags_Presets_OverrideGraphicQuality_Title {
             get {
@@ -4512,7 +4549,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Removes Roblox’s default grass textures. Note: This setting does not affect custom grass textures used by individual games.&quot;.
+        ///   Looks up a localized string similar to Removes Roblox’s default grass textures. Note: This setting does not affect custom grass textures used by individual games..
         /// </summary>
         public static string Menu_FastFlags_Presets_RemoveGrass_Description {
             get {
@@ -4602,7 +4639,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “Note: This only disables some of Roblox’s telemetry, not all..
+        ///   Looks up a localized string similar to Note: This only disables some of Roblox’s telemetry, not all..
         /// </summary>
         public static string Menu_FastFlags_Presets_Telemetry_Description {
             get {
@@ -5436,8 +5473,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Displays player joins/leaves and messages.
-        ///		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837)..
+        ///   Looks up a localized string similar to Displays player joins/leaves and messages. Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837)..
         /// </summary>
         public static string Menu_Integrations_PlayerMessageLogs_Description {
             get {

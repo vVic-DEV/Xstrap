@@ -154,6 +154,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 App.FastFlags.SetPreset("Telemetry.TelemetryV2Url", value ? "0.0.0.0" : null);
                 App.FastFlags.SetPreset("Telemetry.RemoveHardcodedV2URL", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.GraphicsQualityUsage", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.GpuVsCpuBound", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.RenderFidelity", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.RenderDistance", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.PhysicsSolverPerf", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.AudioPlugin", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.FmodErrors", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.SoundLength", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.AssetRequestV1", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.DeviceRAM", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.TelemetryFlush", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.V2FrameRateMetrics", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.GlobalSkipUpdating", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.CallbackSafety", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.V2PointEncoding", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.ReplaceSeparator", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.EpCounter", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.EpStats", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.Event", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.Point", value ? "True" : null);
             }
         }
 
@@ -194,6 +214,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.FastFlags.GetPreset("Memory.Probe") == "True";
             set => App.FastFlags.SetPreset("Memory.Probe", value ? "True" : null);
+        }
+
+        public bool NewFpsSystem
+        {
+            get => App.FastFlags.GetPreset("Rendering.NewFpsSystem") == "True";
+            set => App.FastFlags.SetPreset("Rendering.NewFpsSystem", value ? "True" : null);
         }
 
         public bool BGRA
@@ -518,6 +544,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset(
                     "Network.Mtusize",
                     clamped >= 576 ? clamped.ToString() : null
+                );
+            }
+        }
+
+        public int FPSBufferPercentage
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Rendering.FrameRateBufferPercentage"), out int x) ? x : 0;
+            set
+            {
+                int clamped = Math.Max(0, Math.Min(100, value));
+                App.FastFlags.SetPreset(
+                    "Rendering.FrameRateBufferPercentage",
+                    clamped >= 1 ? clamped.ToString() : null
                 );
             }
         }

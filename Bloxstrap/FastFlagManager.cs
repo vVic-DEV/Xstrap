@@ -108,8 +108,36 @@ namespace Bloxstrap
             { "System.CpuCore8", "FIntTaskSchedulerAutoThreadLimit" },
             { "System.CpuThreads", "DFIntRuntimeConcurrency"},
 
+            // Telemetry
+            { "Telemetry.GraphicsQualityUsage", "DFFlagGraphicsQualityUsageTelemetry" },
+            { "Telemetry.GpuVsCpuBound", "DFFlagGpuVsCpuBoundTelemetry" },
+            { "Telemetry.RenderFidelity", "DFFlagSendRenderFidelityTelemetry" },
+            { "Telemetry.RenderDistance", "DFFlagReportRenderDistanceTelemetry" },
+            { "Telemetry.PhysicsSolverPerf", "DFFlagSimSolverSendPerfTelemetryToElasticSearch2" },
+            { "Telemetry.AudioPlugin", "DFFlagCollectAudioPluginTelemetry" },
+            { "Telemetry.FmodErrors", "DFFlagEnableFmodErrorsTelemetry" },
+            { "Telemetry.SoundLength", "DFFlagRccLoadSoundLengthTelemetryEnabled" },
+            { "Telemetry.AssetRequestV1", "DFFlagReportAssetRequestV1Telemetry" },
+            { "Telemetry.DeviceRAM", "DFFlagRobloxTelemetryAddDeviceRAMPointsV2" },
+            { "Telemetry.TelemetryFlush", "DFFlagRemoveTelemetryFlushOnJobClose" },
+            { "Telemetry.V2FrameRateMetrics", "DFFlagEnableTelemetryV2FRMStats" },
+            { "Telemetry.GlobalSkipUpdating", "DFFlagEnableSkipUpdatingGlobalTelemetryInfo2" },
+            { "Telemetry.CallbackSafety", "DFFlagEmitSafetyTelemetryInCallbackEnable" },
+            { "Telemetry.V2PointEncoding", "DFFlagRobloxTelemetryV2PointEncoding" },
+            { "Telemetry.ReplaceSeparator", "DFFlagDSTelemetryV2ReplaceSeparator" },
+            { "Telemetry.EpCounter", "FFlagDebugDisableTelemetryEphemeralCounter" },
+            { "Telemetry.EpStats", "FFlagDebugDisableTelemetryEphemeralStat" },
+            { "Telemetry.Event", "FFlagDebugDisableTelemetryEventIngest" },
+            { "Telemetry.Point", "FFlagDebugDisableTelemetryPoint" },
+            { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
+            { "Telemetry.RemoveHardcodedV2URL", "DFFlagTelemetryRemoveHardcodedV2URL" },
+
             // Cpu cores
             { "System.CpuCoreMinThreadCount", "FIntTaskSchedulerAsyncTasksMinimumThreadCount"},
+
+            // New Fps System
+            { "Rendering.NewFpsSystem", "FFlagEnableFPSAndFrameTime"},
+            { "Rendering.FrameRateBufferPercentage", "FIntMaquettesFrameRateBufferPercentage"},
 
             // Light Cullings
             { "System.GpuCulling", "FFlagFastGPULightCulling3" },
@@ -150,12 +178,6 @@ namespace Bloxstrap
 
             // Fonts
             { "UI.FontSize", "FIntFontSizePadding" },
-
-
-            // Telemetry
-            { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
-            { "Telemetry.RemoveHardcodedV2URL", "DFFlagTelemetryRemoveHardcodedV2URL" },
-
 
             // RCore
             { "Network.RCore1", "DFIntSignalRCoreServerTimeoutMs"},

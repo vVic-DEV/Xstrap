@@ -349,6 +349,25 @@
             </StackPanel>
         </ui:CardExpander>
 
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="Misc" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Misc" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+
+            </StackPanel>
+        </ui:CardExpander>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Experimental}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
@@ -420,6 +439,18 @@
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BGRA_Description}"
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bgra-support" >
                     <ui:ToggleSwitch IsChecked="{Binding BGRA, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_NewFPSSystem_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_NewFPSSystem_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding NewFpsSystem, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Description}">
+                    <ui:TextBox Width="200" Margin="5,0,0,0" Padding="10,5,10,5" PreviewTextInput="ValidateUInt32" Text="{Binding FPSBufferPercentage, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 

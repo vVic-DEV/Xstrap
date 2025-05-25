@@ -957,7 +957,8 @@ There are {0} conflicting flag definitions:
     <value>Delete selected</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings.</value>
+    <value>Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in 
+Froststrap’s FastFlag Settings.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
@@ -1285,7 +1286,7 @@ Some text might not be translated to preferred language.</value>
     <value>May potentially improve performance on low-end devices only.</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceProcessor.Title" xml:space="preserve">
-    <value>Force Async Threads”</value>
+    <value>Force Async Threads</value>
   </data>
   <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">
     <value>Prevents idling in Roblox’s task scheduler, allowing it to run as many tasks as possible.</value>
@@ -1327,7 +1328,7 @@ Some text might not be translated to preferred language.</value>
     <value>Sets the initial graphics quality amount when joining a new game.</value>
   </data>
   <data name="Menu.FastFlags.Presets.OverrideGraphicQuality.Title" xml:space="preserve">
-    <value>Override Graphics Quality Level”</value>
+    <value>Override Graphics Quality Level</value>
   </data>
 	<data name="Menu.FastFlags.Presets.OverrideGraphicQuality.Description" xml:space="preserve">
     <value>Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will now only affect the render distance in a game.</value>
@@ -1446,11 +1447,23 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.GraySky.Description" xml:space="preserve">
     <value>Sets the sky to gray in certain games. Note: This setting does not affect games that use custom skyboxes.</value>
   </data>
+  <data name="Menu.FastFlags.Presets.NewFPSSystem.Title" xml:space="preserve">
+    <value>New FPS System</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.NewFPSSystem.Description" xml:space="preserve">
+    <value>Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Title" xml:space="preserve">
+    <value>FPS Buffer Percent</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Description" xml:space="preserve">
+    <value>Determines how much extra time Roblox will take to create new frames before they are shown. Note: Can directly improve DFIntMaxFrameBufferSize</value>
+  </data>
   <data name="Menu.FastFlags.Presets.RemoveGrass.Title" xml:space="preserve">
     <value>Disable Grass</value>
   </data>
 	<data name="Menu.FastFlags.Presets.RemoveGrass.Description" xml:space="preserve">
-    <value>Removes Roblox’s default grass textures. Note: This setting does not affect custom grass textures used by individual games."</value>
+    <value>Removes Roblox’s default grass textures. Note: This setting does not affect custom grass textures used by individual games.</value>
   </data>
   <data name="Menu.FastFlags.Presets.WorserParticles.Title" xml:space="preserve">
     <value>Low Quality Particles</value>
@@ -1934,13 +1947,13 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Multi-instance launching</value>
   </data>
   <data name="Menu.Behaviour.MultiInstances.Description" xml:space="preserve">
-    <value>“Allows for more than one Roblox instance to be opened simultaneously. May cause issues with desktop app.</value>
+    <value>Allows for more than one Roblox instance to be opened simultaneously. May cause issues with desktop app.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry.Title" xml:space="preserve">
     <value>Disable Roblox telemetry</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry.Description" xml:space="preserve">
-    <value>“Note: This only disables some of Roblox’s telemetry, not all.</value>
+    <value>Note: This only disables some of Roblox’s telemetry, not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
     <value>Telemetry</value>
@@ -2046,8 +2059,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Player and Message logs</value>
   </data>
   <data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
-    <value>Displays player joins/leaves and messages.
-		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
+    <value>Displays player joins/leaves and messages. Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
   </data>
   <data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
     <value>Ansel support is required for shaders.</value>
