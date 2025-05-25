@@ -4,8 +4,8 @@
 > This project has nothing to do with Hellstrap/Voidstrap, so please don't bring drama from that bootstrapper
 
 <p align="center">
-    <img src="https://github.com/Meddsam/Froststrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="420">
-    <img src="https://github.com/Meddsam/Froststrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="420">
+    <img src="https://github.com/Meddsam/Froststrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="700">
+    <img src="https://github.com/Meddsam/Froststrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="700">
 </p>
 
 <div align="center">
