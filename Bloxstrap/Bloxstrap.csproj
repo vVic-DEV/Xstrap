@@ -74,16 +74,16 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
-	<EmbeddedResource Include="Resources\PresetFlags\Stoof High Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Stoof Optimal Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Stoof Balanced Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Stoof Low Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Stoof Trash Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Mahorgas Default Graphics V3" />
-    <EmbeddedResource Include="Resources\PresetFlags\Mahorgas Low Graphics V8" />
-	<EmbeddedResource Include="Resources\PresetFlags\Mahorgas Trash Graphics V14" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s High Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Optimal Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Balanced Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Low Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Trash Graphics V31" />
+	<EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Default Graphics V3" />
+    <EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Low Graphics V8" />
+	<EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Trash Graphics V14" />
 	<EmbeddedResource Include="Resources\PresetFlags\Obsurd V3 x Unterial V5" />
-	<EmbeddedResource Include="Resources\PresetFlags\5070 Latency Pack V27" />
+	<EmbeddedResource Include="Resources\PresetFlags\5070%27s Latency Pack V27" />
   </ItemGroup>
 
   <ItemGroup>

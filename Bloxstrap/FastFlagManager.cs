@@ -253,7 +253,9 @@ namespace Bloxstrap
             { TextureSkipping.Skip5x, "5" },
             { TextureSkipping.Skip6x, "6" },
             { TextureSkipping.Skip7x, "7" },
-            { TextureSkipping.Skip8x, "8" }
+            { TextureSkipping.Skip8x, "8" },
+            { TextureSkipping.Skip9x, "9" },
+            { TextureSkipping.Skip10x, "10" },
         };
         public static IReadOnlyDictionary<TextureQuality, string?> TextureQualityLevels => new Dictionary<TextureQuality, string?>
         {
@@ -287,6 +289,7 @@ namespace Bloxstrap
             { RefreshRate.RefreshRate4, "165" },
             { RefreshRate.RefreshRate5, "180" },
             { RefreshRate.RefreshRate6, "240" },
+            { RefreshRate.RefreshRate7, "360" },
 
 
         };

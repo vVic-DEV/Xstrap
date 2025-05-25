@@ -16,5 +16,7 @@
         RefreshRate5,
         [EnumName(StaticName = "240 Hz")]
         RefreshRate6,
+        [EnumName(StaticName = "360 Hz")]
+        RefreshRate7,
     }
 }

@@ -514,7 +514,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => int.TryParse(App.FastFlags.GetPreset("Network.Mtusize"), out int x) ? x : 0;
             set
             {
-                int clamped = Math.Max(0, Math.Min(1492, value));
+                int clamped = Math.Max(0, Math.Min(1500, value));
                 App.FastFlags.SetPreset(
                     "Network.Mtusize",
                     clamped >= 576 ? clamped.ToString() : null

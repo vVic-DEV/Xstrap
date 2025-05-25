@@ -27,6 +27,12 @@
         Skip7x,
 
         [EnumName(StaticName = "8x")]
-        Skip8x
+        Skip8x,
+
+        [EnumName(StaticName = "9x")]
+        Skip9x,
+
+        [EnumName(StaticName = "10x")]
+        Skip10x,
     }
 }
