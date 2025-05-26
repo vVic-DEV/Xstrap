@@ -3793,6 +3793,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These are very basic fflags. Self explanatory.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BasicFFlags_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BasicFFlags.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic FastFlags.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BasicFFlags_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BasicFFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can potentially improve rendering speeds and performance on GPUs that support BGRA..
         /// </summary>
         public static string Menu_FastFlags_Presets_BGRA_Description {
@@ -3955,6 +3973,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shows you chunks similar to Minecraft..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Chunks_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Chunks.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Chunks.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Chunks_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Chunks.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure visual and performance settings for Roblox’s engine..
         /// </summary>
         public static string Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo {
@@ -3991,6 +4027,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turns off Roblox’s Layered Clothing system to stop extra clothing layers from rendering on avatars..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableLayeredClothing_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableLayeredClothing.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Layered Clothing.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableLayeredClothing_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableLayeredClothing.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disable player shadows.
         /// </summary>
         public static string Menu_FastFlags_Presets_DisablePlayerShadows_Title {
@@ -4014,6 +4068,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_DisableTerrainTextures_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.DisableTerrainTextures.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: Ts settings disables the large majority of Roblox&apos;s VoiceChat Telemetry, but not all..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable VoiceChat Telemetry.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Title", resourceCulture);
             }
         }
         
@@ -4423,6 +4495,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure Fun and Experimental Features.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Misc_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Misc.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Spams alternate letters in CoreGui and game UI, excluding some elements..
         /// </summary>
         public static string Menu_FastFlags_Presets_MoreCharacters_Description {
@@ -4495,7 +4576,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waits for internet to return instead of showing a disconnect message..
+        ///   Looks up a localized string similar to Will freeze everyone in-game permanently when your internet disconnects..
         /// </summary>
         public static string Menu_FastFlags_Presets_NoDisconnectMessage_Description {
             get {
@@ -4527,6 +4608,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_NoPayloadLimit_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.NoPayloadLimit.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revert back to the old 2024 Chrome ui..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_OldChromeUI_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.OldChromeUI.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old Chrome UI.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_OldChromeUI_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.OldChromeUI.Title", resourceCulture);
             }
         }
         
@@ -4585,6 +4684,42 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure settings that helps protect your privacy.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Privacy_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Privacy.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Privacy_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Privacy.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replaces standard Roblox text with a spooky, demonic-style font..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Pseudolocalization_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Pseudolocalization.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pseudolocalization.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Pseudolocalization_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Pseudolocalization.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stabilizes connection by optimizing roblox&apos;s core..
         /// </summary>
         public static string Menu_FastFlags_Presets_RCore_Description {
@@ -4599,6 +4734,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_RCore_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.RCore.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applys a Red Color to all the Text..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RedFont_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RedFont.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red Font.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RedFont_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RedFont.Title", resourceCulture);
             }
         }
         
@@ -4810,7 +4963,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Extended Color Support.
+        ///   Looks up a localized string similar to Rainbow UI/Textures.
         /// </summary>
         public static string Menu_FastFlags_Presets_UnthemedInstances_Title {
             get {
@@ -4828,11 +4981,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Webview2 Telemetry.
+        ///   Looks up a localized string similar to Disable Webview2 Telemetry.
         /// </summary>
         public static string Menu_FastFlags_Presets_WebView2Telemetry_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.WebView2Telemetry.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes the color of the sky to white. Note: this uses gray sky flag.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_WhiteSky_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.WhiteSky.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White Sky.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_WhiteSky_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.WhiteSky.Title", resourceCulture);
             }
         }
         

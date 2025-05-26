@@ -158,13 +158,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Telemetry.GpuVsCpuBound", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.RenderFidelity", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.RenderDistance", value ? "False" : null);
-                App.FastFlags.SetPreset("Telemetry.PhysicsSolverPerf", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.AudioPlugin", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.FmodErrors", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.SoundLength", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.AssetRequestV1", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.DeviceRAM", value ? "False" : null);
-                App.FastFlags.SetPreset("Telemetry.TelemetryFlush", value ? "True" : null);
                 App.FastFlags.SetPreset("Telemetry.V2FrameRateMetrics", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.GlobalSkipUpdating", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.CallbackSafety", value ? "False" : null);
@@ -174,6 +172,34 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Telemetry.EpStats", value ? "True" : null);
                 App.FastFlags.SetPreset("Telemetry.Event", value ? "True" : null);
                 App.FastFlags.SetPreset("Telemetry.Point", value ? "True" : null);
+            }
+        }
+
+        public bool DisableVoiceChatTelemetry
+        {
+            get => App.FastFlags?.GetPreset("Telemetry.Voicechat1") == "False";
+            set
+            {
+                App.FastFlags.SetPreset("Telemetry.Voicechat1", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat2", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat3", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat4", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat5", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat6", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat7", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat8", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat9", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat10", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat11", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat12", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat13", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat14", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat15", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat16", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat17", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat18", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat19", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.Voicechat20", value ? "-1" : null);
             }
         }
 
@@ -189,18 +215,40 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Telemetry.Webview5", value ? "0" : null);
                 App.FastFlags.SetPreset("Telemetry.Webview6", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.Webview7", value ? "False" : null);
-                App.FastFlags.SetPreset("Telemetry.Webview8", value ? "False" : null);
-                App.FastFlags.SetPreset("Telemetry.Webview9", value ? "0" : null);
+            }
+        }
+
+        public bool OldChromeUI
+        {
+            get => App.FastFlags?.GetPreset("UI.OldChromeUI1") == "False";
+            set
+            {
+                App.FastFlags.SetPreset("UI.OldChromeUI1", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI2", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI3", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI4", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI5", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI6", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI7", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI8", value ? "True" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI9", value ? "False" : null);
+                App.FastFlags.SetPreset("UI.OldChromeUI10", value ? "False" : null);
             }
         }
 
         public bool BlockTencent
         {
-            get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "XiJinpingProMafia";
+            get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "/tencent/";
             set
             {
-                App.FastFlags.SetPreset("Telemetry.Tencent1", value ? "XiJinpingProMafia" : null);
-                App.FastFlags.SetPreset("Telemetry.Tencent2", value ? "XiJinpingProMafia" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent1", value ? "/tencent/" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent2", value ? "/tencent/" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent3", value ? "https://www.gov.cn" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent4", value ? "https://www.gov.cn" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent5", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent6", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent7", value ? "10000" : null);
+
             }
         }
 
@@ -237,10 +285,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool WhiteSky
+        {
+            get => App.FastFlags.GetPreset("Graphic.WhiteSky") == "True";
+            set
+            {
+                App.FastFlags.SetPreset("Graphic.WhiteSky", value ? "True" : null);
+                App.FastFlags.SetPreset("Graphic.GraySky", value ? "True" : null);
+            }
+        }
+
         public bool GrayAvatars
         {
             get => App.FastFlags.GetPreset("Rendering.GrayAvatars") == "0";
             set => App.FastFlags.SetPreset("Rendering.GrayAvatars", value ? "0" : null);
+        }
+
+        public bool ShowChunks
+        {
+            get => App.FastFlags.GetPreset("Debug.Chunks") == "True";
+            set => App.FastFlags.SetPreset("Debug.Chunks", value ? "True" : null);
         }
 
         public bool MemoryProbing
@@ -370,6 +434,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Debug.PingBreakdown", value ? "True" : null);
         }
 
+        public bool Pseudolocalization
+        {
+            get => App.FastFlags.GetPreset("UI.Pseudolocalization") == "True";
+            set => App.FastFlags.SetPreset("UI.Pseudolocalization", value ? "True" : null);
+        }
+
         public bool UseFastFlagManager
         {
             get => App.Settings.Prop.UseFastFlagManager;
@@ -413,8 +483,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public MSAAMode SelectedMSAALevel
         {
-            get => MSAALevels.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA")).Key;
-            set => App.FastFlags.SetPreset("Rendering.MSAA", MSAALevels[value]);
+            get => MSAALevels.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA1")).Key;
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.MSAA1", MSAALevels[value]);
+                App.FastFlags.SetPreset("Rendering.MSAA2", MSAALevels[value]);
+
+            }
         }
 
         public IReadOnlyDictionary<TextureQuality, string?> TextureQualities => FastFlagManager.TextureQualityLevels;
@@ -580,6 +655,18 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("UI.NoDisconnectMsg", value ? "2147483647" : null);
         }
 
+        public bool RedFont
+        {
+            get => App.FastFlags.GetPreset("UI.RedFont") == "rbxasset://fonts/families/BuilderSans.json";
+            set => App.FastFlags.SetPreset("UI.RedFont", value ? "rbxasset://fonts/families/BuilderSans.json" : null);
+        }
+
+        public bool DisableLayeredClothing
+        {
+            get => App.FastFlags.GetPreset("UI.DisableLayeredClothing") == "-1";
+            set => App.FastFlags.SetPreset("UI.DisableLayeredClothing", value ? "-1" : null);
+        }
+
         public int? TextElongation
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.TextElongation"), out int x) ? x : 1;
@@ -730,8 +817,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("System.TargetRefreshRate1", RefreshRates[value]);
                     App.FastFlags.SetPreset("System.TargetRefreshRate2", RefreshRates[value]);
                     App.FastFlags.SetPreset("System.TargetRefreshRate3", RefreshRates[value]);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate4", RefreshRates[value]);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate5", RefreshRates[value]);
                 }
             }
         }
@@ -834,6 +919,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("System.CpuCore6", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
                 App.FastFlags.SetPreset("System.CpuCore7", value.Value);
+                OnPropertyChanged(nameof(SelectedCpuThreads));
+                App.FastFlags.SetPreset("System.CpuCore9", value.Value);
                 OnPropertyChanged(nameof(SelectedCpuThreads));
                 if (value.Value != null && int.TryParse(value.Value, out int parsedValue)) // sets cputhreads to the selected amount minus 1
                 {

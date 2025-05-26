@@ -1454,7 +1454,7 @@ Some text might not be translated to preferred language.</value>
     <value>Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better.</value>
   </data>
   <data name="Menu.FastFlags.Presets.UnthemedInstances.Title" xml:space="preserve">
-    <value>Extended Color Support</value>
+    <value>Rainbow UI/Textures</value>
   </data>
   <data name="Menu.FastFlags.Presets.UnthemedInstances.Description" xml:space="preserve">
     <value>Applies a variety of random colors to text and UI elements that typically lack color. Note: This setting may cause certain games to look strange and discolored.</value>
@@ -1481,7 +1481,46 @@ Some text might not be translated to preferred language.</value>
     <value>Note: This setting disables a large majority of Roblox's WebView2 telemetry, but not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.WebView2Telemetry.Title" xml:space="preserve">
-    <value>Webview2 Telemetry</value>
+    <value>Disable Webview2 Telemetry</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Pseudolocalization.Description" xml:space="preserve">
+    <value>Replaces standard Roblox text with a spooky, demonic-style font.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Pseudolocalization.Title" xml:space="preserve">
+    <value>Pseudolocalization</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Description" xml:space="preserve">
+    <value>Note: Ts settings disables the large majority of Roblox's VoiceChat Telemetry, but not all.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Title" xml:space="preserve">
+    <value>Disable VoiceChat Telemetry</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.OldChromeUI.Description" xml:space="preserve">
+    <value>Revert back to the old 2024 Chrome ui.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.OldChromeUI.Title" xml:space="preserve">
+    <value>Old Chrome UI</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BasicFFlags.Title" xml:space="preserve">
+    <value>Basic FastFlags</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BasicFFlags.Description" xml:space="preserve">
+    <value>These are very basic fflags. Self explanatory</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Misc.Description" xml:space="preserve">
+    <value>Configure Fun and Experimental Features</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Privacy.Title" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Privacy.Description" xml:space="preserve">
+    <value>Configure settings that helps protect your privacy</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WhiteSky.Title" xml:space="preserve">
+    <value>White Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WhiteSky.Description" xml:space="preserve">
+    <value>Changes the color of the sky to white. Note: this uses gray sky flag</value>
   </data>
   <data name="Menu.FastFlags.Presets.Tencent.Description" xml:space="preserve">
     <value>Note: This setting blocks some data collection by Tencent and the Chinese government, but not all.</value>
@@ -1496,10 +1535,28 @@ Some text might not be translated to preferred language.</value>
     <value>More Characters</value>
   </data>
   <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Description" xml:space="preserve">
-    <value>Waits for internet to return instead of showing a disconnect message.</value>
+    <value>Will freeze everyone in-game permanently when your internet disconnects.</value>
   </data>
   <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Title" xml:space="preserve">
     <value>No Disconnect Message</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RedFont.Description" xml:space="preserve">
+    <value>Applys a Red Color to all the Text.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RedFont.Title" xml:space="preserve">
+    <value>Red Font</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description" xml:space="preserve">
+    <value>Turns off Roblox’s Layered Clothing system to stop extra clothing layers from rendering on avatars.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Title" xml:space="preserve">
+    <value>Disable Layered Clothing</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Chunks.Description" xml:space="preserve">
+    <value>Shows you chunks similar to Minecraft.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Chunks.Title" xml:space="preserve">
+    <value>Show Chunks</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Title" xml:space="preserve">
     <value>FPS Buffer Percent</value>

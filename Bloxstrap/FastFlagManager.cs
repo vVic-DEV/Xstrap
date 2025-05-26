@@ -34,8 +34,9 @@ namespace Bloxstrap
             // BGRA
             { "Rendering.BGRA", "FFlagD3D11SupportBGRA" },
 
-            // Gray Sky
+            // Sky
             { "Graphic.GraySky", "FFlagDebugSkyGray" },
+            { "Graphic.WhiteSky", "FFlagSkyUseRGBEEncoding" },
 
             // Low Poly Meshes
             { "Rendering.LowPolyMeshes1", "DFIntCSGLevelOfDetailSwitchingDistance" },
@@ -76,6 +77,9 @@ namespace Bloxstrap
             { "UI.DisableAds5", "FFlagEnableSponsoredTooltipForAvatarCatalog2" },
             { "UI.DisableAds6", "FFlagLuaAppSponsoredGridTiles" },
 
+            // Pseudolocalization
+            { "UI.Pseudolocalization", "FFlagDebugEnablePseudolocalization" },
+
             // Worser Particles
             { "Rendering.WorserParticles1", "FFlagFixOutdatedParticles2" },
             { "Rendering.WorserParticles2", "FFlagFixOutdatedTimeScaleParticles" },
@@ -91,12 +95,14 @@ namespace Bloxstrap
             { "Rendering.LimitFramerate", "FFlagTaskSchedulerLimitTargetFpsTo2402" },
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
-            { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
+            { "Rendering.MSAA1", "FIntDebugForceMSAASamples" },
+            { "Rendering.MSAA2", "FIntDebugFRMOptionalMSAALevelOverride" },
             { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
 
             // Debug
             { "Debug.FlagState", "FStringDebugShowFlagState" },
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
+            { "Debug.Chunks", "FFlagDebugLightGridShowChunks" },
 
             // Force Logical Processors
             { "System.CpuCore1", "DFIntInterpolationNumParallelTasks" },
@@ -107,6 +113,7 @@ namespace Bloxstrap
             { "System.CpuCore6", "FIntSmoothClusterTaskQueueMaxParallelTasks" },
             { "System.CpuCore7", "DFIntPhysicsReceiveNumParallelTasks" },
             { "System.CpuCore8", "FIntTaskSchedulerAutoThreadLimit" },
+            { "System.CpuCore9", "FIntSimWorldTaskQueueParallelTasks" },
             { "System.CpuThreads", "DFIntRuntimeConcurrency"},
 
             // Telemetry
@@ -114,13 +121,11 @@ namespace Bloxstrap
             { "Telemetry.GpuVsCpuBound", "DFFlagGpuVsCpuBoundTelemetry" },
             { "Telemetry.RenderFidelity", "DFFlagSendRenderFidelityTelemetry" },
             { "Telemetry.RenderDistance", "DFFlagReportRenderDistanceTelemetry" },
-            { "Telemetry.PhysicsSolverPerf", "DFFlagSimSolverSendPerfTelemetryToElasticSearch2" },
             { "Telemetry.AudioPlugin", "DFFlagCollectAudioPluginTelemetry" },
             { "Telemetry.FmodErrors", "DFFlagEnableFmodErrorsTelemetry" },
             { "Telemetry.SoundLength", "DFFlagRccLoadSoundLengthTelemetryEnabled" },
             { "Telemetry.AssetRequestV1", "DFFlagReportAssetRequestV1Telemetry" },
             { "Telemetry.DeviceRAM", "DFFlagRobloxTelemetryAddDeviceRAMPointsV2" },
-            { "Telemetry.TelemetryFlush", "DFFlagRemoveTelemetryFlushOnJobClose" },
             { "Telemetry.V2FrameRateMetrics", "DFFlagEnableTelemetryV2FRMStats" },
             { "Telemetry.GlobalSkipUpdating", "DFFlagEnableSkipUpdatingGlobalTelemetryInfo2" },
             { "Telemetry.CallbackSafety", "DFFlagEmitSafetyTelemetryInCallbackEnable" },
@@ -133,7 +138,29 @@ namespace Bloxstrap
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
             { "Telemetry.RemoveHardcodedV2URL", "DFFlagTelemetryRemoveHardcodedV2URL" },
 
-            // Disable webview2 telemetry
+            // Voicechat Telemetry
+            { "Telemetry.Voicechat1", "DFFlagVoiceChatCullingRecordEventIngestTelemetry" },
+            { "Telemetry.Voicechat2", "DFFlagVoiceChatJoinProfilingUsingTelemetryStat_RCC" },
+            { "Telemetry.Voicechat3", "DFFlagVoiceChatPossibleDuplicateSubscriptionsTelemetry" },
+            { "Telemetry.Voicechat4", "DFIntVoiceChatTaskStatsTelemetryThrottleHundrethsPercent" },
+            { "Telemetry.Voicechat5", "FFlagEnableLuaVoiceChatAnalyticsV2" },
+            { "Telemetry.Voicechat6", "FFlagLuaVoiceChatAnalyticsBanMessage" },
+            { "Telemetry.Voicechat7", "FFlagLuaVoiceChatAnalyticsUseCounterV2" },
+            { "Telemetry.Voicechat8", "FFlagLuaVoiceChatAnalyticsUseEventsV2" },
+            { "Telemetry.Voicechat9", "FFlagLuaVoiceChatAnalyticsUsePointsV2" },
+            { "Telemetry.Voicechat10", "FFlagVoiceChatCullingEnableMutedSubsTelemetry" },
+            { "Telemetry.Voicechat11", "FFlagVoiceChatCullingEnableStaleSubsTelemetry" },
+            { "Telemetry.Voicechat12", "FFlagVoiceChatCustomAudioDeviceEnableNeedMorePlayoutTelemetry" },
+            { "Telemetry.Voicechat13", "FFlagVoiceChatCustomAudioDeviceEnableNeedMorePlayoutTelemetry3" },
+            { "Telemetry.Voicechat14", "FFlagVoiceChatCustomAudioMixerEnableUpdateSourcesTelemetry2" },
+            { "Telemetry.Voicechat15", "FFlagVoiceChatDontSendTelemetryForPubIceTrickle" },
+            { "Telemetry.Voicechat16", "FFlagVoiceChatPeerConnectionTelemetryDetails" },
+            { "Telemetry.Voicechat17", "FFlagVoiceChatRobloxAudioDeviceUpdateRecordedBufferTelemetryEnabled" },
+            { "Telemetry.Voicechat18", "FFlagVoiceChatSubscriptionsDroppedTelemetry" },
+            { "Telemetry.Voicechat19", "FIntLuaVoiceChatAnalyticsPointsThrottle" },
+            { "Telemetry.Voicechat20", "FIntVoiceChatPerfSensitiveTelemetryIntervalSeconds" },
+
+            // Webview2 telemetry
             { "Telemetry.Webview1", "DFStringWebviewUrlAllowlist" },
             { "Telemetry.Webview2", "DFFlagWindowsWebViewTelemetryEnabled" },
             { "Telemetry.Webview3", "DFIntMacWebViewTelemetryThrottleHundredthsPercent" },
@@ -141,16 +168,31 @@ namespace Bloxstrap
             { "Telemetry.Webview5", "FIntStudioWebView2TelemetryHundredthsPercent" },
             { "Telemetry.Webview6", "FFlagSyncWebViewCookieToEngine2" },
             { "Telemetry.Webview7", "FFlagUpdateHTTPCookieStorageFromWKWebView" },
-            { "Telemetry.Webview8", "FFlagEnableIOSWebViewCookieSyncFix" },
-            { "Telemetry.Webview9", "FIntBootstrapperWebView2InstallationTelemetryHundredthPercent" },
 
             // Block Tencent
             { "Telemetry.Tencent1", "FStringTencentAuthPath" },
             { "Telemetry.Tencent2", "FLogTencentAuthPath" },
+            { "Telemetry.Tencent3", "FStringXboxExperienceGuidelinesUrl" },
+            { "Telemetry.Tencent4", "FStringExperienceGuidelinesExplainedPageUrl" },
+            { "Telemetry.Tencent5", "DFFlagPolicyServiceReportIsNotSubjectToChinaPolicies" },
+            { "Telemetry.Tencent6", "DFFlagPolicyServiceReportDetailIsNotSubjectToChinaPolicies" },
+            { "Telemetry.Tencent7", "DFIntPolicyServiceReportDetailIsNotSubjectToChinaPoliciesHundredthsPercentage" },
 
             
             // Minimal Rendering
             { "Rendering.MinimalRendering", "FFlagDebugRenderingSetDeterministic"},
+
+            // Old ChromeUI
+            { "UI.OldChromeUI1", "FFlagEnableHamburgerIcon"},
+            { "UI.OldChromeUI2", "FFlagEnableUnibarV4IA"},
+            { "UI.OldChromeUI3", "FFlagEnableAlwaysOpenUnibar2"},
+            { "UI.OldChromeUI4", "FFlagUseNewUnibarIcon"},
+            { "UI.OldChromeUI5", "FFlagUseSelfieViewFlatIcon"},
+            { "UI.OldChromeUI6", "FFlagUnibarRespawn"},
+            { "UI.OldChromeUI7", "FFlagEnableChromePinIntegrations2"},
+            { "UI.OldChromeUI8", "FFlagEnableUnibarMaxDefaultOpen"},
+            { "UI.OldChromeUI9", "FFlagUpdateHealthBar"},
+            { "UI.OldChromeUI10", "FFlagUseNewPinIcon"},
 
             // Remove Sky/Clouds
             { "Rendering.NoFrmBloom", "FFlagRenderNoLowFrmBloom"},
@@ -158,6 +200,12 @@ namespace Bloxstrap
 
             // Unthemed Instances
             { "UI.UnthemedInstances", "FFlagDebugDisplayUnthemedInstances" },
+
+            // Red Font
+            { "UI.RedFont", "FStringDebugHighlightSpecificFont" },
+
+            // Disable Layered Clothing
+            { "UI.DisableLayeredClothing", "DFIntLCCageDeformLimit" },
 
             // Remove Buy Gui
             { "UI.RemoveBuyGui", "DFFlagOrder66" },
@@ -250,10 +298,8 @@ namespace Bloxstrap
 
             // Refresh Rate
             { "System.TargetRefreshRate1", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
-            { "System.TargetRefreshRate2", "FIntTargetRefreshRate" },
-            { "System.TargetRefreshRate3", "FIntRefreshRateLowerBound" },
-            { "System.TargetRefreshRate4", "DFIntGraphicsOptimizationModeMaxFrameTimeTargetMs" },
-            { "System.TargetRefreshRate5", "DFIntGraphicsOptimizationModeMinFrameTimeTargetMs" },
+            { "System.TargetRefreshRate2", "DFIntGraphicsOptimizationModeMaxFrameTimeTargetMs" },
+            { "System.TargetRefreshRate3", "DFIntGraphicsOptimizationModeMinFrameTimeTargetMs" },
     
             // GPU
             { "System.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
@@ -299,6 +345,7 @@ namespace Bloxstrap
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>
         {
             { MSAAMode.Default, null },
+            { MSAAMode.x0, "0" },
             { MSAAMode.x1, "1" },
             { MSAAMode.x2, "2" },
             { MSAAMode.x4, "4" },

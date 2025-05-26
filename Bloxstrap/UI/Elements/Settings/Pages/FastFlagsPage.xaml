@@ -148,8 +148,8 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="14" Text="Basic Flags" />
-                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="These are very basic fflags. Self explanatory" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_BasicFFlags_Title}" />
+                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_BasicFFlags_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                             </StackPanel>
                         </Grid>
                     </ui:CardExpander.Header>
@@ -369,6 +369,12 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_OldChromeUI_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_OldChromeUI_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding OldChromeUI, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableAds_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableAds_Description}"
                     HelpLink="https://create.roblox.com/docs/production/promotion/advertise-on-roblox">
@@ -405,8 +411,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Privacy" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Configure settings that helps protect your privacy" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Privacy_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Privacy_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -423,6 +429,12 @@
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WebView2Telemetry_Description}"
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WebView2Telemetry_Title}">
                     <ui:ToggleSwitch IsChecked="{Binding DisableWebview2Telemetry, Mode=TwoWay}" />
+                </controls:OptionControl>
+                
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableVoiceChatTelemetry, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl
@@ -517,6 +529,12 @@
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding AndroidVfs, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding WhiteSky, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -669,8 +687,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Misc" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Fun FFlags" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Miscellaneous}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Misc_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -680,6 +698,24 @@
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_UnthemedInstances_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_UnthemedInstances_Description}" >
                     <ui:ToggleSwitch IsChecked="{Binding UnthemedInstances, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RedFont_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RedFont_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding RedFont, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Pseudolocalization_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Pseudolocalization_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding Pseudolocalization, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableLayeredClothing_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableLayeredClothing_Description}" >
+                    <ui:ToggleSwitch IsChecked="{Binding DisableLayeredClothing, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
@@ -694,18 +730,27 @@
         <TextBlock Text="{x:Static resources:Strings.Common_Debug}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <StackPanel>
+
             <controls:OptionControl 
-                    x:Name="FlagStateOption"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Description}">
-                <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Chunks_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Chunks_Description}" >
+                <ui:ToggleSwitch IsChecked="{Binding ShowChunks, Mode=TwoWay}" />
             </controls:OptionControl>
+
             <controls:OptionControl 
-                    x:Name="PingBreakdownOption"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Description}">
+                x:Name="PingBreakdownOption"
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Description}">
                 <ui:ToggleSwitch IsChecked="{Binding PingBreakdown, Mode=TwoWay}" />
             </controls:OptionControl>
+
+            <controls:OptionControl 
+                x:Name="FlagStateOption"
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Description}">
+                <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
+            </controls:OptionControl>
+
         </StackPanel>
     </StackPanel>
 </ui:UiPage>
