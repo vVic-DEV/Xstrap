@@ -223,7 +223,7 @@
     <value>OK</value>
   </data>
   <data name="Menu.Help.Description" xml:space="preserve">
-    <value>This will provide you with information about fixes and other details (it will direct you to the wiki page).</value>
+    <value>This will provide you with information about fixes and other details (it will redirect you to the wiki page).</value>
   </data>
   <data name="Menu.Help.FFlagIssues" xml:space="preserve">
     <value>Common FFlag Issues</value>
@@ -253,7 +253,7 @@
     <value>[Black Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
    </data>
   <data name="Menu.Help.RainbowUiTextures" xml:space="preserve">
-    <value>[Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
+    <value>[Rainbow Colored UI/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
   </data>
   <data name="Menu.Help.LoaddingIssues" xml:space="preserve">
     <value>[Loading Issues](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
@@ -895,10 +895,10 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
     <value>Back</value>
   </data>
   <data name="Menu.Bootstrapper.CleanUp.Title" xml:space="preserve">
-    <value>Frostpstrap Cleaner</value>
+    <value>Froststrap Cleaner</value>
   </data>
 	<data name="Menu.Bootstrapper.CleanUp.Description" xml:space="preserve">
-    <value>Froststrap will remove old data to save Storage space</value>
+    <value>Froststrap will remove old data to save storage space</value>
   </data>
 	<data name="Enums.CleanerOptions.Never" xml:space="preserve">
     <value>Never</value>
@@ -916,7 +916,7 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
     <value>After 2 months</value>
   </data>
 	<data name="Menu.Bootstrapper.Cleaner.Age.Title" xml:space="preserve">
-    <value>When should the files get deleted</value>
+    <value>File Deletion Schedule”</value>
   </data>
 	<data name="Menu.Bootstrapper.Cleaner.Age.Description" xml:space="preserve">
     <value>Files older than the set amount will be deleted.</value>
@@ -957,8 +957,7 @@ There are {0} conflicting flag definitions:
     <value>Delete selected</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in 
-Froststrap’s FastFlag Settings.</value>
+    <value>Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
@@ -1295,7 +1294,7 @@ Some text might not be translated to preferred language.</value>
     <value>Avoid Task Scheduler Sleep</value>
   </data>
   <data name="Menu.FastFlags.Presets.MemoryProbing.Description" xml:space="preserve">
-    <value>Optimize memory usage for low-end System.</value>
+    <value>Optimizes memory usage for Low-End Systems.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MemoryProbing.Title" xml:space="preserve">
     <value>Memory Probing</value>
@@ -1313,13 +1312,16 @@ Some text might not be translated to preferred language.</value>
     <value>Configure settings that change how your PC behaves with Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.SystemExperimental.Description" xml:space="preserve">
+    <value>Configure Experimental settings that change how your PC behaves with Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.SystemExperimental.Description" xml:space="preserve">
     <value>Configure experimental features that change how your computer behaves with Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Network.Title" xml:space="preserve">
     <value>Network</value>
   </data>
 	<data name="Menu.FastFlags.Presets.Categories.Network.Description" xml:space="preserve">
-    <value>Configure network settings to potentially improve performance</value>
+    <value>Configure network settings to potentially improve performance.</value>
   </data>
   <data name="Menu.FastFlags.Presets.StartingGraphicLevel.Title" xml:space="preserve">
     <value>Starting Graphics Level</value>
@@ -1331,7 +1333,7 @@ Some text might not be translated to preferred language.</value>
     <value>Override Graphics Quality Level</value>
   </data>
 	<data name="Menu.FastFlags.Presets.OverrideGraphicQuality.Description" xml:space="preserve">
-    <value>Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will now only affect the render distance in a game.</value>
+    <value>Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will only affect the render distance in a game.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureSkipping.Title" xml:space="preserve">
     <value>Texture Skipping</value>
@@ -1349,13 +1351,13 @@ Some text might not be translated to preferred language.</value>
     <value>Remove Payload Limit</value>
   </data>
 	<data name="Menu.FastFlags.Presets.NoPayloadLimit.Description" xml:space="preserve">
-    <value>Potentially improves network performance by applying SignalR optimizations to RCore.</value>
+    <value>Disables Roblox’s network data transfer limit. Note: Enabling this setting could lead to network overhead if the packets being sent are too large. Use at your own risk!”</value>
   </data>
 	<data name="Menu.FastFlags.Presets.RCore.Title" xml:space="preserve">
     <value>Roblox Core</value>
   </data>
 	<data name="Menu.FastFlags.Presets.RCore.Description" xml:space="preserve">
-    <value>Stabilizes connection by optimizing roblox's core.</value>
+    <value>Potentially improve network performance by applying SignalR optimizations to RCore</value>
   </data>
 	<data name="Menu.FastFlags.Presets.LargeReplicator.Title" xml:space="preserve">
     <value>Large Replicator</value>
@@ -1415,7 +1417,7 @@ Some text might not be translated to preferred language.</value>
     <value>Disable Ads</value>
   </data>
   <data name="Menu.FastFlags.Presets.BypassVulkan.Description" xml:space="preserve">
-    <value>Overrides the Vulkan GPU support checks to allow unsupported hardware to run on the Vulkan API. Note: This setting may be highly unstable and cause severe rendering issues!</value>
+    <value>Overrides the Vulkan GPU support checks to allow unsupported hardware to run on the Vulkan API. Note: This setting may be highly unstable and can cause severe rendering issues!</value>
   </data>
   <data name="Menu.FastFlags.Presets.BypassVulkan.Title" xml:space="preserve">
     <value>Bypass Vulkan</value>
@@ -1448,10 +1450,10 @@ Some text might not be translated to preferred language.</value>
     <value>Sets the sky to gray in certain games. Note: This setting does not affect games that use custom skyboxes.</value>
   </data>
   <data name="Menu.FastFlags.Presets.NewFPSSystem.Title" xml:space="preserve">
-    <value>New FPS System</value>
+    <value>New Frame Performance System</value>
   </data>
   <data name="Menu.FastFlags.Presets.NewFPSSystem.Description" xml:space="preserve">
-    <value>Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better.</value>
+    <value>Configures Roblox to use their new beta FPS and frametime system. Enabling this setting may potentially improve frame and input timing.</value>
   </data>
   <data name="Menu.FastFlags.Presets.UnthemedInstances.Title" xml:space="preserve">
     <value>Rainbow UI/Textures</value>
@@ -1481,7 +1483,7 @@ Some text might not be translated to preferred language.</value>
     <value>Note: This setting disables a large majority of Roblox's WebView2 telemetry, but not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.WebView2Telemetry.Title" xml:space="preserve">
-    <value>Disable Webview2 Telemetry</value>
+    <value>Disable WebView2 Telemetry</value>
   </data>
   <data name="Menu.FastFlags.Presets.Pseudolocalization.Description" xml:space="preserve">
     <value>Replaces standard Roblox text with a spooky, demonic-style font.</value>
@@ -1490,10 +1492,10 @@ Some text might not be translated to preferred language.</value>
     <value>Pseudolocalization</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Description" xml:space="preserve">
-    <value>Note: Ts settings disables the large majority of Roblox's VoiceChat Telemetry, but not all.</value>
+    <value>Note: This settings disables the large majority of Roblox's VoiceChat Telemetry, but not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Title" xml:space="preserve">
-    <value>Disable VoiceChat Telemetry</value>
+    <value>Disable Voice Chat Telemetry</value>
   </data>
   <data name="Menu.FastFlags.Presets.OldChromeUI.Description" xml:space="preserve">
     <value>Revert back to the old 2024 Chrome ui.</value>
@@ -1505,22 +1507,22 @@ Some text might not be translated to preferred language.</value>
     <value>Basic FastFlags</value>
   </data>
   <data name="Menu.FastFlags.Presets.BasicFFlags.Description" xml:space="preserve">
-    <value>These are very basic fflags. Self explanatory</value>
+    <value>These are very basic fflags. Self explanatory.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Misc.Description" xml:space="preserve">
-    <value>Configure Fun and Experimental Features</value>
+    <value>Configure fun and experimental features.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Privacy.Title" xml:space="preserve">
     <value>Privacy</value>
   </data>
   <data name="Menu.FastFlags.Presets.Privacy.Description" xml:space="preserve">
-    <value>Configure settings that helps protect your privacy</value>
+    <value>Configure settings that help protect your privacy.</value>
   </data>
   <data name="Menu.FastFlags.Presets.WhiteSky.Title" xml:space="preserve">
     <value>White Sky</value>
   </data>
   <data name="Menu.FastFlags.Presets.WhiteSky.Description" xml:space="preserve">
-    <value>Changes the color of the sky to white. Note: this uses gray sky flag</value>
+    <value>Changes the color of the sky to white. Note: this uses gray sky flag.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Tencent.Description" xml:space="preserve">
     <value>Note: This setting blocks some data collection by Tencent and the Chinese government, but not all.</value>
@@ -1529,10 +1531,10 @@ Some text might not be translated to preferred language.</value>
     <value>Block Tencent</value>
   </data>
   <data name="Menu.FastFlags.Presets.MoreCharacters.Description" xml:space="preserve">
-    <value>Spams alternate letters in CoreGui and game UI, excluding some elements.</value>
+    <value>Repeats letters in most GUI text to expand it. Higher values will increase the effect. Note: Some UI elements may be unaffected.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MoreCharacters.Title" xml:space="preserve">
-    <value>More Characters</value>
+    <value>More Text Characters</value>
   </data>
   <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Description" xml:space="preserve">
     <value>Will freeze everyone in-game permanently when your internet disconnects.</value>
@@ -1541,28 +1543,28 @@ Some text might not be translated to preferred language.</value>
     <value>No Disconnect Message</value>
   </data>
   <data name="Menu.FastFlags.Presets.RedFont.Description" xml:space="preserve">
-    <value>Applys a Red Color to all the Text.</value>
+    <value>Applies a red color to almost all text. Note: This setting does not work with custom fonts!</value>
   </data>
   <data name="Menu.FastFlags.Presets.RedFont.Title" xml:space="preserve">
     <value>Red Font</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description" xml:space="preserve">
-    <value>Turns off Roblox’s Layered Clothing system to stop extra clothing layers from rendering on avatars.</value>
+    <value>Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance.”</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Title" xml:space="preserve">
     <value>Disable Layered Clothing</value>
   </data>
   <data name="Menu.FastFlags.Presets.Chunks.Description" xml:space="preserve">
-    <value>Shows you chunks similar to Minecraft.</value>
+    <value>Displays the world's chunks in a similar way to Minecraft.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Chunks.Title" xml:space="preserve">
     <value>Show Chunks</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Title" xml:space="preserve">
-    <value>FPS Buffer Percent</value>
+    <value>Frame Creation Buffer Percentage</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSBufferPercentage.Description" xml:space="preserve">
-    <value>Determines how much extra time Roblox takes to prepare frames (0–100). Can improve DFIntMaxFrameBufferSize.</value>
+    <value>Determines how much extra time Roblox takes to prepare a single frame. Note: Values are set between 0-100</value>
   </data>
   <data name="Menu.FastFlags.Presets.RemoveGrass.Title" xml:space="preserve">
     <value>Disable Grass</value>
@@ -2079,7 +2081,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Roblox Menu</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.IngameMenu.Description" xml:space="preserve">
-    <value>Debloat the in-game Roblox menu. Note: Keep diabled to remove</value>
+    <value>Debloat the in-game Roblox menu. Note: Keep disabled to remove.</value>
   </data>
   <data name="Common.Deployment" xml:space="preserve">
     <value>Deployment</value>
