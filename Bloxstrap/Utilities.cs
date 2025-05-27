@@ -153,29 +153,5 @@ namespace Bloxstrap
             using EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent");
             handle.Set();
         }
-
-        public static void RemoveTeleportFix()
-        {
-            const string LOG_IDENT = "Utilities::RemoveTeleportFix";
-
-            string user = Environment.UserDomainName + "\\" + Environment.UserName;
-
-            try
-            {
-                FileInfo fileInfo = new FileInfo(App.RobloxCookiesFilePath);
-                FileSecurity fileSecurity = fileInfo.GetAccessControl();
-
-                fileSecurity.RemoveAccessRule(new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny));
-                fileSecurity.RemoveAccessRule(new FileSystemAccessRule(user, FileSystemRights.Write, AccessControlType.Allow));
-
-                fileInfo.SetAccessControl(fileSecurity);
-
-                App.Logger.WriteLine(LOG_IDENT, "Successfully removed teleport fix.");
-            }
-            catch (Exception ex)
-            {
-                Frontend.ShowExceptionDialog(ex);
-            }
-        }
     }
 }
