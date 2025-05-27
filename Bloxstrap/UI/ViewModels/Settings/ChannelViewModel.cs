@@ -1,6 +1,8 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Interop;
+using System.Windows.Media;
 using Bloxstrap.AppData;
 using Bloxstrap.RobloxInterfaces;
+using Wpf.Ui.Hardware;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -17,10 +19,28 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
-        public bool HardwareAccelerationDisabled
+        private bool _isHardwareAccelerationEnabled = true;
+        public bool IsHardwareAccelerationEnabled
         {
-            get => App.Settings.Prop.WPFSoftwareRender;
-            set => App.Settings.Prop.WPFSoftwareRender = value;
+            get => _isHardwareAccelerationEnabled;
+            set
+            {
+                if (_isHardwareAccelerationEnabled != value)
+                {
+                    _isHardwareAccelerationEnabled = value;
+                    OnPropertyChanged(nameof(IsHardwareAccelerationEnabled));
+
+                    HardwareAcceleration.IsEnabled = _isHardwareAccelerationEnabled;
+                    HardwareAcceleration.ApplySettings();
+                }
+            }
+        }
+
+
+        public void ApplyHardwareAcceleration()
+        {
+            System.Windows.Media.RenderOptions.ProcessRenderMode =
+                IsHardwareAccelerationEnabled ? RenderMode.Default : RenderMode.SoftwareOnly;
         }
 
         private async Task LoadChannelDeployInfo(string channel)
@@ -56,11 +76,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 ShowLoadingError = true;
                 OnPropertyChanged(nameof(ShowLoadingError));
 
-                // channels that dont exist also throw HttpStatusCode.Unauthorized
+                // channels that dont exist also throw HttpStatusCode.Unauthorized  
                 if (ex.StatusCode == HttpStatusCode.Unauthorized)
                     ChannelInfoLoadingText = Strings.Menu_Channel_Switcher_Unauthorized;
                 else
-                    ChannelInfoLoadingText = $"An http error has occured ({ex.StatusCode})"; // i dont think we need strings for errors
+                    ChannelInfoLoadingText = $"An http error has occured ({ex.StatusCode})"; // i dont think we need strings for errors  
 
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
@@ -86,7 +106,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-
         public string ChannelHash
         {
             get => App.Settings.Prop.ChannelHash;
@@ -108,11 +127,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
         }
 
         public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
-        {
-            { Strings.Menu_Channel_ChangeAction_Automatic, ChannelChangeMode.Automatic },
-            { Strings.Menu_Channel_ChangeAction_Prompt, ChannelChangeMode.Prompt },
-            { Strings.Menu_Channel_ChangeAction_Ignore, ChannelChangeMode.Ignore },
-        };
+               {
+                   { Strings.Menu_Channel_ChangeAction_Automatic, ChannelChangeMode.Automatic },
+                   { Strings.Menu_Channel_ChangeAction_Prompt, ChannelChangeMode.Prompt },
+                   { Strings.Menu_Channel_ChangeAction_Ignore, ChannelChangeMode.Ignore },
+               };
 
         public string SelectedChannelChangeMode
         {

@@ -853,10 +853,10 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
     <value>Automatically update Froststrap</value>
   </data>
   <data name="Menu.Behaviour.HardwareAcceleration.Description" xml:space="preserve">
-    <value>Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects.</value>
+    <value>When disabled Froststrap will have lower memory usage and removes all animation.</value>
   </data>
 	<data name="Menu.Behaviour.HardwareAcceleration.Title" xml:space="preserve">
-    <value>Disable Hardware Acceleration</value>
+    <value>Hardware Acceleration</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevent closures of your existing game when accidentally launching another Roblox Instance.</value>

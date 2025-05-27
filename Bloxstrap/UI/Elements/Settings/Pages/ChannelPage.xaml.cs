@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 using Bloxstrap.UI.ViewModels.Settings;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
@@ -22,15 +12,28 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class ChannelPage
     {
+        private ChannelViewModel? ViewModel => DataContext as ChannelViewModel;
+
         public ChannelPage()
         {
             DataContext = new ChannelViewModel();
             InitializeComponent();
+
+            ViewModel?.ApplyHardwareAcceleration();
         }
 
         private void ToggleSwitch_Checked(object sender, RoutedEventArgs e)
         {
-
+            if (sender is ToggleButton toggle)
+            {
+                bool isChecked = toggle.IsChecked == true;
+                if (ViewModel != null)
+                {
+                    ViewModel.IsHardwareAccelerationEnabled = isChecked;
+                    ViewModel.ApplyHardwareAcceleration();
+                }
+            }
         }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Shell;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using Wpf.Ui.Hardware;
 using System.Net.Http;
 using System.Net;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using static Bloxstrap.UI.ViewModels.Settings.ChannelViewModel;
+using System.Windows.Media.Animation;
 
 namespace Bloxstrap
 {
@@ -177,6 +180,23 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
+            // Set global hardware acceleration state before anything renders
+            bool isHardwareAccelEnabled = true; // or read from your settings
+
+            if (!isHardwareAccelEnabled)
+            {
+                try
+                {
+                    Timeline.DesiredFrameRateProperty.OverrideMetadata(
+                        typeof(Timeline),
+                        new FrameworkPropertyMetadata { DefaultValue = 1 });
+                }
+                catch (InvalidOperationException)
+                {
+                    // Already overridden
+                }
+            }
+
             Locale.Initialize();
 
             base.OnStartup(e);
@@ -319,6 +339,7 @@ namespace Bloxstrap
 
                 LaunchHandler.ProcessLaunchArgs();
             }
+
         }
     }
 }
