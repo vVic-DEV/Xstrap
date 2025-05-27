@@ -19,30 +19,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
-        private bool _isHardwareAccelerationEnabled = true;
-        public bool IsHardwareAccelerationEnabled
-        {
-            get => _isHardwareAccelerationEnabled;
-            set
-            {
-                if (_isHardwareAccelerationEnabled != value)
-                {
-                    _isHardwareAccelerationEnabled = value;
-                    OnPropertyChanged(nameof(IsHardwareAccelerationEnabled));
-
-                    HardwareAcceleration.IsEnabled = _isHardwareAccelerationEnabled;
-                    HardwareAcceleration.ApplySettings();
-                }
-            }
-        }
-
-
-        public void ApplyHardwareAcceleration()
-        {
-            System.Windows.Media.RenderOptions.ProcessRenderMode =
-                IsHardwareAccelerationEnabled ? RenderMode.Default : RenderMode.SoftwareOnly;
-        }
-
         private async Task LoadChannelDeployInfo(string channel)
         {
             ShowLoadingError = false;

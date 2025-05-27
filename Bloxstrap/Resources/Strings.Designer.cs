@@ -3149,7 +3149,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When disabled Froststrap will have lower memory usage and removes all animation..
+        ///   Looks up a localized string similar to Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects..
         /// </summary>
         public static string Menu_Behaviour_HardwareAcceleration_Description {
             get {
@@ -3158,7 +3158,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hardware Acceleration.
+        ///   Looks up a localized string similar to Disable Hardware Acceleration.
         /// </summary>
         public static string Menu_Behaviour_HardwareAcceleration_Title {
             get {

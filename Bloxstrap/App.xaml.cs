@@ -180,23 +180,6 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
-            // Set global hardware acceleration state before anything renders
-            bool isHardwareAccelEnabled = true; // or read from your settings
-
-            if (!isHardwareAccelEnabled)
-            {
-                try
-                {
-                    Timeline.DesiredFrameRateProperty.OverrideMetadata(
-                        typeof(Timeline),
-                        new FrameworkPropertyMetadata { DefaultValue = 1 });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Already overridden
-                }
-            }
-
             Locale.Initialize();
 
             base.OnStartup(e);
