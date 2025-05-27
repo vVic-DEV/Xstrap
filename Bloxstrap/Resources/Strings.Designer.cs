@@ -3032,24 +3032,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allows for cross-game teleportation with multiple instances. (Fixes Error Code: 773).
-        /// </summary>
-        public static string Menu_Behaviour_AllowCrossGameTeleportation_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.AllowCrossGameTeleportation.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Allow cross-game teleportation.
-        /// </summary>
-        public static string Menu_Behaviour_AllowCrossGameTeleportation_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.AllowCrossGameTeleportation.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ansel support is required for shaders..
         /// </summary>
         public static string Menu_Behaviour_AnselBanner {
@@ -3240,7 +3222,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When should the files get deleted.
+        ///   Looks up a localized string similar to File Deletion Schedule.
         /// </summary>
         public static string Menu_Bootstrapper_Cleaner_Age_Title {
             get {
@@ -3303,7 +3285,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Froststrap will remove old data to save Storage space.
+        ///   Looks up a localized string similar to Froststrap will remove old data to save storage space.
         /// </summary>
         public static string Menu_Bootstrapper_CleanUp_Description {
             get {
@@ -3312,7 +3294,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Frostpstrap Cleaner.
+        ///   Looks up a localized string similar to Froststrap Cleaner.
         /// </summary>
         public static string Menu_Bootstrapper_CleanUp_Title {
             get {
@@ -3531,8 +3513,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in 
-        ///Froststrap’s FastFlag Settings..
+        ///   Looks up a localized string similar to Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
@@ -3793,7 +3774,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are very basic fflags. Self explanatory.
+        ///   Looks up a localized string similar to These are very basic fflags. Self explanatory..
         /// </summary>
         public static string Menu_FastFlags_Presets_BasicFFlags_Description {
             get {
@@ -3847,7 +3828,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Overrides the Vulkan GPU support checks to allow unsupported hardware to run on the Vulkan API. Note: This setting may be highly unstable and cause severe rendering issues!.
+        ///   Looks up a localized string similar to Overrides the Vulkan GPU support checks to allow unsupported hardware to run on the Vulkan API. Note: This setting may be highly unstable and can cause severe rendering issues!.
         /// </summary>
         public static string Menu_FastFlags_Presets_BypassVulkan_Description {
             get {
@@ -3874,7 +3855,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debloat the in-game Roblox menu. Note: Keep diabled to remove.
+        ///   Looks up a localized string similar to Debloat the in-game Roblox menu. Note: Keep disabled to remove..
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_IngameMenu_Description {
             get {
@@ -3883,7 +3864,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure network settings to potentially improve performance.
+        ///   Looks up a localized string similar to Configure network settings to potentially improve performance..
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_Network_Description {
             get {
@@ -3973,7 +3954,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows you chunks similar to Minecraft..
+        ///   Looks up a localized string similar to Displays the world&apos;s chunks in a similar way to Minecraft..
         /// </summary>
         public static string Menu_FastFlags_Presets_Chunks_Description {
             get {
@@ -4027,7 +4008,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turns off Roblox’s Layered Clothing system to stop extra clothing layers from rendering on avatars..
+        ///   Looks up a localized string similar to Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance.”.
         /// </summary>
         public static string Menu_FastFlags_Presets_DisableLayeredClothing_Description {
             get {
@@ -4072,7 +4053,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note: Ts settings disables the large majority of Roblox&apos;s VoiceChat Telemetry, but not all..
+        ///   Looks up a localized string similar to Note: This settings disables the large majority of Roblox&apos;s VoiceChat Telemetry, but not all..
         /// </summary>
         public static string Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Description {
             get {
@@ -4081,7 +4062,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable VoiceChat Telemetry.
+        ///   Looks up a localized string similar to Disable Voice Chat Telemetry.
         /// </summary>
         public static string Menu_FastFlags_Presets_DisableVoiceChatTelemetry_Title {
             get {
@@ -4225,7 +4206,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Determines how much extra time Roblox takes to prepare frames (0–100). Can improve DFIntMaxFrameBufferSize..
+        ///   Looks up a localized string similar to Determines how much extra time Roblox takes to prepare a single frame. Note: Values are set between 0-100.
         /// </summary>
         public static string Menu_FastFlags_Presets_FPSBufferPercentage_Description {
             get {
@@ -4234,7 +4215,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FPS Buffer Percent.
+        ///   Looks up a localized string similar to Frame Creation Buffer Percentage.
         /// </summary>
         public static string Menu_FastFlags_Presets_FPSBufferPercentage_Title {
             get {
@@ -4459,7 +4440,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optimize memory usage for low-end System..
+        ///   Looks up a localized string similar to Optimizes memory usage for Low-End Systems..
         /// </summary>
         public static string Menu_FastFlags_Presets_MemoryProbing_Description {
             get {
@@ -4495,7 +4476,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure Fun and Experimental Features.
+        ///   Looks up a localized string similar to Configure fun and experimental features..
         /// </summary>
         public static string Menu_FastFlags_Presets_Misc_Description {
             get {
@@ -4504,7 +4485,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spams alternate letters in CoreGui and game UI, excluding some elements..
+        ///   Looks up a localized string similar to Repeats letters in most GUI text to expand it. Higher values will increase the effect. Note: Some UI elements may be unaffected..
         /// </summary>
         public static string Menu_FastFlags_Presets_MoreCharacters_Description {
             get {
@@ -4513,7 +4494,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to More Characters.
+        ///   Looks up a localized string similar to More Text Characters.
         /// </summary>
         public static string Menu_FastFlags_Presets_MoreCharacters_Title {
             get {
@@ -4558,7 +4539,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turns on Roblox’s newer FPS and frame time system. Helps with smoother gameplay by making frame timing and input feel better..
+        ///   Looks up a localized string similar to Configures Roblox to use their new beta FPS and frametime system. Enabling this setting may potentially improve frame and input timing..
         /// </summary>
         public static string Menu_FastFlags_Presets_NewFPSSystem_Description {
             get {
@@ -4567,7 +4548,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New FPS System.
+        ///   Looks up a localized string similar to New Frame Performance System.
         /// </summary>
         public static string Menu_FastFlags_Presets_NewFPSSystem_Title {
             get {
@@ -4594,7 +4575,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Potentially improves network performance by applying SignalR optimizations to RCore..
+        ///   Looks up a localized string similar to Disables Roblox’s network data transfer limit. Note: Enabling this setting could lead to network overhead if the packets being sent are too large. Use at your own risk!”.
         /// </summary>
         public static string Menu_FastFlags_Presets_NoPayloadLimit_Description {
             get {
@@ -4630,7 +4611,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will now only affect the render distance in a game..
+        ///   Looks up a localized string similar to Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will only affect the render distance in a game..
         /// </summary>
         public static string Menu_FastFlags_Presets_OverrideGraphicQuality_Description {
             get {
@@ -4684,7 +4665,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure settings that helps protect your privacy.
+        ///   Looks up a localized string similar to Configure settings that help protect your privacy..
         /// </summary>
         public static string Menu_FastFlags_Presets_Privacy_Description {
             get {
@@ -4720,7 +4701,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stabilizes connection by optimizing roblox&apos;s core..
+        ///   Looks up a localized string similar to Potentially improve network performance by applying SignalR optimizations to RCore.
         /// </summary>
         public static string Menu_FastFlags_Presets_RCore_Description {
             get {
@@ -4738,7 +4719,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applys a Red Color to all the Text..
+        ///   Looks up a localized string similar to Applies a red color to almost all text. Note: This setting does not work with custom fonts!.
         /// </summary>
         public static string Menu_FastFlags_Presets_RedFont_Description {
             get {
@@ -4981,7 +4962,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Webview2 Telemetry.
+        ///   Looks up a localized string similar to Disable WebView2 Telemetry.
         /// </summary>
         public static string Menu_FastFlags_Presets_WebView2Telemetry_Title {
             get {
@@ -4990,7 +4971,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Changes the color of the sky to white. Note: this uses gray sky flag.
+        ///   Looks up a localized string similar to Changes the color of the sky to white. Note: this uses gray sky flag..
         /// </summary>
         public static string Menu_FastFlags_Presets_WhiteSky_Description {
             get {
@@ -5233,15 +5214,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Allow Cross-Game Teleportation](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation).
-        /// </summary>
-        public static string Menu_Help_CrossGameTeleportation {
-            get {
-                return ResourceManager.GetString("Menu.Help.CrossGameTeleportation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to [Custom Launchers](https://github.com/Meddsam/Froststrap/wiki/Features#custom-launchers).
         /// </summary>
         public static string Menu_Help_CustomLaunchers {
@@ -5251,7 +5223,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will provide you with information about fixes and other details (it will direct you to the wiki page)..
+        ///   Looks up a localized string similar to This will provide you with information about fixes and other details (it will redirect you to the wiki page)..
         /// </summary>
         public static string Menu_Help_Description {
             get {
@@ -5458,7 +5430,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Rainbow Colored Ui/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics).
+        ///   Looks up a localized string similar to [Rainbow Colored UI/Textures](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics).
         /// </summary>
         public static string Menu_Help_RainbowUiTextures {
             get {

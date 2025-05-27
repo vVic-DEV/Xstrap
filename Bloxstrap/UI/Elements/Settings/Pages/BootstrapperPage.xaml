@@ -43,13 +43,6 @@ HelpLink="https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-lau
             <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <controls:OptionControl
-            Header="{x:Static resources:Strings.Menu_Behaviour_AllowCrossGameTeleportation_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_AllowCrossGameTeleportation_Description}"
-            HelpLink="https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation" >
-            <ui:ToggleSwitch IsChecked="{Binding FixTeleportsEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
-
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>

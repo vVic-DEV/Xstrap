@@ -75,7 +75,6 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_GameHistory}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_DiscordRichPresence}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MessageLogsAndPlayerLogs}" Margin="0,0,0,4" />
-                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CrossGameTeleportation}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MultiInstanceLaunching}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CustomLaunchers}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BuiltInLists}" Margin="0,0,0,4" />

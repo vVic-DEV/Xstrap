@@ -36,19 +36,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
         }
 
-        public bool FixTeleportsEnabled
-        {
-            get => App.Settings.Prop.FixTeleports;
-            set
-            {
-                if (App.Settings.Prop.FixTeleports != value)
-                {
-                    App.Settings.Prop.FixTeleports = value;
-                    OnPropertyChanged(nameof(FixTeleportsEnabled));
-                }
-            }
-        }
-
         public CleanerOptions SelectedCleanUpMode
         {
             get => App.Settings.Prop.CleanerOptions;
