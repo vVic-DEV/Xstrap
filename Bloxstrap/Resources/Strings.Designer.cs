@@ -3285,7 +3285,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Froststrap will remove old data to save storage space.
+        ///   Looks up a localized string similar to Froststrap will remove old data to save storage space. Note: Feature originally made by Fishstrap..
         /// </summary>
         public static string Menu_Bootstrapper_CleanUp_Description {
             get {
@@ -3788,6 +3788,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_BasicFFlags_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.BasicFFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makes roblox packet sending as soon as possible. Note: Could lower ping potentially..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BetterPacketSending_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BetterPacketSending.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Better Packet Sending.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_BetterPacketSending_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BetterPacketSending.Title", resourceCulture);
             }
         }
         

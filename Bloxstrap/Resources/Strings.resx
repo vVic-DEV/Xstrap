@@ -889,7 +889,7 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
     <value>Froststrap Cleaner</value>
   </data>
 	<data name="Menu.Bootstrapper.CleanUp.Description" xml:space="preserve">
-    <value>Froststrap will remove old data to save storage space</value>
+    <value>Froststrap will remove old data to save storage space. Note: Feature originally made by Fishstrap.</value>
   </data>
 	<data name="Enums.CleanerOptions.Never" xml:space="preserve">
     <value>Never</value>
@@ -1451,6 +1451,12 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.FastFlags.Presets.UnthemedInstances.Description" xml:space="preserve">
     <value>Applies a variety of random colors to text and UI elements that typically lack color. Note: This setting may cause certain games to look strange and discolored.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BetterPacketSending.Title" xml:space="preserve">
+    <value>Better Packet Sending</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BetterPacketSending.Description" xml:space="preserve">
+    <value>Makes roblox packet sending as soon as possible. Note: Could lower ping potentially.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MinimalRendering.Title" xml:space="preserve">
     <value>Minimal Rendering</value>

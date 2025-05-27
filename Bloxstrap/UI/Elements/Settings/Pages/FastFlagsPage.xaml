@@ -552,7 +552,8 @@
 
                 <controls:OptionControl 
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Description}">
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSBufferPercentage_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#maquette-frames-before-shown" >
                     <ui:TextBox Width="200" Margin="5,0,0,0" Padding="10,5,10,5" PreviewTextInput="ValidateUInt32" Text="{Binding FPSBufferPercentage, Mode=TwoWay}" />
                 </controls:OptionControl>
 
@@ -633,6 +634,12 @@
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_ReduceLagSpikes_Title}"
                     HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes">
                     <ui:ToggleSwitch IsChecked="{Binding ReduceLagSpikes, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BetterPacketSending_Description}"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_BetterPacketSending_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding BetterPacketSending, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl

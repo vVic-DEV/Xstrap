@@ -78,10 +78,10 @@
 	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Optimal Graphics V31" />
 	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Balanced Graphics V31" />
 	<EmbeddedResource Include="Resources\PresetFlags\Stoof%27s Low Graphics V31" />
-	<EmbeddedResource Include="Resources\PresetFlags\Scroom%27s Unplayable Graphics" />
 	<EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Default Graphics V3" />
     <EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Low Graphics V8" />
 	<EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Trash Graphics V14" />
+	<EmbeddedResource Include="Resources\PresetFlags\Scroom%27s Unplayable Graphics" />
 	<EmbeddedResource Include="Resources\PresetFlags\Obsurd V3 x Unterial V5" />
 	<EmbeddedResource Include="Resources\PresetFlags\5070%27s Latency Pack V27" />
   </ItemGroup>
