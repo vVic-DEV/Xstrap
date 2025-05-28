@@ -153,7 +153,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set
             {
                 App.FastFlags.SetPreset("Telemetry.TelemetryV2Url", value ? "0.0.0.0" : null);
-                App.FastFlags.SetPreset("Telemetry.RemoveHardcodedV2URL", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.Protocol", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.GraphicsQualityUsage", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.GpuVsCpuBound", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.RenderFidelity", value ? "False" : null);

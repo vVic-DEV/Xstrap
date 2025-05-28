@@ -147,7 +147,7 @@ namespace Bloxstrap
             { "Telemetry.Event", "FFlagDebugDisableTelemetryEventIngest" },
             { "Telemetry.Point", "FFlagDebugDisableTelemetryPoint" },
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
-            { "Telemetry.RemoveHardcodedV2URL", "DFFlagTelemetryRemoveHardcodedV2URL" },
+            { "Telemetry.Protocol", "FFlagEnableTelemetryProtocol" },
 
             // Voicechat Telemetry
             { "Telemetry.Voicechat1", "DFFlagVoiceChatCullingRecordEventIngestTelemetry" },
