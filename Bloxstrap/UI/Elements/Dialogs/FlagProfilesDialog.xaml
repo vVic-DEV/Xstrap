@@ -82,7 +82,7 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Preset Flag Lists">
+            <TabItem Header="{x:Static resources:Strings.Common_PresetFlagLists}">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />

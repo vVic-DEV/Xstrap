@@ -108,7 +108,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 FontSize="13.8"
-                                Text="Settings" />
+                                Text="{x:Static resources:Strings.Common_Settings}" />
                         </StackPanel>
                     </ui:CardAction>
 
@@ -129,7 +129,7 @@
                                 Width="39"
                                 HorizontalAlignment="Center"
                                 FontSize="13.8"
-                                Text="Studio" />
+                                Text="{x:Static resources:Strings.Common_Studio}" />
                         </StackPanel>
                     </ui:CardAction>
                 </Grid>

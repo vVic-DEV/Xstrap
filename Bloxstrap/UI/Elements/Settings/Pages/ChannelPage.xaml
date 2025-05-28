@@ -26,8 +26,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="Disable Hardware Acceleration"
-            Description="Forces WPF to render in software mode. Requires restart.">
+            Header="{x:Static resources:Strings.Menu_Behaviour_DisableHardwareAcceleration_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_DisableHardwareAcceleration_Description}">
             <ui:ToggleSwitch IsChecked="{Binding SoftwareRenderingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 

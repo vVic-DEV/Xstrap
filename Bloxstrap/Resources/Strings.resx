@@ -852,10 +852,10 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automatically update Froststrap</value>
   </data>
-  <data name="Menu.Behaviour.HardwareAcceleration.Description" xml:space="preserve">
+  <data name="Menu.Behaviour.DisableHardwareAcceleration.Description" xml:space="preserve">
     <value>Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects.</value>
   </data>
-	<data name="Menu.Behaviour.HardwareAcceleration.Title" xml:space="preserve">
+	<data name="Menu.Behaviour.DisableHardwareAcceleration.Title" xml:space="preserve">
     <value>Disable Hardware Acceleration</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
@@ -1173,7 +1173,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Choose font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Font size can be adjusted in the Engine Settings tab.</value>
+    <value>Font size can be adjusted in the FastFlag Settings tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>The file you have chosen does not appear to be a valid font file.</value>
@@ -2095,9 +2095,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
     <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
   </data>
-  <data name="Common.Studio" xml:space="preserve">
-    <value>Studio</value>
-  </data>
   <data name="Common.RobloxStudio" xml:space="preserve">
     <value>Roblox Studio</value>
   </data>
@@ -2168,6 +2165,21 @@ For more information join Bloxshade discord server.</value>
   </data>
   <data name="Common.Profiles" xml:space="preserve">
     <value>Profiles</value>
+  </data>
+  <data name="Common.CopyAll" xml:space="preserve">
+    <value>Copy All</value>
+  </data>
+  <data name="Common.DeleteAll" xml:space="preserve">
+    <value>Delete All</value>
+  </data>
+  <data name="Common.PresetFlagLists" xml:space="preserve">
+    <value>Preset Flag Lists</value>
+  </data>
+  <data name="Common.Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Common.Studio" xml:space="preserve">
+    <value>Studio</value>
   </data>
   <data name="Menu.Deployment.Channel.OutOfDate" xml:space="preserve">
     <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>

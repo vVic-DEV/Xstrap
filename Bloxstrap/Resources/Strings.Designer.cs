@@ -520,6 +520,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy All.
+        /// </summary>
+        public static string Common_CopyAll {
+            get {
+                return ResourceManager.GetString("Common.CopyAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create New.
         /// </summary>
         public static string Common_CreateNew {
@@ -561,6 +570,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Delete {
             get {
                 return ResourceManager.GetString("Common.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete All.
+        /// </summary>
+        public static string Common_DeleteAll {
+            get {
+                return ResourceManager.GetString("Common.DeleteAll", resourceCulture);
             }
         }
         
@@ -772,6 +790,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset Flag Lists.
+        /// </summary>
+        public static string Common_PresetFlagLists {
+            get {
+                return ResourceManager.GetString("Common.PresetFlagLists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Presets.
         /// </summary>
         public static string Common_Presets {
@@ -831,6 +858,15 @@ namespace Bloxstrap.Resources {
         public static string Common_RobloxStudio {
             get {
                 return ResourceManager.GetString("Common.RobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Common_Settings {
+            get {
+                return ResourceManager.GetString("Common.Settings", resourceCulture);
             }
         }
         
@@ -3113,6 +3149,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects..
+        /// </summary>
+        public static string Menu_Behaviour_DisableHardwareAcceleration_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableHardwareAcceleration.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Hardware Acceleration.
+        /// </summary>
+        public static string Menu_Behaviour_DisableHardwareAcceleration_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableHardwareAcceleration.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only applies to games launched from the Roblox website..
         /// </summary>
         public static string Menu_Behaviour_ForceRobloxLanguage_Description {
@@ -3145,24 +3199,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_ForceRobloxReinstall_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.ForceRobloxReinstall.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects..
-        /// </summary>
-        public static string Menu_Behaviour_HardwareAcceleration_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.HardwareAcceleration.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Hardware Acceleration.
-        /// </summary>
-        public static string Menu_Behaviour_HardwareAcceleration_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.HardwareAcceleration.Title", resourceCulture);
             }
         }
         
@@ -4611,24 +4647,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revert back to the old 2024 Chrome ui..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_OldChromeUI_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.OldChromeUI.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Old Chrome UI.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_OldChromeUI_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.OldChromeUI.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Locks the graphics quality to a selected amount. Note: With this setting enabled, the graphics slider in the Roblox menu will only affect the render distance in a game..
         /// </summary>
         public static string Menu_FastFlags_Presets_OverrideGraphicQuality_Description {
@@ -5922,7 +5940,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Font size can be adjusted in the Engine Settings tab..
+        ///   Looks up a localized string similar to Font size can be adjusted in the FastFlag Settings tab..
         /// </summary>
         public static string Menu_Mods_Misc_CustomFont_Description {
             get {
