@@ -15,6 +15,9 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using static Bloxstrap.UI.ViewModels.Settings.ChannelViewModel;
 using System.Windows.Media.Animation;
+using SharpVectors.Renderers;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace Bloxstrap
 {
@@ -179,6 +182,14 @@ namespace Bloxstrap
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
+
+
+            if (App.Settings.Prop.WPFSoftwareRender)
+            {
+                RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
+            }
+
+            base.OnStartup(e);
 
             Locale.Initialize();
 

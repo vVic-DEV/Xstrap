@@ -1,4 +1,6 @@
-﻿using System.Windows.Interop;
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Interop;
 using System.Windows.Media;
 using Bloxstrap.AppData;
 using Bloxstrap.RobloxInterfaces;
@@ -13,11 +15,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
             Task.Run(() => LoadChannelDeployInfo(App.Settings.Prop.Channel));
         }
 
+        public new event PropertyChangedEventHandler? PropertyChanged;
+        private new void OnPropertyChanged(string propertyName) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         public bool UpdateCheckingEnabled
         {
             get => App.Settings.Prop.CheckForUpdates;
             set => App.Settings.Prop.CheckForUpdates = value;
         }
+
+        public bool SoftwareRenderingEnabled
+        {
+            get => App.Settings.Prop.WPFSoftwareRender;
+            set
+            {
+                if (App.Settings.Prop.WPFSoftwareRender != value)
+                {
+                    App.Settings.Prop.WPFSoftwareRender = value;
+                    App.Settings.Save();
+                    OnPropertyChanged(nameof(SoftwareRenderingEnabled));
+
+                    MessageBox.Show("Please restart the app for this change to take effect.",
+                                    "Restart Required", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
 
         private async Task LoadChannelDeployInfo(string channel)
         {

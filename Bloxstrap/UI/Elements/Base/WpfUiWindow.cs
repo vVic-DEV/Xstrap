@@ -62,30 +62,13 @@ namespace Bloxstrap.UI.Elements.Base
 
         protected override void OnSourceInitialized(EventArgs e)
         {
-            base.OnSourceInitialized(e);
-
-            try
-            {
-                if (App.Settings.Prop.IsFirstLaunch)
-                {
-                    App.Settings.Prop.WPFSoftwareRender = true;
-                    App.Settings.Prop.IsFirstLaunch = false;
-                    App.Settings.Save();  // Make sure this actually writes your settings file
-                }
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine("OnSourceInitialized", $"Settings update failed: {ex}");
-            }
-
             if (App.Settings.Prop.WPFSoftwareRender || App.LaunchSettings.NoGPUFlag.Active)
             {
                 if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
-                {
-                    new FrameworkPropertyMetadata(1);
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
-                }
             }
+
+            base.OnSourceInitialized(e);
         }
     }
 }

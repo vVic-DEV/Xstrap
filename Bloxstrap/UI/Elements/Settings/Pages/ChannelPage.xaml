@@ -26,18 +26,10 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Behaviour_HardwareAcceleration_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_HardwareAcceleration_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding IsHardwareAccelerationEnabled, Mode=TwoWay}" />
+            Header="Disable Hardware Acceleration"
+            Description="Forces WPF to render in software mode. Requires restart.">
+            <ui:ToggleSwitch IsChecked="{Binding SoftwareRenderingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
-
-        <TextBlock
-    Text="Animations are disabled because hardware acceleration is off."
-    Foreground="OrangeRed"
-    FontWeight="SemiBold"
-    Margin="10,5"
-    Visibility="{Binding IsHardwareAccelerationEnabled, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
-
 
 
         <TextBlock Text="Roblox" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
