@@ -989,7 +989,7 @@
     <value>Узнайте больше о Fast Flags, что делают те или иные предустановки и как их использовать.</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo">
-    <value>[Полноэкранный режим]({0}) Direct3D с помощью Alt+Enter включен по умолчанию.</value>
+    <value>Параметры графики и производительности движка Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title">
     <value>Предпочитаемая версия меню-выхода</value>
