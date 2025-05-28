@@ -218,24 +218,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool OldChromeUI
-        {
-            get => App.FastFlags?.GetPreset("UI.OldChromeUI1") == "False";
-            set
-            {
-                App.FastFlags.SetPreset("UI.OldChromeUI1", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI2", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI3", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI4", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI5", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI6", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI7", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI8", value ? "True" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI9", value ? "False" : null);
-                App.FastFlags.SetPreset("UI.OldChromeUI10", value ? "False" : null);
-            }
-        }
-
         public bool BlockTencent
         {
             get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "/tencent/";

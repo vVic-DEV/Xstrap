@@ -3927,7 +3927,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure experimental features that change how your computer behaves with Roblox..
+        ///   Looks up a localized string similar to Configure Experimental settings that change how your PC behaves with Roblox..
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_SystemExperimental_Description {
             get {

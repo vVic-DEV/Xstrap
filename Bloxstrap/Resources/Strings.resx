@@ -1305,9 +1305,6 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.Categories.SystemExperimental.Description" xml:space="preserve">
     <value>Configure Experimental settings that change how your PC behaves with Roblox.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.SystemExperimental.Description" xml:space="preserve">
-    <value>Configure experimental features that change how your computer behaves with Roblox.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.Categories.Network.Title" xml:space="preserve">
     <value>Network</value>
   </data>
@@ -1493,12 +1490,6 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Title" xml:space="preserve">
     <value>Disable Voice Chat Telemetry</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.OldChromeUI.Description" xml:space="preserve">
-    <value>Revert back to the old 2024 Chrome ui.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.OldChromeUI.Title" xml:space="preserve">
-    <value>Old Chrome UI</value>
   </data>
   <data name="Menu.FastFlags.Presets.BasicFFlags.Title" xml:space="preserve">
     <value>Basic FastFlags</value>

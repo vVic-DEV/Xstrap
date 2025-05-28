@@ -193,18 +193,6 @@ namespace Bloxstrap
             // Minimal Rendering
             { "Rendering.MinimalRendering", "FFlagDebugRenderingSetDeterministic"},
 
-            // Old ChromeUI
-            { "UI.OldChromeUI1", "FFlagEnableHamburgerIcon"},
-            { "UI.OldChromeUI2", "FFlagEnableUnibarV4IA"},
-            { "UI.OldChromeUI3", "FFlagEnableAlwaysOpenUnibar2"},
-            { "UI.OldChromeUI4", "FFlagUseNewUnibarIcon"},
-            { "UI.OldChromeUI5", "FFlagUseSelfieViewFlatIcon"},
-            { "UI.OldChromeUI6", "FFlagUnibarRespawn"},
-            { "UI.OldChromeUI7", "FFlagEnableChromePinIntegrations2"},
-            { "UI.OldChromeUI8", "FFlagEnableUnibarMaxDefaultOpen"},
-            { "UI.OldChromeUI9", "FFlagUpdateHealthBar"},
-            { "UI.OldChromeUI10", "FFlagUseNewPinIcon"},
-
             // Remove Sky/Clouds
             { "Rendering.NoFrmBloom", "FFlagRenderNoLowFrmBloom"},
             { "Rendering.FRMRefactor", "FFlagFRMRefactor"},
