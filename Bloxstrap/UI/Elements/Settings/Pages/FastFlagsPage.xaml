@@ -23,6 +23,17 @@
             PlaceholderText="Search Feature"
             TextChanged="SearchBox_TextChanged" />
 
+        <TextBlock x:Name="NoResultsTextBlock"
+           Text="No results found."
+           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+           FontSize="16"
+           Margin="0,0,0,10"
+           Visibility="Collapsed"
+           TextAlignment="Center"
+           VerticalAlignment="Center"
+           HorizontalAlignment="Center"/>
+
+
         <controls:OptionControl 
             x:Name="ManagerEnabled"
             Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"

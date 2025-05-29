@@ -173,16 +173,22 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             string search = SearchBox.Text.Trim().ToLowerInvariant();
             bool isSearching = !string.IsNullOrWhiteSpace(search);
 
-            // This will handle ManagerEnabled and Reset automatically
+            bool anyVisible = false;
+
             foreach (var option in _optionControls)
             {
                 string? header = option.GetType().GetProperty("Header")?.GetValue(option)?.ToString();
+                string? description = option.GetType().GetProperty("Description")?.GetValue(option)?.ToString();
                 if (string.IsNullOrEmpty(header))
                     header = option.Name;
 
-                option.Visibility = !isSearching || (header?.ToLowerInvariant().Contains(search) ?? false)
-                    ? Visibility.Visible
-                    : Visibility.Collapsed;
+                bool matches = !isSearching
+                    || (header?.ToLowerInvariant().Contains(search) ?? false)
+                    || (description?.ToLowerInvariant().Contains(search) ?? false);
+
+                option.Visibility = matches ? Visibility.Visible : Visibility.Collapsed;
+                if (matches)
+                    anyVisible = true;
             }
 
             if (isSearching)
@@ -209,16 +215,20 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                         expanderOptions.Add(child);
                 }
 
-                bool anyVisible = expanderOptions.Exists(opt => opt.Visibility == Visibility.Visible);
+                bool expanderAnyVisible = expanderOptions.Exists(opt => opt.Visibility == Visibility.Visible);
 
-                expander.Visibility = (!isSearching || anyVisible) ? Visibility.Visible : Visibility.Collapsed;
+                expander.Visibility = (!isSearching || expanderAnyVisible) ? Visibility.Visible : Visibility.Collapsed;
 
-                if (isSearching && anyVisible)
+                if (isSearching && expanderAnyVisible)
                     expander.IsExpanded = true;
                 else if (!isSearching)
                     expander.IsExpanded = false;
             }
+
+            // Show or hide the "No results" message
+            NoResultsTextBlock.Visibility = (isSearching && !anyVisible) ? Visibility.Visible : Visibility.Collapsed;
         }
+
 
 
         private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
