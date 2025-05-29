@@ -25,6 +25,18 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private List<FrameworkElement> _experimentalOptions = new();
         private List<FrameworkElement> _debugOptions = new();
 
+        // too lazy to add to enums so im doing it here
+        public enum SearchMode
+        {
+            All,
+            Title,
+            Description,
+        }
+
+        public SearchMode SelectedSearchMode { get; set; } = SearchMode.All;
+        public IEnumerable<SearchMode> SearchModes => Enum.GetValues(typeof(SearchMode)).Cast<SearchMode>();
+
+
         public FastFlagsPage()
         {
             InitializeComponent();
@@ -179,9 +191,24 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (string.IsNullOrEmpty(header))
                     header = option.Name;
 
-                bool matches = !isSearching
-                    || (header?.ToLowerInvariant().Contains(search) ?? false)
-                    || (description?.ToLowerInvariant().Contains(search) ?? false);
+                bool matches = !isSearching;
+
+                if (isSearching)
+                {
+                    switch (SelectedSearchMode)
+                    {
+                        case SearchMode.Title:
+                            matches = header?.ToLowerInvariant().Contains(search) ?? false;
+                            break;
+                        case SearchMode.Description:
+                            matches = description?.ToLowerInvariant().Contains(search) ?? false;
+                            break;
+                        case SearchMode.All:
+                            matches = (header?.ToLowerInvariant().Contains(search) ?? false)
+                                || (description?.ToLowerInvariant().Contains(search) ?? false);
+                            break;
+                    }
+                }
 
                 option.Visibility = matches ? Visibility.Visible : Visibility.Collapsed;
                 if (matches)

@@ -50,6 +50,26 @@
             </TextBlock>
         </Grid>
 
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Search by:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <ComboBox
+        Width="140"
+        ItemsSource="{Binding SearchModes, RelativeSource={RelativeSource AncestorType=ui:UiPage}}"
+        SelectedItem="{Binding SelectedSearchMode, RelativeSource={RelativeSource AncestorType=ui:UiPage}, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+
 
 
         <TextBlock x:Name="NoResultsTextBlock"
