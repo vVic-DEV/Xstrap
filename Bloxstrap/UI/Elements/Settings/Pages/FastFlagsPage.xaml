@@ -16,12 +16,41 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:TextBox
-            x:Name="SearchBox"
-            Margin="0,0,0,4"
-            Width="Auto"
-            PlaceholderText="Search Feature"
-            TextChanged="SearchBox_TextChanged" />
+        <!-- Search box with suggestion -->
+        <Grid Height="40" Margin="0,0,1,5">
+            <ui:TextBox
+        x:Name="SearchTextBox"
+        Height="32"
+        HorizontalContentAlignment="Left"
+        VerticalContentAlignment="Center"
+        BorderThickness="0"
+        FocusVisualStyle="{x:Null}"
+        FontSize="14"
+        Icon="Search48"
+        PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}"
+        TextChanged="SearchTextBox_TextChanged" />
+            <TextBlock
+        x:Name="SuggestionTextBlock"
+        Cursor="Hand"
+        MouseLeftButtonUp="SuggestionTextBlock_MouseLeftButtonUp"
+        Margin="12,0,11,0"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center"
+        FontSize="13.85"
+        Foreground="#FF51A2ED"
+        Opacity="0"
+        Visibility="Collapsed"
+        RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="SuggestionTranslateTransform" X="10" />
+                </TextBlock.RenderTransform>
+        <Run Text="Looking For" />
+        <Run x:Name="SuggestionKeywordRun" Text="" FontWeight="Bold" />
+        <Run Text="?" />
+            </TextBlock>
+        </Grid>
+
+
 
         <TextBlock x:Name="NoResultsTextBlock"
            Text="No results found."

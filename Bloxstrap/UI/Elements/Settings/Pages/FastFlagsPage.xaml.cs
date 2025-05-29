@@ -1,23 +1,21 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Threading;
-using System.Windows.Threading;
-
+using System.Windows.Media.Animation;
 using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for FastFlagsPage.xaml
-    /// </summary>
     public partial class FastFlagsPage : UiPage
     {
-
         private CancellationTokenSource? _searchDebounceCts;
-
         private bool _initialLoad = false;
         private FastFlagsViewModel _viewModel;
         private List<FrameworkElement> _optionControls = new();
@@ -27,8 +25,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private List<FrameworkElement> _experimentalOptions = new();
         private List<FrameworkElement> _debugOptions = new();
 
-
-
         public FastFlagsPage()
         {
             InitializeComponent();
@@ -37,7 +33,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             SetupViewModel();
             Loaded += FastFlagsPage_Loaded;
         }
-
 
         private void FastFlagsPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -52,14 +47,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     _optionControls.Add(option);
             }
 
-
             _cardExpanders = new List<CardExpander>
             {
                 SystemExpander,
                 RenderingExpander,
                 BasicExpander,
                 UserInterfaceExpander,
-               RobloxMenuExpander,
+                RobloxMenuExpander,
                 PrivacyExpander,
                 SystemExperimentalExpander,
                 RenderingAdvancedExpander,
@@ -142,10 +136,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 PingBreakdownOption,
                 FlagStateOption
             };
-
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             _searchDebounceCts?.Cancel();
             _searchDebounceCts = new CancellationTokenSource();
@@ -158,7 +151,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     await Task.Delay(300, token);
                     if (!token.IsCancellationRequested)
                     {
-                        Dispatcher.Invoke(() => PerformSearchBoxFiltering());
+                        Dispatcher.Invoke(() =>
+                        {
+                            PerformSearchBoxFiltering();
+                            ShowSearchSuggestion(SearchTextBox.Text.Trim());
+                        });
                     }
                 }
                 catch (TaskCanceledException)
@@ -170,7 +167,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void PerformSearchBoxFiltering()
         {
-            string search = SearchBox.Text.Trim().ToLowerInvariant();
+            string search = SearchTextBox.Text.Trim().ToLowerInvariant();
             bool isSearching = !string.IsNullOrWhiteSpace(search);
 
             bool anyVisible = false;
@@ -199,6 +196,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     Reset.Visibility = Visibility.Collapsed;
             }
 
+            // Show/hide category headers based on visible options
             RecommendedTextBlock.Visibility = _recommendedOptions.Exists(opt => opt.Visibility == Visibility.Visible)
                 ? Visibility.Visible : Visibility.Collapsed;
             ExperimentalTextBlock.Visibility = _experimentalOptions.Exists(opt => opt.Visibility == Visibility.Visible)
@@ -206,6 +204,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             DebugTextBlock.Visibility = _debugOptions.Exists(opt => opt.Visibility == Visibility.Visible)
                 ? Visibility.Visible : Visibility.Collapsed;
 
+            // Show/hide and expand/collapse card expanders based on visible options
             foreach (var expander in _cardExpanders)
             {
                 var expanderOptions = new List<FrameworkElement>();
@@ -217,19 +216,82 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 bool expanderAnyVisible = expanderOptions.Exists(opt => opt.Visibility == Visibility.Visible);
 
-                expander.Visibility = (!isSearching || expanderAnyVisible) ? Visibility.Visible : Visibility.Collapsed;
-
-                if (isSearching && expanderAnyVisible)
-                    expander.IsExpanded = true;
-                else if (!isSearching)
-                    expander.IsExpanded = false;
+                expander.Visibility = expanderAnyVisible ? Visibility.Visible : Visibility.Collapsed;
+                expander.IsExpanded = isSearching && expanderAnyVisible;
             }
 
             // Show or hide the "No results" message
             NoResultsTextBlock.Visibility = (isSearching && !anyVisible) ? Visibility.Visible : Visibility.Collapsed;
         }
 
+        private void ShowSearchSuggestion(string searchFilter)
+        {
+            if (string.IsNullOrWhiteSpace(searchFilter))
+            {
+                AnimateSuggestionVisibility(0);
+                return;
+            }
 
+            var bestMatch = _optionControls
+                .Select(opt => opt.GetType().GetProperty("Header")?.GetValue(opt)?.ToString())
+                .Where(flag => !string.IsNullOrEmpty(flag) && flag.Contains(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(flag => flag != null && !flag.StartsWith(searchFilter, StringComparison.OrdinalIgnoreCase))
+                .ThenBy(flag => flag != null ? flag.IndexOf(searchFilter, StringComparison.OrdinalIgnoreCase) : int.MaxValue)
+                .ThenBy(flag => flag != null ? flag.Length : int.MaxValue)
+                .FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(bestMatch))
+            {
+                if (SuggestionKeywordRun != null)
+                    SuggestionKeywordRun.Text = bestMatch;
+                AnimateSuggestionVisibility(1);
+            }
+            else
+            {
+                AnimateSuggestionVisibility(0);
+            }
+        }
+
+        private void SuggestionTextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var suggestion = SuggestionKeywordRun?.Text;
+            if (!string.IsNullOrEmpty(suggestion) && SearchTextBox != null)
+            {
+                SearchTextBox.Text = suggestion;
+                SearchTextBox.CaretIndex = suggestion.Length;
+            }
+        }
+
+        private void AnimateSuggestionVisibility(double targetOpacity)
+        {
+            var opacityAnimation = new DoubleAnimation
+            {
+                To = targetOpacity,
+                Duration = TimeSpan.FromMilliseconds(120),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            var translateAnimation = new DoubleAnimation
+            {
+                To = targetOpacity > 0 ? 0 : 10,
+                Duration = TimeSpan.FromMilliseconds(120),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            opacityAnimation.Completed += (s, e) =>
+            {
+                if (targetOpacity == 0)
+                {
+                    SuggestionTextBlock.Visibility = Visibility.Collapsed;
+                }
+            };
+
+            if (targetOpacity > 0)
+                SuggestionTextBlock.Visibility = Visibility.Visible;
+
+            SuggestionTextBlock.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            SuggestionTranslateTransform.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, translateAnimation);
+        }
 
         private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
@@ -264,8 +326,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // refresh datacontext on page load to synchronize with editor page
-
             if (!_initialLoad)
             {
                 _initialLoad = true;
@@ -277,7 +337,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void ValidateInt32(object sender, TextCompositionEventArgs e)
         {
-            // Allow "-" only at the start, and digits
             if (e.Text == "-")
                 e.Handled = ((sender as System.Windows.Controls.TextBox)?.CaretIndex != 0);
             else
