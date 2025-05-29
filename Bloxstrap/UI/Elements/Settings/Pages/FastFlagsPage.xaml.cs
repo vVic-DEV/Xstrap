@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Threading;
+using System.Windows.Threading;
 
 using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Controls;
@@ -13,6 +15,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class FastFlagsPage : UiPage
     {
+
+        private CancellationTokenSource? _searchDebounceCts;
+
         private bool _initialLoad = false;
         private FastFlagsViewModel _viewModel;
         private List<FrameworkElement> _optionControls = new();
@@ -142,6 +147,29 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            _searchDebounceCts?.Cancel();
+            _searchDebounceCts = new CancellationTokenSource();
+            var token = _searchDebounceCts.Token;
+
+            Dispatcher.InvokeAsync(async () =>
+            {
+                try
+                {
+                    await Task.Delay(300, token);
+                    if (!token.IsCancellationRequested)
+                    {
+                        Dispatcher.Invoke(() => PerformSearchBoxFiltering());
+                    }
+                }
+                catch (TaskCanceledException)
+                {
+                    // Ignore cancellation
+                }
+            });
+        }
+
+        private void PerformSearchBoxFiltering()
+        {
             string search = SearchBox.Text.Trim().ToLowerInvariant();
             bool isSearching = !string.IsNullOrWhiteSpace(search);
 
@@ -164,7 +192,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (Reset != null)
                     Reset.Visibility = Visibility.Collapsed;
             }
-
 
             RecommendedTextBlock.Visibility = _recommendedOptions.Exists(opt => opt.Visibility == Visibility.Visible)
                 ? Visibility.Visible : Visibility.Collapsed;
