@@ -79,6 +79,13 @@
                 Click="FlagProfiles_Click"
                 Content="{x:Static resources:Strings.Common_Profiles}"
                 Icon="Edit28"/>
+            <ui:Button
+                Width="235"
+                Margin="0,0,10,16"
+                VerticalAlignment="Top"
+                Icon="Settings48"
+                Content="Open FastFlag Editor Settings"
+                Click="OpenFastFlagEditorSettings_Click"/>
             <ToggleButton
                 x:Name="TogglePresetsButton"
                 Margin="0,0,10,16"

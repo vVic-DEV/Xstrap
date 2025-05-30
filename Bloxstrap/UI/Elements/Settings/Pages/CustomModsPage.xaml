@@ -50,7 +50,7 @@
 
         <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_CustomMods_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <!-- Search -->
+        <!-- Search Box -->
         <Grid Margin="0,0,0,14" Height="36">
             <ui:TextBox
             x:Name="SearchBox"
@@ -66,6 +66,7 @@
 
         <WrapPanel x:Name="ResultsPanel" Margin="0,-20,0,0" ItemWidth="370" ItemHeight="Auto" Orientation="Horizontal">
 
+             <!-- Bloxstrap theme -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">
@@ -79,7 +80,6 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <!-- Image ListBox -->
                         <ListBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                      Style="{StaticResource ThemeListBoxStyle}"
                      ItemTemplate="{StaticResource ItemTemplate}">
@@ -88,7 +88,6 @@
                             </ListBox.Background>
                         </ListBox>
 
-                        <!-- Credit/Type TextBlock -->
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Bloxstrap theme" FontSize="20" />
                 <LineBreak/>
@@ -97,7 +96,6 @@
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Mod"/>
                         </TextBlock>
 
-                        <!-- Install Button -->
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                        Content="Install"
                        Icon="ArrowDownload48"
@@ -109,6 +107,7 @@
                 </StackPanel>
             </GroupBox>
 
+            <!-- Kliko's Mod -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">
@@ -149,6 +148,7 @@
                 </StackPanel>
             </GroupBox>
 
+            <!-- Fishstrap -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">
@@ -189,7 +189,7 @@
                 </StackPanel>
             </GroupBox>
 
-
+            <!-- Nagi Seishiro -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">
@@ -230,7 +230,7 @@
                 </StackPanel>
             </GroupBox>
 
-
+            <!-- Arch Linux -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">
@@ -271,7 +271,7 @@
                 </StackPanel>
             </GroupBox>
 
-
+            <!-- 24k Gold -->
             <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
                 <StackPanel>
                     <Grid Margin="0,8,0,0">

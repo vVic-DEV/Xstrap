@@ -1999,6 +1999,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Format 1.
+        /// </summary>
+        public static string Enums_CopyFormatMode_Format1 {
+            get {
+                return ResourceManager.GetString("Enums.CopyFormatMode.Format1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format 2.
+        /// </summary>
+        public static string Enums_CopyFormatMode_Format2 {
+            get {
+                return ResourceManager.GetString("Enums.CopyFormatMode.Format2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2006 (Cartoony).
         /// </summary>
         public static string Enums_CursorType_From2006 {

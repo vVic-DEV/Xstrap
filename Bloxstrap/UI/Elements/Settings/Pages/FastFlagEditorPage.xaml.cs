@@ -4,7 +4,6 @@ using System.Windows.Controls.Primitives;
 using System.Collections.ObjectModel;
 
 using Wpf.Ui.Mvvm.Contracts;
-
 using Bloxstrap.UI.Elements.Dialogs;
 using Microsoft.Win32;
 using System.Windows.Media.Animation;
@@ -26,11 +25,38 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private DateTime _lastSearchTime = DateTime.MinValue;
         private const int _debounceDelay = 70;
 
+        private bool LoadShowPresetColumnSetting()
+        {
+            // Replace with your actual loading logic
+            if (File.Exists("fastflag-editor-settings.json"))
+            {
+                var json = File.ReadAllText("fastflag-editor-settings.json");
+                var settings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+                if (settings?.TryGetValue("ShowPresetColumn", out var value) == true && bool.TryParse(value, out var result))
+                    return result;
+            }
+            return true; // default to visible if no setting found
+        }
+
+
+
         public FastFlagEditorPage()
         {
             InitializeComponent();
+
+            FastFlagEditorSettingViewModel.ShowPresetColumnChanged += (_, _) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    PresetColumn.Visibility = LoadShowPresetColumnSetting()
+                        ? Visibility.Visible
+                        : Visibility.Collapsed;
+                });
+            };
+
             SetDefaultStates();
         }
+
 
         private void SetDefaultStates()
         {
@@ -39,6 +65,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void ReloadList()
         {
+            PresetColumn.Visibility = LoadShowPresetColumnSetting() ? Visibility.Visible : Visibility.Collapsed;
+
             _fastFlagList.Clear();
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
@@ -95,6 +123,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 AddSingle(dialog.FlagNameTextBox.Text.Trim(), dialog.FlagValueTextBox.Text);
             else if (dialog.Tabs.SelectedIndex == 1)
                 ImportJSON(dialog.JsonTextBox.Text);
+        }
+        private void OpenFastFlagEditorSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Bloxstrap.UI.Elements.Dialogs.FastFlagEditorSettingsDialog();
+            dialog.Owner = Window.GetWindow(this); // Optional: set owner for modal behavior
+            dialog.ShowDialog();
         }
 
         private void ShowProfilesDialog()
@@ -383,50 +417,74 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void CopyJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            var flags = App.FastFlags.Prop;
+            // Step 5: Load the user's selected copy format from saved settings
+            string settingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fastflag-editor-settings.json");
+            CopyFormatMode format = CopyFormatMode.Format1; // Default fallback
 
-            var groupedFlags = flags
-                .GroupBy(kvp =>
-                {
-                    var match = Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
-                    return match.Success ? match.Value : "Other";
-                })
-                .OrderBy(g => g.Key);
-
-            var formattedJson = new StringBuilder();
-            formattedJson.AppendLine("{");
-
-            int totalItems = flags.Count;
-            int writtenItems = 0;
-            int groupIndex = 0;
-
-            foreach (var group in groupedFlags)
+            if (File.Exists(settingsPath))
             {
-                if (groupIndex > 0)
-                    formattedJson.AppendLine();
-
-                var sortedGroup = group
-                    .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
-
-                foreach (var kvp in sortedGroup)
+                var settings = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(settingsPath));
+                if (settings != null && settings.TryGetValue("SelectedCopyFormat", out var formatString)
+                    && Enum.TryParse(formatString, out CopyFormatMode parsedFormat))
                 {
-                    writtenItems++;
-                    bool isLast = (writtenItems == totalItems);
-                    string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
-
-                    if (!isLast)
-                        line += ",";
-
-                    formattedJson.AppendLine(line);
+                    format = parsedFormat;
                 }
-
-                groupIndex++;
             }
 
-            formattedJson.AppendLine("}");
+            // Step 6: Perform the correct copy logic based on the format
+            if (format == CopyFormatMode.Format1)
+            {
+                string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
+                Clipboard.SetDataObject(json);
+            }
+            else if (format == CopyFormatMode.Format2)
+            {
+                // your original grouped JSON logic
+                var flags = App.FastFlags.Prop;
 
-            Clipboard.SetText(formattedJson.ToString());
+                var groupedFlags = flags
+                    .GroupBy(kvp =>
+                    {
+                        var match = Regex.Match(kvp.Key, @"^[A-Z]+[a-z]*");
+                        return match.Success ? match.Value : "Other";
+                    })
+                    .OrderBy(g => g.Key);
+
+                var formattedJson = new StringBuilder();
+                formattedJson.AppendLine("{");
+
+                int totalItems = flags.Count;
+                int writtenItems = 0;
+                int groupIndex = 0;
+
+                foreach (var group in groupedFlags)
+                {
+                    if (groupIndex > 0)
+                        formattedJson.AppendLine();
+
+                    var sortedGroup = group
+                        .OrderByDescending(kvp => kvp.Key.Length + (kvp.Value?.ToString()?.Length ?? 0));
+
+                    foreach (var kvp in sortedGroup)
+                    {
+                        writtenItems++;
+                        bool isLast = (writtenItems == totalItems);
+                        string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
+
+                        if (!isLast)
+                            line += ",";
+
+                        formattedJson.AppendLine(line);
+                    }
+
+                    groupIndex++;
+                }
+
+                formattedJson.AppendLine("}");
+                Clipboard.SetText(formattedJson.ToString());
+            }
         }
+
 
         private void SaveJSONToFile(string json)
         {

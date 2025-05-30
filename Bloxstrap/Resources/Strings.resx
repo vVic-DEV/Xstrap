@@ -956,6 +956,12 @@ There are {0} conflicting flag definitions:
   <data name="Menu.CustomMods.Description" xml:space="preserve">
     <value>Allows you to install custom mods from the Bootstrapper.</value>
   </data>
+  <data name="Enums.CopyFormatMode.Format1" xml:space="preserve">
+    <value>Format 1</value>
+  </data>
+	<data name="Enums.CopyFormatMode.Format2" xml:space="preserve">
+    <value>Format 2</value>
+  </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
   </data>
