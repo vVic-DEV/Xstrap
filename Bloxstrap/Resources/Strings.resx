@@ -950,6 +950,12 @@ There are {0} conflicting flag definitions:
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
     <value>Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings.</value>
   </data>
+  <data name="Menu.CustomMods.Title" xml:space="preserve">
+    <value>Custom Mods</value>
+  </data>
+  <data name="Menu.CustomMods.Description" xml:space="preserve">
+    <value>Allows you to install custom mods from the Bootstrapper.</value>
+  </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
   </data>

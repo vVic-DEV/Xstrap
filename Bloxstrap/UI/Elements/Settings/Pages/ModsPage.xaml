@@ -53,8 +53,6 @@
             </ui:CardAction>
 
 
-
-
             <!--  Compatibility Settings Card  -->
             <ui:CardAction
                 Grid.Row="1"

@@ -3474,6 +3474,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allows you to install custom mods from the Bootstrapper..
+        /// </summary>
+        public static string Menu_CustomMods_Description {
+            get {
+                return ResourceManager.GetString("Menu.CustomMods.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Mods.
+        /// </summary>
+        public static string Menu_CustomMods_Title {
+            get {
+                return ResourceManager.GetString("Menu.CustomMods.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This channel is out of date, and is likely no longer being updated. Please use another channel..
         /// </summary>
         public static string Menu_Deployment_Channel_OutOfDate {

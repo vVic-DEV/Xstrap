@@ -7,23 +7,25 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-    <Version>1.0.3.0</Version>
-    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3.1</Version>
+    <FileVersion>1.0.3.1</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Product>$(AssemblyName)</Product>
     <RootNamespace>Bloxstrap</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\LightEditor.xshd" />
-  </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
 	<Resource Include="Resources\Checkmark.ico" />
 	<Resource Include="Resources\CrossMark.ico" />
+	<Resource Include="Resources\CustomModsPage\24kGold.png" />
+	<Resource Include="Resources\CustomModsPage\ArchLinux.png" />
+	<Resource Include="Resources\CustomModsPage\Nagi.png" />
+	<Resource Include="Resources\CustomModsPage\Bloxstrap.png" />
+	<Resource Include="Resources\CustomModsPage\Kliko.png" />
+	<Resource Include="Resources\CustomModsPage\Fishstrap.png" />
 	<Resource Include="Resources\Froststrap Custom Background.png" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
