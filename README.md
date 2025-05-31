@@ -1,7 +1,5 @@
 > [!CAUTION]
-> The only official place to download Froststrap is this GitHub repository. Any other websites offering downloads or claiming to be us are not controlled by us (Example: Froststrap.org, Froststrap.com). We strongly recommend **not** downloading from any unofficial sources.
->
-> This project has nothing to do with Hellstrap/Voidstrap, so please don't bring drama from that bootstrapper
+> This is the only official place to install Froststrap. Any other websites offering downloads or claiming to be us are not controlled by us (Example: Froststrap.com). We strongly recommend **not** downloading from any unofficial sources.
 
 <p align="center">
     <img src="https://github.com/Meddsam/Froststrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="700">
@@ -10,7 +8,7 @@
 
 <div align="center">
 
-**Froststrap** is a Bloxstrap/Fishstrap fork aiming to enhance and improve features and offer more Performance.
+**Froststrap** is a Bloxstrap/Fishstrap fork aiming to improve features and offer more Performance.
 
 Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/new/choose) or create a bug report in our [Discord server](https://discord.gg/KdR9vpRcUN).
 
@@ -32,13 +30,13 @@ Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/n
 - Message logs
 - Multi-Instance launching
 - Cleaner
-- Allow Cross-Game Teleportation
 
 ### 🚩 Fast Flags
 - Flag profiles
 - Removed editor warnings & validation
 - A Bunch Of Preset Flags
-- More Fast Flag Editor Features
+- Search box to quickly find flags in settings
+- More toggleable Fast Flag Editor features in advanced settings
 - Built-In Flag Lists
 - Check which flags are toggleable in settings
 
@@ -49,6 +47,7 @@ Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/n
 ### 🎨 Appearance
 - Customizable Bootstrapper Launcher
 - Built-In App Themes
+- Custom Mods page
 
 ### ⚙️ Extras
 - Saves the last opened settings page
