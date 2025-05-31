@@ -93,7 +93,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: TheKliko"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Mod"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -134,7 +134,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: TheKliko"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Mod"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -175,7 +175,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: TheKliko"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Mod"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -216,7 +216,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: Meddsam"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Launcher"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -257,7 +257,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: DefinitelyNotAltAccount"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Launcher"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -298,7 +298,7 @@
                 <LineBreak/>
                 <Run Foreground="Gray" Text="Credit: thefrenchguy4"/>
                 <LineBreak/>
-                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="Type: Mod"/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
 
                         <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"

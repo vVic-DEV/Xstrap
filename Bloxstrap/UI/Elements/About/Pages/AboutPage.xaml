@@ -111,6 +111,8 @@
                     <controls:MarkdownTextBlock MarkdownText="[Stoof](https://discord.com/users/1020107535589593138)" />
                     <controls:MarkdownTextBlock MarkdownText="[5070](https://discord.com/users/1272494435690610800)" />
                     <controls:MarkdownTextBlock MarkdownText="[Onion](https://discord.com/users/1104189426374033519)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Reslav](https://discord.com/users/1136966783027380256)" />
+                    <controls:MarkdownTextBlock MarkdownText="[polover](https://discord.com/users/999142457667227679)" />
                 </StackPanel>
             </controls:Expander>
 

@@ -36,9 +36,9 @@
         <StackPanel Margin="0,30,0,0" >
 
             <controls:OptionControl
-                Margin="5,0,5,0"
-                Header="Copy Format"
-                Description="Choose the format for copying JSON">
+                    Margin="5,0,5,0"
+                    Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Description}">
                 <ComboBox Margin="5,0,0,0" Padding="10,5,10,5"
                         Width="200"
                         ItemsSource="{Binding CopyFormatModes}"
@@ -52,16 +52,16 @@
             </controls:OptionControl>
 
             <controls:OptionControl
-                Margin="5,0,5,0"
-                Header="Preset Column"
-                Description="Toggle the preset column in the editor.">
+                    Margin="5,0,5,0"
+                    Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Description}">
                 <ui:ToggleSwitch IsChecked="{Binding ShowPresetColumnSetting, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl
-                Margin="5,0,5,0"
-                Header="Flag Count"
-                Description="Toggle the total flag count in the fastflag editor.">
+                    Margin="5,0,5,0"
+                    Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Description}">
                 <ui:ToggleSwitch IsChecked="{Binding ShowFlagCount, Mode=TwoWay}" />
             </controls:OptionControl>
 

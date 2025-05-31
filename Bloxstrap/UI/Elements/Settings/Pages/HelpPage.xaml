@@ -48,6 +48,7 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_DiscordRichPresenceNotWorking}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_SetupFailed}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_ConnectivityIssue}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RobloxWontLaunch}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
 
@@ -64,6 +65,10 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_LargeReplicator}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RCore}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_PayloadLimit}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BypassVulkan}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_LightCulling}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BGRASupport}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_MaquetteFramesBeforeShown}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
 
@@ -82,6 +87,8 @@
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_Cleaner}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_DisableHardwareAcceleration}" Margin="0,0,0,4" />
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_BetterSuggestionBox}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_AdvancedFFlagEditorSettings}" Margin="0,0,0,4" />
+                    <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_CustomModsPage}" Margin="0,0,0,4" />
                 </StackPanel>
             </controls:Expander>
 

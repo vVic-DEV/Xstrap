@@ -673,6 +673,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type: Launcher.
+        /// </summary>
+        public static string Common_LauncherType {
+            get {
+                return ResourceManager.GetString("Common.LauncherType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading, please wait....
         /// </summary>
         public static string Common_Loading {
@@ -696,6 +705,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Miscellaneous {
             get {
                 return ResourceManager.GetString("Common.Miscellaneous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type: Mod.
+        /// </summary>
+        public static string Common_ModType {
+            get {
+                return ResourceManager.GetString("Common.ModType", resourceCulture);
             }
         }
         
@@ -858,6 +876,15 @@ namespace Bloxstrap.Resources {
         public static string Common_RobloxStudio {
             get {
                 return ResourceManager.GetString("Common.RobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search By.
+        /// </summary>
+        public static string Common_SearchBy {
+            get {
+                return ResourceManager.GetString("Common.SearchBy", resourceCulture);
             }
         }
         
@@ -1999,7 +2026,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Format 1.
+        ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Enums_CopyFormatMode_Format1 {
             get {
@@ -2008,11 +2035,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Format 2.
+        ///   Looks up a localized string similar to Recommended.
         /// </summary>
         public static string Enums_CopyFormatMode_Format2 {
             get {
                 return ResourceManager.GetString("Enums.CopyFormatMode.Format2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabetical.
+        /// </summary>
+        public static string Enums_CopyFormatMode_Format3 {
+            get {
+                return ResourceManager.GetString("Enums.CopyFormatMode.Format3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descending by length.
+        /// </summary>
+        public static string Enums_CopyFormatMode_Format4 {
+            get {
+                return ResourceManager.GetString("Enums.CopyFormatMode.Format4", resourceCulture);
             }
         }
         
@@ -2550,7 +2595,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Froststrap installation was not found..
+        ///   Looks up a localized string similar to Bloxstrap installation was not found..
         /// </summary>
         public static string Installer_InstallationNotFound {
             get {
@@ -3603,7 +3648,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your FastFlags here. A checkmark in the “Preset” column indicates that a FastFlag is available in Froststrap’s FastFlag Settings..
+        ///   Looks up a localized string similar to Manage your FastFlags here. Check out more features in Advanced Settings.
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
@@ -5115,6 +5160,60 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose the format for copying JSON..
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.CopyFormat.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Format.
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.CopyFormat.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle the Preset Column which shows toggleable fflags in fastflag setting.
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.PresetColumn.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset Column.
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.PresetColumn.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle the total flag count in the fastflag editor..
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.ToggleFlagCount.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag Count.
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.ToggleFlagCount.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear FFlags.
         /// </summary>
         public static string Menu_FlagProfiles_ClearFlags {
@@ -5214,11 +5313,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Advanced fflag editor settings](https://github.com/Meddsam/Froststrap/wiki/Features#advanced-fastflag-editor-settings).
+        /// </summary>
+        public static string Menu_Help_AdvancedFFlagEditorSettings {
+            get {
+                return ResourceManager.GetString("Menu.Help.AdvancedFFlagEditorSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [Better Suggestion Box](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box).
         /// </summary>
         public static string Menu_Help_BetterSuggestionBox {
             get {
                 return ResourceManager.GetString("Menu.Help.BetterSuggestionBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [BGRA Support](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bgra-support).
+        /// </summary>
+        public static string Menu_Help_BGRASupport {
+            get {
+                return ResourceManager.GetString("Menu.Help.BGRASupport", resourceCulture);
             }
         }
         
@@ -5277,6 +5394,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Bypass Vulkan](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bypass-vulkan-requirement).
+        /// </summary>
+        public static string Menu_Help_BypassVulkan {
+            get {
+                return ResourceManager.GetString("Menu.Help.BypassVulkan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [Froststrap Cleaner](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner).
         /// </summary>
         public static string Menu_Help_Cleaner {
@@ -5309,6 +5435,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_CustomLaunchers {
             get {
                 return ResourceManager.GetString("Menu.Help.CustomLaunchers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Custom Mods Page](https://github.com/Meddsam/Froststrap/wiki/Features#custom-mods-page).
+        /// </summary>
+        public static string Menu_Help_CustomModsPage {
+            get {
+                return ResourceManager.GetString("Menu.Help.CustomModsPage", resourceCulture);
             }
         }
         
@@ -5448,6 +5583,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Light Culling](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#light-culling).
+        /// </summary>
+        public static string Menu_Help_LightCulling {
+            get {
+                return ResourceManager.GetString("Menu.Help.LightCulling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [Lighting Problems](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems).
         /// </summary>
         public static string Menu_Help_LightingProblems {
@@ -5462,6 +5606,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_LoaddingIssues {
             get {
                 return ResourceManager.GetString("Menu.Help.LoaddingIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Maquette Frames Before Shown](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#maquette-frames-before-shown).
+        /// </summary>
+        public static string Menu_Help_MaquetteFramesBeforeShown {
+            get {
+                return ResourceManager.GetString("Menu.Help.MaquetteFramesBeforeShown", resourceCulture);
             }
         }
         
@@ -5570,6 +5723,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Help_RobloxCrashing {
             get {
                 return ResourceManager.GetString("Menu.Help.RobloxCrashing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Roblox Dosen&apos;t Launch](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#roblox-wont-launch).
+        /// </summary>
+        public static string Menu_Help_RobloxWontLaunch {
+            get {
+                return ResourceManager.GetString("Menu.Help.RobloxWontLaunch", resourceCulture);
             }
         }
         

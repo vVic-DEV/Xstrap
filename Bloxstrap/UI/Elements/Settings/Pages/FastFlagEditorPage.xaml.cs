@@ -420,10 +420,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void CopyJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            // Load the user's selected copy format from persisted settings
             CopyFormatMode format = App.Settings.Prop.SelectedCopyFormat;
 
-            // Perform the correct copy logic based on the format
             if (format == CopyFormatMode.Format1)
             {
                 string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
@@ -473,6 +471,63 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 formattedJson.AppendLine("}");
                 Clipboard.SetText(formattedJson.ToString());
+            }
+            else if (format == CopyFormatMode.Format3)
+            {
+                var flags = App.FastFlags.Prop;
+
+                // Sort all flags alphabetically by key
+                var sortedFlags = flags.OrderBy(kvp => kvp.Key);
+
+                var formattedJson = new StringBuilder();
+                formattedJson.AppendLine("{");
+
+                int totalItems = flags.Count;
+                int writtenItems = 0;
+
+                foreach (var kvp in sortedFlags)
+                {
+                    writtenItems++;
+                    bool isLast = (writtenItems == totalItems);
+                    string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
+
+                    if (!isLast)
+                        line += ",";
+
+                    formattedJson.AppendLine(line);
+                }
+
+                formattedJson.AppendLine("}");
+                Clipboard.SetText(formattedJson.ToString());
+            }
+            else if (format == CopyFormatMode.Format4) 
+            {
+                var flags = App.FastFlags.Prop;
+
+                // Sort flags by key length, from longest to shortest
+                var sortedFlags = flags.OrderByDescending(kvp => kvp.Key.Length);
+
+                var formattedJson = new StringBuilder();
+                formattedJson.AppendLine("{");
+
+                int totalItems = flags.Count;
+                int writtenItems = 0;
+
+                foreach (var kvp in sortedFlags)
+                {
+                    writtenItems++;
+                    bool isLast = (writtenItems == totalItems);
+                    string line = $"    \"{kvp.Key}\": \"{kvp.Value}\"";
+
+                    if (!isLast)
+                        line += ",";
+
+                    formattedJson.AppendLine(line);
+                }
+
+                formattedJson.AppendLine("}");
+                Clipboard.SetText(formattedJson.ToString());
+
             }
         }
 
