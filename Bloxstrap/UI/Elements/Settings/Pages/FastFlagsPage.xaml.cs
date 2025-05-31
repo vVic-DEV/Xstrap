@@ -70,7 +70,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 SystemExperimentalExpander,
                 RenderingAdvancedExpander,
                 NetworkExpander,
-                MiscExpander
+                MiscExpander,
+                SkyExpander,
             };
 
             _recommendedOptions = new List<FrameworkElement>
@@ -117,11 +118,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 BypassVulkan,
                 MemoryProbing,
                 LightCulling,
-                BGRA,
                 NewFrameRateSystem,
                 LowEndHardwareOptimization,
+                RainbowSky,
+                BlackSky,
                 WhiteSky,
-                LowQualityParticles,
+                SmoothTextures,
                 LowPolyMeshes,
                 FrameCreationBufferPercentage,
                 StartingGraphicsLevel,

@@ -168,10 +168,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Telemetry.CallbackSafety", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.V2PointEncoding", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.ReplaceSeparator", value ? "False" : null);
-                App.FastFlags.SetPreset("Telemetry.EpCounter", value ? "True" : null);
-                App.FastFlags.SetPreset("Telemetry.EpStats", value ? "True" : null);
-                App.FastFlags.SetPreset("Telemetry.Event", value ? "True" : null);
-                App.FastFlags.SetPreset("Telemetry.Point", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.OpenTelemetry", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.FLogTelemetry", value ? "0" : null);
             }
         }
 
@@ -251,18 +249,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool WorserParticles
-        {
-            get => App.FastFlags?.GetPreset("Rendering.WorserParticles1") == "False";
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.WorserParticles1", value ? "False" : null);
-                App.FastFlags.SetPreset("Rendering.WorserParticles2", value ? "False" : null);
-                App.FastFlags.SetPreset("Rendering.WorserParticles3", value ? "False" : null);
-                App.FastFlags.SetPreset("Rendering.WorserParticles4", value ? "False" : null);
-            }
-        }
-
         public bool RemoveGrass
         {
             get => App.FastFlags?.GetPreset("Rendering.RemoveGrass1") == "0";
@@ -286,11 +272,49 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool WhiteSky
         {
-            get => App.FastFlags.GetPreset("Graphic.WhiteSky") == "True";
+            get => App.FastFlags.GetPreset("Graphic.RGBEEEncoding") == "True";
             set
             {
-                App.FastFlags.SetPreset("Graphic.WhiteSky", value ? "True" : null);
+                App.FastFlags.SetPreset("Graphic.RGBEEEncoding", value ? "True" : null);
                 App.FastFlags.SetPreset("Graphic.GraySky", value ? "True" : null);
+            }
+        }
+
+        public bool BlackSky
+        {
+            get => App.FastFlags.GetPreset("Graphic.VertexSmoothing") == "10000";
+            set
+            {
+                App.FastFlags.SetPreset("Graphic.VertexSmoothing", value ? "10000" : null);
+                App.FastFlags.SetPreset("Rendering.TextureSkipping.Skips", value ? "8" : null);
+                App.FastFlags.SetPreset("Rendering.TextureQuality.Level", value ? "0" : null);
+            }
+        }
+
+        public bool RainbowSky
+        {
+            get => App.FastFlags.GetPreset("Rendering.Mode.Vulkan") == "True";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.TextureSkipping.Skips", value ? "8" : null);
+                App.FastFlags.SetPreset("Graphic.VertexSmoothing", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.MSAA2", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.MSAA1", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.TextureQuality.Level", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.TextureQuality.OverrideEnabled", value ? "True" : null);
+                App.FastFlags.SetPreset("Rendering.Mode.Vulkan", value ? "True" : null);
+            }
+        }
+
+
+        public bool SmoothTextures
+        {
+            get => App.FastFlags.GetPreset("Rendering.Mode.Vulkan") == "True";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.Mode.Vulkan", value ? "True" : null);
+                App.FastFlags.SetPreset("Rendering.TextureSkipping.Skips", value ? "8" : null);
+                App.FastFlags.SetPreset("Rendering.TextureQuality.Level", value ? "True" : null);
             }
         }
 
@@ -316,12 +340,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.FastFlags.GetPreset("Rendering.NewFpsSystem") == "True";
             set => App.FastFlags.SetPreset("Rendering.NewFpsSystem", value ? "True" : null);
-        }
-
-        public bool BGRA
-        {
-            get => App.FastFlags.GetPreset("Rendering.BGRA") == "True";
-            set => App.FastFlags.SetPreset("Rendering.BGRA", value ? "True" : null);
         }
 
         public bool AndroidVfs

@@ -1461,12 +1461,6 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.RefreshRate.Description" xml:space="preserve">
     <value>Controls the frame rate Roblox should aim for. Recommended to set this value to your monitor’s refresh rate. Default value is 60.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.BGRA.Title" xml:space="preserve">
-    <value>Direct 3D 11 BGRA Support</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.BGRA.Description" xml:space="preserve">
-    <value>Can potentially improve rendering speeds and performance on GPUs that support BGRA.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.LowPolyMeshes.Description" xml:space="preserve">
     <value>Reduces the quality of polygon meshes to potentially improve rendering performance or reduce memory usage.</value>
   </data>
@@ -1582,7 +1576,25 @@ Some text might not be translated to preferred language.</value>
     <value>White Sky</value>
   </data>
   <data name="Menu.FastFlags.Presets.WhiteSky.Description" xml:space="preserve">
-    <value>Changes the color of the sky to white. Note: this uses gray sky flag.</value>
+    <value>Can make the whole screen white if the game has no default sky. Note: this uses gray sky flag.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Title" xml:space="preserve">
+    <value>Rainbow Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Description" xml:space="preserve">
+    <value>Removes icons due to skipmips, can also be pretty buggy and may not work. Note: This could enable other toggleable settings.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Title" xml:space="preserve">
+    <value>Black Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Description" xml:space="preserve">
+    <value>Removes icons due to skipmips. Note: This could enable other toggleable settings.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.SmoothTextures.Title" xml:space="preserve">
+    <value>Smooth Textures</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.SmoothTextures.Description" xml:space="preserve">
+    <value>Enables a smooth-looking texture. Note: This will hides icons due to skipmip and use Vulkan rendering mode</value>
   </data>
   <data name="Menu.FastFlags.Presets.Tencent.Description" xml:space="preserve">
     <value>Note: This setting blocks some data collection by Tencent and the Chinese government, but not all.</value>

@@ -614,13 +614,48 @@
 
             <StackPanel>
 
-                <controls:OptionControl 
-                    x:Name="BGRA"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_BGRA_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BGRA_Description}"
-                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bgra-support" >
-                    <ui:ToggleSwitch IsChecked="{Binding BGRA, Mode=TwoWay}" />
-                </controls:OptionControl>
+
+
+
+                <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False" x:Name="SkyExpander" >
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="14" Text="Sky Colors" />
+                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="These are expiremental sky colors that could bug your game. Note: These could use other toggleable fflags like gray sky" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+                    <StackPanel>
+
+                        <controls:OptionControl 
+                            x:Name="WhiteSky"
+                            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Title}" 
+                            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Description}">
+                            <ui:ToggleSwitch IsChecked="{Binding WhiteSky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                            x:Name="BlackSky"
+                            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_BlackSky_Title}" 
+                            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BlackSky_Description}">
+                            <ui:ToggleSwitch IsChecked="{Binding BlackSky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+                        <controls:OptionControl 
+                            x:Name="RainbowSky"
+                            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RainbowSky_Title}" 
+                            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RainbowSky_Description}">
+                            <ui:ToggleSwitch IsChecked="{Binding RainbowSky, Mode=TwoWay}" />
+                        </controls:OptionControl>
+
+
+                    </StackPanel>
+                </ui:CardExpander>
 
                 <controls:OptionControl 
                     x:Name="NewFrameRateSystem"
@@ -630,24 +665,17 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    x:Name="SmoothTextures"
+                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_SmoothTextures_Title}" 
+                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_SmoothTextures_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding SmoothTextures, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
                     x:Name="LowEndHardwareOptimization"
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Title}" 
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AndroidVfs_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding AndroidVfs, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    x:Name="WhiteSky"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WhiteSky_Description}">
-                    <ui:ToggleSwitch IsChecked="{Binding WhiteSky, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl 
-                    x:Name="LowQualityParticles"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_WorserParticles_Title}"
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_WorserParticles_Description}">
-                    <ui:ToggleSwitch IsChecked="{Binding WorserParticles, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 

@@ -31,12 +31,10 @@ namespace Bloxstrap
             // Memory Probing
             { "Memory.Probe", "DFFlagPerformanceControlEnableMemoryProbing3" },
 
-            // BGRA
-            { "Rendering.BGRA", "FFlagD3D11SupportBGRA" },
-
-            // Sky
+            // Skys
             { "Graphic.GraySky", "FFlagDebugSkyGray" },
-            { "Graphic.WhiteSky", "FFlagSkyUseRGBEEncoding" },
+            { "Graphic.RGBEEEncoding", "FFlagSkyUseRGBEEncoding" },
+            { "Graphic.VertexSmoothing", "FIntVertexSmoothingGroupTolerance" },
 
             // Low Poly Meshes
             { "Rendering.LowPolyMeshes1", "DFIntCSGLevelOfDetailSwitchingDistance" },
@@ -89,12 +87,6 @@ namespace Bloxstrap
             // Pseudolocalization
             { "UI.Pseudolocalization", "FFlagDebugEnablePseudolocalization" },
 
-            // Worser Particles
-            { "Rendering.WorserParticles1", "FFlagFixOutdatedParticles2" },
-            { "Rendering.WorserParticles2", "FFlagFixOutdatedTimeScaleParticles" },
-            { "Rendering.WorserParticles3", "FFlagFixParticleAttachmentCulling" },
-            { "Rendering.WorserParticles4", "FFlagFixParticleEmissionBias2" },
-
             // Remove Grass
             { "Rendering.RemoveGrass1", "FIntFRMMinGrassDistance" },
             { "Rendering.RemoveGrass2", "FIntFRMMaxGrassDistance" },
@@ -140,12 +132,10 @@ namespace Bloxstrap
             { "Telemetry.CallbackSafety", "DFFlagEmitSafetyTelemetryInCallbackEnable" },
             { "Telemetry.V2PointEncoding", "DFFlagRobloxTelemetryV2PointEncoding" },
             { "Telemetry.ReplaceSeparator", "DFFlagDSTelemetryV2ReplaceSeparator" },
-            { "Telemetry.EpCounter", "FFlagDebugDisableTelemetryEphemeralCounter" },
-            { "Telemetry.EpStats", "FFlagDebugDisableTelemetryEphemeralStat" },
-            { "Telemetry.Event", "FFlagDebugDisableTelemetryEventIngest" },
-            { "Telemetry.Point", "FFlagDebugDisableTelemetryPoint" },
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
             { "Telemetry.Protocol", "FFlagEnableTelemetryProtocol" },
+            { "Telemetry.OpenTelemetry", "FFlagOpenTelemetryEnabled" },
+            { "Telemetry.FLogTelemetry", "FLogRobloxTelemetry" },
 
             // Voicechat Telemetry
             { "Telemetry.Voicechat1", "DFFlagVoiceChatCullingRecordEventIngestTelemetry" },
@@ -273,8 +263,8 @@ namespace Bloxstrap
 
             // Large Replicator
             { "Network.EnableLargeReplicator", "FFlagLargeReplicatorEnabled6"},
-            { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite4"},
-            { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead4"},
+            { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite5"},
+            { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead5"},
 
             //MTU Size
             { "Network.Mtusize","DFIntConnectionMTUSize" },

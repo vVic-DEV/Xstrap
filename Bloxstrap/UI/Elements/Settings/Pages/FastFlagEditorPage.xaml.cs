@@ -504,8 +504,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 var flags = App.FastFlags.Prop;
 
-                // Sort flags by key length, from longest to shortest
-                var sortedFlags = flags.OrderByDescending(kvp => kvp.Key.Length);
+                var sortedFlags = flags.OrderByDescending(kvp =>
+                    $"    \"{kvp.Key}\": \"{kvp.Value}\"".Length
+                );
 
                 var formattedJson = new StringBuilder();
                 formattedJson.AppendLine("{");

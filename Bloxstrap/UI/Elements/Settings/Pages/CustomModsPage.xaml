@@ -312,6 +312,91 @@
                 </StackPanel>
             </GroupBox>
 
+            
+
+            <!-- One Shot Solsctice Anniversary Launcher -->
+            <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
+                <StackPanel>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ListBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                     Style="{StaticResource ThemeListBoxStyle}"
+                     ItemTemplate="{StaticResource ItemTemplate}">
+                            <ListBox.Background>
+                                <ImageBrush ImageSource="/Resources/CustomModsPage/OneShotSolstriceAnniversary.png" Stretch="Fill" />
+                            </ListBox.Background>
+                        </ListBox>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+                <Run Text="One Shot Solstice Anniversary" FontSize="20" />
+                <LineBreak/>
+                <Run Foreground="Gray" Text="Credit: DefinitelyNotAltAccount"/>
+                <LineBreak/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
+                        </TextBlock>
+
+                        <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                       Content="Install"
+                       Icon="ArrowDownload48"
+                       Click="InstallButton_Click7"
+                       Width="370"
+                       Margin="0,8,13,0"
+                       HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+
+
+            <!-- Kick Prompt Launcher -->
+            <GroupBox Margin="6" Style="{StaticResource NoBorderGroupBox}">
+                <StackPanel>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ListBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                     Style="{StaticResource ThemeListBoxStyle}"
+                     ItemTemplate="{StaticResource ItemTemplate}">
+                            <ListBox.Background>
+                                <ImageBrush ImageSource="/Resources/CustomModsPage/KickPrompt.png" Stretch="UniformToFill" />
+                            </ListBox.Background>
+                        </ListBox>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+                <Run Text="Kick Prompt" FontSize="20" />
+                <LineBreak/>
+                <Run Foreground="Gray" Text="Credit: No idea who made it"/>
+                <LineBreak/>
+                <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
+                        </TextBlock>
+
+                        <ui:Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                       Content="Install"
+                       Icon="ArrowDownload48"
+                       Click="InstallButton_Click8"
+                       Width="370"
+                       Margin="0,8,13,0"
+                       HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+
         </WrapPanel>
 	</StackPanel>
 </ui:UiPage>

@@ -3945,20 +3945,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can potentially improve rendering speeds and performance on GPUs that support BGRA..
+        ///   Looks up a localized string similar to Removes icons due to skipmips. Note: This could enable other toggleable settings..
         /// </summary>
-        public static string Menu_FastFlags_Presets_BGRA_Description {
+        public static string Menu_FastFlags_Presets_BlackSky_Description {
             get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.BGRA.Description", resourceCulture);
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BlackSky.Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Direct 3D 11 BGRA Support.
+        ///   Looks up a localized string similar to Black Sky.
         /// </summary>
-        public static string Menu_FastFlags_Presets_BGRA_Title {
+        public static string Menu_FastFlags_Presets_BlackSky_Title {
             get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.BGRA.Title", resourceCulture);
+                return ResourceManager.GetString("Menu.FastFlags.Presets.BlackSky.Title", resourceCulture);
             }
         }
         
@@ -4836,6 +4836,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removes icons due to skipmips, can also be pretty buggy and may not work. Note: This could enable other toggleable settings..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RainbowSky_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RainbowSky.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rainbow Sky.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RainbowSky_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RainbowSky.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Potentially improve network performance by applying SignalR optimizations to RCore.
         /// </summary>
         public static string Menu_FastFlags_Presets_RCore_Description {
@@ -4949,6 +4967,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_RenderingMode_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.RenderingMode.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables a smooth-looking texture. Note: This will hides icons due to skipmip and use Vulkan rendering mode.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_SmoothTextures_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.SmoothTextures.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth Textures.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_SmoothTextures_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.SmoothTextures.Title", resourceCulture);
             }
         }
         
@@ -5106,7 +5142,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Changes the color of the sky to white. Note: this uses gray sky flag..
+        ///   Looks up a localized string similar to Can make the whole screen white if the game has no default sky. Note: this uses gray sky flag..
         /// </summary>
         public static string Menu_FastFlags_Presets_WhiteSky_Description {
             get {

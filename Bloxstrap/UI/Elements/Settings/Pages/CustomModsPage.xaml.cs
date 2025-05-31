@@ -151,5 +151,37 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
         }
 
+        private void InstallButton_Click7(object sender, RoutedEventArgs e)
+        {
+            var url = "https://drive.google.com/file/d/1v7JNfmNh0tVy0eJE74lMMf_51-rXXf3v/view";
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void InstallButton_Click8(object sender, RoutedEventArgs e)
+        {
+            var url = "https://drive.google.com/file/d/1WPHwjqLMA9wWImXlNDsGQZr5WhjLmdXX/view";
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception)
+            {
+            }
+        }
+
     }
 }

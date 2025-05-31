@@ -22,10 +22,12 @@
 	<Resource Include="Resources\CrossMark.ico" />
 	<Resource Include="Resources\CustomModsPage\24kGold.png" />
 	<Resource Include="Resources\CustomModsPage\ArchLinux.png" />
+	<Resource Include="Resources\CustomModsPage\KickPrompt.png" />
 	<Resource Include="Resources\CustomModsPage\Nagi.png" />
 	<Resource Include="Resources\CustomModsPage\Bloxstrap.png" />
 	<Resource Include="Resources\CustomModsPage\Kliko.png" />
 	<Resource Include="Resources\CustomModsPage\Fishstrap.png" />
+	<Resource Include="Resources\CustomModsPage\OneShotSolstriceAnniversary.png" />
 	<Resource Include="Resources\Froststrap Custom Background.png" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />

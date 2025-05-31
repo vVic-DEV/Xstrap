@@ -53,7 +53,7 @@
             </controls:Expander>
 
             <!-- Guide for Fast Flags -->
-            <controls:Expander HeaderIcon="ErrorCircle24" HeaderText="{x:Static resources:Strings.Menu_Help_FFlagGuide}" IsExpanded="True" Grid.Column="1" Margin="4,140,4,-140"  >
+            <controls:Expander HeaderIcon="ErrorCircle24" HeaderText="{x:Static resources:Strings.Menu_Help_FFlagGuide}" IsExpanded="True" Grid.Column="1" Margin="4,165,4,0"  >
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RecommendedBuffering}" Margin="0,0,0,4"/>
                     <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.Menu_Help_RenderingModes}" Margin="0,0,0,4" />
