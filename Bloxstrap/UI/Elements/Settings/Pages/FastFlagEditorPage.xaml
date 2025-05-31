@@ -80,21 +80,24 @@
                 Content="{x:Static resources:Strings.Common_Profiles}"
                 Icon="Edit28"/>
             <ui:Button
-                Width="235"
+                Width="160"
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"
                 Icon="Settings48"
-                Content="Open FastFlag Editor Settings"
-                Click="OpenFastFlagEditorSettings_Click"/>
+                Content="{x:Static resources:Strings.Menu_FastFlagEditor_AdvancedSettings}"
+                Click="AdvancedSettings_Click"/>
             <ToggleButton
                 x:Name="TogglePresetsButton"
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"
                 Click="ToggleButton_Click"
                 Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" />
-            <TextBlock x:Name="TotalFlagsTextBlock" 
+            <TextBlock 
+                x:Name="TotalFlagsTextBlock"
                 Margin="10,5" 
-                Text="Total flags: 0" />
+                Text="{Binding FlagCountText}"
+                Visibility="{Binding ShowFlagCount, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
         </WrapPanel>
 
 

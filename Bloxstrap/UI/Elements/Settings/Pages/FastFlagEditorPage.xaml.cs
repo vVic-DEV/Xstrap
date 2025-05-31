@@ -27,16 +27,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private bool LoadShowPresetColumnSetting()
         {
-            // Replace with your actual loading logic
-            if (File.Exists("fastflag-editor-settings.json"))
-            {
-                var json = File.ReadAllText("fastflag-editor-settings.json");
-                var settings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
-                if (settings?.TryGetValue("ShowPresetColumn", out var value) == true && bool.TryParse(value, out var result))
-                    return result;
-            }
-            return true; // default to visible if no setting found
+            return App.Settings.Prop.ShowPresetColumn;
         }
+
 
 
 
@@ -44,7 +37,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
 
-            FastFlagEditorSettingViewModel.ShowPresetColumnChanged += (_, _) =>
+            AdvancedSettingViewModel.ShowPresetColumnChanged += (_, _) =>
             {
                 Dispatcher.Invoke(() =>
                 {
@@ -52,6 +45,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                         ? Visibility.Visible
                         : Visibility.Collapsed;
                 });
+            };
+
+            AdvancedSettingViewModel.ShowFlagCountChanged += (_, _) =>
+            {
+                Dispatcher.Invoke(UpdateTotalFlagsCount);
             };
 
             SetDefaultStates();
@@ -97,9 +95,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             UpdateTotalFlagsCount();
         }
 
+        public string FlagCountText => $"Total flags: {_fastFlagList.Count}";
+
         private void UpdateTotalFlagsCount()
         {
-            TotalFlagsTextBlock.Text = $"Total flags: {_fastFlagList.Count}";
+            TotalFlagsTextBlock.Text = FlagCountText;
+            TotalFlagsTextBlock.Visibility = App.Settings.Prop.ShowFlagCount
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
 
         private void ClearSearch(bool refresh = true)
@@ -124,9 +127,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             else if (dialog.Tabs.SelectedIndex == 1)
                 ImportJSON(dialog.JsonTextBox.Text);
         }
-        private void OpenFastFlagEditorSettings_Click(object sender, RoutedEventArgs e)
+        private void AdvancedSettings_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new Bloxstrap.UI.Elements.Dialogs.FastFlagEditorSettingsDialog();
+            var dialog = new Bloxstrap.UI.Elements.Dialogs.AdvancedSettingsDialog();
             dialog.Owner = Window.GetWindow(this); // Optional: set owner for modal behavior
             dialog.ShowDialog();
         }
@@ -417,21 +420,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void CopyJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            // Step 5: Load the user's selected copy format from saved settings
-            string settingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fastflag-editor-settings.json");
-            CopyFormatMode format = CopyFormatMode.Format1; // Default fallback
+            // Load the user's selected copy format from persisted settings
+            CopyFormatMode format = App.Settings.Prop.SelectedCopyFormat;
 
-            if (File.Exists(settingsPath))
-            {
-                var settings = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(settingsPath));
-                if (settings != null && settings.TryGetValue("SelectedCopyFormat", out var formatString)
-                    && Enum.TryParse(formatString, out CopyFormatMode parsedFormat))
-                {
-                    format = parsedFormat;
-                }
-            }
-
-            // Step 6: Perform the correct copy logic based on the format
+            // Perform the correct copy logic based on the format
             if (format == CopyFormatMode.Format1)
             {
                 string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
@@ -439,7 +431,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             else if (format == CopyFormatMode.Format2)
             {
-                // your original grouped JSON logic
                 var flags = App.FastFlags.Prop;
 
                 var groupedFlags = flags
@@ -484,6 +475,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 Clipboard.SetText(formattedJson.ToString());
             }
         }
+
 
 
         private void SaveJSONToFile(string json)

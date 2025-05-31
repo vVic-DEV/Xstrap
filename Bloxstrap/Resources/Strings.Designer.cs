@@ -2842,6 +2842,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings saved. You can now close this window.
+        /// </summary>
+        public static string Menu_AdvancedSettings_SettingsSaved {
+            get {
+                return ResourceManager.GetString("Menu.AdvancedSettings.SettingsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All files.
         /// </summary>
         public static string Menu_AllFiles {
@@ -3524,6 +3533,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlagEditor_AddNew {
             get {
                 return ResourceManager.GetString("Menu.FastFlagEditor.AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced Settings.
+        /// </summary>
+        public static string Menu_FastFlagEditor_AdvancedSettings {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.AdvancedSettings", resourceCulture);
             }
         }
         

@@ -8,13 +8,13 @@ using CommunityToolkit.Mvvm.Input;
 namespace Bloxstrap.UI.Elements.Dialogs
 {
     /// <summary>
-    /// Interaction logic for FastFlagEditorSettingsDialog.xaml
+    /// Interaction logic for AdvancedSettingsDialog.xaml
     /// </summary>
-    public partial class FastFlagEditorSettingsDialog
+    public partial class AdvancedSettingsDialog
     {
-        public FastFlagEditorSettingViewModel ViewModel { get; } = new();
+        public AdvancedSettingViewModel ViewModel { get; } = new();
 
-        public FastFlagEditorSettingsDialog()
+        public AdvancedSettingsDialog()
         {
             InitializeComponent();
             ViewModel.LoadSettings();
@@ -24,7 +24,12 @@ namespace Bloxstrap.UI.Elements.Dialogs
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.SaveSettings();
-            MessageBox.Show("Settings saved, press on the close button now.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            Frontend.ShowMessageBox(
+                Strings.Menu_AdvancedSettings_SettingsSaved, // or your desired resource key
+                MessageBoxImage.Information
+            );
+
+
         }
 
     }

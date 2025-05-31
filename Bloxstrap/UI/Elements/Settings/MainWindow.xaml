@@ -13,7 +13,7 @@
              Title="{x:Static resources:Strings.Menu_Title}"
              MinWidth="1025"
              Width="1025"
-             Height="580"
+             Height="650"
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"
              WindowBackdropType="Mica"

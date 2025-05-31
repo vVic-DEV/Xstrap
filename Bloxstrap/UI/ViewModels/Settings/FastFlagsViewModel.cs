@@ -326,21 +326,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool AndroidVfs
         {
-            get => App.FastFlags.GetPreset("Rendering.AndroidVfs") == "{\"and\":[ {\"=\":[\"app_bitness()\",32]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}";
-            set => App.FastFlags.SetPreset("Rendering.AndroidVfs", value ? "{\"and\":[ {\"=\":[\"app_bitness()\",32]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}" : null);
+            get => App.FastFlags.GetPreset("Rendering.AndroidVfs") == "{\"and\":[ {\"=\":[\"app_bitness()\",64]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}";
+            set => App.FastFlags.SetPreset("Rendering.AndroidVfs", value ? "{\"and\":[ {\"=\":[\"app_bitness()\",64]}, {\"not\":[ {\"is_any_of\":[\"manufacturer()\",\"samsung\",\"amazon\",\"lge\",\"lg\",\"lg electronics\",\"vivo\"]} ]} ]}" : null);
         }
 
         public bool FasterLoading
         {
-            get => App.FastFlags.GetPreset("Network.AssetPreloadding") == "2147483647";
+            get => App.FastFlags.GetPreset("Network.MaxAssetPreload") == "2147483647";
             set
             {
-                App.FastFlags.SetPreset("Network.AssetPreloadding", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.MaxAssetPreload", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.MaxApi", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
                 App.FastFlags.SetPreset("Network.MeshPreloadding", value ? "True" : null);
-                App.FastFlags.SetPreset("Network.ClientAssetPreloading", value ? "True" : null);
             }
         }
 

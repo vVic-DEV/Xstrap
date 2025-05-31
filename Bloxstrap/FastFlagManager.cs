@@ -63,12 +63,10 @@ namespace Bloxstrap
             { "Network.BetterPacketSending9", "DFIntMaxProcessPacketsStepsPerCyclic" },
 
             // Load Faster
-            { "Network.AssetPreloadding", "DFIntAssetPreloading" },
             { "Network.MeshPreloadding", "DFFlagEnableMeshPreloading2" },
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
             { "Network.MaxApi", "DFIntApiRateLimit" },
-            { "Network.ClientAssetPreloading", "DFFlagTeleportClientAssetPreloadingEnabled9" },
 
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },

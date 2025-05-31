@@ -1,4 +1,4 @@
-﻿<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.FastFlagEditorSettingsDialog"
+﻿<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.AdvancedSettingsDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,7 +32,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="FastFlags Editor Settings" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Advanced Settings" FontWeight="Bold" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
         <StackPanel Margin="0,30,0,0" >
 
             <controls:OptionControl
@@ -56,6 +56,13 @@
                 Header="Preset Column"
                 Description="Toggle the preset column in the editor.">
                 <ui:ToggleSwitch IsChecked="{Binding ShowPresetColumnSetting, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Margin="5,0,5,0"
+                Header="Flag Count"
+                Description="Toggle the total flag count in the fastflag editor.">
+                <ui:ToggleSwitch IsChecked="{Binding ShowFlagCount, Mode=TwoWay}" />
             </controls:OptionControl>
 
 
