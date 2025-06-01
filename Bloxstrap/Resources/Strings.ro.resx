@@ -2221,9 +2221,6 @@ You can no longer use Bloxshade with Froststrap.</value>
   <data name="Menu.FastFlags.Presets.Privacy.Description">
     <value>Configure settings that help protect your privacy.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.WhiteSky.Description">
-    <value>Changes the color of the sky to white. Note: this uses gray sky flag.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.MoreCharacters.Description">
     <value>Repeats letters in most GUI text to expand it. Higher values will increase the effect. Note: Some UI elements may be unaffected.</value>
   </data>
@@ -2259,9 +2256,6 @@ You can no longer use Bloxshade with Froststrap.</value>
   </data>
   <data name="Common.Settings">
     <value>Settings</value>
-  </data>
-  <data name="Common.Studio">
-    <value>Studio</value>
   </data>
   <data name="Menu.Help.RobloxWontLaunch">
     <value>[Roblox Dosen't Launch](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#roblox-wont-launch)</value>
@@ -2340,5 +2334,20 @@ You can no longer use Bloxshade with Froststrap.</value>
   </data>
   <data name="Installer.InstallationNotFound">
     <value>Bloxstrap installation was not found.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WhiteSky.Description">
+    <value>Can make the whole screen white if the game has no default sky. Note: this uses gray sky flag.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Title">
+    <value>Rainbow Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Description">
+    <value>Removes icons due to skipmips, can also be pretty buggy and may not work. Note: This could enable other toggleable settings.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Title">
+    <value>Black Sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Description">
+    <value>Removes icons due to skipmips, You can also use vulkan for a smooth no texture color look. Note: This could enable other toggleable settings.</value>
   </data>
 </root>

@@ -2266,9 +2266,6 @@ Bạn không thể sử dụng Bloxshade với Froststrap nữa.</value>
   <data name="Menu.FastFlags.Presets.Privacy.Description">
     <value>Cấu hình các cài đặt giúp bảo vệ quyền riêng tư của bạn.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.WhiteSky.Description">
-    <value>Đổi màu bầu trời thành màu trắng. Lưu ý: Cái này sẽ sử dụng flag bầu trời màu xám.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.MoreCharacters.Description">
     <value>Lặp lại các chữ cái trong hầu hết văn bản GUI để mở rộng nó. Các giá trị cao hơn sẽ làm tăng hiệu ứng. Lưu ý: Một số thành phần UI có thể không bị ảnh hưởng.</value>
   </data>
@@ -2305,85 +2302,97 @@ Bạn không thể sử dụng Bloxshade với Froststrap nữa.</value>
   <data name="Common.Settings">
     <value>Các cài đặt</value>
   </data>
-  <data name="Common.Studio">
-    <value>Studio</value>
-  </data>
   <data name="Menu.Help.RobloxWontLaunch">
-    <value>[Roblox Dosen't Launch](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#roblox-wont-launch)</value>
+    <value>[Roblox không khởi chạy](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#roblox-wont-launch)</value>
   </data>
   <data name="Menu.Help.CustomModsPage">
-    <value>[Custom Mods Page](https://github.com/Meddsam/Froststrap/wiki/Features#custom-mods-page)</value>
+    <value>[Trang Mod tùy chỉnh](https://github.com/Meddsam/Froststrap/wiki/Features#custom-mods-page)</value>
   </data>
   <data name="Menu.Help.AdvancedFFlagEditorSettings">
-    <value>[Advanced fflag editor settings](https://github.com/Meddsam/Froststrap/wiki/Features#advanced-fastflag-editor-settings)</value>
+    <value>[Cài đặt trình chỉnh sửa fflag nâng cao](https://github.com/Meddsam/Froststrap/wiki/Features#advanced-fastflag-editor-settings)</value>
   </data>
   <data name="Menu.Help.BypassVulkan">
-    <value>[Bypass Vulkan](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bypass-vulkan-requirement)</value>
+    <value>[Bỏ qua Vulkan](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bypass-vulkan-requirement)</value>
   </data>
   <data name="Menu.Help.LightCulling">
-    <value>[Light Culling](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#light-culling)</value>
+    <value>[Loại bỏ ánh sáng](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#light-culling)</value>
   </data>
   <data name="Menu.Help.BGRASupport">
-    <value>[BGRA Support](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bgra-support)</value>
+    <value>[Hỗ trợ BGRA](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#bgra-support)</value>
   </data>
   <data name="Menu.Help.MaquetteFramesBeforeShown">
-    <value>[Maquette Frames Before Shown](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#maquette-frames-before-shown)</value>
+    <value>[Khung Maquette Trước Khi Hiển Thị](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#maquette-frames-before-shown)</value>
   </data>
   <data name="Menu.FastFlagEditor.Description">
-    <value>Manage your FastFlags here. Check out more features in Advanced Settings</value>
+    <value>Quản lý FastFlags của bạn tại đây. Xem thêm các tính năng khác trong Cài đặt nâng cao</value>
   </data>
   <data name="Menu.CustomMods.Title">
-    <value>Custom Mods</value>
+    <value>Mod tùy chỉnh</value>
   </data>
   <data name="Menu.CustomMods.Description">
-    <value>Allows you to install custom mods from the Bootstrapper.</value>
+    <value>Cho phép bạn cài đặt các bản mod tùy chỉnh từ Bootstrapper.</value>
   </data>
   <data name="Menu.AdvancedSettings.SettingsSaved">
-    <value>Settings saved. You can now close this window</value>
+    <value>Đã lưu cài đặt. Bây giờ bạn có thể đóng cửa sổ này</value>
   </data>
   <data name="Menu.FastFlagEditor.AdvancedSettings">
-    <value>Advanced Settings</value>
+    <value>Cài đặt nâng cao</value>
   </data>
   <data name="Enums.CopyFormatMode.Format1">
-    <value>Default</value>
+    <value>Mặc định</value>
   </data>
   <data name="Enums.CopyFormatMode.Format2">
     <value>Recommended</value>
   </data>
   <data name="Enums.CopyFormatMode.Format3">
-    <value>Alphabetical</value>
+    <value>theo bảng chữ cái</value>
   </data>
   <data name="Enums.CopyFormatMode.Format4">
-    <value>Descending by length</value>
+    <value>Giảm dần theo chiều dài</value>
   </data>
   <data name="Common.SearchBy">
-    <value>Search By</value>
+    <value>Tìm kiếm theo</value>
   </data>
   <data name="Common.ModType">
-    <value>Type: Mod</value>
+    <value>Loại: Chế độ</value>
   </data>
   <data name="Common.LauncherType">
-    <value>Type: Launcher</value>
+    <value>Loại: Trình khởi chạy</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.ToggleFlagCount.Description">
-    <value>Toggle the total flag count in the fastflag editor.</value>
+    <value>Chuyển đổi tổng số cờ trong trình chỉnh sửa fastflag.</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.ToggleFlagCount.Title">
-    <value>Flag Count</value>
+    <value>Đếm cờ</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.PresetColumn.Title">
-    <value>Preset Column</value>
+    <value>Cột đặt trước</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.PresetColumn.Description">
-    <value>Toggle the Preset Column which shows toggleable fflags in fastflag setting</value>
+    <value>Chuyển đổi Cột cài đặt sẵn hiển thị các fflag có thể chuyển đổi trong cài đặt fastflag</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.CopyFormat.Title">
-    <value>Copy Format</value>
+    <value>Sao chép định dạng</value>
   </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.CopyFormat.Description">
-    <value>Choose the format for copying JSON.</value>
+    <value>Chọn định dạng để sao chép JSON.</value>
   </data>
   <data name="Installer.InstallationNotFound">
-    <value>Bloxstrap installation was not found.</value>
+    <value>Không tìm thấy cài đặt Bloxstrap.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.WhiteSky.Description">
+    <value>Có thể làm toàn bộ màn hình thành màu trắng nếu trò chơi không có bầu trời mặc định. Lưu ý: điều này sử dụng cờ bầu trời màu xám.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Title">
+    <value>Bầu trời cầu vồng</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RainbowSky.Description">
+    <value>Xóa các biểu tượng do skipmips, cũng có thể khá nhiều lỗi và có thể không hoạt động. Lưu ý: Điều này có thể kích hoạt các cài đặt có thể bật/tắt khác.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Title">
+    <value>Bầu trời đen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.BlackSky.Description">
+    <value>Xóa các biểu tượng do skipmips, Bạn cũng có thể sử dụng vulkan để có giao diện màu sắc mượt mà không có họa tiết. Lưu ý: Điều này có thể bật các cài đặt có thể bật khác.</value>
   </data>
 </root>
