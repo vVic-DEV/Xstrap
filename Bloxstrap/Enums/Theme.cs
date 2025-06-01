@@ -13,7 +13,6 @@
         PurpleMoon,
         Forest,
         CottonCandy,
-        Aqua,
         Purple,
         Blue,
         Cyan,
