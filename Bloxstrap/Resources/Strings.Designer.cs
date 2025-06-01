@@ -2314,6 +2314,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aqua.
+        /// </summary>
+        public static string Enums_Theme_Aqua {
+            get {
+                return ResourceManager.GetString("Enums.Theme.Aqua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue.
         /// </summary>
         public static string Enums_Theme_Blue {
@@ -2328,6 +2337,15 @@ namespace Bloxstrap.Resources {
         public static string Enums_Theme_ClassicDark {
             get {
                 return ResourceManager.GetString("Enums.Theme.ClassicDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cotton Candy.
+        /// </summary>
+        public static string Enums_Theme_CottonCandy {
+            get {
+                return ResourceManager.GetString("Enums.Theme.CottonCandy", resourceCulture);
             }
         }
         
@@ -2350,6 +2368,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forest.
+        /// </summary>
+        public static string Enums_Theme_Forest {
+            get {
+                return ResourceManager.GetString("Enums.Theme.Forest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Froststrap.
+        /// </summary>
+        public static string Enums_Theme_Froststrap {
+            get {
+                return ResourceManager.GetString("Enums.Theme.Froststrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Green.
         /// </summary>
         public static string Enums_Theme_Green {
@@ -2364,6 +2400,15 @@ namespace Bloxstrap.Resources {
         public static string Enums_Theme_Light {
             get {
                 return ResourceManager.GetString("Enums.Theme.Light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Midnight.
+        /// </summary>
+        public static string Enums_Theme_Midnight {
+            get {
+                return ResourceManager.GetString("Enums.Theme.Midnight", resourceCulture);
             }
         }
         
@@ -2395,11 +2440,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Purple Moon.
+        /// </summary>
+        public static string Enums_Theme_PurpleMoon {
+            get {
+                return ResourceManager.GetString("Enums.Theme.PurpleMoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Red.
         /// </summary>
         public static string Enums_Theme_Red {
             get {
                 return ResourceManager.GetString("Enums.Theme.Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red Blue.
+        /// </summary>
+        public static string Enums_Theme_RedBlue {
+            get {
+                return ResourceManager.GetString("Enums.Theme.RedBlue", resourceCulture);
             }
         }
         

@@ -19,11 +19,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
-                <GradientStop Offset="0.90" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
-                <GradientStop Offset="1.05" Color="{DynamicResource WindowBackgroundColorThird}"/>
-            </LinearGradientBrush>
+            <DynamicResource ResourceKey="WindowBackgroundGradient" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

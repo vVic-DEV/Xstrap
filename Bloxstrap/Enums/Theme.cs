@@ -7,6 +7,13 @@
         Dark,
         Light,
         ClassicDark,
+        Froststrap,
+        Midnight,
+        RedBlue,
+        PurpleMoon,
+        Forest,
+        CottonCandy,
+        Aqua,
         Purple,
         Blue,
         Cyan,
@@ -14,6 +21,5 @@
         Orange,
         Pink,
         Red,
-        Yellow,
     }
 }

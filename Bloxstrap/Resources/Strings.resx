@@ -569,7 +569,31 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   <data name="Enums.Theme.ClassicDark" xml:space="preserve">
     <value>Classic Dark</value>
   </data>
-	<data name="Enums.Theme.Yellow" xml:space="preserve">
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Enums.Theme.Forest" xml:space="preserve">
+    <value>Forest</value>
+  </data>
+  <data name="Enums.Theme.Froststrap" xml:space="preserve">
+    <value>Froststrap</value>
+  </data>
+  <data name="Enums.Theme.Midnight" xml:space="preserve">
+    <value>Midnight</value>
+  </data>
+  <data name="Enums.Theme.RedBlue" xml:space="preserve">
+    <value>Red Blue</value>
+  </data>
+  <data name="Enums.Theme.Aqua" xml:space="preserve">
+    <value>Aqua</value>
+  </data>
+  <data name="Enums.Theme.PurpleMoon" xml:space="preserve">
+    <value>Purple Moon</value>
+  </data>
+  <data name="Enums.Theme.CottonCandy" xml:space="preserve">
+    <value>Cotton Candy</value>
+  </data>
+  <data name="Enums.Theme.Yellow" xml:space="preserve">
     <value>Yellow</value>
   </data>
 	<data name="Enums.Theme.Cyan" xml:space="preserve">

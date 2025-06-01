@@ -21,8 +21,6 @@
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
 
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -30,11 +28,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.Background>
-            <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
-                <GradientStop Offset="0.70" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
-                <GradientStop Offset="1.00" Color="{DynamicResource WindowBackgroundColorThird}"/>
-            </LinearGradientBrush>
+            <DynamicResource ResourceKey="WindowBackgroundGradient" />
         </Grid.Background>
 
         <ui:Snackbar
@@ -43,11 +37,7 @@
             Message="{x:Static resources:Strings.Menu_AlreadyRunning_Caption}"
             Icon="Info20" Timeout="10000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="10" >
             <ui:Snackbar.Background>
-                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                    <GradientStop Offset="0.00" Color="{DynamicResource WindowBackgroundColorPrimaryWithOpacity}"/>
-                    <GradientStop Offset="0.70" Color="{DynamicResource WindowBackgroundColorSecondaryWithOpacity}"/>
-                    <GradientStop Offset="1.00" Color="{DynamicResource WindowBackgroundColorThirdWithOpacity}"/>
-                </LinearGradientBrush>
+                <DynamicResource ResourceKey="WindowTransparentBackgroundGradient" />
             </ui:Snackbar.Background>
         </ui:Snackbar>
 

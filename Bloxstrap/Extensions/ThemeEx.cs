@@ -27,6 +27,13 @@ namespace Bloxstrap.Extensions
             Theme.Dark,
             Theme.Light,
             Theme.ClassicDark,
+            Theme.Froststrap,
+            Theme.Midnight,
+            Theme.RedBlue,
+            Theme.PurpleMoon,
+            Theme.Forest,
+            Theme.CottonCandy,
+            Theme.Aqua,
             Theme.Purple,
             Theme.Blue,
             Theme.Cyan,
@@ -34,7 +41,6 @@ namespace Bloxstrap.Extensions
             Theme.Orange,
             Theme.Pink,
             Theme.Red,
-            Theme.Yellow,
         };
 
 
@@ -46,6 +52,13 @@ namespace Bloxstrap.Extensions
                 Theme.Dark => Properties.Resources.Dark,
                 Theme.Light => Properties.Resources.Light,
                 Theme.ClassicDark => Properties.Resources.ClassicDark,
+                Theme.Aqua => Properties.Resources.Aqua,
+                Theme.CottonCandy => Properties.Resources.CottonCandy,
+                Theme.Forest => Properties.Resources.Forest,
+                Theme.Froststrap => Properties.Resources.Froststrap,
+                Theme.Midnight => Properties.Resources.Midnight,
+                Theme.PurpleMoon => Properties.Resources.PurpleMoon,
+                Theme.RedBlue => Properties.Resources.RedBlue,
                 Theme.Purple => Properties.Resources.Purple,
                 Theme.Blue => Properties.Resources.Blue,
                 Theme.Cyan => Properties.Resources.Cyan,
@@ -53,7 +66,6 @@ namespace Bloxstrap.Extensions
                 Theme.Orange => Properties.Resources.Orange,
                 Theme.Pink => Properties.Resources.Pink,
                 Theme.Red => Properties.Resources.Red,
-                Theme.Yellow => Properties.Resources.Yellow,
                 _ => Properties.Resources.Default
             };
         }

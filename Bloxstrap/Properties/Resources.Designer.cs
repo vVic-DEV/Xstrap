@@ -247,6 +247,114 @@ namespace Bloxstrap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon Light
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Light", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon ClassicDark
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ClassicDark", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Aqua
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Aqua", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Forest
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Forest", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon CottonCandy
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("CottonCandy", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Froststrap
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Froststrap", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Midnight
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Midnight", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon PurpleMoon
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("PurpleMoon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon RedBlue
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("RedBlue", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon Cyan
         {
             get
@@ -307,18 +415,6 @@ namespace Bloxstrap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Yellow
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Yellow", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
         internal static System.Drawing.Icon Purple
         {
             get
@@ -336,30 +432,6 @@ namespace Bloxstrap.Properties {
             get
             {
                 object obj = ResourceManager.GetObject("Blue", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Light
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Light", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon ClassicDark
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("ClassicDark", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

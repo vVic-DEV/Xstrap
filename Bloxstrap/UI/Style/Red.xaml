@@ -4,10 +4,16 @@
     <SolidColorBrush x:Key="NewTextEditorLink" Color="#3A9CEA" />
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#19000000" />
     <Color x:Key="ControlFillColorDefault">#19000000</Color>
-    <Color x:Key="WindowBackgroundColorPrimary">#D93939</Color>
-    <Color x:Key="WindowBackgroundColorSecondary">#B73232</Color>
-    <Color x:Key="WindowBackgroundColorThird">#7F1F1F</Color>
-    <Color x:Key="WindowBackgroundColorPrimaryWithOpacity">#8CD93939</Color>
-    <Color x:Key="WindowBackgroundColorSecondaryWithOpacity">#8CB73232</Color>
-    <Color x:Key="WindowBackgroundColorThirdWithOpacity">#8C7F1F1F</Color>
+    <LinearGradientBrush x:Key="WindowBackgroundGradient" StartPoint="1,1" EndPoint="0,0">
+        <GradientStop Offset="0.0" Color="#D93939" />
+        <GradientStop Offset="0.5" Color="#B73232" />
+        <GradientStop Offset="1.0" Color="#7F1F1F" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="WindowTransparentBackgroundGradient" StartPoint="1,1" EndPoint="0,0">
+        <GradientStop Offset="0.0" Color="#8CD93939" />
+        <GradientStop Offset="0.5" Color="#8CB73232" />
+        <GradientStop Offset="0.1" Color="#8C7F1F1F" />
+    </LinearGradientBrush>
+
 </ResourceDictionary>

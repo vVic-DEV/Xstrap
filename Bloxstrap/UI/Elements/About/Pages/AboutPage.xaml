@@ -113,6 +113,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[Onion](https://discord.com/users/1104189426374033519)" />
                     <controls:MarkdownTextBlock MarkdownText="[Reslav](https://discord.com/users/1136966783027380256)" />
                     <controls:MarkdownTextBlock MarkdownText="[polover](https://discord.com/users/999142457667227679)" />
+                    <controls:MarkdownTextBlock MarkdownText="[iniforce](https://discord.com/users/1029770533476257792)" />
                 </StackPanel>
             </controls:Expander>
 
