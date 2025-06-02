@@ -78,10 +78,12 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Add with Game ID">
+            <TabItem Header="Add with ID">
                 <Grid Margin="16">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
+                        <!-- Filter type selector -->
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
@@ -90,36 +92,54 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Name:" Margin="0,0,0,12" />
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="GameFlagNameTextBox" Margin="0,0,0,12" />
+                    <!-- Filter Type Selector -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Filter Type:" Margin="0,0,8,8" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" x:Name="AddIdFilterTypeComboBox" Margin="0,0,0,8" SelectedIndex="0">
+                        <ComboBoxItem Content="PlaceFilter" />
+                        <ComboBoxItem Content="DataCenterFilter" />
+                    </ComboBox>
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Value:" Margin="0,0,0,12" />
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="GameFlagValueTextBox" Margin="0,0,0,12" />
+                    <!-- Existing fields, move down by one row -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Name:" Margin="0,0,0,12" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="GameFlagNameTextBox" Margin="0,0,0,12" />
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Game ID:" />
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="GameFlagIdTextBox" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Value:" Margin="0,0,0,12" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="GameFlagValueTextBox" Margin="0,0,0,12" />
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="ID:" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="GameFlagIdTextBox" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Import Game ID JSON">
+
+            <TabItem Header="Import ID JSON">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <!-- Game ID label/input row -->
-                        <RowDefinition Height="*" />
-                        <!-- JSON input row -->
+                        <!-- Filter type selector -->
                         <RowDefinition Height="Auto" />
-                        <!-- Button row -->
+                        <!-- ID input -->
+                        <RowDefinition Height="*" />
+                        <!-- JSON input -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <!-- Game ID label and input -->
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" MinWidth="100" Text="Game ID:" Margin="3,10,5,0" />
-                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ImportGameIdTextBox" Margin="0,0,0,8" />
+
+                    <!-- Filter Type Selector -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Filter Type:" Margin="0,0,8,8" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ImportIdFilterTypeComboBox" Margin="0,0,0,8" SelectedIndex="0">
+                        <ComboBoxItem Content="PlaceFilter" />
+                        <ComboBoxItem Content="DataCenterFilter" />
+                    </ComboBox>
+
+                    <!-- ID input -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" MinWidth="100" Text="ID:" Margin="3,10,5,0" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="ImportGameIdTextBox" Margin="0,0,0,8" />
+
                     <!-- JSON input and placeholder -->
-                    <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GameIdJsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
-                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{}{&#10;    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;&#10;}" >
+                    <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GameIdJsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{}{&#10;    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;&#10;}" >
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -133,9 +153,6 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-
-
-
 
         </TabControl>
 

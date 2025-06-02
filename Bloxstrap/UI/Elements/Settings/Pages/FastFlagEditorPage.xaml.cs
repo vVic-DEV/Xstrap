@@ -130,10 +130,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 AddWithGameId(
                     dialog.GameFlagNameTextBox.Text.Trim(),
                     dialog.GameFlagValueTextBox.Text,
-                    dialog.GameFlagIdTextBox.Text
+                    dialog.GameFlagIdTextBox.Text,
+                    dialog.AddIdFilterType // This should be a FastFlagFilterType property from your dialog
                 );
             else if (dialog.Tabs.SelectedIndex == 3)
-                ImportGameIdJson(dialog.ImportGameIdJson, dialog.ImportGameId);
+                ImportGameIdJson(
+                    dialog.ImportGameIdJson,
+                    dialog.ImportGameId,
+                    dialog.ImportIdFilterType // This should be a FastFlagFilterType property from your dialog
+                );
         }
 
         private void AdvancedSettings_Click(object sender, RoutedEventArgs e)
@@ -142,8 +147,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             dialog.Owner = Window.GetWindow(this); // Optional: set owner for modal behavior
             dialog.ShowDialog();
         }
-
-        private void ImportGameIdJson(string? json, string? gameId)
+        private void ImportGameIdJson(string? json, string? gameId, FastFlagFilterType filterType)
         {
             if (string.IsNullOrWhiteSpace(json) || string.IsNullOrWhiteSpace(gameId))
                 return;
@@ -189,10 +193,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
+            string suffix = filterType == FastFlagFilterType.DataCenterFilter ? "_DataCenterFilter" : "_PlaceFilter";
+
             foreach (var pair in list)
             {
-                // For each flag, append _PlaceFilter to the name and ;GameID to the value
-                string newName = $"{pair.Key}_PlaceFilter";
+                string newName = $"{pair.Key}{suffix}";
                 string newValue = $"{pair.Value};{gameId}";
                 AddSingle(newName, newValue);
             }
@@ -201,7 +206,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         }
 
 
-        private void AddWithGameId(string name, string value, string gameId)
+        private void AddWithGameId(string name, string value, string gameId, FastFlagFilterType filterType)
         {
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(value) || string.IsNullOrWhiteSpace(gameId))
             {
@@ -209,7 +214,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            string formattedName = $"{name}_PlaceFilter";
+            string suffix = filterType == FastFlagFilterType.DataCenterFilter ? "_DataCenterFilter" : "_PlaceFilter";
+            string formattedName = $"{name}{suffix}";
             string formattedValue = $"{value};{gameId}";
             FastFlag? entry;
 
@@ -256,6 +262,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             DataGrid.ScrollIntoView(entry);
             UpdateTotalFlagsCount();
         }
+
 
 
         private void ShowProfilesDialog()

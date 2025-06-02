@@ -14,6 +14,13 @@ namespace Bloxstrap.UI.Elements.Dialogs
         public string? ImportGameId { get; private set; }
         public string? ImportGameIdJson { get; private set; }
 
+        public FastFlagFilterType AddIdFilterType =>
+    (AddIdFilterTypeComboBox.SelectedIndex == 1) ? FastFlagFilterType.DataCenterFilter : FastFlagFilterType.PlaceFilter;
+
+        public FastFlagFilterType ImportIdFilterType =>
+            (ImportIdFilterTypeComboBox.SelectedIndex == 1) ? FastFlagFilterType.DataCenterFilter : FastFlagFilterType.PlaceFilter;
+
+
 
         public MessageBoxResult Result = MessageBoxResult.Cancel;
 
@@ -43,10 +50,11 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 string name = GameFlagNameTextBox.Text.Trim();
                 string value = GameFlagValueTextBox.Text.Trim();
                 string gameId = GameFlagIdTextBox.Text.Trim();
-
+                var filterType = AddIdFilterType;
                 if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(gameId))
                 {
-                    FormattedName = $"{name}_PlaceFilter";
+                    string suffix = filterType == FastFlagFilterType.DataCenterFilter ? "_DataCenterFilter" : "_PlaceFilter";
+                    FormattedName = $"{name}{suffix}";
                     FormattedValue = $"{value};{gameId}";
                     ImportGameId = null;
                     ImportGameIdJson = null;
@@ -62,6 +70,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
             }
             else if (selectedIndex == 3)
             {
+                var filterType = ImportIdFilterType;
                 ImportGameId = ImportGameIdTextBox.Text.Trim();
                 ImportGameIdJson = GameIdJsonTextBox.Text.Trim();
                 FormattedName = null;
