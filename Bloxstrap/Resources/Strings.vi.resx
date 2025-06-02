@@ -2045,8 +2045,7 @@ Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox,
     <value>Nhật ký người chơi và tin nhắn</value>
   </data>
   <data name="Menu.Integrations.PlayerMessageLogs.Description">
-    <value>Hiển thị người chơi tham gia/rời đi và tin nhắn. Chỉ hoạt động với [dịch vụ trò chuyện văn bản]
-(https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
+    <value>Hiển thị người chơi tham gia/rời đi và tin nhắn. Chỉ hoạt động với [dịch vụ trò chuyện văn bản](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
   </data>
   <data name="Menu.Behaviour.AnselBanner">
     <value>Hỗ trợ Ansel là cần thiết cho các shader.</value>

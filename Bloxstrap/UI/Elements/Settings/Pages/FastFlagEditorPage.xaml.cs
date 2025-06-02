@@ -126,13 +126,137 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 AddSingle(dialog.FlagNameTextBox.Text.Trim(), dialog.FlagValueTextBox.Text);
             else if (dialog.Tabs.SelectedIndex == 1)
                 ImportJSON(dialog.JsonTextBox.Text);
+            else if (dialog.Tabs.SelectedIndex == 2)
+                AddWithGameId(
+                    dialog.GameFlagNameTextBox.Text.Trim(),
+                    dialog.GameFlagValueTextBox.Text,
+                    dialog.GameFlagIdTextBox.Text
+                );
+            else if (dialog.Tabs.SelectedIndex == 3)
+                ImportGameIdJson(dialog.ImportGameIdJson, dialog.ImportGameId);
         }
+
         private void AdvancedSettings_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new Bloxstrap.UI.Elements.Dialogs.AdvancedSettingsDialog();
+            var dialog = new AdvancedSettingsDialog();
             dialog.Owner = Window.GetWindow(this); // Optional: set owner for modal behavior
             dialog.ShowDialog();
         }
+
+        private void ImportGameIdJson(string? json, string? gameId)
+        {
+            if (string.IsNullOrWhiteSpace(json) || string.IsNullOrWhiteSpace(gameId))
+                return;
+
+            Dictionary<string, object>? list = null;
+
+            json = json.Trim();
+
+            // autocorrect where possible
+            if (!json.StartsWith('{'))
+                json = '{' + json;
+
+            if (!json.EndsWith('}'))
+            {
+                int lastIndex = json.LastIndexOf('}');
+
+                if (lastIndex == -1)
+                    json += '}';
+                else
+                    json = json.Substring(0, lastIndex + 1);
+            }
+
+            try
+            {
+                var options = new JsonSerializerOptions
+                {
+                    ReadCommentHandling = JsonCommentHandling.Skip,
+                    AllowTrailingCommas = true
+                };
+
+                list = JsonSerializer.Deserialize<Dictionary<string, object>>(json, options);
+
+                if (list is null)
+                    throw new Exception("JSON deserialization returned null");
+            }
+            catch (Exception ex)
+            {
+                Frontend.ShowMessageBox(
+                    $"Invalid JSON: {ex.Message}",
+                    MessageBoxImage.Error
+                );
+                ShowAddDialog();
+                return;
+            }
+
+            foreach (var pair in list)
+            {
+                // For each flag, append _PlaceFilter to the name and ;GameID to the value
+                string newName = $"{pair.Key}_PlaceFilter";
+                string newValue = $"{pair.Value};{gameId}";
+                AddSingle(newName, newValue);
+            }
+
+            ClearSearch();
+        }
+
+
+        private void AddWithGameId(string name, string value, string gameId)
+        {
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(value) || string.IsNullOrWhiteSpace(gameId))
+            {
+                Frontend.ShowMessageBox("Please fill in all fields.", MessageBoxImage.Warning);
+                return;
+            }
+
+            string formattedName = $"{name}_PlaceFilter";
+            string formattedValue = $"{value};{gameId}";
+            FastFlag? entry;
+
+            if (App.FastFlags.GetValue(formattedName) is null)
+            {
+                entry = new FastFlag
+                {
+                    Name = formattedName,
+                    Value = formattedValue
+                };
+
+                if (!formattedName.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
+                    ClearSearch();
+
+                App.FastFlags.SetValue(entry.Name, entry.Value);
+                _fastFlagList.Add(entry);
+            }
+            else
+            {
+                Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_AlreadyExists, MessageBoxImage.Information);
+
+                bool refresh = false;
+
+                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(formattedName))
+                {
+                    TogglePresetsButton.IsChecked = true;
+                    _showPresets = true;
+                    refresh = true;
+                }
+
+                if (!formattedName.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase))
+                {
+                    ClearSearch(false);
+                    refresh = true;
+                }
+
+                if (refresh)
+                    ReloadList();
+
+                entry = _fastFlagList.FirstOrDefault(x => x.Name == formattedName);
+            }
+
+            DataGrid.SelectedItem = entry;
+            DataGrid.ScrollIntoView(entry);
+            UpdateTotalFlagsCount();
+        }
+
 
         private void ShowProfilesDialog()
         {
