@@ -154,5 +154,23 @@
                     Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
             </StackPanel>
         </controls:OptionControl>
+
+        <controls:OptionControl Description="Add or remove custom mouse cursors to roblox" Header="Custom Mouse Cursor">
+            <StackPanel>
+                <ui:Button
+                    Command="{Binding AddCustomCursorModCommand}"
+            Content="Choose Custom Cursor"
+            Icon="DocumentAdd16"
+            Visibility="{Binding ChooseCustomCursorVisibility, Mode=OneWay}" />
+                <ui:Button
+            Appearance="Danger"
+            Command="{Binding RemoveCustomCursorModCommand}"
+            Content="Remove Custom Cursor"
+            Icon="Delete16"
+            Visibility="{Binding DeleteCustomCursorVisibility, Mode=OneWay}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+
     </StackPanel>
 </ui:UiPage>

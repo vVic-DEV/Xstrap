@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using System.IO;
 
 using Microsoft.Win32;
 
@@ -53,6 +54,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
         }
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
+
+        public ICommand AddCustomCursorModCommand => new RelayCommand(AddCustomCursorMod);
+
+        public ICommand RemoveCustomCursorModCommand => new RelayCommand(RemoveCustomCursorMod);
 
         public Visibility ChooseCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Collapsed : Visibility.Visible;
 
@@ -108,6 +113,103 @@ namespace Bloxstrap.UI.ViewModels.Settings
             else
                 Frontend.ShowMessageBox(Strings.Common_RobloxNotInstalled, MessageBoxImage.Error);
 
+        }
+
+        public Visibility ChooseCustomCursorVisibility
+        {
+            get
+            {
+                string targetDir = Path.Combine(Paths.Modifications, "Content", "textures", "Cursors", "KeyboardMouse");
+                string[] cursorNames = { "ArrowCursor.png", "ArrowFarCursor.png", "IBeamCursor.png" };
+                bool anyExist = cursorNames.Any(name => File.Exists(Path.Combine(targetDir, name)));
+                return anyExist ? Visibility.Collapsed : Visibility.Visible;
+            }
+        }
+
+        public Visibility DeleteCustomCursorVisibility
+        {
+            get
+            {
+                string targetDir = Path.Combine(Paths.Modifications, "Content", "textures", "Cursors", "KeyboardMouse");
+                string[] cursorNames = { "ArrowCursor.png", "ArrowFarCursor.png", "IBeamCursor.png" };
+                bool anyExist = cursorNames.Any(name => File.Exists(Path.Combine(targetDir, name)));
+                return anyExist ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        public void AddCustomCursorMod()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "PNG Images (*.png)|*.png",
+                Title = "Select a PNG Cursor Image"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            string sourcePath = dialog.FileName;
+            string targetDir = Path.Combine(Paths.Modifications, "Content", "textures", "Cursors", "KeyboardMouse");
+            Directory.CreateDirectory(targetDir);
+
+            string[] cursorNames = { "ArrowCursor.png", "ArrowFarCursor.png", "IBeamCursor.png" };
+
+            try
+            {
+                foreach (var name in cursorNames)
+                {
+                    string destPath = Path.Combine(targetDir, name);
+                    File.Copy(sourcePath, destPath, overwrite: true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Frontend.ShowMessageBox(
+                    $"Failed to add cursors:\n{ex.Message}",
+                    MessageBoxImage.Error
+                );
+
+            }
+
+            OnPropertyChanged(nameof(ChooseCustomCursorVisibility));
+            OnPropertyChanged(nameof(DeleteCustomCursorVisibility));
+        }
+
+        public void RemoveCustomCursorMod()
+        {
+            string targetDir = Path.Combine(Paths.Modifications, "Content", "textures", "Cursors", "KeyboardMouse");
+            string[] cursorNames = { "ArrowCursor.png", "ArrowFarCursor.png", "IBeamCursor.png" };
+
+            bool anyDeleted = false;
+            foreach (var name in cursorNames)
+            {
+                string filePath = Path.Combine(targetDir, name);
+                if (File.Exists(filePath))
+                {
+                    try
+                    {
+                        File.Delete(filePath);
+                        anyDeleted = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Frontend.ShowMessageBox(
+                            $"Failed to remove {name}:\n{ex.Message}",
+                            MessageBoxImage.Error
+                        );
+
+                    }
+                }
+            }
+
+            if (!anyDeleted)
+                Frontend.ShowMessageBox(
+                    "No custom cursors found to remove.",
+                    MessageBoxImage.Information
+                );
+
+            OnPropertyChanged(nameof(ChooseCustomCursorVisibility));
+            OnPropertyChanged(nameof(DeleteCustomCursorVisibility));
         }
     }
 }

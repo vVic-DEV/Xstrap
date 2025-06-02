@@ -35,8 +35,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void HardwareAccelCheckbox_Changed(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Please restart the app for hardware acceleration to disable and take effect.",
-                            "Restart Required", MessageBoxButton.OK, MessageBoxImage.Information);
+            Frontend.ShowMessageBox(
+                Strings.Menu_Channels_HardwareAccelRestart,
+                MessageBoxImage.Information
+            );
+
+
         }
     }
 }

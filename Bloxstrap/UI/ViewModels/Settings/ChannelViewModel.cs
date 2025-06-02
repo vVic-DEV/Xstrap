@@ -36,8 +36,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.Settings.Save();
                     OnPropertyChanged(nameof(SoftwareRenderingEnabled));
 
-                    MessageBox.Show("Please restart the app for this change to take effect.",
-                                    "Restart Required", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Frontend.ShowMessageBox(
+                        Strings.Menu_Channels_HardwareAccelRestart,
+                        MessageBoxImage.Information
+                    );
                 }
             }
         }

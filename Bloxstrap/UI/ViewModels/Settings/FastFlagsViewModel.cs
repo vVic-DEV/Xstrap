@@ -170,6 +170,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Telemetry.ReplaceSeparator", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.OpenTelemetry", value ? "False" : null);
                 App.FastFlags.SetPreset("Telemetry.FLogTelemetry", value ? "0" : null);
+                App.FastFlags.SetPreset("Telemetry.TelemetryService", value ? "False" : null);
+                App.FastFlags.SetPreset("Telemetry.PropertiesTelemetry", value ? "False" : null);
             }
         }
 

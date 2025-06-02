@@ -131,20 +131,20 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     dialog.GameFlagNameTextBox.Text.Trim(),
                     dialog.GameFlagValueTextBox.Text,
                     dialog.GameFlagIdTextBox.Text,
-                    dialog.AddIdFilterType // This should be a FastFlagFilterType property from your dialog
+                    dialog.AddIdFilterType
                 );
             else if (dialog.Tabs.SelectedIndex == 3)
                 ImportGameIdJson(
                     dialog.ImportGameIdJson,
                     dialog.ImportGameId,
-                    dialog.ImportIdFilterType // This should be a FastFlagFilterType property from your dialog
+                    dialog.ImportIdFilterType
                 );
         }
 
         private void AdvancedSettings_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new AdvancedSettingsDialog();
-            dialog.Owner = Window.GetWindow(this); // Optional: set owner for modal behavior
+            dialog.Owner = Window.GetWindow(this);
             dialog.ShowDialog();
         }
         private void ImportGameIdJson(string? json, string? gameId, FastFlagFilterType filterType)
@@ -156,7 +156,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             json = json.Trim();
 
-            // autocorrect where possible
             if (!json.StartsWith('{'))
                 json = '{' + json;
 

@@ -608,9 +608,6 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
 	<data name="Enums.Theme.Orange" xml:space="preserve">
     <value>Orange</value>
   </data>
-	<data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Light</value>
-  </data>
 	<data name="Enums.Theme.Red" xml:space="preserve">
     <value>Red</value>
   </data>
@@ -1645,7 +1642,10 @@ Some text might not be translated to preferred language.</value>
     <value>Red Font</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description" xml:space="preserve">
-    <value>Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance.”</value>
+    <value>Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance.</value>
+  </data>
+  <data name="Menu.Channels.HardwareAccelRestart" xml:space="preserve">
+    <value>Please restart the app for hardware acceleration to disable and take effect.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Title" xml:space="preserve">
     <value>Disable Layered Clothing</value>

@@ -3591,6 +3591,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please restart the app for hardware acceleration to disable and take effect..
+        /// </summary>
+        public static string Menu_Channels_HardwareAccelRestart {
+            get {
+                return ResourceManager.GetString("Menu.Channels.HardwareAccelRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Player logs.
         /// </summary>
         public static string Menu_Context_PlayerLogs {
@@ -4224,7 +4233,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance.”.
+        ///   Looks up a localized string similar to Removes Roblox’s layered clothing system from rendering on avatars. Note: Enabling this setting potentially may lead to improved performance..
         /// </summary>
         public static string Menu_FastFlags_Presets_DisableLayeredClothing_Description {
             get {

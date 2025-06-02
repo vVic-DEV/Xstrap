@@ -132,8 +132,14 @@ namespace Bloxstrap
             { "Telemetry.CallbackSafety", "DFFlagEmitSafetyTelemetryInCallbackEnable" },
             { "Telemetry.V2PointEncoding", "DFFlagRobloxTelemetryV2PointEncoding" },
             { "Telemetry.ReplaceSeparator", "DFFlagDSTelemetryV2ReplaceSeparator" },
+
+
+
+
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
             { "Telemetry.Protocol", "FFlagEnableTelemetryProtocol" },
+            { "Telemetry.TelemetryService", "FFlagEnableTelemetryService1" },
+            { "Telemetry.PropertiesTelemetry", "FFlagPropertiesEnableTelemetry" },
             { "Telemetry.OpenTelemetry", "FFlagOpenTelemetryEnabled" },
             { "Telemetry.FLogTelemetry", "FLogRobloxTelemetry" },
 
