@@ -223,173 +223,133 @@
     <value>Các vấn đề thường gặp của FFlag</value>
   </data>
   <data name="Menu.Help.GrayAvatars">
-    <value>[Các Avatar xám]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars)</value>
+    <value>[Các Avatar xám](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-avatars)</value>
   </data>
   <data name="Menu.Help.BlurryIconsTextures">
-    <value>[Biểu tượng/Bề mặt mờ]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures)</value>
+    <value>[Biểu tượng/Bề mặt mờ](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#blurry-iconstextures)</value>
   </data>
   <data name="Menu.Help.LaggyAnimation">
-    <value>[Họat ảnh chậm]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations)</value>
+    <value>[Họat ảnh chậm](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#laggy-animations)</value>
   </data>
   <data name="Menu.Help.FrameStutters">
-    <value>[Khung hình bị giật]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters)</value>
+    <value>[Khung hình bị giật](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#frame-stutters)</value>
   </data>
   <data name="Menu.Help.LightingProblems">
-    <value>[Vấn đề ánh sáng]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems)</value>
+    <value>[Vấn đề ánh sáng](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#lighting-problems)</value>
   </data>
   <data name="Menu.Help.BuggedMeshes">
-    <value>[Lưới bị lỗi]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes)</value>
+    <value>[Lưới bị lỗi](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#weird-meshes)</value>
   </data>
   <data name="Menu.Help.GraySky">
-    <value>[Bầu trời xám]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky)</value>
+    <value>[Bầu trời xám](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#gray-sky)</value>
   </data>
   <data name="Menu.Help.BlackTextures">
-    <value>[Bề mặt đen]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
+    <value>[Bề mặt đen](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#black-textures)</value>
   </data>
   <data name="Menu.Help.LoaddingIssues">
-    <value>[Vấn đề khi đang tải]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
+    <value>[Vấn đề khi đang tải](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#loadding-issue)</value>
   </data>
   <data name="Menu.Help.FPSCappedWhenUncapped">
-    <value>[FPS không được mở khóa hoàn toàn]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>
+    <value>[FPS không được mở khóa hoàn toàn](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#capped-fps-even-when-you-have-it-uncapped)</value>
   </data>
   <data name="Menu.Help.QualityLevelNotChanging">
-    <value>[Cấp độ chất lượng không thay đổi]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing)</value>
+    <value>[Cấp độ chất lượng không thay đổi](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#quality-levels-not-changing)</value>
   </data>
   <data name="Menu.Help.BlackSky">
-    <value>[Bầu trời đen khi quay Camera]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera)</value>
+    <value>[Bầu trời đen khi quay Camera](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#skybox-turns-black-when-moving-your-camera)</value>
   </data>
   <data name="Menu.Help.RobloxCrashing">
-    <value>[Roblox bị văng ra]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update)</value>
+    <value>[Roblox bị văng ra](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#crashing-in-roblox-after-the-v671-update)</value>
   </data>
   <data name="Menu.Help.WhiteSkyAndWhiteScreen">
-    <value>[Bầu trời trắng / Màn hình trắng]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
+    <value>[Bầu trời trắng / Màn hình trắng](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#everything-on-the-screen-is-white-or-the-sky-is-white)</value>
   </data>
   <data name="Menu.Help.Crashonfastcameraturn">
-    <value>[Văng ra khi máy ảnh quay nhanh]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
+    <value>[Văng ra khi máy ảnh quay nhanh](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#game-crashing-when-moving-camera-fast)</value>
   </data>
   <data name="Menu.Help.BootstrapperIssues">
     <value>Vấn đề trình khởi động</value>
   </data>
   <data name="Menu.Help.DiscordRichPresenceNotWorking">
-    <value>[Trạng thái hoạt động Discord hư]
-(https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work)</value>
+    <value>[Trạng thái hoạt động Discord hư](https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work)</value>
   </data>
   <data name="Menu.Help.SetupFailed">
-    <value>[Thiết lập trình khởi động tùy chỉnh không thành công]
-(https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed)</value>
+    <value>[Thiết lập trình khởi động tùy chỉnh không thành công](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#custom-bootstrapper-setup-failed)</value>
   </data>
   <data name="Menu.Help.ConnectivityIssue">
-    <value>[Vấn đề kết nối]
-(https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue)</value>
+    <value>[Vấn đề kết nối](https://github.com/Meddsam/Froststrap/wiki/Bootstrapper-Common-Issues#connectivity-issue)</value>
   </data>
   <data name="Menu.Help.Features">
     <value>Tính năng</value>
   </data>
   <data name="Menu.Help.ServerInformation">
-    <value>[Thông tin máy chủ]
-(https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing)</value>
+    <value>[Thông tin máy chủ](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-information-viewing)</value>
   </data>
   <data name="Menu.Help.GameHistory">
-    <value>[Lịch sử trò chơi]
-(https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing)</value>
+    <value>[Lịch sử trò chơi](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#game-history-viewing)</value>
   </data>
   <data name="Menu.Help.DiscordRichPresence">
-    <value>[Trạng thái hoạt động Discord]
-(https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence)</value>
+    <value>[Trạng thái hoạt động Discord](https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence)</value>
   </data>
   <data name="Menu.Help.MessageLogsAndPlayerLogs">
-    <value>[Nhật ký trò chuyện và Nhật ký người chơi]
-(https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs)</value>
+    <value>[Nhật ký trò chuyện và Nhật ký người chơi](https://github.com/Meddsam/Froststrap/wiki/Features#message-logs-and-player-logs)</value>
   </data>
   <data name="Menu.Help.CrossGameTeleportation">
-    <value>[Cho phép dịch chuyển tức thời giữa các trò chơi]
-(https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation)</value>
+    <value>[Cho phép dịch chuyển tức thời giữa các trò chơi](https://github.com/Meddsam/Froststrap/wiki/Features#allow-cross-game-teleportation)</value>
   </data>
   <data name="Menu.Help.MultiInstanceLaunching">
-    <value>[Mở nhiều tiến trình]
-(https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
+    <value>[Mở nhiều tiến trình](https://github.com/Meddsam/Froststrap/wiki/Features#multi-instance-launching)</value>
   </data>
   <data name="Menu.Help.PresetFlagViewer">
-    <value>[Trình xem Flag cài sẵn]
-(https://github.com/Meddsam/Froststrap/wiki/Features#preset-flag-viewer)</value>
+    <value>[Trình xem Flag cài sẵn](https://github.com/Meddsam/Froststrap/wiki/Features#preset-flag-viewer)</value>
   </data>
   <data name="Menu.Help.BuiltInLists">
-    <value>[Danh sách tích hợp]
-(https://github.com/Meddsam/Froststrap/wiki/Features#built-in-lists)</value>
+    <value>[Danh sách tích hợp](https://github.com/Meddsam/Froststrap/wiki/Features#built-in-lists)</value>
   </data>
   <data name="Menu.Help.Cleaner">
-    <value>[Trình dọn dẹp Froststrap]
-(https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
+    <value>[Trình dọn dẹp Froststrap](https://github.com/Meddsam/Froststrap/wiki/Features#cleaner)</value>
   </data>
   <data name="Menu.Help.CustomLaunchers">
-    <value>[Tùy chỉnh trình khởi chạy]
-(https://github.com/Meddsam/Froststrap/wiki/Features#custom-launchers)</value>
+    <value>[Tùy chỉnh trình khởi chạy](https://github.com/Meddsam/Froststrap/wiki/Features#custom-launchers)</value>
   </data>
   <data name="Menu.Help.DisableHardwareAcceleration">
-    <value>[Vô hiệu tăng tốc phần cứng]
-(https://github.com/Meddsam/Froststrap/wiki/Features#disable-hardware-acceleration)</value>
+    <value>[Vô hiệu tăng tốc phần cứng](https://github.com/Meddsam/Froststrap/wiki/Features#disable-hardware-acceleration)</value>
   </data>
   <data name="Menu.Help.BetterSuggestionBox">
-    <value>[Hộp gợi ý tốt hơn]
-(https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box)</value>
+    <value>[Hộp gợi ý tốt hơn](https://github.com/Meddsam/Froststrap/wiki/Features#better-suggestion-box)</value>
   </data>
   <data name="Menu.Help.FFlagGuide">
     <value>Hướng dẫn FFlag</value>
   </data>
   <data name="Menu.Help.RecommendedBuffering">
-    <value>[Bộ đệm được đề xuất]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering)</value>
+    <value>[Bộ đệm được đề xuất](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#recommended-buffering)</value>
   </data>
   <data name="Menu.Help.RenderingModes">
-    <value>[Các chế độ kết xuất]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rendering-mode)</value>
+    <value>[Các chế độ kết xuất](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rendering-mode)</value>
   </data>
   <data name="Menu.Help.OverrideGraphicQuality">
-    <value>[Ghi đè chất lượng đồ họa]
-https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-quality</value>
+    <value>[Ghi đè chất lượng đồ họa](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#override-graphic-quality)</value>
   </data>
   <data name="Menu.Help.TextureSkipping">
-    <value>[Bỏ qua bề mặt]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#texture-skipping)</value>
+    <value>[Bỏ qua bề mặt](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#texture-skipping)</value>
   </data>
   <data name="Menu.Help.DisableFullScreenTitleBar">
-    <value>[Vô hiệu hóa thanh tiêu đề toàn màn hình của Roblox]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-full-screen-title-bar)</value>
+    <value>[Vô hiệu hóa thanh tiêu đề toàn màn hình của Roblox](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#disable-full-screen-title-bar)</value>
   </data>
   <data name="Menu.Help.Telemetry">
-    <value>[Đo từ xa]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#telemetry)</value>
+    <value>[Đo từ xa](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#telemetry)</value>
   </data>
   <data name="Menu.Help.ReduceLagSpikes">
-    <value>[Giảm gai Lag]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes)</value>
+    <value>[Giảm gai Lag](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#reduce-lag-spikes)</value>
   </data>
   <data name="Menu.Help.LargeReplicator">
-    <value>[Máy sao chép lớn]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#large-replicator)</value>
+    <value>[Máy sao chép lớn](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#large-replicator)</value>
   </data>
   <data name="Menu.Help.RCore">
-    <value>[RCore]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rcore)</value>
+    <value>[RCore](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#rcore)</value>
   </data>
   <data name="Menu.Help.PayloadLimit">
-    <value>[Giới hạn tải trọng]
-(https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#payload-limit)</value>
+    <value>[Giới hạn tải trọng](https://github.com/Meddsam/Froststrap/wiki/A-guide-to-FastFlags#payload-limit)</value>
   </data>
   <data name="Common.Presets">
     <value>Các cài đặt định sẵn</value>
@@ -2194,8 +2154,7 @@ Bạn không thể sử dụng Bloxshade với Froststrap nữa.</value>
     <value>Thao tác này sẽ cung cấp cho bạn thông tin về bản sửa lỗi và các thông tin khác (nó sẽ chuyển hướng bạn đến trang wiki).</value>
   </data>
   <data name="Menu.Help.RainbowUiTextures">
-    <value>[Giao diện người dùng/Kết cấu nhiều màu]
-(https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
+    <value>[Giao diện người dùng/Kết cấu nhiều màu](https://github.com/Meddsam/Froststrap/wiki/Common-FFlag-Issues#rainbow-colored-uigraphics)</value>
   </data>
   <data name="Menu.Behaviour.DisableHardwareAcceleration.Description">
     <value>Vô hiệu tăng tốc phần cứng trên Froststrap. Lưu ý: Bạn phải khởi động lại ứng dụng để thấy bất kỳ thay đổi nào.</value>
