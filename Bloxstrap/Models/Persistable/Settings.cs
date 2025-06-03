@@ -22,6 +22,7 @@ namespace Bloxstrap.Models.Persistable
         public CopyFormatMode SelectedCopyFormat { get; set; } = CopyFormatMode.Format1; //change for default value
         public bool ShowPresetColumn { get; set; } = false; //change for default value
         public bool ShowFlagCount { get; set; } = false; // change for default value
+        public bool ShowAddWithID { get; set; } = false; // change for default value
         public bool WPFSoftwareRender { get; set; } = false;
         public bool DisableAnimations { get; set; } = false;
         public bool DisableHardwareAcceleration { get; set; } = false;

@@ -5,6 +5,7 @@ public class AdvancedSettingViewModel : INotifyPropertyChanged
 {
     public static event EventHandler? ShowPresetColumnChanged;
     public static event EventHandler? ShowFlagCountChanged;
+    public event EventHandler? ShowAddWithIDChanged;
 
     private CopyFormatMode _selectedCopyFormat;
     private bool _showPresetColumnSetting;
@@ -47,6 +48,7 @@ public class AdvancedSettingViewModel : INotifyPropertyChanged
         SelectedCopyFormat = settings.SelectedCopyFormat;
         ShowPresetColumnSetting = settings.ShowPresetColumn;
         ShowFlagCount = settings.ShowFlagCount;
+        ShowAddWithID = settings.ShowAddWithID;
     }
 
     public bool ShowPresetColumnSetting
@@ -82,4 +84,24 @@ public class AdvancedSettingViewModel : INotifyPropertyChanged
         }
     }
 
+    private bool _showAddWithID;
+
+    public bool ShowAddWithID
+    {
+        get => _showAddWithID;
+        set
+        {
+            if (_showAddWithID != value)
+            {
+                _showAddWithID = value;
+                OnPropertyChanged(nameof(ShowAddWithID));
+
+                var settings = App.Settings.Prop;
+                settings.ShowAddWithID = value;
+                App.Settings.Save();
+
+                ShowAddWithIDChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
 }

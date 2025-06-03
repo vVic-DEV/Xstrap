@@ -61,6 +61,12 @@
                 <ui:ToggleSwitch IsChecked="{Binding ShowFlagCount, Mode=TwoWay}" />
             </controls:OptionControl>
 
+            <controls:OptionControl
+        Margin="5,0,5,0"
+        Header="Add With ID"
+        Description="Enable to show 'Add with ID' and 'Import ID JSON' tabs in Add New dialog.">
+                <ui:ToggleSwitch IsChecked="{Binding ShowAddWithID, Mode=TwoWay}" />
+            </controls:OptionControl>
 
 
         </StackPanel>

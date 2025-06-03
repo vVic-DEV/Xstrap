@@ -27,6 +27,26 @@ namespace Bloxstrap.UI.Elements.Dialogs
         public AddFastFlagDialog()
         {
             InitializeComponent();
+
+            var vm = AdvancedSettingsDialog.SharedViewModel;
+
+            // Initial visibility
+            UpdateAddWithIDTabs(vm.ShowAddWithID);
+
+            // Listen for future toggle changes
+            vm.ShowAddWithIDChanged += (_, _) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    UpdateAddWithIDTabs(vm.ShowAddWithID);
+                });
+            };
+        }
+
+        private void UpdateAddWithIDTabs(bool show)
+        {
+            AddWithIdTab.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+            ImportIdJsonTab.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)

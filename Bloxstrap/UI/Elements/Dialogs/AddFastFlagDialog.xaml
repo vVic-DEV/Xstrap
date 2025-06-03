@@ -78,7 +78,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Add with ID">
+            <TabItem x:Name="AddWithIdTab" Header="Add with ID" Visibility="Collapsed">
                 <Grid Margin="16">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -111,7 +111,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Import ID JSON">
+            <TabItem x:Name="ImportIdJsonTab" Header="Import ID JSON" Visibility="Collapsed">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />

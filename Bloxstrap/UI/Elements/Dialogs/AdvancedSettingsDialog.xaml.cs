@@ -13,24 +13,24 @@ namespace Bloxstrap.UI.Elements.Dialogs
     public partial class AdvancedSettingsDialog
     {
         public AdvancedSettingViewModel ViewModel { get; } = new();
+        public static AdvancedSettingViewModel SharedViewModel { get; private set; } = new();
 
         public AdvancedSettingsDialog()
         {
             InitializeComponent();
             ViewModel.LoadSettings();
             DataContext = ViewModel;
+
+            SharedViewModel = ViewModel;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.SaveSettings();
             Frontend.ShowMessageBox(
-                Strings.Menu_AdvancedSettings_SettingsSaved, // or your desired resource key
+                Strings.Menu_AdvancedSettings_SettingsSaved,
                 MessageBoxImage.Information
             );
-
-
         }
-
     }
 }
