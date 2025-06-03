@@ -6210,7 +6210,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Player and Message logs.
+        ///   Looks up a localized string similar to Logs Menu.
         /// </summary>
         public static string Menu_Integrations_PlayerMessageLogs_Title {
             get {

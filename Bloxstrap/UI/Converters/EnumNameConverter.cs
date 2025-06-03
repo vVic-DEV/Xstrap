@@ -10,21 +10,21 @@ namespace Bloxstrap.UI.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is not Enum enumVal)
-            {
-                // If value is not an enum, return as-is or fallback
                 return value?.ToString() ?? "Unknown";
-            }
 
             var stringVal = enumVal.ToString();
             var type = enumVal.GetType();
-            var typeName = type.FullName!;
-            var memberInfo = type.GetMember(stringVal).FirstOrDefault();
+            var typeName = type.FullName;
 
+            if (string.IsNullOrEmpty(typeName))
+                return stringVal;
+
+            var memberInfo = type.GetMember(stringVal).FirstOrDefault();
             if (memberInfo != null)
             {
-                var attribute = (EnumNameAttribute)memberInfo
+                var attribute = memberInfo
                     .GetCustomAttributes(typeof(EnumNameAttribute), false)
-                    .FirstOrDefault();
+                    .FirstOrDefault() as EnumNameAttribute;
 
                 if (attribute != null)
                 {
@@ -36,7 +36,10 @@ namespace Bloxstrap.UI.Converters
                 }
             }
 
-            return Strings.ResourceManager.GetStringSafe($"{typeName.Substring(typeName.IndexOf('.') + 1)}.{stringVal}");
+            var dotIndex = typeName.IndexOf('.');
+            var trimmedTypeName = dotIndex >= 0 ? typeName.Substring(dotIndex + 1) : typeName;
+
+            return Strings.ResourceManager.GetStringSafe($"{trimmedTypeName}.{stringVal}");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

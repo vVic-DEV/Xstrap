@@ -2295,7 +2295,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Displays recently sent messages by players.</value>
   </data>
   <data name="Menu.Integrations.PlayerMessageLogs.Title" xml:space="preserve">
-    <value>Player and Message logs</value>
+    <value>Logs Menu</value>
   </data>
   <data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
     <value>Displays player joins/leaves and messages. Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>

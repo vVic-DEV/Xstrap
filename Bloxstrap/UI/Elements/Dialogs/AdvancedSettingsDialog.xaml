@@ -34,7 +34,8 @@
             <controls:OptionControl
                     Margin="5,0,5,0"
                     Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Description}">
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/Advanced-FastFlag-Editor-Settings#copy-format" >
                 <ComboBox Margin="5,0,0,0" Padding="10,5,10,5"
                         Width="200"
                         ItemsSource="{Binding CopyFormatModes}"
@@ -50,21 +51,24 @@
             <controls:OptionControl
                     Margin="5,0,5,0"
                     Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Description}">
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_PresetColumn_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/Advanced-FastFlag-Editor-Settings#preset-column" >
                 <ui:ToggleSwitch IsChecked="{Binding ShowPresetColumnSetting, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl
                     Margin="5,0,5,0"
                     Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Title}" 
-                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Description}">
+                    Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_ToggleFlagCount_Description}"
+                    HelpLink="https://github.com/Meddsam/Froststrap/wiki/Advanced-FastFlag-Editor-Settings#flag-count" >
                 <ui:ToggleSwitch IsChecked="{Binding ShowFlagCount, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl
-                Margin="5,0,5,0"
+                Margin="5,0,5,10"
                 Header="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_AddWithID_Title}" 
-                Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_AddWithID_Description}">
+                Description="{x:Static resources:Strings.Menu_FastFlagsEditor_AdvancedSettings_AddWithID_Description}"
+                HelpLink="https://github.com/Meddsam/Froststrap/wiki/Advanced-FastFlag-Editor-Settings#add-with-id" >
                 <ui:ToggleSwitch IsChecked="{Binding ShowAddWithID, Mode=TwoWay}" />
             </controls:OptionControl>
 

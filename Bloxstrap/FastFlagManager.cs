@@ -21,6 +21,7 @@ namespace Bloxstrap
             // Activity Watcher
             { "Players.LogLevel", "FStringDebugLuaLogLevel" },
             { "Players.LogPattern", "FStringDebugLuaLogPattern" },
+            { "Instances.WndCheck", "FLogWndProcessCheck" },
 
             // Preset Flags
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
@@ -387,13 +388,14 @@ namespace Bloxstrap
         {
             { RefreshRate.Default, null },
             { RefreshRate.RefreshRate1, "75" },
-            { RefreshRate.RefreshRate2, "120" },
-            { RefreshRate.RefreshRate3, "144" },
-            { RefreshRate.RefreshRate4, "165" },
-            { RefreshRate.RefreshRate5, "180" },
-            { RefreshRate.RefreshRate6, "240" },
-            { RefreshRate.RefreshRate7, "360" },
-
+            { RefreshRate.RefreshRate2, "80" },
+            { RefreshRate.RefreshRate3, "90" },
+            { RefreshRate.RefreshRate4, "120" },
+            { RefreshRate.RefreshRate5, "144" },
+            { RefreshRate.RefreshRate6, "165" },
+            { RefreshRate.RefreshRate7, "180" },
+            { RefreshRate.RefreshRate8, "240" },
+            { RefreshRate.RefreshRate9, "360" },
 
         };
 
