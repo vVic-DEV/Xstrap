@@ -31,5 +31,8 @@
 
         [EnumName(StaticName = "4320p")]
         Resolution9,
+
+        [EnumName(StaticName = "Custom Value")]
+        CustomValue
     }
 }

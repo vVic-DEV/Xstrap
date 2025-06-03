@@ -800,14 +800,41 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public IReadOnlyDictionary<DynamicResolution, string?> DynamicResolutions => FastFlagManager.DynamicResolutions;
 
+        public IEnumerable<DynamicResolution> DynamicResolutionOptions
+        {
+            get
+            {
+                var currentValue = App.FastFlags.GetPreset("Rendering.Dynamic.Resolution");
+                bool isKnown = DynamicResolutions.Values.Contains(currentValue);
+
+                return isKnown
+                    ? DynamicResolutions.Keys
+                    : DynamicResolutions.Keys.Concat(new[] { DynamicResolution.CustomValue });
+            }
+        }
+
         public DynamicResolution SelectedDynamicResolution
         {
-            get => DynamicResolutions.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.Dynamic.Resolution")).Key;
+            get
+            {
+                string? currentValue = App.FastFlags.GetPreset("Rendering.Dynamic.Resolution");
+
+                var match = DynamicResolutions.FirstOrDefault(x => x.Value == currentValue);
+
+                if (match.Value == currentValue)
+                    return match.Key;
+
+                return DynamicResolution.CustomValue;
+            }
             set
             {
                 if (value == DynamicResolution.Default)
                 {
                     App.FastFlags.SetPreset("Rendering.Dynamic.Resolution", null);
+                }
+                else if (value == DynamicResolution.CustomValue)
+                {
+
                 }
                 else
                 {
@@ -818,9 +845,31 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public IReadOnlyDictionary<RefreshRate, string?> RefreshRates => FastFlagManager.RefreshRates;
 
+        public IEnumerable<RefreshRate> RefreshRateOptions
+        {
+            get
+            {
+                string? currentValue = App.FastFlags.GetPreset("System.TargetRefreshRate1");
+                bool isKnown = RefreshRates.Values.Contains(currentValue);
+
+                return isKnown
+                    ? RefreshRates.Keys
+                    : RefreshRates.Keys.Concat(new[] { RefreshRate.CustomValue });
+            }
+        }
+
         public RefreshRate SelectedRefreshRate
         {
-            get => RefreshRates.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("System.TargetRefreshRate1")).Key;
+            get
+            {
+                string? currentValue = App.FastFlags.GetPreset("System.TargetRefreshRate1");
+                var match = RefreshRates.FirstOrDefault(x => x.Value == currentValue);
+
+                if (match.Value == currentValue)
+                    return match.Key;
+
+                return RefreshRate.CustomValue;
+            }
             set
             {
                 if (value == RefreshRate.Default)
@@ -830,15 +879,24 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("System.TargetRefreshRate3", null);
                     App.FastFlags.SetPreset("System.TargetRefreshRate4", null);
                 }
+                else if (value == RefreshRate.CustomValue)
+                {
+                    // Handle custom value if needed, or leave empty to not change preset
+                }
                 else
                 {
-                    App.FastFlags.SetPreset("System.TargetRefreshRate1", RefreshRates[value]);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate2", RefreshRates[value]);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate3", RefreshRates[value]);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate4", RefreshRates[value]);
+                    var presetValue = RefreshRates[value];
+                    App.FastFlags.SetPreset("System.TargetRefreshRate1", presetValue);
+                    App.FastFlags.SetPreset("System.TargetRefreshRate2", presetValue);
+                    App.FastFlags.SetPreset("System.TargetRefreshRate3", presetValue);
+                    App.FastFlags.SetPreset("System.TargetRefreshRate4", presetValue);
                 }
+
+                OnPropertyChanged(nameof(SelectedRefreshRate));
+                OnPropertyChanged(nameof(RefreshRateOptions));
             }
         }
+
 
         public bool ResetConfiguration
         {
