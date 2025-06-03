@@ -900,6 +900,12 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
 	<data name="Menu.Behaviour.DisableHardwareAcceleration.Title" xml:space="preserve">
     <value>Disable Hardware Acceleration</value>
   </data>
+  <data name="Menu.Behaviour.DisableAnimation.Description" xml:space="preserve">
+    <value>When enabled, it will disable all animations within the app. Requires app restart.</value>
+  </data>
+	<data name="Menu.Behaviour.DisableAnimation.Title" xml:space="preserve">
+    <value>Disable Animations</value>
+  </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevent closures of your existing game when accidentally launching another Roblox Instance.</value>
   </data>
@@ -1003,6 +1009,12 @@ There are {0} conflicting flag definitions:
   </data>
   <data name="Menu.FastFlagEditor.AdvancedSettings" xml:space="preserve">
     <value>Advanced Settings</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AdvancedSettings.SingleAddID" xml:space="preserve">
+    <value>Add with ID</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AdvancedSettings.ImportAddID" xml:space="preserve">
+    <value>Import ID JSON</value>
   </data>
   <data name="Enums.CopyFormatMode.Format1" xml:space="preserve">
     <value>Default</value>
@@ -1249,6 +1261,18 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Use custom font</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomCursor.Choose" xml:space="preserve">
+    <value>Choose Cursor...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomCursor.Description" xml:space="preserve">
+    <value>Use your own mouse cursors in Roblox</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomCursor.Remove" xml:space="preserve">
+    <value>Remove Custom Cursor</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomCursor.Title" xml:space="preserve">
+    <value>Use Custom Cursor</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Manage custom Roblox mods here.</value>
@@ -1572,6 +1596,12 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.ToggleFlagCount.Title" xml:space="preserve">
     <value>Flag Count</value>
   </data>
+  <data name="Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Description" xml:space="preserve">
+    <value>Enable to show 'Add with ID' and 'Import ID JSON' tabs in Add New dialog.</value>
+  </data>
+  <data name="Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Title" xml:space="preserve">
+    <value>Add With ID</value>
+  </data>
   <data name="Menu.FastFlagsEditor.AdvancedSettings.PresetColumn.Title" xml:space="preserve">
     <value>Preset Column</value>
   </data>
@@ -1649,6 +1679,9 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.Channels.DisableAnimationRestart" xml:space="preserve">
     <value>Please restart the app for the animations to disable.</value>
+  </data>
+  <data name="Common.FilterType" xml:space="preserve">
+    <value>Filter Type:</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableLayeredClothing.Title" xml:space="preserve">
     <value>Disable Layered Clothing</value>

@@ -14,7 +14,7 @@
       Title="ChannelPage"
       Scrollable="True">
 
-    <StackPanel Margin="0,0,14,14">
+    <StackPanel Margin="0,0,0,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Channel_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <TextBlock Text="Froststrap" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
@@ -32,8 +32,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="Disable Animations"
-            Description="When enabled, it will disable all animations within the app. Requires app restart.">
+            Header="{x:Static resources:Strings.Menu_Behaviour_DisableAnimation_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_DisableAnimation_Description}">
             <ui:ToggleSwitch IsChecked="{Binding DisableAnimations, Mode=TwoWay}" />
         </controls:OptionControl>
 

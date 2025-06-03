@@ -78,7 +78,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="AddWithIdTab" Header="Add with ID" Visibility="Collapsed">
+            <TabItem x:Name="AddWithIdTab" Header="{x:Static resources:Strings.Menu_FastFlagEditor_AdvancedSettings_SingleAddID}" Visibility="Collapsed">
                 <Grid Margin="16">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -92,18 +92,16 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Filter Type Selector -->
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Filter Type:" Margin="0,0,8,8" />
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="{x:Static resources:Strings.Common_FilterType}" Margin="0,0,8,8" />
                     <ComboBox Grid.Row="0" Grid.Column="1" x:Name="AddIdFilterTypeComboBox" Margin="0,0,0,8" SelectedIndex="0">
                         <ComboBoxItem Content="PlaceFilter" />
                         <ComboBoxItem Content="DataCenterFilter" />
                     </ComboBox>
 
-                    <!-- Existing fields, move down by one row -->
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Name:" Margin="0,0,0,12" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="{x:Static resources:Strings.Common_Name}" Margin="0,0,0,12" />
                     <TextBox Grid.Row="1" Grid.Column="1" Name="GameFlagNameTextBox" Margin="0,0,0,12" />
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Value:" Margin="0,0,0,12" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="{x:Static resources:Strings.Common_Value}" Margin="0,0,0,12" />
                     <TextBox Grid.Row="2" Grid.Column="1" Name="GameFlagValueTextBox" Margin="0,0,0,12" />
 
                     <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="ID:" />
@@ -111,23 +109,19 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="ImportIdJsonTab" Header="Import ID JSON" Visibility="Collapsed">
+            <TabItem x:Name="ImportIdJsonTab" Header="{x:Static resources:Strings.Menu_FastFlagEditor_AdvancedSettings_ImportAddID}" Visibility="Collapsed">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <!-- Filter type selector -->
                         <RowDefinition Height="Auto" />
-                        <!-- ID input -->
                         <RowDefinition Height="*" />
-                        <!-- JSON input -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Filter Type Selector -->
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Filter Type:" Margin="0,0,8,8" />
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="{x:Static resources:Strings.Common_FilterType}" Margin="0,0,8,8" />
                     <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ImportIdFilterTypeComboBox" Margin="0,0,0,8" SelectedIndex="0">
                         <ComboBoxItem Content="PlaceFilter" />
                         <ComboBoxItem Content="DataCenterFilter" />

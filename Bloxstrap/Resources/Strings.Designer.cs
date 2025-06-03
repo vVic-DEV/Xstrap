@@ -637,6 +637,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter Type:.
+        /// </summary>
+        public static string Common_FilterType {
+            get {
+                return ResourceManager.GetString("Common.FilterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Common_Help {
@@ -3293,6 +3302,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When enabled, it will disable all animations within the app. Requires app restart..
+        /// </summary>
+        public static string Menu_Behaviour_DisableAnimation_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableAnimation.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Animations.
+        /// </summary>
+        public static string Menu_Behaviour_DisableAnimation_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableAnimation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disables hardware acceleration on Frostrap only. Note: You must restart the application in order to see any effects..
         /// </summary>
         public static string Menu_Behaviour_DisableHardwareAcceleration_Description {
@@ -3677,6 +3704,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlagEditor_AdvancedSettings {
             get {
                 return ResourceManager.GetString("Menu.FastFlagEditor.AdvancedSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import ID JSON.
+        /// </summary>
+        public static string Menu_FastFlagEditor_AdvancedSettings_ImportAddID {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.AdvancedSettings.ImportAddID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add with ID.
+        /// </summary>
+        public static string Menu_FastFlagEditor_AdvancedSettings_SingleAddID {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.AdvancedSettings.SingleAddID", resourceCulture);
             }
         }
         
@@ -5286,6 +5331,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable to show &apos;Add with ID&apos; and &apos;Import ID JSON&apos; tabs in Add New dialog..
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_AddWithID_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add With ID.
+        /// </summary>
+        public static string Menu_FastFlagsEditor_AdvancedSettings_AddWithID_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the format for copying JSON..
         /// </summary>
         public static string Menu_FastFlagsEditor_AdvancedSettings_CopyFormat_Description {
@@ -6269,6 +6332,42 @@ namespace Bloxstrap.Resources {
         public static string Menu_Mods_Misc_CompatibilitySettings_Title {
             get {
                 return ResourceManager.GetString("Menu.Mods.Misc.CompatibilitySettings.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Cursor....
+        /// </summary>
+        public static string Menu_Mods_Misc_CustomCursor_Choose {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CustomCursor.Choose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use your own mouse cursors in Roblox.
+        /// </summary>
+        public static string Menu_Mods_Misc_CustomCursor_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CustomCursor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Custom Cursor.
+        /// </summary>
+        public static string Menu_Mods_Misc_CustomCursor_Remove {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CustomCursor.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Custom Cursor.
+        /// </summary>
+        public static string Menu_Mods_Misc_CustomCursor_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CustomCursor.Title", resourceCulture);
             }
         }
         
