@@ -183,17 +183,20 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
+            base.OnStartup(e);
 
-            if (App.Settings.Prop.WPFSoftwareRender)
+            if (Settings.Prop.DisableAnimations)
+            {
+                HardwareAcceleration.DisableAllAnimations();
+            }
+
+
+            if (Settings.Prop.WPFSoftwareRender)
             {
                 RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
             }
 
-            base.OnStartup(e);
-
             Locale.Initialize();
-
-            base.OnStartup(e);
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 

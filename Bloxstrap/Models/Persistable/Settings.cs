@@ -19,10 +19,11 @@ namespace Bloxstrap.Models.Persistable
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
-        public CopyFormatMode SelectedCopyFormat { get; set; } = CopyFormatMode.Format1;
-        public bool ShowPresetColumn { get; set; } = false;
-        public bool ShowFlagCount { get; set; } = false;
+        public CopyFormatMode SelectedCopyFormat { get; set; } = CopyFormatMode.Format1; //change for default value
+        public bool ShowPresetColumn { get; set; } = false; //change for default value
+        public bool ShowFlagCount { get; set; } = false; // change for default value
         public bool WPFSoftwareRender { get; set; } = false;
+        public bool DisableAnimations { get; set; } = false;
         public bool DisableHardwareAcceleration { get; set; } = false;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;

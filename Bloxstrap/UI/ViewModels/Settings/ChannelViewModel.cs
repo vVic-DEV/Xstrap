@@ -25,6 +25,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
+        public bool DisableAnimations
+        {
+            get => App.Settings.Prop.DisableAnimations;
+            set 
+            {
+                App.Settings.Prop.DisableAnimations = value;
+                Frontend.ShowMessageBox(
+                Strings.Menu_Channels_DisableAnimationRestart,
+                MessageBoxImage.Information
+                );
+            }
+        }
+
         public bool SoftwareRenderingEnabled
         {
             get => App.Settings.Prop.WPFSoftwareRender;

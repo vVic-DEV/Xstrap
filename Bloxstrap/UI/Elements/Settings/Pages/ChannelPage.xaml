@@ -31,6 +31,11 @@
             <ui:ToggleSwitch IsChecked="{Binding SoftwareRenderingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl 
+            Header="Disable Animations"
+            Description="When enabled, it will disable all animations within the app. Requires app restart.">
+            <ui:ToggleSwitch IsChecked="{Binding DisableAnimations, Mode=TwoWay}" />
+        </controls:OptionControl>
 
         <TextBlock Text="Roblox" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 

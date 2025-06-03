@@ -79,7 +79,7 @@
 	<EmbeddedResource Include="Resources\PresetFlags\Mahorga%27s Trash Graphics V14" />
 	<EmbeddedResource Include="Resources\PresetFlags\Scroom%27s Unplayable Graphics" />
 	<EmbeddedResource Include="Resources\PresetFlags\Obsurd V3 x Unterial V5" />
-	<EmbeddedResource Include="Resources\PresetFlags\5070%27s Latency Pack V27" />
+	<EmbeddedResource Include="Resources\PresetFlags\5070%27s Latency Pack V28" />
   </ItemGroup>
 
   <ItemGroup>

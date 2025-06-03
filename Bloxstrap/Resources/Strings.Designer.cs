@@ -3456,7 +3456,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logs.
+        ///   Looks up a localized string similar to Logs Menu.
         /// </summary>
         public static string Menu_Bootstrapper_Cleaner_Logs_Title {
             get {
@@ -3596,6 +3596,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_ChannelChanger_Description {
             get {
                 return ResourceManager.GetString("Menu.ChannelChanger.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please restart the app for the animations to disable..
+        /// </summary>
+        public static string Menu_Channels_DisableAnimationRestart {
+            get {
+                return ResourceManager.GetString("Menu.Channels.DisableAnimationRestart", resourceCulture);
             }
         }
         
