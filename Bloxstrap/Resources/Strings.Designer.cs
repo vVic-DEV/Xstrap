@@ -1087,6 +1087,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logs Menu.
+        /// </summary>
+        public static string ContextMenu_Logs_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.Logs.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Displays recently sent messages by players..
         /// </summary>
         public static string ContextMenu_MessageLogs_Description {

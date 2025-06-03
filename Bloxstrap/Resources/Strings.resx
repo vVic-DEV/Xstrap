@@ -961,7 +961,7 @@ For more custom launchers, visit the official Bloxstrap Discord server.</value>
     <value>Old downloads will be deleted.</value>
   </data>
 	<data name="Menu.Bootstrapper.Cleaner.Logs.Title" xml:space="preserve">
-    <value>Logs</value>
+    <value>Logs Menu</value>
   </data>
 	<data name="Menu.Bootstrapper.Cleaner.Logs.Description" xml:space="preserve">
     <value>Old log files will be deleted.</value>
@@ -2251,6 +2251,9 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="ContextMenu.MessageLogs.Title" xml:space="preserve">
     <value>Message logs</value>
+  </data>
+  <data name="ContextMenu.Logs.Title" xml:space="preserve">
+    <value>Logs Menu</value>
   </data>
   <data name="ContextMenu.MessageLogs.Description" xml:space="preserve">
     <value>Displays recently sent messages by players.</value>
