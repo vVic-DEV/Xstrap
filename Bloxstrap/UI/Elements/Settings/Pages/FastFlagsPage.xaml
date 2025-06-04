@@ -780,13 +780,6 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl
-                    x:Name="BetterPacketSending"
-                    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_BetterPacketSending_Description}"
-                    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_BetterPacketSending_Title}">
-                    <ui:ToggleSwitch IsChecked="{Binding BetterPacketSending, Mode=TwoWay}" />
-                </controls:OptionControl>
-
-                <controls:OptionControl
                     x:Name="NoPayloadLimit"
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_NoPayloadLimit_Description}"
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_NoPayloadLimit_Title}"

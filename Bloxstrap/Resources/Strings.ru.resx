@@ -916,9 +916,6 @@
 	<data name="Menu.Bootstrapper.Cleaner.Cache.Description">
 		<value>Старые загрузки будут удалены.</value>
 	</data>
-	<data name="Menu.Bootstrapper.Cleaner.Logs.Title">
-		<value>Логи</value>
-	</data>
 	<data name="Menu.Bootstrapper.Cleaner.Logs.Description">
 		<value>Старые логи будут удалены.</value>
 	</data>
@@ -1007,7 +1004,7 @@
 		<value>Узнайте больше о Fast Flags, что делают те или иные предустановки и как их использовать.</value>
 	</data>
 	<data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo">
-		<value>[Полноэкранный режим]({0}) Direct3D с помощью Alt+Enter включен по умолчанию.</value>
+		<value>Параметры графики и производительности движка Roblox.</value>
 	</data>
 	<data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title">
 		<value>Предпочитаемая версия меню-выхода</value>
@@ -2278,9 +2275,6 @@
 	<data name="Menu.FastFlags.Presets.RedFont.Description">
 		<value>Применяет красный цвет почти ко всему тексту. Примечание: Эта настройка не работает с пользовательскими шрифтами!</value>
 	</data>
-	<data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description">
-		<value>Настройка позволяет не рендерить многослойную одежду. Примечание: Включение этой настройки потенциально может привести к улучшению производительности.</value>
-	</data>
 	<data name="Menu.FastFlags.Presets.Chunks.Description">
 		<value>Отображает чанки, типо как в Minecraft.</value>
 	</data>
@@ -2395,7 +2389,82 @@
 	<data name="Menu.FastFlags.Presets.BlackSky.Title">
 		<value>Черное небо</value>
 	</data>
+	<data name="Enums.Theme.Forest">
+		<value>Лес</value>
+	</data>
+	<data name="Enums.Theme.Froststrap">
+		<value>Froststrap</value>
+	</data>
+	<data name="Enums.Theme.Midnight">
+		<value>Полночь</value>
+	</data>
+	<data name="Enums.Theme.RedBlue">
+		<value>Красно-Cиний</value>
+	</data>
+	<data name="Enums.Theme.Aqua">
+		<value>Аква</value>
+	</data>
+	<data name="Enums.Theme.PurpleMoon">
+		<value>Фиолетовая Луна</value>
+	</data>
+	<data name="Enums.Theme.CottonCandy">
+		<value>Сахарная Вата</value>
+	</data>
+	<data name="Menu.Behaviour.DisableAnimation.Description">
+		<value>Отключает все анимации в Froststrap. Требуется перезапуск.</value>
+	</data>
+	<data name="Menu.Behaviour.DisableAnimation.Title">
+		<value>Отключить Анимации</value>
+	</data>
+	<data name="Menu.Bootstrapper.Cleaner.Logs.Title">
+		<value>Меню Логов</value>
+	</data>
+	<data name="Menu.FastFlagEditor.AdvancedSettings.SingleAddID">
+		<value>Добавить с идентификатором</value>
+	</data>
+	<data name="Menu.FastFlagEditor.AdvancedSettings.ImportAddID">
+		<value>Импортировать ID JSON</value>
+	</data>
+	<data name="Menu.Mods.Misc.CustomCursor.Choose">
+		<value>Выберите Курсор...</value>
+	</data>
+	<data name="Menu.Mods.Misc.CustomCursor.Description">
+		<value>Используйте собственные курсоры мыши в Roblox</value>
+	</data>
+	<data name="Menu.Mods.Misc.CustomCursor.Remove">
+		<value>Удалить пользовательский Курсор</value>
+	</data>
+	<data name="Menu.Mods.Misc.CustomCursor.Title">
+		<value>Использовать Пользовательский Курсор</value>
+	</data>
+	<data name="Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Description">
+		<value>Отображает вкладки 'Добавить по ID' и 'Импортировать JSON ID' в диалоговом окне 'Добавить Новый'</value>
+	</data>
+	<data name="Menu.FastFlagsEditor.AdvancedSettings.AddWithID.Title">
+		<value>Добавить с идентификатором</value>
+	</data>
 	<data name="Menu.FastFlags.Presets.BlackSky.Description">
-		<value>Удаляет иконки из-за пропуска, вы также можете использовать вулкан для гладкого отсутствия цвета текстуры. Примечание: Это может включать другие переключаемые настройки.</value>
+		<value>Удаляет значки из-за пропущенных MIP-карт. Примечание: это может активировать другие настройки.</value>
+	</data>
+	<data name="Menu.FastFlags.Presets.SmoothTextures.Title">
+		<value>Гладкие Текстуры</value>
+	</data>
+	<data name="Menu.FastFlags.Presets.SmoothTextures.Description">
+		<value>Включает текстуры с более гладким внешним видом. Примечание: это скроет значки из-за пропуска MIP-карт и будет использовать Vulkan.</value>
+	</data>
+	<data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description">
+		<value>Настройка позволяет не рендерить многослойную одежду. Примечание: Включение этой настройки потенциально может привести к улучшению производительности.</value>
+	</data>
+	<data name="Menu.Channels.HardwareAccelRestart">
+		<value>Пожалуйста, перезапустите приложение чтобы аппаратное ускорение было отключено.</value>
+	</data>
+	<data name="Menu.Channels.DisableAnimationRestart">
+		<value>Пожалуйста, перезапустите приложение для отключения анимаций.</value>
+	</data>
+	<data name="Common.FilterType">
+		<value>Тип фильтра:</value>
+	</data>
+	<data name="ContextMenu.Logs.Title">
+		<value>Меню Логов</value>
 	</data>
 </root>

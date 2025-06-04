@@ -234,23 +234,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool BetterPacketSending
-        {
-            get => App.FastFlags?.GetPreset("Network.BetterPacketSending1") == "0";
-            set
-            {
-                App.FastFlags.SetPreset("Network.BetterPacketSending1", value ? "0" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending2", value ? "1" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending3", value ? "1" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending4", value ? "1" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending5", value ? "1" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending6", value ? "1047483647" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending7", value ? "5000000" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending8", value ? "1" : null);
-                App.FastFlags.SetPreset("Network.BetterPacketSending9", value ? "1047483647" : null);
-            }
-        }
-
         public bool RemoveGrass
         {
             get => App.FastFlags?.GetPreset("Rendering.RemoveGrass1") == "0";
@@ -877,7 +860,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("System.TargetRefreshRate1", null);
                     App.FastFlags.SetPreset("System.TargetRefreshRate2", null);
                     App.FastFlags.SetPreset("System.TargetRefreshRate3", null);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate4", null);
                 }
                 else if (value == RefreshRate.CustomValue)
                 {
@@ -889,7 +871,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("System.TargetRefreshRate1", presetValue);
                     App.FastFlags.SetPreset("System.TargetRefreshRate2", presetValue);
                     App.FastFlags.SetPreset("System.TargetRefreshRate3", presetValue);
-                    App.FastFlags.SetPreset("System.TargetRefreshRate4", presetValue);
                 }
 
                 OnPropertyChanged(nameof(SelectedRefreshRate));

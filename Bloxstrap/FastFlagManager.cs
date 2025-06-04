@@ -50,17 +50,6 @@ namespace Bloxstrap
             { "Network.DefaultBps", "DFIntBandwidthManagerApplicationDefaultBps" },
             { "Network.MaxWorkCatchupMs", "DFIntBandwidthManagerDataSenderMaxWorkCatchupMs" },
 
-            // Better Packet Sending
-            { "Network.BetterPacketSending1", "DFIntNetworkStopProducingPacketsToProcessThresholdMs" },
-            { "Network.BetterPacketSending2", "DFIntMaxWaitTimeBeforeForcePacketProcessMS" },
-            { "Network.BetterPacketSending3", "DFIntClientPacketMaxDelayMs" },
-            { "Network.BetterPacketSending4", "DFIntClientPacketMinMicroseconds" },
-            { "Network.BetterPacketSending5", "DFIntClientPacketExcessMicroseconds" },
-            { "Network.BetterPacketSending6", "DFIntClientPacketMaxFrameMicroseconds" },
-            { "Network.BetterPacketSending7", "DFIntMaxProcessPacketsJobScaling" },
-            { "Network.BetterPacketSending8", "DFIntMaxProcessPacketsStepsAccumulated" },
-            { "Network.BetterPacketSending9", "DFIntMaxProcessPacketsStepsPerCyclic" },
-
             // Load Faster
             { "Network.MeshPreloadding", "DFFlagEnableMeshPreloading2" },
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
@@ -294,7 +283,6 @@ namespace Bloxstrap
             { "System.TargetRefreshRate1", "DFIntGraphicsOptimizationModeFRMFrameRateTarget" },
             { "System.TargetRefreshRate2", "DFIntGraphicsOptimizationModeMaxFrameTimeTargetMs" },
             { "System.TargetRefreshRate3", "DFIntGraphicsOptimizationModeMinFrameTimeTargetMs" },
-            { "System.TargetRefreshRate4", "FIntTargetRefreshRate" },
     
             // GPU
             { "System.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},

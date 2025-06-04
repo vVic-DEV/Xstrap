@@ -130,7 +130,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 OverrideGraphicQualityLevel,
                 TextureSkipping,
                 NetworkOutputStabilization,
-                BetterPacketSending,
                 NoPayloadLimit,
                 RCore,
                 LargeReplicator,
