@@ -339,7 +339,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set
             {
                 App.FastFlags.SetPreset("Network.MaxAssetPreload", value ? "2147483647" : null);
-                App.FastFlags.SetPreset("Network.MaxApi", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.PlayerImageDefault", value ? "1" : null);
                 App.FastFlags.SetPreset("Network.MeshPreloadding", value ? "True" : null);
             }
