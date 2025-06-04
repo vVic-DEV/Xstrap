@@ -53,21 +53,16 @@
         <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
             <TextBlock Text="{x:Static resources:Strings.Common_SearchBy}" VerticalAlignment="Center" Margin="0,0,8,0"/>
             <ComboBox
-        Width="140"
-        ItemsSource="{Binding SearchModes, RelativeSource={RelativeSource AncestorType=ui:UiPage}}"
-        SelectedItem="{Binding SelectedSearchMode, RelativeSource={RelativeSource AncestorType=ui:UiPage}, Mode=TwoWay}">
+                Width="140"
+                ItemsSource="{Binding SearchModes, RelativeSource={RelativeSource AncestorType=ui:UiPage}}"
+                SelectedItem="{Binding SelectedSearchMode, RelativeSource={RelativeSource AncestorType=ui:UiPage}, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock>
-                            <TextBlock.Text>
-                                <MultiBinding StringFormat="{}{0}">
-                                    <Binding />
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
+                        <TextBlock Text="{Binding Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+
         </StackPanel>
 
 
@@ -627,8 +622,8 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="14" Text="Sky Colors" />
-                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="These are expiremental sky colors that could bug your game. Note: These could use other toggleable fflags like gray sky" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_SkyColor_Title}" />
+                                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_SkyColor_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                             </StackPanel>
                         </Grid>
                     </ui:CardExpander.Header>

@@ -5106,6 +5106,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These are expiremental sky colors that could bug your game. Note: These could use other toggleable fflags like gray sky.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_SkyColor_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.SkyColor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sky Colors.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_SkyColor_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.SkyColor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enables a smooth-looking texture. Note: This will hides icons due to skipmip and use Vulkan rendering mode.
         /// </summary>
         public static string Menu_FastFlags_Presets_SmoothTextures_Description {
@@ -6696,6 +6714,33 @@ namespace Bloxstrap.Resources {
         public static string Paths_Icons {
             get {
                 return ResourceManager.GetString("Paths.Icons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string UI_Element_Settings_Pages_FastFlagsPage_SearchMode_Title {
+            get {
+                return ResourceManager.GetString("UI.Element.Settings.Pages.FastFlagsPage+SearchMode.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string UI_Elements_Settings_Pages_FastFlagsPage_SearchMode_All {
+            get {
+                return ResourceManager.GetString("UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string UI_Elements_Settings_Pages_FastFlagsPage_SearchMode_Description {
+            get {
+                return ResourceManager.GetString("UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.Description", resourceCulture);
             }
         }
         

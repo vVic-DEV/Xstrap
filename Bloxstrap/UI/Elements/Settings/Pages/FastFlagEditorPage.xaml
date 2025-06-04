@@ -73,14 +73,12 @@
                 Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}"
                 Icon="ArrowExit20"/>
             <ui:Button
-                Width="95"
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"
                 Click="FlagProfiles_Click"
                 Content="{x:Static resources:Strings.Common_Profiles}"
                 Icon="Edit28"/>
             <ui:Button
-                Width="160"
                 Margin="0,0,10,16"
                 VerticalAlignment="Top"
                 Icon="Settings48"
@@ -200,10 +198,10 @@
             </DataGrid.CellStyle>
 
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Preset" x:Name="PresetColumn">
+                <DataGridTemplateColumn Header="{x:Static resources:Strings.Common_Presets}" x:Name="PresetColumn">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Height="50" Width="25" Source="{Binding Preset}" />
+                            <Image Height="50" Width="25" Source="{Binding Preset}" Stretch="Uniform" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
