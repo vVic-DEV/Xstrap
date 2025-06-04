@@ -836,9 +836,8 @@
 		<value>Предпросмотр</value>
 	</data>
 	<data name="Menu.Appearance.Launcher.Description">
-		<value>
-			Выберите стиль экрана запуска. Примечание: Темная тема не поддерживается для Legacy или Vista.
-			Для большего количества пользовательских лаунчеров, посетите официальный сервер Bloxstrap Discord.
+		<value>Выберите стиль экрана запуска. Примечание: Темная тема не поддерживается для Legacy или Vista.
+Для большего количества пользовательских лаунчеров, посетите официальный сервер Bloxstrap Discord.
 		</value>
 	</data>
 	<data name="Menu.Appearance.Launcher.Title">
