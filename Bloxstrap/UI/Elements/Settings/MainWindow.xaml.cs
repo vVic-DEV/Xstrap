@@ -22,7 +22,6 @@ namespace Bloxstrap.UI.Elements.Settings
     {
         private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
-        // Separate collections for main nav items and footer nav items
         public static ObservableCollection<NavigationItem> MainNavigationItems { get; } = new ObservableCollection<NavigationItem>();
         public static ObservableCollection<NavigationItem> FooterNavigationItems { get; } = new ObservableCollection<NavigationItem>();
 
@@ -44,22 +43,18 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
 
-            // Load all nav items from XAML
             var allItems = RootNavigation.Items.OfType<NavigationItem>().ToList();
             var allFooters = RootNavigation.Footer?.OfType<NavigationItem>().ToList() ?? new System.Collections.Generic.List<NavigationItem>();
 
-            // Clear the collections
             MainNavigationItems.Clear();
             FooterNavigationItems.Clear();
 
-            // Add items from XAML into respective collections
             foreach (var item in allItems)
                 MainNavigationItems.Add(item);
 
             foreach (var item in allFooters)
                 FooterNavigationItems.Add(item);
 
-            // Rebuild RootNavigation collections
             RebuildNavigationItems();
 
             int lastPage = App.State.Prop.LastPage;
@@ -79,10 +74,6 @@ namespace Bloxstrap.UI.Elements.Settings
             }
         }
 
-        /// <summary>
-        /// Rebuilds the RootNavigation Items and Footer collections from stored ObservableCollections.
-        /// Call this after modifying MainNavigationItems or FooterNavigationItems.
-        /// </summary>
         private void RebuildNavigationItems()
         {
             RootNavigation.Items.Clear();
@@ -97,9 +88,6 @@ namespace Bloxstrap.UI.Elements.Settings
                 RootNavigation.Footer.Add(footerItem);
         }
 
-        /// <summary>
-        /// Call this method after reordering or moving main navigation items.
-        /// </summary>
         public void ApplyNavigationReorder()
         {
             RebuildNavigationItems();

@@ -1,7 +1,7 @@
 ﻿using Bloxstrap.UI.ViewModels.Settings;
 using System.Windows;
 using System.Windows.Controls;
-using Wpf.Ui.Controls; // For NavigationItem
+using Wpf.Ui.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
@@ -36,17 +36,30 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void MoveUp_Click(object sender, RoutedEventArgs e)
         {
-            if (ListBoxNavigationItems.SelectedItem is NavigationItem item)
+            if (ListBoxNavigationItems.SelectedItem is not NavigationItem selectedItem)
+                return;
+
+            if (MainWindow.MainNavigationItems.Contains(selectedItem))
             {
                 var navItems = MainWindow.MainNavigationItems;
+                int index = navItems.IndexOf(selectedItem);
 
-                int oldIndex = navItems.IndexOf(item);
-
-                if (oldIndex > 0 && oldIndex < navItems.Count - 1)
+                if (index > 0)
                 {
-                    navItems.Move(oldIndex, oldIndex - 1);
-                    ListBoxNavigationItems.SelectedIndex = oldIndex - 1;
+                    navItems.Move(index, index - 1);
+                    ListBoxNavigationItems.SelectedItem = selectedItem;
+                    _mainWindow.ApplyNavigationReorder();
+                }
+            }
+            else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
+            {
+                var footerList = _mainWindow.RootNavigation.Footer;
+                int index = footerList.IndexOf(selectedItem);
 
+                if (index > 0)
+                {
+                    footerList.Move(index, index - 1);
+                    ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
                 }
             }
@@ -54,17 +67,30 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void MoveDown_Click(object sender, RoutedEventArgs e)
         {
-            if (ListBoxNavigationItems.SelectedItem is NavigationItem item)
+            if (ListBoxNavigationItems.SelectedItem is not NavigationItem selectedItem)
+                return;
+
+            if (MainWindow.MainNavigationItems.Contains(selectedItem))
             {
                 var navItems = MainWindow.MainNavigationItems;
+                int index = navItems.IndexOf(selectedItem);
 
-                int oldIndex = navItems.IndexOf(item);
-
-                if (oldIndex >= 0 && oldIndex < navItems.Count - 2)
+                if (index < navItems.Count - 1)
                 {
-                    navItems.Move(oldIndex, oldIndex + 1);
-                    ListBoxNavigationItems.SelectedIndex = oldIndex + 1;
+                    navItems.Move(index, index + 1);
+                    ListBoxNavigationItems.SelectedItem = selectedItem;
+                    _mainWindow.ApplyNavigationReorder();
+                }
+            }
+            else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
+            {
+                var footerList = _mainWindow.RootNavigation.Footer;
+                int index = footerList.IndexOf(selectedItem);
 
+                if (index < footerList.Count - 1)
+                {
+                    footerList.Move(index, index + 1);
+                    ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
                 }
             }
