@@ -137,8 +137,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="List Adjustment" />
-                        <TextBlock FontSize="12" Text="Reorder the side list blah blah blah" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock FontSize="14" Text="List Adjustment"/>
+                        <TextBlock FontSize="12" Text="Reorder the navigation menu items to your preference. Changes will be saved automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -149,20 +149,22 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ListBox x:Name="ListBoxNavigationItems" Grid.Row="0" Margin="0,0,0,8" SelectedIndex="0">
+                <ListBox x:Name="ListBoxNavigationItems" Grid.Row="0" Margin="0,0,0,8" SelectedIndex="0" 
+                 HorizontalContentAlignment="Stretch" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Content}" />
+                            <TextBlock Text="{Binding Content}" Padding="4,2" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,8,0,0" HorizontalAlignment="Left">
-                    <Button Content="Move Up" Click="MoveUp_Click" Margin="0,0,8,0" />
-                    <Button Content="Move Down" Click="MoveDown_Click" />
+                    <Button Content="Move Up" Click="MoveUp_Click" Width="80" Margin="0,0,8,0" />
+                    <Button Content="Move Down" Click="MoveDown_Click" Width="80" />
                 </StackPanel>
             </Grid>
         </ui:CardExpander>
+
 
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">

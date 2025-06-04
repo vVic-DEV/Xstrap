@@ -34,6 +34,16 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             viewModel.OnPropertyChanged(nameof(viewModel.SelectedCustomThemeName));
         }
 
+        public List<string> NavigationOrder
+        {
+            get => App.Settings.Prop.NavigationOrder;
+            set
+            {
+                App.Settings.Prop.NavigationOrder = value;
+                App.State.Save();
+            }
+        }
+
         private void MoveUp_Click(object sender, RoutedEventArgs e)
         {
             if (ListBoxNavigationItems.SelectedItem is not NavigationItem selectedItem)
@@ -49,6 +59,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     navItems.Move(index, index - 1);
                     ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
+                    SaveNavigationOrder();
                 }
             }
             else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
@@ -61,6 +72,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     footerList.Move(index, index - 1);
                     ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
+                    SaveNavigationOrder();
                 }
             }
         }
@@ -80,6 +92,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     navItems.Move(index, index + 1);
                     ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
+                    SaveNavigationOrder();
                 }
             }
             else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
@@ -92,8 +105,21 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     footerList.Move(index, index + 1);
                     ListBoxNavigationItems.SelectedItem = selectedItem;
                     _mainWindow.ApplyNavigationReorder();
+                    SaveNavigationOrder();
                 }
             }
         }
+
+        private void SaveNavigationOrder()
+        {
+            var order = MainWindow.MainNavigationItems.Select(item => item.Tag?.ToString())
+                .Concat(_mainWindow.RootNavigation.Footer.OfType<NavigationItem>().Select(item => item.Tag?.ToString()))
+                .Where(tag => !string.IsNullOrEmpty(tag))
+                .ToList();
+
+            App.Settings.Prop.NavigationOrder = order;
+            App.State.Save();
+        }
+
     }
 }

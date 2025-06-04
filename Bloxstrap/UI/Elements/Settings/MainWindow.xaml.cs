@@ -55,6 +55,7 @@ namespace Bloxstrap.UI.Elements.Settings
             foreach (var item in allFooters)
                 FooterNavigationItems.Add(item);
 
+            ReorderNavigationItemsFromSettings();
             RebuildNavigationItems();
 
             int lastPage = App.State.Prop.LastPage;
@@ -91,7 +92,58 @@ namespace Bloxstrap.UI.Elements.Settings
         public void ApplyNavigationReorder()
         {
             RebuildNavigationItems();
+
+            App.Settings.Prop.NavigationOrder = MainNavigationItems.Select(item => item.Tag?.ToString() ?? "").ToList();
+
+            App.Settings.Prop.NavigationOrder.AddRange(FooterNavigationItems.Select(item => item.Tag?.ToString() ?? ""));
+
+            App.State.Save();
         }
+
+        private void ReorderNavigationItemsFromSettings()
+        {
+            if (App.Settings.Prop.NavigationOrder == null ||    App.Settings.Prop.NavigationOrder.Count == 0)
+                return;
+
+            var allItems = MainNavigationItems.Concat(FooterNavigationItems).ToList();
+
+            var reorderedMain = new ObservableCollection<NavigationItem>();
+            var reorderedFooter = new ObservableCollection<NavigationItem>();
+
+            foreach (var tag in App.Settings.Prop.NavigationOrder)
+            {
+                var navItem = allItems.FirstOrDefault(i => i.Tag?.ToString() == tag);
+                if (navItem != null)
+                {
+                    if (MainNavigationItems.Contains(navItem))
+                        reorderedMain.Add(navItem);
+                    else if (FooterNavigationItems.Contains(navItem))
+                        reorderedFooter.Add(navItem);
+                }
+            }
+
+            foreach (var item in MainNavigationItems)
+            {
+                if (!reorderedMain.Contains(item))
+                    reorderedMain.Add(item);
+            }
+            foreach (var item in FooterNavigationItems)
+            {
+                if (!reorderedFooter.Contains(item))
+                    reorderedFooter.Add(item);
+            }
+
+            MainNavigationItems.Clear();
+            foreach (var item in reorderedMain)
+                MainNavigationItems.Add(item);
+
+            FooterNavigationItems.Clear();
+            foreach (var item in reorderedFooter)
+                FooterNavigationItems.Add(item);
+
+            RebuildNavigationItems();
+        }
+
 
         public void LoadState()
         {
