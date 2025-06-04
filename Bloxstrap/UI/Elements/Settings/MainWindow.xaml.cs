@@ -22,6 +22,10 @@ namespace Bloxstrap.UI.Elements.Settings
     {
         private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
+        // Separate collections for main nav items and footer nav items
+        public static ObservableCollection<NavigationItem> MainNavigationItems { get; } = new ObservableCollection<NavigationItem>();
+        public static ObservableCollection<NavigationItem> FooterNavigationItems { get; } = new ObservableCollection<NavigationItem>();
+
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();
@@ -40,23 +44,23 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
 
+            // Load all nav items from XAML
             var allItems = RootNavigation.Items.OfType<NavigationItem>().ToList();
+            var allFooters = RootNavigation.Footer?.OfType<NavigationItem>().ToList() ?? new System.Collections.Generic.List<NavigationItem>();
 
-            if (allItems.Count > 0)
-            {
-                RootNavigation.Items.Clear();
+            // Clear the collections
+            MainNavigationItems.Clear();
+            FooterNavigationItems.Clear();
 
-                MainNavigationItems.Clear();
-                for (int i = 0; i < allItems.Count - 1; i++)
-                    MainNavigationItems.Add(allItems[i]);
+            // Add items from XAML into respective collections
+            foreach (var item in allItems)
+                MainNavigationItems.Add(item);
 
-                foreach (var item in MainNavigationItems)
-                {
-                    RootNavigation.Items.Add(item);
-                }
+            foreach (var item in allFooters)
+                FooterNavigationItems.Add(item);
 
-                RootNavigation.Footer = new ObservableCollection<INavigationControl> { allItems.Last() };
-            }
+            // Rebuild RootNavigation collections
+            RebuildNavigationItems();
 
             int lastPage = App.State.Prop.LastPage;
             if (lastPage >= 0 && lastPage < RootNavigation.Items.Count)
@@ -73,6 +77,32 @@ namespace Bloxstrap.UI.Elements.Settings
                 if (RootNavigation.SelectedPageIndex >= 0 && RootNavigation.SelectedPageIndex < RootNavigation.Items.Count)
                     App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
             }
+        }
+
+        /// <summary>
+        /// Rebuilds the RootNavigation Items and Footer collections from stored ObservableCollections.
+        /// Call this after modifying MainNavigationItems or FooterNavigationItems.
+        /// </summary>
+        private void RebuildNavigationItems()
+        {
+            RootNavigation.Items.Clear();
+            foreach (var item in MainNavigationItems)
+                RootNavigation.Items.Add(item);
+
+            if (RootNavigation.Footer == null)
+                RootNavigation.Footer = new ObservableCollection<INavigationControl>();
+
+            RootNavigation.Footer.Clear();
+            foreach (var footerItem in FooterNavigationItems)
+                RootNavigation.Footer.Add(footerItem);
+        }
+
+        /// <summary>
+        /// Call this method after reordering or moving main navigation items.
+        /// </summary>
+        public void ApplyNavigationReorder()
+        {
+            RebuildNavigationItems();
         }
 
         public void LoadState()
@@ -144,25 +174,6 @@ namespace Bloxstrap.UI.Elements.Settings
                 LaunchHandler.LaunchRoblox(LaunchMode.Player);
             else
                 App.SoftTerminate();
-        }
-
-        public static ObservableCollection<NavigationItem> MainNavigationItems { get; } = new ObservableCollection<NavigationItem>();
-
-        public void ApplyNavigationReorder()
-        {
-            var footer = RootNavigation.Footer?.FirstOrDefault();
-
-            RootNavigation.Items.Clear();
-
-            foreach (var navItem in MainNavigationItems)
-            {
-                RootNavigation.Items.Add(navItem);
-            }
-
-            if (footer != null)
-            {
-                RootNavigation.Footer = new ObservableCollection<INavigationControl> { footer };
-            }
         }
     }
 }
