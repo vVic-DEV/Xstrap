@@ -67,8 +67,8 @@
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_CustomMods_Title}" PageType="{x:Type pages:CustomModsPage}" Icon="PuzzlePiece24" Tag="custommods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Icon="EditSettings20" Tag="fastflagEditor" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Help_Title}" PageType="{x:Type pages:HelpPage}" Icon="ChatHelp20" Tag="Help" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Help_Title}" PageType="{x:Type pages:HelpPage}" Icon="ChatHelp20" Tag="Help" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>

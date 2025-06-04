@@ -1,7 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
+using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
@@ -35,9 +40,29 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
 
-            int LastPage = App.State.Prop.LastPage;
+            var allItems = RootNavigation.Items.OfType<NavigationItem>().ToList();
 
-            RootNavigation.SelectedPageIndex = LastPage;
+            if (allItems.Count > 0)
+            {
+                RootNavigation.Items.Clear();
+
+                MainNavigationItems.Clear();
+                for (int i = 0; i < allItems.Count - 1; i++)
+                    MainNavigationItems.Add(allItems[i]);
+
+                foreach (var item in MainNavigationItems)
+                {
+                    RootNavigation.Items.Add(item);
+                }
+
+                RootNavigation.Footer = new ObservableCollection<INavigationControl> { allItems.Last() };
+            }
+
+            int lastPage = App.State.Prop.LastPage;
+            if (lastPage >= 0 && lastPage < RootNavigation.Items.Count)
+                RootNavigation.SelectedPageIndex = lastPage;
+            else
+                RootNavigation.SelectedPageIndex = 0;
 
             RootNavigation.Navigated += SaveNavigation!;
 
@@ -45,7 +70,8 @@ namespace Bloxstrap.UI.Elements.Settings
             {
                 if (sender == null || e == null) return;
 
-                App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
+                if (RootNavigation.SelectedPageIndex >= 0 && RootNavigation.SelectedPageIndex < RootNavigation.Items.Count)
+                    App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
             }
         }
 
@@ -118,6 +144,25 @@ namespace Bloxstrap.UI.Elements.Settings
                 LaunchHandler.LaunchRoblox(LaunchMode.Player);
             else
                 App.SoftTerminate();
+        }
+
+        public static ObservableCollection<NavigationItem> MainNavigationItems { get; } = new ObservableCollection<NavigationItem>();
+
+        public void ApplyNavigationReorder()
+        {
+            var footer = RootNavigation.Footer?.FirstOrDefault();
+
+            RootNavigation.Items.Clear();
+
+            foreach (var navItem in MainNavigationItems)
+            {
+                RootNavigation.Items.Add(navItem);
+            }
+
+            if (footer != null)
+            {
+                RootNavigation.Footer = new ObservableCollection<INavigationControl> { footer };
+            }
         }
     }
 }
