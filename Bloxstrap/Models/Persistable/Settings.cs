@@ -25,6 +25,7 @@ namespace Bloxstrap.Models.Persistable
         public bool ShowAddWithID { get; set; } = false; // change for default value
         public List<string> NavigationOrder { get; set; } = new List<string>();
         public Dictionary<string, string> NavigationNames { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> NavigationDisplayNames { get; set; } = new();
         public bool IsNavigationOrderLocked { get; set; } = true;  // change for default value
         public bool WPFSoftwareRender { get; set; } = false;
         public bool DisableAnimations { get; set; } = false;

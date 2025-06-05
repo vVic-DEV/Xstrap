@@ -32,6 +32,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
         }
 
+        // Dictionary to hold original display names keyed by Tag
+        private readonly Dictionary<string, string> _defaultNavigationNames = new();
+
         public AppearancePage()
         {
             InitializeComponent();
@@ -45,6 +48,16 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             _mainWindow = System.Windows.Application.Current.MainWindow as MainWindow ?? throw new System.InvalidOperationException("MainWindow not found");
 
             ListBoxNavigationItems.ItemsSource = MainWindow.MainNavigationItems;
+
+            // Populate default names dictionary from current navigation items
+            foreach (var item in MainWindow.MainNavigationItems)
+            {
+                var tag = item.Tag?.ToString();
+                if (!string.IsNullOrEmpty(tag))
+                {
+                    _defaultNavigationNames[tag] = item.Content?.ToString() ?? tag;
+                }
+            }
 
             ListBoxNavigationItems.SelectionChanged += ListBoxNavigationItems_SelectionChanged;
 
@@ -127,9 +140,31 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void ResetOrder_Click(object sender, RoutedEventArgs e)
         {
-            if (System.Windows.Application.Current.MainWindow is MainWindow mainWindow)
+            if (Application.Current.MainWindow is MainWindow mainWindow)
             {
                 mainWindow.ResetNavigationToDefault();
+
+                if (App.Settings?.Prop != null)
+                {
+                    // Clear custom display names so reset can apply original names
+                    App.Settings.Prop.NavigationDisplayNames.Clear();
+
+                    // Reset each NavigationItem's Content to its original default name
+                    foreach (var item in MainWindow.MainNavigationItems)
+                    {
+                        var tag = item.Tag?.ToString();
+                        if (!string.IsNullOrEmpty(tag) && _defaultNavigationNames.TryGetValue(tag, out var defaultName))
+                        {
+                            item.Content = defaultName;
+                        }
+                    }
+
+                    App.State?.Save();
+                }
+
+                ListBoxNavigationItems.Items.Refresh();
+
+                PageRenameBuffer = string.Empty;
             }
         }
 
