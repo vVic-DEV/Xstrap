@@ -134,6 +134,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
+        public bool BlockRobloxRecording
+        {
+            get => App.Settings.Prop.BlockRobloxRecording;
+            set
+            {
+                if (App.Settings.Prop.BlockRobloxRecording != value)
+                {
+                    Watcher.ApplyRecordingBlock(value, saveSetting: true);
+                    OnPropertyChanged(nameof(BlockRobloxRecording));
+                }
+            }
+        }
+
         public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations;

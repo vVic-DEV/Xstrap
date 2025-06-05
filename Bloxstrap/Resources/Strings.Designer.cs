@@ -6718,15 +6718,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
-        /// </summary>
-        public static string UI_Element_Settings_Pages_FastFlagsPage_SearchMode_Title {
-            get {
-                return ResourceManager.GetString("UI.Element.Settings.Pages.FastFlagsPage+SearchMode.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string UI_Elements_Settings_Pages_FastFlagsPage_SearchMode_All {
@@ -6741,6 +6732,15 @@ namespace Bloxstrap.Resources {
         public static string UI_Elements_Settings_Pages_FastFlagsPage_SearchMode_Description {
             get {
                 return ResourceManager.GetString("UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string UI_Elements_Settings_Pages_FastFlagsPage_SearchMode_Title {
+            get {
+                return ResourceManager.GetString("UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.Title", resourceCulture);
             }
         }
         

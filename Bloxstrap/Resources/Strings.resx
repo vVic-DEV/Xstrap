@@ -1542,7 +1542,7 @@ Some text might not be translated to preferred language.</value>
   <data name="UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.All" xml:space="preserve">
     <value>All</value>
   </data>
-  <data name="UI.Element.Settings.Pages.FastFlagsPage+SearchMode.Title" xml:space="preserve">
+  <data name="UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.Title" xml:space="preserve">
     <value>Title</value>
   </data>
   <data name="UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.Description" xml:space="preserve">

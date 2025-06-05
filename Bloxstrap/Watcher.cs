@@ -132,5 +132,67 @@ namespace Bloxstrap
 
             GC.SuppressFinalize(this);
         }
+
+        public static void ApplyRecordingBlock(bool block, bool saveSetting = false)
+        {
+            const string LOG_IDENT = "Watcher::ApplyRecordingBlock";
+
+            string videosPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos), "Roblox");
+            string backupPath = videosPath + " (Before Blocking)";
+
+            try
+            {
+                if (block)
+                {
+                    if (Directory.Exists(videosPath))
+                    {
+                        bool hasContent = Directory.EnumerateFileSystemEntries(videosPath).Any();
+
+                        if (hasContent)
+                        {
+                            if (!Directory.Exists(backupPath))
+                                Directory.Move(videosPath, backupPath);
+                        }
+                        else
+                        {
+                            Directory.Delete(videosPath);
+                        }
+                    }
+
+                    if (!File.Exists(videosPath))
+                    {
+                        File.WriteAllBytes(videosPath, Array.Empty<byte>());
+                        File.SetAttributes(videosPath, FileAttributes.ReadOnly);
+                    }
+                }
+                else
+                {
+                    if (File.Exists(videosPath) && !Directory.Exists(videosPath))
+                    {
+                        var attributes = File.GetAttributes(videosPath);
+                        if ((attributes & FileAttributes.ReadOnly) != 0)
+                        {
+                            attributes &= ~FileAttributes.ReadOnly;
+                            File.SetAttributes(videosPath, attributes);
+                        }
+
+                        File.Delete(videosPath);
+                    }
+                    if (!Directory.Exists(videosPath) && Directory.Exists(backupPath))
+                    {
+                        Directory.Move(backupPath, videosPath);
+                    }
+                }
+
+                App.Settings.Prop.BlockRobloxRecording = block;
+
+                if (saveSetting)
+                    App.Settings.Save();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
     }
 }

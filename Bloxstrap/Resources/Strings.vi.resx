@@ -2377,9 +2377,6 @@ Bạn không thể sử dụng Bloxshade với Froststrap nữa.</value>
 	<data name="Menu.Behaviour.DisableAnimation.Title">
 		<value>Vô hiệu hoạt ảnh</value>
 	</data>
-	<data name="Menu.Bootstrapper.Cleaner.Logs.Title">
-		<value>Menu nhật ký</value>
-	</data>
 	<data name="Menu.FastFlagEditor.AdvancedSettings.SingleAddID">
 		<value>Thêm với ID</value>
 	</data>
@@ -2412,9 +2409,6 @@ Bạn không thể sử dụng Bloxshade với Froststrap nữa.</value>
 	</data>
 	<data name="Menu.FastFlags.Presets.SmoothTextures.Description">
 		<value>Cho phép một số bề mặt trông mượt mà. Lưu ý: Điều này sẽ ẩn các biểu tượng do SkipMip và sử dụng chế độ kết xuất Vulkan</value>
-	</data>
-	<data name="Menu.FastFlags.Presets.DisableLayeredClothing.Description">
-		<value>Loại bỏ hệ thống quần áo nhiều lớp của Roblox khỏi kết xuất trên hình đại diện. Lưu ý: Bật cài đặt này có khả năng có thể dẫn đến hiệu suất được cải thiện.</value>
 	</data>
 	<data name="Menu.Channels.HardwareAccelRestart">
 		<value>Vui lòng khởi động lại ứng dụng để tăng tốc phần cứng được vô hiệu hóa và có hiệu lực.</value>
