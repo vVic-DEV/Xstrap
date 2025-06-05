@@ -1,6 +1,10 @@
 ﻿using Bloxstrap.UI.ViewModels.Settings;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Wpf.Ui.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
@@ -8,25 +12,46 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// <summary>
     /// Interaction logic for AppearancePage.xaml
     /// </summary>
-    public partial class AppearancePage
+    public partial class AppearancePage : INotifyPropertyChanged
     {
         private readonly MainWindow _mainWindow;
 
-        private bool _isNavigationLocked = false;
+        private bool _isNavigationLocked;
+
+        private string _pageRenameBuffer = string.Empty;
+        public string PageRenameBuffer
+        {
+            get => _pageRenameBuffer;
+            set
+            {
+                if (_pageRenameBuffer != value)
+                {
+                    _pageRenameBuffer = value;
+                    OnPropertyChanged(nameof(PageRenameBuffer));
+                }
+            }
+        }
 
         public AppearancePage()
         {
             InitializeComponent();
 
-            this.DataContext = new AppearanceViewModel(this);
+            DataContext = this;
 
-            _isNavigationLocked = App.Settings.Prop.IsNavigationOrderLocked;
+            _isNavigationLocked = App.Settings?.Prop?.IsNavigationOrderLocked ?? false;
 
             UpdateNavigationLockUI();
 
-            _mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
+            _mainWindow = System.Windows.Application.Current.MainWindow as MainWindow ?? throw new System.InvalidOperationException("MainWindow not found");
 
             ListBoxNavigationItems.ItemsSource = MainWindow.MainNavigationItems;
+
+            ListBoxNavigationItems.SelectionChanged += ListBoxNavigationItems_SelectionChanged;
+
+            if (ListBoxNavigationItems.Items.Count > 0)
+            {
+                ListBoxNavigationItems.SelectedIndex = 0;
+            }
         }
 
         public void CustomThemeSelection(object sender, SelectionChangedEventArgs e)
@@ -40,13 +65,28 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             viewModel.OnPropertyChanged(nameof(viewModel.SelectedCustomThemeName));
         }
 
+        private void ListBoxNavigationItems_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            if (ListBoxNavigationItems.SelectedItem is NavigationItem selected)
+            {
+                PageRenameBuffer = selected.Content?.ToString() ?? string.Empty;
+            }
+            else
+            {
+                PageRenameBuffer = string.Empty;
+            }
+        }
+
         public List<string> NavigationOrder
         {
-            get => App.Settings.Prop.NavigationOrder;
+            get => App.Settings?.Prop?.NavigationOrder ?? new List<string>();
             set
             {
-                App.Settings.Prop.NavigationOrder = value;
-                App.State.Save();
+                if (App.Settings?.Prop != null)
+                {
+                    App.Settings.Prop.NavigationOrder = value;
+                    App.State?.Save();
+                }
             }
         }
 
@@ -75,16 +115,22 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
 
             _isNavigationLocked = isLocked;
-            App.Settings.Prop.IsNavigationOrderLocked = isLocked;
-            App.State.Save();
+
+            if (App.Settings?.Prop != null)
+            {
+                App.Settings.Prop.IsNavigationOrderLocked = isLocked;
+                App.State?.Save();
+            }
 
             UpdateNavigationLockUI();
         }
 
         private void ResetOrder_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow.ResetNavigationToDefault();
+            if (System.Windows.Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.ResetNavigationToDefault();
+            }
         }
 
         private void MoveUp_Click(object sender, RoutedEventArgs e)
@@ -105,7 +151,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     SaveNavigationOrder();
                 }
             }
-            else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
+            else if (_mainWindow.RootNavigation?.Footer?.Contains(selectedItem) == true)
             {
                 var footerList = _mainWindow.RootNavigation.Footer;
                 int index = footerList.IndexOf(selectedItem);
@@ -138,7 +184,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     SaveNavigationOrder();
                 }
             }
-            else if (_mainWindow.RootNavigation.Footer.Contains(selectedItem))
+            else if (_mainWindow.RootNavigation?.Footer?.Contains(selectedItem) == true)
             {
                 var footerList = _mainWindow.RootNavigation.Footer;
                 int index = footerList.IndexOf(selectedItem);
@@ -155,14 +201,37 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void SaveNavigationOrder()
         {
-            var order = MainWindow.MainNavigationItems.Select(item => item.Tag?.ToString())
-                .Concat(_mainWindow.RootNavigation.Footer.OfType<NavigationItem>().Select(item => item.Tag?.ToString()))
-                .Where(tag => !string.IsNullOrEmpty(tag))
-                .ToList();
+            var mainTags = MainWindow.MainNavigationItems?.Select(item => item.Tag?.ToString()) ?? Enumerable.Empty<string>();
+            var footerTags = _mainWindow.RootNavigation?.Footer?.OfType<NavigationItem>().Select(item => item.Tag?.ToString()) ?? Enumerable.Empty<string>();
 
-            App.Settings.Prop.NavigationOrder = order;
-            App.State.Save();
+            var order = mainTags.Concat(footerTags)
+                                .Where(tag => !string.IsNullOrEmpty(tag))
+                                .ToList();
+
+            if (App.Settings?.Prop != null)
+            {
+                App.Settings.Prop.NavigationOrder = order!;
+                App.State?.Save();
+            }
         }
 
+        private void RenameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListBoxNavigationItems.SelectedItem is NavigationItem selected)
+            {
+                selected.Content = PageRenameBuffer ?? string.Empty;
+
+                _mainWindow.ApplyNavigationReorder();
+                SaveNavigationOrder();
+
+                ListBoxNavigationItems.Items.Refresh();
+            }
+        }
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        #endregion
     }
 }
