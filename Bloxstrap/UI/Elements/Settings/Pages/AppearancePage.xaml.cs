@@ -12,11 +12,17 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     {
         private readonly MainWindow _mainWindow;
 
+        private bool _isNavigationLocked = false;
+
         public AppearancePage()
         {
             InitializeComponent();
 
             this.DataContext = new AppearanceViewModel(this);
+
+            _isNavigationLocked = App.Settings.Prop.IsNavigationOrderLocked;
+
+            UpdateNavigationLockUI();
 
             _mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
 
@@ -42,6 +48,43 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 App.Settings.Prop.NavigationOrder = value;
                 App.State.Save();
             }
+        }
+
+        private void UpdateNavigationLockUI()
+        {
+            MoveUpButton.IsEnabled = !_isNavigationLocked;
+            MoveDownButton.IsEnabled = !_isNavigationLocked;
+            ResetToDefaultButton.IsEnabled = !_isNavigationLocked;
+
+            ToggleLockOrder.IsChecked = _isNavigationLocked;
+        }
+
+        private void LockToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            SetNavigationLock(true);
+        }
+
+        private void LockToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            SetNavigationLock(false);
+        }
+
+        private void SetNavigationLock(bool isLocked)
+        {
+            if (_isNavigationLocked == isLocked)
+                return;
+
+            _isNavigationLocked = isLocked;
+            App.Settings.Prop.IsNavigationOrderLocked = isLocked;
+            App.State.Save();
+
+            UpdateNavigationLockUI();
+        }
+
+        private void ResetOrder_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.ResetNavigationToDefault();
         }
 
         private void MoveUp_Click(object sender, RoutedEventArgs e)

@@ -25,6 +25,9 @@ namespace Bloxstrap.UI.Elements.Settings
         public static ObservableCollection<NavigationItem> MainNavigationItems { get; } = new ObservableCollection<NavigationItem>();
         public static ObservableCollection<NavigationItem> FooterNavigationItems { get; } = new ObservableCollection<NavigationItem>();
 
+        public static List<string> DefaultNavigationOrder { get; private set; } = new();
+        public static List<string> DefaultFooterOrder { get; private set; } = new();
+
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();
@@ -55,6 +58,8 @@ namespace Bloxstrap.UI.Elements.Settings
             foreach (var item in allFooters)
                 FooterNavigationItems.Add(item);
 
+            CacheDefaultNavigationOrder();
+
             ReorderNavigationItemsFromSettings();
             RebuildNavigationItems();
 
@@ -73,6 +78,18 @@ namespace Bloxstrap.UI.Elements.Settings
                 if (RootNavigation.SelectedPageIndex >= 0 && RootNavigation.SelectedPageIndex < RootNavigation.Items.Count)
                     App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
             }
+        }
+
+
+        private void CacheDefaultNavigationOrder()
+        {
+            DefaultNavigationOrder = MainNavigationItems
+                .Select(x => x.Tag?.ToString() ?? string.Empty)
+                .ToList();
+
+            DefaultFooterOrder = FooterNavigationItems
+                .Select(x => x.Tag?.ToString() ?? string.Empty)
+                .ToList();
         }
 
         private void RebuildNavigationItems()
@@ -94,7 +111,6 @@ namespace Bloxstrap.UI.Elements.Settings
             RebuildNavigationItems();
 
             App.Settings.Prop.NavigationOrder = MainNavigationItems.Select(item => item.Tag?.ToString() ?? "").ToList();
-
             App.Settings.Prop.NavigationOrder.AddRange(FooterNavigationItems.Select(item => item.Tag?.ToString() ?? ""));
 
             App.State.Save();
@@ -102,7 +118,7 @@ namespace Bloxstrap.UI.Elements.Settings
 
         private void ReorderNavigationItemsFromSettings()
         {
-            if (App.Settings.Prop.NavigationOrder == null ||    App.Settings.Prop.NavigationOrder.Count == 0)
+            if (App.Settings.Prop.NavigationOrder == null || App.Settings.Prop.NavigationOrder.Count == 0)
                 return;
 
             var allItems = MainNavigationItems.Concat(FooterNavigationItems).ToList();
@@ -144,6 +160,50 @@ namespace Bloxstrap.UI.Elements.Settings
             RebuildNavigationItems();
         }
 
+        public void ResetNavigationToDefault()
+        {
+            var allItems = MainNavigationItems.Concat(FooterNavigationItems).ToList();
+
+            var reorderedMain = new ObservableCollection<NavigationItem>();
+            var reorderedFooter = new ObservableCollection<NavigationItem>();
+
+            foreach (var tag in DefaultNavigationOrder)
+            {
+                var navItem = allItems.FirstOrDefault(i => i.Tag?.ToString() == tag);
+                if (navItem != null)
+                    reorderedMain.Add(navItem);
+            }
+            foreach (var item in MainNavigationItems)
+            {
+                if (!reorderedMain.Contains(item))
+                    reorderedMain.Add(item);
+            }
+
+            foreach (var tag in DefaultFooterOrder)
+            {
+                var navItem = allItems.FirstOrDefault(i => i.Tag?.ToString() == tag);
+                if (navItem != null)
+                    reorderedFooter.Add(navItem);
+            }
+            foreach (var item in FooterNavigationItems)
+            {
+                if (!reorderedFooter.Contains(item))
+                    reorderedFooter.Add(item);
+            }
+
+            MainNavigationItems.Clear();
+            foreach (var item in reorderedMain)
+                MainNavigationItems.Add(item);
+
+            FooterNavigationItems.Clear();
+            foreach (var item in reorderedFooter)
+                FooterNavigationItems.Add(item);
+
+            RebuildNavigationItems();
+
+            App.Settings.Prop.NavigationOrder.Clear();
+            App.State.Save();
+        }
 
         public void LoadState()
         {
@@ -169,7 +229,7 @@ namespace Bloxstrap.UI.Elements.Settings
 
         private async void ShowAlreadyRunningSnackbar()
         {
-            await Task.Delay(500); // wait for everything to finish loading
+            await Task.Delay(750); // wait for everything to finish loading
             AlreadyRunningSnackbar.Show();
         }
 

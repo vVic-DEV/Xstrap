@@ -159,8 +159,10 @@
                 </ListBox>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,8,0,0" HorizontalAlignment="Left">
-                    <Button Content="Move Up" Click="MoveUp_Click" Width="80" Margin="0,0,8,0" />
-                    <Button Content="Move Down" Click="MoveDown_Click" Width="80" />
+                    <Button x:Name="MoveUpButton" Content="Move Up" Click="MoveUp_Click" Margin="0,0,8,0" />
+                    <Button x:Name="MoveDownButton" Content="Move Down" Click="MoveDown_Click" Margin="0,0,8,0" />
+                    <Button x:Name="ResetToDefaultButton" Content="Reset To Default" Click="ResetOrder_Click" Margin="0,0,8,0" />
+                    <ToggleButton x:Name="ToggleLockOrder" Content="Lock Order" Checked="LockToggleButton_Checked" Unchecked="LockToggleButton_Unchecked" />
                 </StackPanel>
             </Grid>
         </ui:CardExpander>
