@@ -49,5 +49,6 @@ namespace Bloxstrap.Models.Persistable
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
         public bool BlockRobloxRecording { get; set; } = false;
+        public bool BlockRobloxScreenshots { get; set; } = false;
     }
 }

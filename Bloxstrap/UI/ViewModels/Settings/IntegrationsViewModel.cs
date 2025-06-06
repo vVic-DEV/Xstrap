@@ -147,6 +147,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool BlockRobloxScreenshots
+        {
+            get => App.Settings.Prop.BlockRobloxScreenshots;
+            set
+            {
+                if (App.Settings.Prop.BlockRobloxScreenshots != value)
+                {
+                    Watcher.ApplyScreenshotBlock(value, saveSetting: true);
+                    OnPropertyChanged(nameof(BlockRobloxScreenshots));
+                }
+            }
+        }
+
         public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations;

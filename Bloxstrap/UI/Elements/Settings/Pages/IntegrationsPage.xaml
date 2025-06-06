@@ -41,20 +41,43 @@
             <ui:ToggleSwitch IsChecked="{Binding PlayerLogsEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Integrations_DesktopApp_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_DesktopApp_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app'}"
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app"
-            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="Disable/Block Roblox Features" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="This will allow you to disable/block features built into roblox" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+            <StackPanel>
 
-        <controls:OptionControl
-    Header="Block Roblox Screen Recording"
-    Description="Description in the future cuz ez.">
-            <ui:ToggleSwitch IsChecked="{Binding BlockRobloxRecording, Mode=TwoWay}" />
-        </controls:OptionControl>
+                <controls:OptionControl 
+                    Header="{x:Static resources:Strings.Menu_Integrations_DesktopApp_Title}" 
+                    Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_DesktopApp_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app'}"
+                    HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app"
+                    IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
+                </controls:OptionControl>
 
+                <controls:OptionControl
+                    Header="Block Roblox Screen Recording"
+                    Description="Prevents Roblox from saving videos">
+                    <ui:ToggleSwitch IsChecked="{Binding BlockRobloxRecording, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl
+                    Header="Block Roblox Screenshots"
+                    Description="Prevents Roblox from saving screenshots">
+                    <ui:ToggleSwitch IsChecked="{Binding BlockRobloxScreenshots, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+            </StackPanel>
+        </ui:CardExpander>
 
 
         <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />

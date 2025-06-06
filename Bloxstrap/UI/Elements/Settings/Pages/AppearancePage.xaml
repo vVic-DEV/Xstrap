@@ -149,11 +149,21 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ListBox x:Name="ListBoxNavigationItems" Grid.Row="0" Margin="0,0,0,8" SelectedIndex="0" 
-                 HorizontalContentAlignment="Stretch" >
+                <ListBox x:Name="ListBoxNavigationItems"
+                     Grid.Row="0"
+                     SelectedIndex="0"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalAlignment="Top"
+                     MaxHeight="300"
+                     BorderThickness="1"
+                     BorderBrush="{DynamicResource BorderBrush}"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Content}" Padding="4,2" />
+                            <TextBlock Text="{Binding Content}" 
+                                   Padding="4,2" 
+                                   TextTrimming="CharacterEllipsis" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
