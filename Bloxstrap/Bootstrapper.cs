@@ -24,6 +24,9 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
+using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Reflection;
 
 namespace Bloxstrap
 {
@@ -478,6 +481,13 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, "Did not receive the initialisation finished signal, continuing.");
         }
 
+        private const int WM_SETICON = 0x80;
+        private const int ICON_SMALL = 0;
+        private const int ICON_BIG = 1;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
         private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
@@ -546,11 +556,44 @@ namespace Bloxstrap
                 logCreatedEvent.Set();
             };
 
-            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             try
             {
                 using var process = Process.Start(startInfo)!;
                 _appPid = process.Id;
+
+                if (App.Settings.Prop.UseOldIcon)
+                {
+                    if (process.WaitForInputIdle(5000))
+                    {
+                        IntPtr hwnd = process.MainWindowHandle;
+                        if (hwnd != IntPtr.Zero)
+                        {
+                            try
+                            {
+                                using var icon = LoadOldIcon();
+                                if (icon != null)
+                                {
+                                    IntPtr iconHandle = icon.Handle;
+                                    SendMessage(hwnd, WM_SETICON, (IntPtr)ICON_SMALL, iconHandle);
+                                    SendMessage(hwnd, WM_SETICON, (IntPtr)ICON_BIG, iconHandle);
+                                    App.Logger.WriteLine(LOG_IDENT, "Old icon set successfully on Roblox window.");
+                                }
+                                else
+                                {
+                                    App.Logger.WriteLine(LOG_IDENT, "Old icon resource not found.");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                App.Logger.WriteLine(LOG_IDENT, $"Failed to set old icon: {ex}");
+                            }
+                        }
+                        else
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Roblox main window handle not found for icon setting.");
+                        }
+                    }
+                }
             }
             catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
             {
@@ -597,7 +640,7 @@ namespace Bloxstrap
 
                     try
                     {
-                        var process = Process.Start(new ProcessStartInfo
+                        var integrationProcess = Process.Start(new ProcessStartInfo
                         {
                             FileName = integration.Location,
                             Arguments = integration.LaunchArgs.Replace("\r\n", " "),
@@ -605,7 +648,7 @@ namespace Bloxstrap
                             UseShellExecute = true
                         })!;
 
-                        pid = process.Id;
+                        pid = integrationProcess.Id;
                     }
                     catch (Exception ex)
                     {
@@ -642,6 +685,18 @@ namespace Bloxstrap
 
             // allow for window to show, since the log is created pretty far beforehand
             Thread.Sleep(1000);
+        }
+
+        private Icon? LoadOldIcon()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            const string resourceName = "Bloxstrap.Resources.Icon2022.ico";
+
+            using Stream? stream = assembly.GetManifestResourceStream(resourceName);
+            if (stream != null)
+                return new Icon(stream);
+
+            return null;
         }
 
         private bool ShouldRunAsAdmin()
@@ -1185,7 +1240,7 @@ namespace Bloxstrap
 
                     App.Logger.WriteLine(LOG_IDENT, $"Setting font for {jsonFilename}");
 
-                    var fontFamilyData = JsonSerializer.Deserialize<FontFamily>(File.ReadAllText(jsonFilePath));
+                    var fontFamilyData = JsonSerializer.Deserialize<Models.FontFamily>(File.ReadAllText(jsonFilePath));
 
                     if (fontFamilyData is null)
                         continue;

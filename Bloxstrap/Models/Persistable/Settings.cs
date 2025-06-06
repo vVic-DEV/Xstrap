@@ -50,5 +50,9 @@ namespace Bloxstrap.Models.Persistable
         public bool UseDisableAppPatch { get; set; } = false;
         public bool BlockRobloxRecording { get; set; } = false;
         public bool BlockRobloxScreenshots { get; set; } = false;
+
+        public bool UseOldIcon { get; set; } = false;
+
+        public string? IconPath { get; set; } = null;
     }
 }

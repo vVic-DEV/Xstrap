@@ -33,6 +33,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.ForceRobloxLanguage = value;
         }
 
+        public bool UseOldIcon
+        {
+            get => App.Settings.Prop.UseOldIcon;
+            set => App.Settings.Prop.UseOldIcon = value;
+        }
+
 
         public bool BackgroundUpdates
         {
