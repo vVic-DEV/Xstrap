@@ -136,80 +136,36 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0">
-                        <TextBlock FontSize="13" Text="List Adjustment" />
-                        <TextBlock FontSize="11" 
-                           Text="Reorder the navigation menu items. Changes save automatically."
-                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" 
-                           TextWrapping="Wrap" />
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="List Adjustment"/>
+                        <TextBlock FontSize="12" Text="Reorder the navigation menu items to your preference. Changes will be saved automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
 
-            <!-- Main grid with 2 columns -->
-            <Grid Margin="0,4,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <!-- List + buttons -->
-                    <ColumnDefinition Width="12" />
-                    <!-- Spacer -->
-                    <ColumnDefinition Width="280" />
-                    <!-- Rename panel -->
-                </Grid.ColumnDefinitions>
+            <Grid Margin="0,8,0,0" MinHeight="325">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                <!-- Left side: List + buttons -->
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                <ListBox x:Name="ListBoxNavigationItems" Grid.Row="0" Margin="0,0,0,8" SelectedIndex="0" 
+                 HorizontalContentAlignment="Stretch" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Content}" Padding="4,2" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-                    <ListBox x:Name="ListBoxNavigationItems"
-                     Grid.Row="0"
-                     SelectedIndex="0"
-                     HorizontalContentAlignment="Stretch"
-                     VerticalAlignment="Top"
-                     MaxHeight="300"
-                     MaxWidth="395"
-                     MinWidth="395"
-                     HorizontalAlignment="Left"
-                     BorderThickness="1"
-                     BorderBrush="{DynamicResource BorderBrush}"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Content}" 
-                                   Padding="4,2" 
-                                   TextTrimming="CharacterEllipsis" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,8,0,0">
-                        <Button x:Name="MoveUpButton" Content="Move Up" Click="MoveUp_Click" Margin="0,0,6,0" MinWidth="80" Padding="8,4"/>
-                        <Button x:Name="MoveDownButton" Content="Move Down" Click="MoveDown_Click" Margin="0,0,6,0" MinWidth="80" Padding="8,4"/>
-                        <Button x:Name="ResetToDefaultButton" Content="Reset to Default" Click="ResetOrder_Click" Margin="0,0,6,0" MinWidth="110" Padding="8,4"/>
-                        <ToggleButton x:Name="ToggleLockOrder" Content="Lock Order" Checked="LockToggleButton_Checked" Unchecked="LockToggleButton_Unchecked" MinWidth="90" Padding="8,4"/>
-                    </StackPanel>
-                </Grid>
-
-                <!-- Spacer column -->
-                <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="Transparent" />
-                
-                <!-- Right side: Rename panel -->
-                <StackPanel Grid.Column="2" Margin="0,0,0,0">
-                    <TextBlock FontSize="13" FontWeight="SemiBold" Text="Rename Page" Margin="0,0,0,6"/>
-                    <TextBox x:Name="PageRenameTextBox" MinWidth="260" MaxWidth="280" Height="28" Padding="4"
-             Text="{Binding PageRenameBuffer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button Content="Rename" Margin="0,8,0,0" Width="80" Click="RenameButton_Click" />
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,8,0,0" HorizontalAlignment="Left">
+                    <Button x:Name="MoveUpButton" Content="Move Up" Click="MoveUp_Click" Margin="0,0,8,0" />
+                    <Button x:Name="MoveDownButton" Content="Move Down" Click="MoveDown_Click" Margin="0,0,8,0" />
+                    <Button x:Name="ResetToDefaultButton" Content="Reset To Default" Click="ResetOrder_Click" Margin="0,0,8,0" />
+                    <ToggleButton x:Name="ToggleLockOrder" Content="Lock Order" Checked="LockToggleButton_Checked" Unchecked="LockToggleButton_Unchecked" />
                 </StackPanel>
-
             </Grid>
         </ui:CardExpander>
-
-
-
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
                 <Grid>

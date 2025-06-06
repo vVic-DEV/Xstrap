@@ -61,9 +61,6 @@ namespace Bloxstrap.UI.Elements.Settings
             CacheDefaultNavigationOrder();
 
             ReorderNavigationItemsFromSettings();
-
-            ApplySavedNavigationNames();
-
             RebuildNavigationItems();
 
             int lastPage = App.State.Prop.LastPage;
@@ -82,6 +79,7 @@ namespace Bloxstrap.UI.Elements.Settings
                     App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
             }
         }
+
 
         private void CacheDefaultNavigationOrder()
         {
@@ -276,54 +274,6 @@ namespace Bloxstrap.UI.Elements.Settings
                 LaunchHandler.LaunchRoblox(LaunchMode.Player);
             else
                 App.SoftTerminate();
-        }
-
-
-        /// <summary>
-        /// Rename a navigation item display name by its tag key.
-        /// Updates the UI and persists the name in settings.
-        /// </summary>
-        /// <param name="tag">The navigation item's tag (unique ID)</param>
-        /// <param name="newName">The new display name</param>
-        public void RenameNavigationItem(string tag, string newName)
-        {
-            if (string.IsNullOrEmpty(tag))
-                return;
-
-            var item = MainNavigationItems.Concat(FooterNavigationItems)
-                        .FirstOrDefault(x => x.Tag?.ToString() == tag);
-
-            if (item != null)
-            {
-                // Update the UI display text
-                item.Content = newName;
-
-                // Persist in settings dictionary
-                if (App.Settings.Prop.NavigationNames == null)
-                    App.Settings.Prop.NavigationNames = new System.Collections.Generic.Dictionary<string, string>();
-
-                App.Settings.Prop.NavigationNames[tag] = newName;
-                App.State.Save();
-            }
-        }
-
-        /// <summary>
-        /// Apply saved navigation display names from settings to UI items.
-        /// Call this on startup after loading navigation items.
-        /// </summary>
-        private void ApplySavedNavigationNames()
-        {
-            if (App.Settings.Prop.NavigationNames == null)
-                return;
-
-            foreach (var item in MainNavigationItems.Concat(FooterNavigationItems))
-            {
-                var tag = item.Tag?.ToString();
-                if (!string.IsNullOrEmpty(tag) && App.Settings.Prop.NavigationNames.TryGetValue(tag, out var savedName))
-                {
-                    item.Content = savedName;
-                }
-            }
         }
     }
 }
