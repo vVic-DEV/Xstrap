@@ -183,6 +183,8 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
+            Locale.Initialize();
+
             base.OnStartup(e);
 
             if (Settings.Prop.DisableAnimations)
@@ -195,8 +197,6 @@ namespace Bloxstrap
             {
                 RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
             }
-
-            Locale.Initialize();
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 

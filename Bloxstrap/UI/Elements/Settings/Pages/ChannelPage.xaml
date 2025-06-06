@@ -28,13 +28,13 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_DisableHardwareAcceleration_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_DisableHardwareAcceleration_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding SoftwareRenderingEnabled, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding HardwareAcceleration, Mode=TwoWay}" Checked="ToggleSwitch_Checked_1" Unchecked="ToggleSwitch_Unchecked_1" />
         </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_DisableAnimation_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_DisableAnimation_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableAnimations, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding DisableAnimations, Mode=TwoWay}" Checked="ToggleSwitch_Checked_2" Unchecked="ToggleSwitch_Unchecked_2" />
         </controls:OptionControl>
 
         <TextBlock Text="Roblox" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />

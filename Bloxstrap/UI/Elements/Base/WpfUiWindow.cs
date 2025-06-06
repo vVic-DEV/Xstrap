@@ -69,22 +69,7 @@ namespace Bloxstrap.UI.Elements.Base
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
             }
 
-            if (App.Settings.Prop.DisableAnimations)
-            {
-                try
-                {
-                    Timeline.DesiredFrameRateProperty.OverrideMetadata(
-                        typeof(Timeline),
-                        new FrameworkPropertyMetadata(1)); 
-                }
-                catch (InvalidOperationException)
-                {
-                    
-                }
-            }
-
             base.OnSourceInitialized(e);
         }
-
     }
 }

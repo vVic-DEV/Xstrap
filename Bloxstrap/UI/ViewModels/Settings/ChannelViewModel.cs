@@ -28,35 +28,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public bool DisableAnimations
         {
             get => App.Settings.Prop.DisableAnimations;
-            set 
-            {
-                App.Settings.Prop.DisableAnimations = value;
-                Frontend.ShowMessageBox(
-                Strings.Menu_Channels_DisableAnimationRestart,
-                MessageBoxImage.Information
-                );
-            }
+            set => App.Settings.Prop.DisableAnimations = value;
         }
 
-        public bool SoftwareRenderingEnabled
+        public bool HardwareAcceleration
         {
             get => App.Settings.Prop.WPFSoftwareRender;
-            set
-            {
-                if (App.Settings.Prop.WPFSoftwareRender != value)
-                {
-                    App.Settings.Prop.WPFSoftwareRender = value;
-                    App.Settings.Save();
-                    OnPropertyChanged(nameof(SoftwareRenderingEnabled));
-
-                    Frontend.ShowMessageBox(
-                        Strings.Menu_Channels_HardwareAccelRestart,
-                        MessageBoxImage.Information
-                    );
-                }
-            }
+            set => App.Settings.Prop.WPFSoftwareRender = value;
         }
-
 
         private async Task LoadChannelDeployInfo(string channel)
         {
