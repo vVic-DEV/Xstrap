@@ -46,6 +46,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             Loaded += FastFlagsPage_Loaded;
         }
 
+        #region FFlag Options
+
         private void FastFlagsPage_Loaded(object sender, RoutedEventArgs e)
         {
             _cardExpanders = new List<CardExpander>();
@@ -150,7 +152,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 FlagStateOption
             };
         }
-
+        #endregion
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             _searchDebounceCts?.Cancel();

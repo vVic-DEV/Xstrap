@@ -57,7 +57,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         }
 
         private void ActivityWatcher_OnLogOpen(object? sender, EventArgs e) =>
-            Dispatcher.Invoke(() => LogTracerMenuItem.Visibility = Visibility.Visible);
+            Dispatcher.Invoke(() => DebugMenuItem.Visibility = Visibility.Visible);
 
         private void ActivityWatcher_OnGameJoin(object? sender, EventArgs e)
         {
@@ -108,11 +108,14 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 
-        private void LogTracerMenuItem_Click(object sender, RoutedEventArgs e)
+        private void DebugMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string? location = _activityWatcher?.LogLocation;
-            if (location is not null)
-                Utilities.ShellExecute(location);
+            if (!string.IsNullOrEmpty(location))
+            {
+                var DebugMenu = new DebugMenu(location);
+                DebugMenu.Show();
+            }
         }
 
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)

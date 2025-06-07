@@ -56,7 +56,7 @@
                             <ColumnDefinition Width="24" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <ui:SymbolIcon Grid.Column="0" Symbol="Chat28"/>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="DocumentCatchUp20"/>
                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Logs Menu" />
                     </Grid>
                 </MenuItem.Header>
@@ -85,15 +85,15 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="LogTracerMenuItem" Visibility="Collapsed" Click="LogTracerMenuItem_Click">
+            <MenuItem x:Name="DebugMenuItem" Visibility="Collapsed" Click="DebugMenuItem_Click">
                 <MenuItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="24" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <ui:SymbolIcon Grid.Column="0" Symbol="DocumentCatchUp20"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.Common_OpenLogFile}" />
+                        <ui:SymbolIcon Grid.Column="0" Symbol="Bug24"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.Common_OpenDebugMenu}" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>

@@ -288,7 +288,7 @@
                     x:Name="MinimalRendering"
                     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MinimalRendering_Title}"
                     Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MinimalRendering_Description}" >
-                    <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
+                    <ui:ToggleSwitch IsChecked="{Binding MinimalRendering, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 

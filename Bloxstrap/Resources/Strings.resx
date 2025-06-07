@@ -204,8 +204,8 @@
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Import JSON</value>
   </data>
-  <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>Open log file</value>
+  <data name="Common.OpenDebugMenu" xml:space="preserve">
+    <value>Open Debug Menu</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
