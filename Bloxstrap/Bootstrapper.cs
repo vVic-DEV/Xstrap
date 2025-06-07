@@ -486,7 +486,6 @@ namespace Bloxstrap
         private const int ICON_BIG = 1;
 
         private const int GCL_HICON = -14;
-        private const int GCL_HICONSM = -34;
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
@@ -624,6 +623,22 @@ namespace Bloxstrap
             try
             {
                 using var process = Process.Start(startInfo)!;
+
+                // Apply High CPU Priority if enabled in settings
+                if (App.Settings.Prop.HighPriority)
+                {
+                    try
+                    {
+                        process.PriorityClass = ProcessPriorityClass.High;
+                        App.Logger.WriteLine(LOG_IDENT, "Set Roblox process priority to High.");
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to set process priority: {ex}");
+                        System.Windows.MessageBox.Show($"Failed to set High CPU Priority:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+
                 _appPid = process.Id;
 
                 if (App.Settings.Prop.UseOldIcon)

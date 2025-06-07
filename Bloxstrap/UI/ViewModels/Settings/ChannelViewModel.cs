@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using Bloxstrap.AppData;
+using Bloxstrap.Integrations;
 using Bloxstrap.RobloxInterfaces;
 using Wpf.Ui.Hardware;
 
@@ -24,6 +25,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.CheckForUpdates;
             set => App.Settings.Prop.CheckForUpdates = value;
         }
+
+        public bool HighPriority
+        {
+            get => App.Settings.Prop.HighPriority;
+            set => App.Settings.Prop.HighPriority = value;
+        }
+
 
         public bool DisableAnimations
         {

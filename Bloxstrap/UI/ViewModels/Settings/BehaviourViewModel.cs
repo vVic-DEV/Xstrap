@@ -1,4 +1,5 @@
 ﻿using Bloxstrap.AppData;
+using Bloxstrap.Integrations;
 using Bloxstrap.RobloxInterfaces;
 
 namespace Bloxstrap.UI.ViewModels.Settings
