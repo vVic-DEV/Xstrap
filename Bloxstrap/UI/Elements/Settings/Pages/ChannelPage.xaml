@@ -71,7 +71,7 @@
 
         <controls:OptionControl
                 Header="High Priority"
-                Description="Runs Roblox with high CPU priority.">
+                Description="Runs Roblox with high CPU priority using Task Manager.">
             <ui:ToggleSwitch IsChecked="{Binding HighPriority, Mode=TwoWay}" />
         </controls:OptionControl>
 

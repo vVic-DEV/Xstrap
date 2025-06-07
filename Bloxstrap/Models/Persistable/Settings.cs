@@ -29,6 +29,7 @@ namespace Bloxstrap.Models.Persistable
         public bool DisableAnimations { get; set; } = false;
         public bool DisableHardwareAcceleration { get; set; } = false;
         public bool HighPriority { get; set; } = false;
+        public string? CustomFontPath { get; set; } = null;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;

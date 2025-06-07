@@ -11,6 +11,7 @@ using Bloxstrap.UI.Elements.Settings;
 using Bloxstrap.UI.Elements.Editor;
 using Bloxstrap.UI.Elements.Dialogs;
 using ICSharpCode.SharpZipLib.Zip;
+using System.Windows.Media;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -26,6 +27,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand RenameCustomThemeCommand => new RelayCommand(RenameCustomTheme);
         public ICommand EditCustomThemeCommand => new RelayCommand(EditCustomTheme);
         public ICommand ExportCustomThemeCommand => new RelayCommand(ExportCustomTheme);
+        public ICommand ManageCustomFontCommand => new RelayCommand<string>(ManageCustomFont!);
 
         private void PreviewBootstrapper()
         {
@@ -38,6 +40,113 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
+        }
+
+        private bool _isCustomFontApplied;
+
+        public Visibility ChooseCustomFontVisibility =>
+            _isCustomFontApplied ? Visibility.Collapsed : Visibility.Visible;
+
+        public Visibility DeleteCustomFontVisibility =>
+            _isCustomFontApplied ? Visibility.Visible : Visibility.Collapsed;
+
+        private void UpdateFontVisibility()
+        {
+            OnPropertyChanged(nameof(ChooseCustomFontVisibility));
+            OnPropertyChanged(nameof(DeleteCustomFontVisibility));
+        }
+
+        private void ManageCustomFont(string action)
+        {
+            if (action == "Choose")
+            {
+                var dialog = new OpenFileDialog
+                {
+                    Filter = "Font files (*.ttf;*.otf)|*.ttf;*.otf|All files (*.*)|*.*"
+                };
+
+                if (dialog.ShowDialog() == true)
+                {
+                    string fontPath = dialog.FileName;
+
+                    try
+                    {
+                        var fontFamily = LoadFontFromFile(fontPath);
+                        if (fontFamily != null)
+                        {
+                            ApplyFontGlobally(fontFamily);
+                            _isCustomFontApplied = true;
+                            App.Settings.Prop.CustomFontPath = fontPath;
+                            App.Settings.Save();
+                            UpdateFontVisibility();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to load font: {ex.Message}", "Font Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else if (action == "Remove")
+            {
+                var defaultFont = new System.Windows.Media.FontFamily("Segoe UI");
+                ApplyFontGlobally(defaultFont);
+                _isCustomFontApplied = false;
+                App.Settings.Prop.CustomFontPath = null;
+                App.Settings.Save();
+                UpdateFontVisibility();
+            }
+        }
+
+        private System.Windows.Media.FontFamily? LoadFontFromFile(string fontFilePath)
+        {
+            if (!File.Exists(fontFilePath))
+                return null;
+
+            string tempFontsFolder = Path.Combine(Path.GetTempPath(), "BloxstrapFonts");
+            Directory.CreateDirectory(tempFontsFolder);
+
+            string destFontPath = Path.Combine(tempFontsFolder, Path.GetFileName(fontFilePath));
+            File.Copy(fontFilePath, destFontPath, overwrite: true);
+
+            var fontDirectoryUri = new Uri(Path.GetDirectoryName(destFontPath) + Path.DirectorySeparatorChar);
+            var fontFamilies = Fonts.GetFontFamilies(fontDirectoryUri);
+
+            return fontFamilies.FirstOrDefault();
+        }
+
+        private void ApplyFontGlobally(System.Windows.Media.FontFamily fontFamily)
+        {
+            Application.Current.Resources[SystemFonts.MessageFontFamilyKey] = fontFamily;
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                window.FontFamily = fontFamily;
+            }
+        }
+
+        private void ApplySavedCustomFont()
+        {
+            string? savedFontPath = App.Settings.Prop.CustomFontPath;
+
+            if (!string.IsNullOrWhiteSpace(savedFontPath) && File.Exists(savedFontPath))
+            {
+                try
+                {
+                    var font = LoadFontFromFile(savedFontPath);
+                    if (font != null)
+                    {
+                        ApplyFontGlobally(font);
+                        _isCustomFontApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("AppearanceViewModel", $"Failed to load saved font: {ex}");
+                }
+            }
+
+            UpdateFontVisibility();
         }
 
         private void BrowseCustomIconLocation()
@@ -65,6 +174,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 ThemeIcons.Add(new ThemeEntry { IconType = (Theme)entry });
 
             PopulateCustomThemes();
+            ApplySavedCustomFont();
         }
 
         public IEnumerable<Theme> Themes { get; } = Enum.GetValues(typeof(Theme)).Cast<Theme>();
