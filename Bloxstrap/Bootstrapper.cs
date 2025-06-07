@@ -13,9 +13,12 @@
 
 using System.ComponentModel;
 using System.Data;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using System.Windows.Shell;
+using System.Drawing;
 
 using Microsoft.Win32;
 
@@ -24,9 +27,6 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
-using System.Runtime.InteropServices;
-using System.Drawing;
-using System.Reflection;
 
 namespace Bloxstrap
 {
@@ -485,8 +485,74 @@ namespace Bloxstrap
         private const int ICON_SMALL = 0;
         private const int ICON_BIG = 1;
 
+        private const int GCL_HICON = -14;
+        private const int GCL_HICONSM = -34;
+
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr SetClassLongPtr(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+
+        [DllImport("user32.dll", EntryPoint = "SetClassLong", SetLastError = true)]
+        private static extern uint SetClassLong32(IntPtr hWnd, int nIndex, uint dwNewLong);
+
+        [DllImport("user32.dll")]
+        private static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+
+        [DllImport("user32.dll")]
+        private static extern bool EnumWindows(EnumWindowsProc lpEnumFunc, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        private const uint RDW_FRAME = 0x0400;
+        private const uint RDW_INVALIDATE = 0x0001;
+        private const uint RDW_UPDATENOW = 0x0100;
+
+        private IntPtr SetClassIcon(IntPtr hwnd, Icon icon)
+        {
+            IntPtr hIcon = icon.Handle;
+            if (IntPtr.Size == 8) // 64-bit
+            {
+                return SetClassLongPtr(hwnd, GCL_HICON, hIcon);
+            }
+            else // 32-bit
+            {
+                return (IntPtr)SetClassLong32(hwnd, GCL_HICON, (uint)hIcon.ToInt32());
+            }
+        }
+
+        private IntPtr GetMainWindowHandle(int processId)
+        {
+            IntPtr mainWindowHandle = IntPtr.Zero;
+            EnumWindows((hWnd, lParam) =>
+            {
+                GetWindowThreadProcessId(hWnd, out uint pid);
+                if (pid == processId)
+                {
+                    // Optionally check if window is visible, has title, etc.
+                    mainWindowHandle = hWnd;
+                    return false; // Stop enumerating
+                }
+                return true;
+            }, IntPtr.Zero);
+            return mainWindowHandle;
+        }
+
+        private Icon? LoadOldIcon()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            const string resourceName = "Bloxstrap.Resources.Icon2022.ico";
+
+            using Stream? stream = assembly.GetManifestResourceStream(resourceName);
+            if (stream != null)
+                return new Icon(stream);
+
+            return null;
+        }
 
         private void StartRoblox()
         {
@@ -496,7 +562,6 @@ namespace Bloxstrap
 
             if (_launchMode == LaunchMode.Player)
             {
-                // this needs to be done before roblox launches
                 if (App.Settings.Prop.MultiInstanceLaunching)
                     LaunchMultiInstanceWatcher();
 
@@ -565,7 +630,19 @@ namespace Bloxstrap
                 {
                     if (process.WaitForInputIdle(5000))
                     {
-                        IntPtr hwnd = process.MainWindowHandle;
+                        IntPtr hwnd = IntPtr.Zero;
+
+                        for (int i = 0; i < 6; i++)
+                        {
+                            hwnd = process.MainWindowHandle;
+                            if (hwnd != IntPtr.Zero)
+                                break;
+                            Thread.Sleep(500);
+                        }
+
+                        if (hwnd == IntPtr.Zero)
+                            hwnd = GetMainWindowHandle(_appPid);
+
                         if (hwnd != IntPtr.Zero)
                         {
                             try
@@ -574,8 +651,15 @@ namespace Bloxstrap
                                 if (icon != null)
                                 {
                                     IntPtr iconHandle = icon.Handle;
+
                                     SendMessage(hwnd, WM_SETICON, (IntPtr)ICON_SMALL, iconHandle);
                                     SendMessage(hwnd, WM_SETICON, (IntPtr)ICON_BIG, iconHandle);
+
+                                    SetClassIcon(hwnd, icon);
+
+                                    // Force redraw of the window frame and icon
+                                    RedrawWindow(hwnd, IntPtr.Zero, IntPtr.Zero, RDW_FRAME | RDW_INVALIDATE | RDW_UPDATENOW);
+
                                     App.Logger.WriteLine(LOG_IDENT, "Old icon set successfully on Roblox window.");
                                 }
                                 else
@@ -629,7 +713,6 @@ namespace Bloxstrap
 
             var autoclosePids = new List<int>();
 
-            // launch custom integrations now
             foreach (var integration in App.Settings.Prop.CustomIntegrations)
             {
                 if (!integration.SpecifyGame)
@@ -683,20 +766,7 @@ namespace Bloxstrap
                     Process.Start(Paths.Process, args);
             }
 
-            // allow for window to show, since the log is created pretty far beforehand
             Thread.Sleep(1000);
-        }
-
-        private Icon? LoadOldIcon()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            const string resourceName = "Bloxstrap.Resources.Icon2022.ico";
-
-            using Stream? stream = assembly.GetManifestResourceStream(resourceName);
-            if (stream != null)
-                return new Icon(stream);
-
-            return null;
         }
 
         private bool ShouldRunAsAdmin()
