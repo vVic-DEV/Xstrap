@@ -826,6 +826,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open log file.
+        /// </summary>
+        public static string Common_OpenLogFile {
+            get {
+                return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preset Flag Lists.
         /// </summary>
         public static string Common_PresetFlagLists {
@@ -6206,6 +6215,60 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_AllowActivityJoining_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.AllowActivityJoining.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will allow you to disable/block features built into roblox..
+        /// </summary>
+        public static string Menu_Integrations_BlockCardExpander_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockCardExpander.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable/Block Roblox Features.
+        /// </summary>
+        public static string Menu_Integrations_BlockCardExpander_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockCardExpander.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blocks Roblox Screenshot feature from working..
+        /// </summary>
+        public static string Menu_Integrations_BlockScreenShots_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockScreenShots.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block Roblox Screenshots.
+        /// </summary>
+        public static string Menu_Integrations_BlockScreenShots_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockScreenShots.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blocks Roblox Recording feature from working..
+        /// </summary>
+        public static string Menu_Integrations_BlockVideoRecording_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockVideoRecording.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block Roblox Recording.
+        /// </summary>
+        public static string Menu_Integrations_BlockVideoRecording_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BlockVideoRecording.Title", resourceCulture);
             }
         }
         

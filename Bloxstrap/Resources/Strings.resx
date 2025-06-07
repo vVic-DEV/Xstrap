@@ -252,6 +252,27 @@
   <data name="Menu.Appearance.MenuAdjustment.LockOrder" xml:space="preserve">
     <value>Lock Order</value>
   </data>
+  <data name="Menu.Integrations.BlockVideoRecording.Title" xml:space="preserve">
+    <value>Block Roblox Recording</value>
+  </data>
+  <data name="Menu.Integrations.BlockVideoRecording.Description" xml:space="preserve">
+    <value>Blocks Roblox Recording feature from working.</value>
+  </data>
+  <data name="Menu.Integrations.BlockScreenShots.Title" xml:space="preserve">
+    <value>Block Roblox Screenshots</value>
+  </data>
+  <data name="Menu.Integrations.BlockScreenShots.Description" xml:space="preserve">
+    <value>Blocks Roblox Screenshot feature from working.</value>
+  </data>
+  <data name="Menu.Integrations.BlockCardExpander.Title" xml:space="preserve">
+    <value>Disable/Block Roblox Features</value>
+  </data>
+  <data name="Menu.Integrations.BlockCardExpander.Description" xml:space="preserve">
+    <value>This will allow you to disable/block features built into roblox.</value>
+  </data>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
+  </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
   </data>

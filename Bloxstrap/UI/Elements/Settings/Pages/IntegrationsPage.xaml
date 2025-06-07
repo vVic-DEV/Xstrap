@@ -49,8 +49,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Disable/Block Roblox Features" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="This will allow you to disable/block features built into roblox" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_BlockCardExpander_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_BlockCardExpander_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -65,14 +65,14 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl
-                    Header="Block Roblox Screen Recording"
-                    Description="Prevents Roblox from saving videos">
+                    Header="{x:Static resources:Strings.Menu_Integrations_BlockVideoRecording_Title}" 
+                    Description="{x:Static resources:Strings.Menu_Integrations_BlockVideoRecording_Description}" >
                     <ui:ToggleSwitch IsChecked="{Binding BlockRobloxRecording, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl
-                    Header="Block Roblox Screenshots"
-                    Description="Prevents Roblox from saving screenshots">
+                    Header="{x:Static resources:Strings.Menu_Integrations_BlockScreenShots_Title}" 
+                    Description="{x:Static resources:Strings.Menu_Integrations_BlockScreenShots_Description}" >
                     <ui:ToggleSwitch IsChecked="{Binding BlockRobloxScreenshots, Mode=TwoWay}" />
                 </controls:OptionControl>
 
