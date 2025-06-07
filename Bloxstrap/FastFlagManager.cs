@@ -260,6 +260,10 @@ namespace Bloxstrap
             { "Network.EnableLargeReplicator", "FFlagLargeReplicatorEnabled6"},
             { "Network.LargeReplicatorWrite", "FFlagLargeReplicatorWrite5"},
             { "Network.LargeReplicatorRead", "FFlagLargeReplicatorRead5"},
+            { "Network.EngineModule1", "FFlagGlobalSettingsEngineModule3"},
+            { "Network.EngineModule2", "DFFlagLargeReplicatorEngineModule"},
+            { "Network.SerializeRead", "FFlagLargeReplicatorSerializeRead2"},
+            { "Network.SerializeWrite", "FFlagLargeReplicatorSerializeWrite2"},
 
             //MTU Size
             { "Network.Mtusize","DFIntConnectionMTUSize" },

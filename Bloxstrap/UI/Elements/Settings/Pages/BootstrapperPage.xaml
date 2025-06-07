@@ -24,9 +24,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="Use Old Icon"
-            Description="ez"
-            HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/Information-on-Roblox-app-localisation">
+            Header="{x:Static resources:Strings.Menu_Behaviour_OldRobloxIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_OldRobloxIcon_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UseOldIcon, Mode=TwoWay}" />
         </controls:OptionControl>
 

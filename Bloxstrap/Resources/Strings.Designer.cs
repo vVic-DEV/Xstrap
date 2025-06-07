@@ -556,6 +556,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debug Menu.
+        /// </summary>
+        public static string Common_DebugMenu {
+            get {
+                return ResourceManager.GetString("Common.DebugMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Common_Default {
@@ -808,11 +817,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open log file.
+        ///   Looks up a localized string similar to Open Debug Menu.
         /// </summary>
-        public static string Common_OpenLogFile {
+        public static string Common_OpenDebugMenu {
             get {
-                return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
+                return ResourceManager.GetString("Common.OpenDebugMenu", resourceCulture);
             }
         }
         
@@ -3203,6 +3212,60 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allows you to change the order of the sections on the left side..
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lock Order.
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_LockOrder {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.LockOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move Down.
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_MoveDown {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.MoveDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move Up.
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_MoveUp {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.MoveUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset To Default.
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_ResetToDefault {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.ResetToDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu Adjustment.
+        /// </summary>
+        public static string Menu_Appearance_MenuAdjustment_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.MenuAdjustment.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
         public static string Menu_Appearance_Preview {
@@ -3388,6 +3451,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_MultiInstances_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.MultiInstances.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Will change the logo of the titlebar to the old roblox icon. Note: This might not work 100% of the time..
+        /// </summary>
+        public static string Menu_Behaviour_OldRobloxIcon_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.OldRobloxIcon.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old Roblox Icon.
+        /// </summary>
+        public static string Menu_Behaviour_OldRobloxIcon_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.OldRobloxIcon.Title", resourceCulture);
             }
         }
         
@@ -3677,6 +3758,60 @@ namespace Bloxstrap.Resources {
         public static string Menu_CustomMods_Title {
             get {
                 return ResourceManager.GetString("Menu.CustomMods.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Logs.
+        /// </summary>
+        public static string Menu_DebugMenu_ClearLogs {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.ClearLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Selected.
+        /// </summary>
+        public static string Menu_DebugMenu_CopySelected {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.CopySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export Logs.
+        /// </summary>
+        public static string Menu_DebugMenu_ExportLogs {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.ExportLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Logs Folder.
+        /// </summary>
+        public static string Menu_DebugMenu_OpenLogsFolder {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.OpenLogsFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh Logs.
+        /// </summary>
+        public static string Menu_DebugMenu_RefreshLogs {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.RefreshLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Logs.
+        /// </summary>
+        public static string Menu_DebugMenu_SearchBoxPlaceHolder {
+            get {
+                return ResourceManager.GetString("Menu.DebugMenu.SearchBoxPlaceHolder", resourceCulture);
             }
         }
         

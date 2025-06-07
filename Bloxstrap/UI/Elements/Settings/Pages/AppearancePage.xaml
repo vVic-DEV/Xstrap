@@ -149,7 +149,7 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -157,8 +157,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="List Adjustment"/>
-                        <TextBlock FontSize="12" Text="Reorder the navigation menu items to your preference. Changes will be saved automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_Title}"/>
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -189,10 +189,10 @@
                 </ListBox>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,8,0,0" HorizontalAlignment="Left">
-                    <Button x:Name="MoveUpButton" Content="Move Up" Click="MoveUp_Click" Margin="0,0,8,0" />
-                    <Button x:Name="MoveDownButton" Content="Move Down" Click="MoveDown_Click" Margin="0,0,8,0" />
-                    <Button x:Name="ResetToDefaultButton" Content="Reset To Default" Click="ResetOrder_Click" Margin="0,0,8,0" />
-                    <ToggleButton x:Name="ToggleLockOrder" Content="Lock Order" Checked="LockToggleButton_Checked" Unchecked="LockToggleButton_Unchecked" />
+                    <ui:Button x:Name="MoveUpButton" Content="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_MoveUp}" Click="MoveUp_Click" Margin="0,0,8,0" Icon="ArrowUp24" />
+                    <ui:Button x:Name="MoveDownButton" Content="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_MoveDown}" Click="MoveDown_Click" Margin="0,0,8,0" Icon="ArrowDown24" />
+                    <ui:Button x:Name="ResetToDefaultButton" Content="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_ResetToDefault}" Click="ResetOrder_Click" Margin="0,0,8,0" Icon="GlanceDefault12" />
+                    <ToggleButton x:Name="ToggleLockOrder" Content="{x:Static resources:Strings.Menu_Appearance_MenuAdjustment_LockOrder}" Checked="LockToggleButton_Checked" Unchecked="LockToggleButton_Unchecked" />
                 </StackPanel>
             </Grid>
         </ui:CardExpander>

@@ -404,6 +404,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.EnableLargeReplicator", value ? "True" : null);
                 App.FastFlags.SetPreset("Network.LargeReplicatorWrite", value ? "True" : null);
                 App.FastFlags.SetPreset("Network.LargeReplicatorRead", value ? "True" : null);
+                App.FastFlags.SetPreset("Network.EngineModule1", value ? "False" : null);
+                App.FastFlags.SetPreset("Network.EngineModule2", value ? "True" : null);
+                App.FastFlags.SetPreset("Network.SerializeRead", value ? "True" : null);
+                App.FastFlags.SetPreset("Network.SerializeWrite", value ? "True" : null);
             }
         }
 
