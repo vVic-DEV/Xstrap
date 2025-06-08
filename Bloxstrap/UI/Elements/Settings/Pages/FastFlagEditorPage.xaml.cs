@@ -226,7 +226,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
                 "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json",
                 "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCClientBootstrapper.json",
-                "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCStudioApp.json"
+                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/Fvariable-Fixed.json",
             };
 
             const string rawTextUrl = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt";
@@ -237,12 +237,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 "FLogTencentAuthPath",
                 "DFFlagSendRenderFidelityTelemetry",
                 "DFFlagReportRenderDistanceTelemetry",
+                "FFlagLuaMenuPerfImprovements",
+                "FIntSSAO",
             };
 
             var manualBlacklist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
                 "DFFlagFrameTimeStdDev",
                 "FIntGameJoinLoadTime",
+                "DFIntCharacterLoadTime",
                 "FFlagEnableCloseButtonOnClientToastNotifications2"
             };
 
