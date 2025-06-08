@@ -224,14 +224,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             var urlsJson = new[]
             {
                 "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
-                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json",
                 "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCClientBootstrapper.json",
-                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/Fvariable-Fixed.json",
             };
 
             const string rawTextUrl = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt";
+            const string liveClientSettingsUrl = "https://clientsettings.roblox.com/v2/settings/application/PCDesktopClient";
 
-            // will add more fflags to whitelist/blacklist system in the future
             var manualWhitelist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
                 "FLogTencentAuthPath",
@@ -259,23 +257,33 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 {
                     string jsonText = await client.GetStringAsync(url);
                     using var jsonDoc = JsonDocument.Parse(jsonText);
-                    var jsonFlags = jsonDoc.RootElement.EnumerateObject()
-                        .Select(prop => prop.Name.Trim());
+                    var jsonFlags = jsonDoc.RootElement.EnumerateObject().Select(prop => prop.Name.Trim());
 
                     validFlags.UnionWith(jsonFlags);
                 }
 
-                string rawText = await client.GetStringAsync(rawTextUrl);
-                var rawFlags = rawText
-                    .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(line =>
-                        line.StartsWith("[C++] ", StringComparison.Ordinal) ||
-                        line.StartsWith("[Lua] ", StringComparison.Ordinal) ||
-                        line.StartsWith("[Com] ", StringComparison.Ordinal))
-                    .Select(line => line.Substring(line.IndexOf(']') + 1).Trim())
-                    .Where(name => !string.IsNullOrWhiteSpace(name));
+                {
+                    string liveJsonText = await client.GetStringAsync(liveClientSettingsUrl);
+                    using var jsonDoc = JsonDocument.Parse(liveJsonText);
+                    var liveFlags = jsonDoc.RootElement.EnumerateObject().Select(prop => prop.Name.Trim());
 
-                validFlags.UnionWith(rawFlags);
+                    validFlags.UnionWith(liveFlags);
+                }
+
+                {
+                    string rawText = await client.GetStringAsync(rawTextUrl);
+                    var rawFlags = rawText
+                        .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Where(line =>
+                            line.StartsWith("[C++] ", StringComparison.Ordinal) ||
+                            line.StartsWith("[Lua] ", StringComparison.Ordinal) ||
+                            line.StartsWith("[Com] ", StringComparison.Ordinal))
+                        .Select(line => line.Substring(line.IndexOf(']') + 1).Trim())
+                        .Where(name => !string.IsNullOrWhiteSpace(name));
+
+                    validFlags.UnionWith(rawFlags);
+                }
+
                 validFlags.UnionWith(manualWhitelist);
 
                 var allFlags = App.FastFlags.GetAllFlags();
@@ -308,8 +316,18 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 if (result == MessageBoxResult.OK)
                 {
+                    var removedFlagsDict = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+
                     foreach (var flag in toRemove)
+                    {
+                        removedFlagsDict[flag.Name] = flag.Value;
                         App.FastFlags.SetValue(flag.Name, null);
+                    }
+
+                    string jsonText = JsonSerializer.Serialize(removedFlagsDict, new JsonSerializerOptions
+                    {
+                        WriteIndented = true
+                    });
 
                     Frontend.ShowMessageBox($"Removed {toRemove.Count} invalid FastFlags.", MessageBoxImage.Information);
 
@@ -320,7 +338,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                     if (showInvalid == MessageBoxResult.Yes)
                     {
-                        var invalidFlagsWindow = new InvalidFlagsWindow(toRemove.Select(f => f.Name))
+                        var invalidFlagsWindow = new InvalidFlagsWindow(jsonText)
                         {
                             Owner = Application.Current.MainWindow
                         };
@@ -330,6 +348,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     ReloadList();
                     UpdateTotalFlagsCount();
                 }
+
             }
             catch (Exception ex)
             {

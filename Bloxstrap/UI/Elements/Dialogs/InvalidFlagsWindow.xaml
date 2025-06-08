@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     Title="Invalid FastFlags"
     Width="600"
-    MinHeight="400"
+    MaxHeight="600"
     SizeToContent="Height"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     ExtendsContentIntoTitleBar="True"
@@ -24,53 +24,51 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Title Bar -->
         <ui:TitleBar Grid.Row="0" Padding="8"
                      ShowMinimize="False" ShowMaximize="False" CanMaximize="False"
-                     Title="Invalid FastFlags" />
+                     Title="Invalid FastFlags" Icon="pack://application:,,,/Bloxstrap.ico" />
 
-        <!-- Content -->
-        <Grid Grid.Row="1" Margin="16">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1"
+                   Text="Fake / Removed FastFlags"
+                   FontWeight="Bold"
+                   FontSize="24"
+                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                   Margin="16 16 16 8" />
 
-            <!-- New Descriptive Header -->
-            <TextBlock Grid.Row="0"
-                       Text="Fake / Removed FastFlags"
-                       FontWeight="Bold"
-                       FontSize="16"
-                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                       Margin="0 0 0 12" />
+        <ScrollViewer Grid.Row="2"
+                      Margin="16 0 16 16"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Stretch"
+                      MinHeight="100">
+            
+            <TextBox Grid.Row="2"
+                    x:Name="InvalidFlagsTextBox"
+                    FontFamily="Consolas"
+                    FontSize="14"
+                    IsReadOnly="True"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    AcceptsTab="True"
+                    BorderThickness="1"
+                    Padding="8"
+                    Background="{DynamicResource PrimaryBackgroundColor}"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalScrollBarVisibility="Auto"
+                    Margin="16 0 16 16"
+                    MaxHeight="400"
+                    MinWidth="550"/>
 
-            <!-- Scrollable TextBox -->
-            <ScrollViewer Grid.Row="1"
-                          VerticalScrollBarVisibility="Auto"
-                          HorizontalScrollBarVisibility="Auto"
-                          MinHeight="300">
-                <TextBox x:Name="InvalidFlagsTextBox"
-                         FontFamily="Consolas"
-                         FontSize="14"
-                         IsReadOnly="True"
-                         TextWrapping="Wrap"
-                         VerticalScrollBarVisibility="Auto"
-                         HorizontalScrollBarVisibility="Auto"
-                         AcceptsReturn="True"
-                         AcceptsTab="True"
-                         BorderThickness="1"
-                         Padding="8"
-                         Background="{DynamicResource PrimaryBackgroundColor}"
-                         Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            </ScrollViewer>
-        </Grid>
+        </ScrollViewer>
 
-        <!-- Footer with Close button -->
-        <Border Grid.Row="2" Padding="15" Background="{DynamicResource PrimaryBackgroundColor}">
+        <Border Grid.Row="3" Padding="15" Background="{DynamicResource PrimaryBackgroundColor}">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="CloseButton" MinWidth="100" Content="Close" />
