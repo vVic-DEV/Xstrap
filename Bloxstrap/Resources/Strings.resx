@@ -232,7 +232,7 @@
     <value>Old Roblox Icon</value>
   </data>
   <data name="Menu.Behaviour.OldRobloxIcon.Description" xml:space="preserve">
-    <value>Will change the logo of the titlebar to the old roblox icon. Note: This might not work 100% of the time.</value>
+    <value>Reverts the Roblox taskbar icon to the monochrome logo used prior to April 2025. Note: This feature is not guaranteed to always work!”</value>
   </data>
   <data name="Menu.Appearance.MenuAdjustment.Title" xml:space="preserve">
     <value>Menu Adjustment</value>
@@ -253,22 +253,22 @@
     <value>Lock Order</value>
   </data>
   <data name="Menu.Integrations.BlockVideoRecording.Title" xml:space="preserve">
-    <value>Block Roblox Recording</value>
+    <value>Disable Roblox Recording</value>
   </data>
   <data name="Menu.Integrations.BlockVideoRecording.Description" xml:space="preserve">
-    <value>Blocks Roblox Recording feature from working.</value>
+    <value>Disables the Roblox recording feature. Note: When this feature is enabled, The hotkey combo will no longer work.</value>
   </data>
   <data name="Menu.Integrations.BlockScreenShots.Title" xml:space="preserve">
-    <value>Block Roblox Screenshots</value>
+    <value>Disable Roblox Screenshots</value>
   </data>
   <data name="Menu.Integrations.BlockScreenShots.Description" xml:space="preserve">
-    <value>Blocks Roblox Screenshot feature from working.</value>
+    <value>Disables the Roblox screenshot feature. Note: When this feature is enabled, The hotkey combo will no longer work.</value>
   </data>
   <data name="Menu.Integrations.BlockCardExpander.Title" xml:space="preserve">
-    <value>Disable/Block Roblox Features</value>
+    <value>Disable Roblox Features</value>
   </data>
   <data name="Menu.Integrations.BlockCardExpander.Description" xml:space="preserve">
-    <value>This will allow you to disable/block features built into roblox.</value>
+    <value>Toggles certain built-in Roblox features.</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
     <value>Open log file</value>
@@ -397,7 +397,7 @@
     <value>[Custom Mods Page](https://github.com/Meddsam/Froststrap/wiki/Features#custom-mods-page)</value>
   </data>
   <data name="Menu.Help.AdvancedFFlagEditorSettings" xml:space="preserve">
-    <value>[Advanced fflag editor settings](https://github.com/Meddsam/Froststrap/wiki/Features#advanced-fastflag-editor-settings)</value>
+    <value>[Advanced FastFlag Editor Settings](https://github.com/Meddsam/Froststrap/wiki/Features#advanced-fastflag-editor-settings)</value>
   </data>
   <data name="Menu.Help.FFlagGuide" xml:space="preserve">
     <value>FFlag Guide</value>
@@ -1235,7 +1235,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Froststrap does not have write access to the install location you've selected. Please choose another location.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Activity tracking</value>
+    <value>Activity Tracking</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
     <value>Allows for anybody to join the game you're currently in through your Discord profile.</value>
@@ -1326,7 +1326,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Remove applied font</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Use custom font</value>
+    <value>Use Custom In-Game Font</value>
   </data>
   <data name="Menu.Mods.Misc.CustomCursor.Choose" xml:space="preserve">
     <value>Choose Cursor...</value>
@@ -1417,13 +1417,13 @@ Some text might not be translated to preferred language.</value>
     <value>2023 (V4 + New UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Description" xml:space="preserve">
-    <value>Configure Roblox’s engine to utilize a specified number of your CPU’s logical processors.</value>
+    <value>Specifies the maximum number of worker threads Roblox can use for parallel tasks. Note: It’s recommended to set this to the number of logical processors your CPU has.</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceLogicalProcessor.Title" xml:space="preserve">
-    <value>Force Logical Processors</value>
+    <value>Set Max Worker Threads</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceProcessor.Description" xml:space="preserve">
-    <value>Configure the amount of async threads the Roblox task scheduler will use to allow for better parallel task execution. Note: It is recommended to set the value as the number of cores your CPU has minus one.</value>
+    <value>Specifies the minimum threads kept available for async tasks in the Roblox task scheduler. Note: It is recommended to set the value as the number of cores your CPU has minus one.</value>
   </data> 
   <data name="Menu.FastFlags.Presets.AndroidVfs.Title" xml:space="preserve">
     <value>Low-End Hardware Optimization</value>
@@ -1432,7 +1432,7 @@ Some text might not be translated to preferred language.</value>
     <value>May potentially improve performance on low-end devices only.</value>
   </data>
   <data name="Menu.FastFlags.Presets.ForceProcessor.Title" xml:space="preserve">
-    <value>Force Async Threads</value>
+    <value>Set Minimum Async Thread Count”</value>
   </data>
   <data name="Menu.FastFlags.Presets.TaskSchedulerAvoidSleep.Description" xml:space="preserve">
     <value>Prevents idling in Roblox’s task scheduler, allowing it to run as many tasks as possible.</value>
@@ -1495,7 +1495,7 @@ Some text might not be translated to preferred language.</value>
     <value>Remove Payload Limit</value>
   </data>
 	<data name="Menu.FastFlags.Presets.NoPayloadLimit.Description" xml:space="preserve">
-    <value>Disables Roblox’s network data transfer limit. Note: Enabling this setting could lead to network overhead if the packets being sent are too large. Use at your own risk!”</value>
+    <value>Disables Roblox’s network data transfer limit. Note: Enabling this setting could lead to network overhead if the packets being sent are too large. Use at your own risk!</value>
   </data>
 	<data name="Menu.FastFlags.Presets.RCore.Title" xml:space="preserve">
     <value>Roblox Core</value>
@@ -1603,7 +1603,7 @@ Some text might not be translated to preferred language.</value>
     <value>Sky Colors</value>
   </data>
   <data name="Menu.FastFlags.Presets.SkyColor.Description" xml:space="preserve">
-    <value>These are expiremental sky colors that could bug your game. Note: These could use other toggleable fflags like gray sky</value>
+    <value>Sets experimental skybox colors using a combination of fast flags. Note: These settings may be unstable, buggy, or incompatible with certain games.”</value>
   </data>
   <data name="UI.Elements.Settings.Pages.FastFlagsPage+SearchMode.All" xml:space="preserve">
     <value>All</value>
@@ -1636,7 +1636,7 @@ Some text might not be translated to preferred language.</value>
     <value>Hide Purchase UI</value>
   </data>
   <data name="Menu.FastFlags.Presets.HidesPurchaseUI.Description" xml:space="preserve">
-    <value>Disables or Hides the Gamepass purchase UI to prevent it from appearing during gameplay.</value>
+    <value>Disables the game pass purchase GUI in all games.</value>
   </data>
   <data name="Menu.FastFlags.Presets.WebView2Telemetry.Description" xml:space="preserve">
     <value>Note: This setting disables a large majority of Roblox's WebView2 telemetry, but not all.</value>
@@ -1651,7 +1651,7 @@ Some text might not be translated to preferred language.</value>
     <value>Pseudolocalization</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Description" xml:space="preserve">
-    <value>Note: This settings disables the large majority of Roblox's VoiceChat Telemetry, but not all.</value>
+    <value>Note: This setting disables a large majority of Roblox’s voice chat telemetry, but not all.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableVoiceChatTelemetry.Title" xml:space="preserve">
     <value>Disable Voice Chat Telemetry</value>
@@ -1708,25 +1708,25 @@ Some text might not be translated to preferred language.</value>
     <value>White Sky</value>
   </data>
   <data name="Menu.FastFlags.Presets.WhiteSky.Description" xml:space="preserve">
-    <value>Can make the whole screen white if the game has no default sky. Note: this uses gray sky flag.</value>
+    <value>Sets the skybox to white if a custom game skybox is not present.</value>
   </data>
   <data name="Menu.FastFlags.Presets.RainbowSky.Title" xml:space="preserve">
     <value>Rainbow Sky</value>
   </data>
   <data name="Menu.FastFlags.Presets.RainbowSky.Description" xml:space="preserve">
-    <value>Removes icons due to skipmips, can also be pretty buggy and may not work. Note: This could enable other toggleable settings.</value>
+    <value>Sets the skybox to include a variety of colors. Note: Note: Certain icons or images will appear distorted due to Texture Skipping. This setting is not guaranteed to work every time!</value>
   </data>
   <data name="Menu.FastFlags.Presets.BlackSky.Title" xml:space="preserve">
     <value>Black Sky</value>
   </data>
   <data name="Menu.FastFlags.Presets.BlackSky.Description" xml:space="preserve">
-    <value>Removes icons due to skipmips. Note: This could enable other toggleable settings.</value>
+    <value>Sets the skybox to black. Note: Certain icons or images will appear distorted due to Texture Skipping.</value>
   </data>
   <data name="Menu.FastFlags.Presets.SmoothTextures.Title" xml:space="preserve">
     <value>Smooth Textures</value>
   </data>
   <data name="Menu.FastFlags.Presets.SmoothTextures.Description" xml:space="preserve">
-    <value>Enables a smooth-looking texture. Note: This will hides icons due to skipmip and use Vulkan rendering mode</value>
+    <value>Smooths almost all in-game textures. Note: Some icons or images may appear distorted due to Texture Skipping. Compatibility or stability is not guaranteed on all systems, as this feature enables the Vulkan rendering API.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Tencent.Description" xml:space="preserve">
     <value>Note: This setting blocks some data collection by Tencent and the Chinese government, but not all.</value>
@@ -1741,7 +1741,7 @@ Some text might not be translated to preferred language.</value>
     <value>More Text Characters</value>
   </data>
   <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Description" xml:space="preserve">
-    <value>Will freeze everyone in-game permanently when your internet disconnects.</value>
+    <value>Gameplay will freeze until internet connection returns.</value>
   </data>
   <data name="Menu.FastFlags.Presets.NoDisconnectMessage.Title" xml:space="preserve">
     <value>No Disconnect Message</value>

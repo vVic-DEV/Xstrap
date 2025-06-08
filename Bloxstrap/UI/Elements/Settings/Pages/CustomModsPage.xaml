@@ -91,7 +91,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Bloxstrap theme" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: TheKliko"/>
+                <Run Foreground="Gray" Text="Credits: TheKliko"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
@@ -132,7 +132,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Kliko's Mod" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: TheKliko"/>
+                <Run Foreground="Gray" Text="Credits: TheKliko"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
@@ -173,7 +173,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Fishstrap" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: TheKliko"/>
+                <Run Foreground="Gray" Text="Credits: TheKliko"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
@@ -214,7 +214,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Nagi Seishiro" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: Meddsam"/>
+                <Run Foreground="Gray" Text="Credits: Meddsam"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>
@@ -255,7 +255,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Arch Linux" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: DefinitelyNotAltAccount"/>
+                <Run Foreground="Gray" Text="Credits: DefinitelyNotAltAccount"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>
@@ -296,7 +296,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="24k Gold" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: thefrenchguy4"/>
+                <Run Foreground="Gray" Text="Credits: thefrenchguy4"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_ModType}"/>
                         </TextBlock>
@@ -339,7 +339,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="One Shot Solstice Anniversary" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: DefinitelyNotAltAccount"/>
+                <Run Foreground="Gray" Text="Credits: DefinitelyNotAltAccount"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>
@@ -381,7 +381,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                 <Run Text="Kick Prompt" FontSize="20" />
                 <LineBreak/>
-                <Run Foreground="Gray" Text="Credit: No idea who made it"/>
+                <Run Foreground="Gray" Text="Credits: No idea who made it"/>
                 <LineBreak/>
                 <Run Foreground="DodgerBlue" FontWeight="Bold" Text="{x:Static resources:Strings.Common_LauncherType}"/>
                         </TextBlock>

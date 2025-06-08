@@ -68,7 +68,6 @@
                     Width="285"
                     Command="{Binding LaunchRobloxCommand, Mode=OneTime}"
                     Icon="Games28"
-                    IconFilled="False"
                     TabIndex="0">
                     <StackPanel>
                         <TextBlock
@@ -140,7 +139,7 @@
                     Width="285"
                     Margin="0,10,0,0"
                     Command="models:GlobalViewModel.OpenWebpageCommand"
-                    CommandParameter="https://github.com/Bloxstraplabs/Bloxstrap/wiki/"
+                    CommandParameter="https://github.com/Meddsam/Froststrap/wiki"
                     Icon="BookQuestionMark24"
                     IconFilled="False"
                     TabIndex="2">
