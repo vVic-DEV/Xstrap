@@ -16,7 +16,6 @@ namespace Bloxstrap.UI.Elements.Base
         public WpfUiWindow()
         {
             ApplyTheme();
-            Loaded += BaseWindow_Loaded;
         }
 
         public void ApplyTheme()
@@ -36,51 +35,26 @@ namespace Bloxstrap.UI.Elements.Base
 #endif
         }
 
-        // In your settings property class (or however you persist)
-        private bool? _isFirstLaunch;
-        public bool IsFirstLaunch
-        {
-            get
-            {
-                if (_isFirstLaunch == null)
-                    _isFirstLaunch = true;  // default true for first launch
-                return _isFirstLaunch.Value;
-            }
-            set => _isFirstLaunch = value;
-        }
-
-        private bool? _wpfSoftwareRender;
-        public bool WPFSoftwareRender
-        {
-            get
-            {
-                if (_wpfSoftwareRender == null)
-                    _wpfSoftwareRender = false; // default false
-                return _wpfSoftwareRender.Value;
-            }
-            set => _wpfSoftwareRender = value;
-        }
-
-
         protected override void OnSourceInitialized(EventArgs e)
         {
+            base.OnSourceInitialized(e);
+
+            // Hardware Accel
             if (App.Settings.Prop.WPFSoftwareRender || App.LaunchSettings.NoGPUFlag.Active)
             {
                 if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
                     hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
             }
 
-            base.OnSourceInitialized(e);
-        }
-
-        private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            var fontPath = App.Settings.Prop.CustomFontPath;
-            if (!string.IsNullOrWhiteSpace(fontPath))
+            // CustomFont
+            string? fontPath = App.Settings.Prop.CustomFontPath;
+            if (!string.IsNullOrWhiteSpace(fontPath) && File.Exists(fontPath))
             {
                 var font = FontManager.LoadFontFromFile(fontPath);
                 if (font != null)
+                {
                     this.FontFamily = font;
+                }
             }
         }
     }

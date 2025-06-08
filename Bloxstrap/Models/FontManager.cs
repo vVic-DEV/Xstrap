@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using SWM = System.Windows.Media;  // did this so i dont have to keep writing system.Windows.Media
 
 namespace Bloxstrap.Models
 {
@@ -10,18 +11,20 @@ namespace Bloxstrap.Models
     {
         public static bool IsCustomFontApplied { get; private set; }
 
-        public static System.Windows.Media.FontFamily? LoadFontFromFile(string fontFilePath)
+        public static SWM.FontFamily? LoadFontFromFile(string fontFilePath)
         {
             if (!File.Exists(fontFilePath))
                 return null;
 
-            string tempFontsFolder = Path.Combine(Path.GetTempPath(), "BloxstrapFonts");
-            Directory.CreateDirectory(tempFontsFolder);
+            string tempFontsRoot = Path.Combine(Path.GetTempPath(), "BloxstrapFonts");
 
-            string destFontPath = Path.Combine(tempFontsFolder, Path.GetFileName(fontFilePath));
+            string uniqueFontFolder = Path.Combine(tempFontsRoot, Guid.NewGuid().ToString());
+            Directory.CreateDirectory(uniqueFontFolder);
+
+            string destFontPath = Path.Combine(uniqueFontFolder, Path.GetFileName(fontFilePath));
             File.Copy(fontFilePath, destFontPath, overwrite: true);
 
-            var fontDirectoryUri = new Uri(Path.GetDirectoryName(destFontPath) + Path.DirectorySeparatorChar);
+            var fontDirectoryUri = new Uri(uniqueFontFolder + Path.DirectorySeparatorChar);
             var fontFamilies = Fonts.GetFontFamilies(fontDirectoryUri);
 
             return fontFamilies.FirstOrDefault();
@@ -35,7 +38,7 @@ namespace Bloxstrap.Models
             {
                 try
                 {
-                    System.Windows.Media.FontFamily? font = LoadFontFromFile(savedFontPath);
+                    var font = LoadFontFromFile(savedFontPath);
                     if (font != null)
                     {
                         ApplyFontGlobally(font);
@@ -52,17 +55,19 @@ namespace Bloxstrap.Models
             return false;
         }
 
-        public static void ApplyFontGlobally(System.Windows.Media.FontFamily fontFamily)
+        public static void ApplyFontGlobally(SWM.FontFamily fontFamily)
         {
             Application.Current.Resources[SystemFonts.MessageFontFamilyKey] = fontFamily;
 
             foreach (Window window in Application.Current.Windows)
                 window.FontFamily = fontFamily;
+
+            IsCustomFontApplied = fontFamily.Source != "Segoe UI";
         }
 
         public static void RemoveCustomFont()
         {
-            var defaultFont = new System.Windows.Media.FontFamily("Segoe UI");
+            var defaultFont = new SWM.FontFamily("Segoe UI");
             ApplyFontGlobally(defaultFont);
             IsCustomFontApplied = false;
             App.Settings.Prop.CustomFontPath = null;

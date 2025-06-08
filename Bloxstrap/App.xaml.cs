@@ -213,11 +213,8 @@ namespace Bloxstrap
             bool fontApplied = FontManager.ApplySavedCustomFont();
 
             if (fontApplied)
-            {
-                Logger.WriteLine("App", "Custom font applied at startup.");
-            }
+                Logger.WriteLine(LOG_IDENT, "Custom font applied at startup.");
 
-            // Apply to all existing windows on startup
             foreach (Window window in Application.Current.Windows)
             {
                 ApplyCustomFontToWindow(window);
