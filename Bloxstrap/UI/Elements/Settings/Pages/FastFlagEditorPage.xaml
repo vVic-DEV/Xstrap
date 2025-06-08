@@ -84,6 +84,12 @@
                 Icon="Settings48"
                 Content="{x:Static resources:Strings.Menu_FastFlagEditor_AdvancedSettings}"
                 Click="AdvancedSettings_Click"/>
+            <ui:Button
+                Margin="0,0,10,16"
+                VerticalAlignment="Top"
+                Icon="Checkmark24"
+                Content="Check Invalid Flags"
+                Click="CheckInvalidFlagsButton_Click"/>
             <ToggleButton
                 x:Name="TogglePresetsButton"
                 Margin="0,0,10,16"

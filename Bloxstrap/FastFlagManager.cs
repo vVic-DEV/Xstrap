@@ -559,5 +559,18 @@ namespace Bloxstrap
                 Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
             }
         }
+
+        public IEnumerable<FastFlag> GetAllFlags()
+        {
+            foreach (var kvp in Prop)
+            {
+                yield return new FastFlag
+                {
+                    Name = kvp.Key,
+                    Value = kvp.Value?.ToString() ?? "",
+                    Preset = "" // optional
+                };
+            }
+        }
     }
 }

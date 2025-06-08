@@ -9,6 +9,11 @@ using Microsoft.Win32;
 using System.Windows.Media.Animation;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Text.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
@@ -99,11 +104,21 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void UpdateTotalFlagsCount()
         {
-            TotalFlagsTextBlock.Text = FlagCountText;
+            // Get current flags count from the DataGrid's ItemsSource, safely
+            int count = 0;
+            if (DataGrid.ItemsSource is IEnumerable<FastFlag> flags)
+                count = flags.Count();
+
+            // Update the TextBlock text with the count
+            TotalFlagsTextBlock.Text = $"Total Flags: {count}";
+
+            // Toggle visibility based on the user setting
             TotalFlagsTextBlock.Visibility = App.Settings.Prop.ShowFlagCount
                 ? Visibility.Visible
                 : Visibility.Collapsed;
         }
+
+
 
         private void ClearSearch(bool refresh = true)
         {
@@ -204,6 +219,88 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             ClearSearch();
         }
 
+        public async Task CheckAndRemoveInvalidFlagsAsync()
+        {
+            var urlsRawText = new[]
+            {
+                "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/de9900fa0ee9c01ff9634f8a1b777b7f3edd0249/FVariables.txt",
+                "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt"
+            };
+
+            const string urlJson = "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json";
+
+            try
+            {
+                using HttpClient client = new HttpClient();
+
+                var rawFlags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+                // Download and parse both raw text files
+                foreach (var url in urlsRawText)
+                {
+                    string rawText = await client.GetStringAsync(url);
+
+                    var flagsFromRaw = rawText
+                        .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(line => line.Trim())
+                        .Where(line => !string.IsNullOrWhiteSpace(line) && line.StartsWith("[C++] "))
+                        .Select(line => line.Substring("[C++] ".Length).Trim())
+                        .Where(name => !string.IsNullOrWhiteSpace(name));
+
+                    foreach (var flag in flagsFromRaw)
+                        rawFlags.Add(flag.ToLowerInvariant());
+                }
+
+                // Download and parse JSON flags (keys only)
+                string jsonText = await client.GetStringAsync(urlJson);
+                using var jsonDoc = JsonDocument.Parse(jsonText);
+                var jsonFlags = jsonDoc.RootElement.EnumerateObject()
+                    .Select(prop => prop.Name.Trim().ToLowerInvariant());
+
+                // Combine all valid flags
+                rawFlags.UnionWith(jsonFlags);
+
+                // Get all local flags from your app
+                var allFlags = App.FastFlags.GetAllFlags();
+
+                // Find local flags NOT in valid flags set
+                var toRemove = allFlags
+                    .Where(flag => !rawFlags.Contains(flag.Name.Trim().ToLowerInvariant()))
+                    .ToList();
+
+                if (toRemove.Count == 0)
+                {
+                    MessageBox.Show("All your FastFlags are valid.", "Check Flags", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                var result = MessageBox.Show($"Found {toRemove.Count} invalid FastFlags. Remove them?", "Confirm Removal", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    foreach (var flag in toRemove)
+                    {
+                        App.FastFlags.SetValue(flag.Name, null);
+                    }
+
+                    MessageBox.Show($"Removed {toRemove.Count} invalid FastFlags.", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    DataGrid.ItemsSource = App.FastFlags.GetAllFlags().ToList();
+                    DataGrid.Items.Refresh();
+
+                    UpdateTotalFlagsCount();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking FastFlags: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async void CheckInvalidFlagsButton_Click(object sender, RoutedEventArgs e)
+        {
+            await CheckAndRemoveInvalidFlagsAsync();
+        }
 
         private void AddWithGameId(string name, string value, string gameId, FastFlagFilterType filterType)
         {
