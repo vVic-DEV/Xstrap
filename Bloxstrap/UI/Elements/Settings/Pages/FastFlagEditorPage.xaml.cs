@@ -223,19 +223,21 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             var urlsJson = new[]
             {
-        "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
-        "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json"
-    };
+                "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
+                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json"
+            };
 
             const string rawTextUrl = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt";
 
-            // Your manual whitelist (flags you know are valid even if not online)
+
+            // will add more fflags to whitelist/blacklist system in the future
             var manualWhitelist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
                 "FLogTencentAuthPath",
+                "DFFlagSendRenderFidelityTelemetry",
+                "DFFlagReportRenderDistanceTelemetry",
             };
 
-            // Your manual blacklist (flags you know are fake even if online)
             var manualBlacklist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
                 "DFFlagFrameTimeStdDev",
@@ -249,53 +251,48 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 var validFlags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-                // Parse JSON-based flags
+                // Fetch and parse JSON-based flags
                 foreach (var url in urlsJson)
                 {
                     string jsonText = await client.GetStringAsync(url);
                     using var jsonDoc = JsonDocument.Parse(jsonText);
                     var jsonFlags = jsonDoc.RootElement.EnumerateObject()
-                        .Select(prop => prop.Name.Trim().ToLowerInvariant());
+                        .Select(prop => prop.Name.Trim());
 
                     validFlags.UnionWith(jsonFlags);
                 }
 
-                // Parse raw text-based flags
+                // Fetch and parse raw text flags
                 string rawText = await client.GetStringAsync(rawTextUrl);
                 var rawFlags = rawText
                     .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
                     .Where(line => line.StartsWith("[C++] ") || line.StartsWith("[Lua] "))
-                    .Select(line =>
-                    {
-                        if (line.StartsWith("[C++] "))
-                            return line.Substring("[C++] ".Length).Trim();
-                        else
-                            return line.Substring("[Lua] ".Length).Trim();
-                    })
-                    .Where(name => !string.IsNullOrWhiteSpace(name))
-                    .Select(name => name.ToLowerInvariant());
+                    .Select(line => line.Substring(line.IndexOf(']') + 1).Trim())
+                    .Where(name => !string.IsNullOrWhiteSpace(name));
 
                 validFlags.UnionWith(rawFlags);
 
-                // Add whitelisted flags to validFlags set
-                validFlags.UnionWith(manualWhitelist.Select(f => f.ToLowerInvariant()));
+                // Include manual whitelist into validFlags
+                validFlags.UnionWith(manualWhitelist);
 
-                // Check each flag against valid list and blacklist
+                // Get all current flags
                 var allFlags = App.FastFlags.GetAllFlags();
 
+                // Determine which to remove
                 var toRemove = allFlags
                     .Where(flag =>
                     {
                         var name = flag.Name.Trim();
-                        var lower = name.ToLowerInvariant();
+                        // If manually whitelisted, keep
+                        if (manualWhitelist.Contains(name))
+                            return false;
 
-                        if (manualWhitelist.Contains(lower))
-                            return false; // skip removal
+                        // If manually blacklisted, remove
+                        if (manualBlacklist.Contains(name))
+                            return true;
 
-                        if (manualBlacklist.Contains(lower))
-                            return true; // force removal
-
-                        return !validFlags.Contains(lower); // remove if not known
+                        // Otherwise, remove if not valid
+                        return !validFlags.Contains(name);
                     })
                     .ToList();
 
@@ -343,8 +340,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 Frontend.ShowMessageBox($"Error checking FastFlags: {ex.Message}", MessageBoxImage.Error);
             }
         }
-
-
 
         private async void CheckInvalidFlagsButton_Click(object sender, RoutedEventArgs e)
         {
