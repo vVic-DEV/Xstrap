@@ -16,6 +16,7 @@ namespace Bloxstrap.UI.Elements.Base
         public WpfUiWindow()
         {
             ApplyTheme();
+            Loaded += BaseWindow_Loaded;
         }
 
         public void ApplyTheme()
@@ -70,6 +71,17 @@ namespace Bloxstrap.UI.Elements.Base
             }
 
             base.OnSourceInitialized(e);
+        }
+
+        private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var fontPath = App.Settings.Prop.CustomFontPath;
+            if (!string.IsNullOrWhiteSpace(fontPath))
+            {
+                var font = FontManager.LoadFontFromFile(fontPath);
+                if (font != null)
+                    this.FontFamily = font;
+            }
         }
     }
 }

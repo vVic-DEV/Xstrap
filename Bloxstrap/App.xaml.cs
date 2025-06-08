@@ -157,6 +157,18 @@ namespace Bloxstrap
                 return null;
             }
         }
+        public void ApplyCustomFontToWindow(Window window)
+        {
+            var fontPath = App.Settings.Prop.CustomFontPath;
+            if (string.IsNullOrWhiteSpace(fontPath) || !File.Exists(fontPath))
+                return;
+
+            var font = FontManager.LoadFontFromFile(fontPath);
+            if (font != null)
+            {
+                window.FontFamily = font;
+            }
+        }
 
         public static void SendLog()
         {
@@ -196,6 +208,19 @@ namespace Bloxstrap
             if (Settings.Prop.WPFSoftwareRender)
             {
                 RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
+            }
+
+            bool fontApplied = FontManager.ApplySavedCustomFont();
+
+            if (fontApplied)
+            {
+                Logger.WriteLine("App", "Custom font applied at startup.");
+            }
+
+            // Apply to all existing windows on startup
+            foreach (Window window in Application.Current.Windows)
+            {
+                ApplyCustomFontToWindow(window);
             }
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");

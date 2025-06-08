@@ -10,6 +10,7 @@ using Microsoft.Win32;
 using System.Windows.Media;
 using System.IO;
 using System.Collections.Generic;
+using Bloxstrap;
 
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
@@ -33,7 +34,6 @@ namespace Bloxstrap.UI.Elements.Settings
         public static List<string> DefaultNavigationOrder { get; private set; } = new();
         public static List<string> DefaultFooterOrder { get; private set; } = new();
 
-        private System.Windows.Media.FontFamily? userSelectedFontFamily;
 
         public MainWindow(bool showAlreadyRunningWarning)
         {
@@ -210,70 +210,6 @@ namespace Bloxstrap.UI.Elements.Settings
             App.Settings.Prop.NavigationOrder.Clear();
             App.State.Save();
         }
-
-        private void SelectFontFile_Click(object sender, RoutedEventArgs e)
-        {
-            var dlg = new OpenFileDialog
-            {
-                Filter = "Font files (*.ttf;*.otf)|*.ttf;*.otf|All files (*.*)|*.*"
-            };
-
-            if (dlg.ShowDialog() == true)
-            {
-                var fontPath = dlg.FileName;
-                try
-                {
-                    userSelectedFontFamily = LoadFontFromFile(fontPath);
-                    if (userSelectedFontFamily != null)
-                    {
-                        ApplyFontGlobally(userSelectedFontFamily);
-                        System.Windows.MessageBox.Show($"Font '{userSelectedFontFamily.Source}' applied successfully.");
-                    }
-                    else
-                    {
-                        System.Windows.MessageBox.Show("Failed to load font.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Windows.MessageBox.Show($"Error loading font: {ex.Message}");
-                }
-            }
-        }
-
-        private System.Windows.Media.FontFamily? LoadFontFromFile(string fontFilePath)
-        {
-            if (!File.Exists(fontFilePath))
-                throw new FileNotFoundException("Font file not found.", fontFilePath);
-
-            string tempFontsFolder = Path.Combine(Path.GetTempPath(), "BloxstrapFonts");
-            Directory.CreateDirectory(tempFontsFolder);
-
-            string destFontPath = Path.Combine(tempFontsFolder, Path.GetFileName(fontFilePath));
-            File.Copy(fontFilePath, destFontPath, overwrite: true);
-
-            Uri fontDirectoryUri = new Uri(Path.GetDirectoryName(destFontPath) + Path.DirectorySeparatorChar, UriKind.Absolute);
-
-            ICollection<System.Windows.Media.FontFamily> fontFamilies = Fonts.GetFontFamilies(fontDirectoryUri);
-
-            if (fontFamilies == null || fontFamilies.Count == 0)
-                return null;
-
-            return fontFamilies.FirstOrDefault();
-        }
-
-        private void ApplyFontGlobally(System.Windows.Media.FontFamily fontFamily)
-        {
-            Application.Current.Resources["{x:Static SystemFonts.MessageFontFamilyKey}"] = fontFamily;
-
-            this.FontFamily = fontFamily;
-
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.FontFamily = fontFamily;
-            }
-        }
-
 
         public void LoadState()
         {

@@ -12,6 +12,7 @@ using Bloxstrap.UI.Elements.Editor;
 using Bloxstrap.UI.Elements.Dialogs;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Windows.Media;
+using System.ComponentModel;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -42,18 +43,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
             dialog.ShowBootstrapper();
         }
 
-        private bool _isCustomFontApplied;
+        public bool IsCustomFontApplied => FontManager.IsCustomFontApplied;
 
         public Visibility ChooseCustomFontVisibility =>
-            _isCustomFontApplied ? Visibility.Collapsed : Visibility.Visible;
+            IsCustomFontApplied ? Visibility.Collapsed : Visibility.Visible;
 
         public Visibility DeleteCustomFontVisibility =>
-            _isCustomFontApplied ? Visibility.Visible : Visibility.Collapsed;
+            IsCustomFontApplied ? Visibility.Visible : Visibility.Collapsed;
 
         private void UpdateFontVisibility()
         {
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
+            OnPropertyChanged(nameof(IsCustomFontApplied));
         }
 
         private void ManageCustomFont(string action)
@@ -71,11 +73,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                     try
                     {
-                        var fontFamily = LoadFontFromFile(fontPath);
+                        var fontFamily = FontManager.LoadFontFromFile(fontPath);
                         if (fontFamily != null)
                         {
-                            ApplyFontGlobally(fontFamily);
-                            _isCustomFontApplied = true;
+                            FontManager.ApplyFontGlobally(fontFamily);
                             App.Settings.Prop.CustomFontPath = fontPath;
                             App.Settings.Save();
                             UpdateFontVisibility();
@@ -89,63 +90,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
             else if (action == "Remove")
             {
-                var defaultFont = new System.Windows.Media.FontFamily("Segoe UI");
-                ApplyFontGlobally(defaultFont);
-                _isCustomFontApplied = false;
-                App.Settings.Prop.CustomFontPath = null;
-                App.Settings.Save();
+                FontManager.RemoveCustomFont();
                 UpdateFontVisibility();
-            }
-        }
-
-        private System.Windows.Media.FontFamily? LoadFontFromFile(string fontFilePath)
-        {
-            if (!File.Exists(fontFilePath))
-                return null;
-
-            string tempFontsFolder = Path.Combine(Path.GetTempPath(), "BloxstrapFonts");
-            Directory.CreateDirectory(tempFontsFolder);
-
-            string destFontPath = Path.Combine(tempFontsFolder, Path.GetFileName(fontFilePath));
-            File.Copy(fontFilePath, destFontPath, overwrite: true);
-
-            var fontDirectoryUri = new Uri(Path.GetDirectoryName(destFontPath) + Path.DirectorySeparatorChar);
-            var fontFamilies = Fonts.GetFontFamilies(fontDirectoryUri);
-
-            return fontFamilies.FirstOrDefault();
-        }
-
-        private void ApplyFontGlobally(System.Windows.Media.FontFamily fontFamily)
-        {
-            Application.Current.Resources[SystemFonts.MessageFontFamilyKey] = fontFamily;
-
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.FontFamily = fontFamily;
             }
         }
 
         private void ApplySavedCustomFont()
         {
-            string? savedFontPath = App.Settings.Prop.CustomFontPath;
-
-            if (!string.IsNullOrWhiteSpace(savedFontPath) && File.Exists(savedFontPath))
-            {
-                try
-                {
-                    var font = LoadFontFromFile(savedFontPath);
-                    if (font != null)
-                    {
-                        ApplyFontGlobally(font);
-                        _isCustomFontApplied = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine("AppearanceViewModel", $"Failed to load saved font: {ex}");
-                }
-            }
-
+            FontManager.ApplySavedCustomFont();
             UpdateFontVisibility();
         }
 
