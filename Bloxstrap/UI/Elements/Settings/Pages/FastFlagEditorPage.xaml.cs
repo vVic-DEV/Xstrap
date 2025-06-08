@@ -224,11 +224,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             var urlsJson = new[]
             {
                 "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
-                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json"
+                "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json",
+                "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCClientBootstrapper.json",
+                "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCStudioApp.json"
             };
 
             const string rawTextUrl = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt";
-
 
             // will add more fflags to whitelist/blacklist system in the future
             var manualWhitelist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -251,7 +252,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 var validFlags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-                // Fetch and parse JSON-based flags
                 foreach (var url in urlsJson)
                 {
                     string jsonText = await client.GetStringAsync(url);
@@ -262,36 +262,29 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     validFlags.UnionWith(jsonFlags);
                 }
 
-                // Fetch and parse raw text flags
                 string rawText = await client.GetStringAsync(rawTextUrl);
                 var rawFlags = rawText
                     .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(line => line.StartsWith("[C++] ") || line.StartsWith("[Lua] "))
+                    .Where(line =>
+                        line.StartsWith("[C++] ", StringComparison.Ordinal) ||
+                        line.StartsWith("[Lua] ", StringComparison.Ordinal) ||
+                        line.StartsWith("[Com] ", StringComparison.Ordinal))
                     .Select(line => line.Substring(line.IndexOf(']') + 1).Trim())
                     .Where(name => !string.IsNullOrWhiteSpace(name));
 
                 validFlags.UnionWith(rawFlags);
-
-                // Include manual whitelist into validFlags
                 validFlags.UnionWith(manualWhitelist);
 
-                // Get all current flags
                 var allFlags = App.FastFlags.GetAllFlags();
 
-                // Determine which to remove
                 var toRemove = allFlags
                     .Where(flag =>
                     {
                         var name = flag.Name.Trim();
-                        // If manually whitelisted, keep
                         if (manualWhitelist.Contains(name))
                             return false;
-
-                        // If manually blacklisted, remove
                         if (manualBlacklist.Contains(name))
                             return true;
-
-                        // Otherwise, remove if not valid
                         return !validFlags.Contains(name);
                     })
                     .ToList();
