@@ -221,81 +221,130 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         public async Task CheckAndRemoveInvalidFlagsAsync()
         {
-            var urlsRawText = new[]
+            var urlsJson = new[]
             {
-                "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/de9900fa0ee9c01ff9634f8a1b777b7f3edd0249/FVariables.txt",
-                "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt"
+        "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json",
+        "https://raw.githubusercontent.com/DynamicFastFlag/DynamicFastFlag/refs/heads/main/FvaribleV2.json"
+    };
+
+            const string rawTextUrl = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/refs/heads/roblox/FVariables.txt";
+
+            // Your manual whitelist (flags you know are valid even if not online)
+            var manualWhitelist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "FLogTencentAuthPath",
             };
 
-            const string urlJson = "https://raw.githubusercontent.com/MaximumADHD/Roblox-FFlag-Tracker/refs/heads/main/PCDesktopClient.json";
+            // Your manual blacklist (flags you know are fake even if online)
+            var manualBlacklist = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "DFFlagFrameTimeStdDev",
+                "FIntGameJoinLoadTime",
+                "FFlagEnableCloseButtonOnClientToastNotifications2"
+            };
 
             try
             {
-                using HttpClient client = new HttpClient();
+                using HttpClient client = new();
 
-                var rawFlags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                var validFlags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-                // Download and parse both raw text files
-                foreach (var url in urlsRawText)
+                // Parse JSON-based flags
+                foreach (var url in urlsJson)
                 {
-                    string rawText = await client.GetStringAsync(url);
+                    string jsonText = await client.GetStringAsync(url);
+                    using var jsonDoc = JsonDocument.Parse(jsonText);
+                    var jsonFlags = jsonDoc.RootElement.EnumerateObject()
+                        .Select(prop => prop.Name.Trim().ToLowerInvariant());
 
-                    var flagsFromRaw = rawText
-                        .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(line => line.Trim())
-                        .Where(line => !string.IsNullOrWhiteSpace(line) && line.StartsWith("[C++] "))
-                        .Select(line => line.Substring("[C++] ".Length).Trim())
-                        .Where(name => !string.IsNullOrWhiteSpace(name));
-
-                    foreach (var flag in flagsFromRaw)
-                        rawFlags.Add(flag.ToLowerInvariant());
+                    validFlags.UnionWith(jsonFlags);
                 }
 
-                // Download and parse JSON flags (keys only)
-                string jsonText = await client.GetStringAsync(urlJson);
-                using var jsonDoc = JsonDocument.Parse(jsonText);
-                var jsonFlags = jsonDoc.RootElement.EnumerateObject()
-                    .Select(prop => prop.Name.Trim().ToLowerInvariant());
+                // Parse raw text-based flags
+                string rawText = await client.GetStringAsync(rawTextUrl);
+                var rawFlags = rawText
+                    .Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(line => line.StartsWith("[C++] ") || line.StartsWith("[Lua] "))
+                    .Select(line =>
+                    {
+                        if (line.StartsWith("[C++] "))
+                            return line.Substring("[C++] ".Length).Trim();
+                        else
+                            return line.Substring("[Lua] ".Length).Trim();
+                    })
+                    .Where(name => !string.IsNullOrWhiteSpace(name))
+                    .Select(name => name.ToLowerInvariant());
 
-                // Combine all valid flags
-                rawFlags.UnionWith(jsonFlags);
+                validFlags.UnionWith(rawFlags);
 
-                // Get all local flags from your app
+                // Add whitelisted flags to validFlags set
+                validFlags.UnionWith(manualWhitelist.Select(f => f.ToLowerInvariant()));
+
+                // Check each flag against valid list and blacklist
                 var allFlags = App.FastFlags.GetAllFlags();
 
-                // Find local flags NOT in valid flags set
                 var toRemove = allFlags
-                    .Where(flag => !rawFlags.Contains(flag.Name.Trim().ToLowerInvariant()))
+                    .Where(flag =>
+                    {
+                        var name = flag.Name.Trim();
+                        var lower = name.ToLowerInvariant();
+
+                        if (manualWhitelist.Contains(lower))
+                            return false; // skip removal
+
+                        if (manualBlacklist.Contains(lower))
+                            return true; // force removal
+
+                        return !validFlags.Contains(lower); // remove if not known
+                    })
                     .ToList();
 
                 if (toRemove.Count == 0)
                 {
-                    MessageBox.Show("All your FastFlags are valid.", "Check Flags", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Frontend.ShowMessageBox("All your FastFlags are valid.", MessageBoxImage.Information);
                     return;
                 }
 
-                var result = MessageBox.Show($"Found {toRemove.Count} invalid FastFlags. Remove them?", "Confirm Removal", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var result = Frontend.ShowMessageBox(
+                    $"Found {toRemove.Count} invalid FastFlags. Remove them?",
+                    MessageBoxImage.Warning,
+                    MessageBoxButton.OKCancel);
 
-                if (result == MessageBoxResult.Yes)
+                if (result == MessageBoxResult.Cancel)
+                    return;
+
+                if (result == MessageBoxResult.OK)
                 {
                     foreach (var flag in toRemove)
-                    {
                         App.FastFlags.SetValue(flag.Name, null);
+
+                    Frontend.ShowMessageBox($"Removed {toRemove.Count} invalid FastFlags.", MessageBoxImage.Information);
+
+                    var showInvalid = Frontend.ShowMessageBox(
+                        "Do you want to see the list of invalid FastFlags?",
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo);
+
+                    if (showInvalid == MessageBoxResult.Yes)
+                    {
+                        var invalidFlagsWindow = new InvalidFlagsWindow(toRemove.Select(f => f.Name))
+                        {
+                            Owner = Application.Current.MainWindow
+                        };
+                        invalidFlagsWindow.ShowDialog();
                     }
 
-                    MessageBox.Show($"Removed {toRemove.Count} invalid FastFlags.", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    DataGrid.ItemsSource = App.FastFlags.GetAllFlags().ToList();
-                    DataGrid.Items.Refresh();
-
+                    ReloadList();
                     UpdateTotalFlagsCount();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error checking FastFlags: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Frontend.ShowMessageBox($"Error checking FastFlags: {ex.Message}", MessageBoxImage.Error);
             }
         }
+
+
 
         private async void CheckInvalidFlagsButton_Click(object sender, RoutedEventArgs e)
         {
