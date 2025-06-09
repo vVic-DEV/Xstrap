@@ -11,11 +11,6 @@ namespace Bloxstrap
 
         public T Prop { get; set; } = new();
 
-        /// <summary>
-        /// The file hash when last retrieved from disk
-        /// </summary>
-        public string? LastFileHash { get; private set; }
-
         public virtual string ClassName => typeof(T).Name;
         
         public virtual string ProfilesLocation => Path.Combine(Paths.Base, $"Profiles.json");
@@ -33,15 +28,12 @@ namespace Bloxstrap
 
             try
             {
-                string contents = File.ReadAllText(FileLocation);
-
-                T? settings = JsonSerializer.Deserialize<T>(contents);
+                T? settings = JsonSerializer.Deserialize<T>(File.ReadAllText(FileLocation));
 
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 
                 Prop = settings;
-                LastFileHash = MD5Hash.FromString(contents);
 
                 App.Logger.WriteLine(LOG_IDENT, "Loaded successfully!");
             }
@@ -88,11 +80,7 @@ namespace Bloxstrap
 
             try
             {
-                string contents = JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true });
-
-                File.WriteAllText(FileLocation, contents);
-
-                LastFileHash = MD5Hash.FromString(contents);
+                File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
@@ -106,14 +94,6 @@ namespace Bloxstrap
             }
 
             App.Logger.WriteLine(LOG_IDENT, "Save complete!");
-        }
-
-        /// <summary>
-        /// Is the file on disk different to the one deserialised during this session?
-        /// </summary>
-        public bool HasFileOnDiskChanged()
-        {
-            return LastFileHash != MD5Hash.FromFile(FileLocation);
         }
 
         public void SaveProfile(string name)

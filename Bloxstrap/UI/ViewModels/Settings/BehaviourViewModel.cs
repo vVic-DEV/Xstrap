@@ -7,10 +7,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
 
-        public BehaviourViewModel()
-        {
-            
-        }
+        private string _oldPlayerVersionGuid = "";
+        private string _oldStudioVersionGuid = "";
 
         public bool MultiInstances
         {
@@ -38,13 +36,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.UseOldIcon;
             set => App.Settings.Prop.UseOldIcon = value;
-        }
-
-
-        public bool BackgroundUpdates
-        {
-            get => App.Settings.Prop.BackgroundUpdatesEnabled;
-            set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
         }
 
         public CleanerOptions SelectedCleanUpMode

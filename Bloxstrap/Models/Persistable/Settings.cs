@@ -38,7 +38,6 @@ namespace Bloxstrap.Models.Persistable
         public string ChannelHash { get; set; } = "";
         public string DownloadingStringFormat { get; set; } = Strings.Bootstrapper_Status_Downloading + " {0} - {1}MB / {2}MB";
         public string? SelectedCustomTheme { get; set; } = null;
-        public bool BackgroundUpdatesEnabled { get; set; } = true;
 
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
