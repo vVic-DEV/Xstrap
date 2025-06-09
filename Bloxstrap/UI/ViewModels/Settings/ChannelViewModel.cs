@@ -55,8 +55,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     _selectedPriority = value;
                     App.Settings.Prop.SelectedProcessPriority = value;
                     OnPropertyChanged(nameof(SelectedPriority));
-
-                    MessageBox.Show($"Process Priority changed to: {_selectedPriority}", "Priority Changed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }

@@ -25,6 +25,7 @@ namespace Bloxstrap
 
             // Preset Flags
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
+            { "Flog.Network", "FLogNetwork" },
 
             // Recommended Buffering
             { "Recommended.Buffer", "FIntRakNetResendBufferArrayLength" },
@@ -538,6 +539,8 @@ namespace Bloxstrap
 
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
+            if (GetPreset("Flog.Network") != "7")
+                SetPreset("Flog.Network", "7");
         }
 
         public void DeleteProfile(string Profile)

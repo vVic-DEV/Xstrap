@@ -636,7 +636,6 @@ namespace Bloxstrap
                                 }
                             }
 
-                            System.Windows.MessageBox.Show($"Set Roblox process priority to: {priorityClass}", "Priority Applied", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                     }
                 }
