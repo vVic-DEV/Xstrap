@@ -28,7 +28,7 @@ namespace Bloxstrap.Models.Persistable
         public bool WPFSoftwareRender { get; set; } = false;
         public bool DisableAnimations { get; set; } = false;
         public bool DisableHardwareAcceleration { get; set; } = false;
-        public bool HighPriority { get; set; } = false;
+        public ProcessPriorityOption SelectedProcessPriority { get; set; } = ProcessPriorityOption.Normal;
         public string? CustomFontPath { get; set; } = null;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;

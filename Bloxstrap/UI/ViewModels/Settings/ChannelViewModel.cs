@@ -1,19 +1,17 @@
 ﻿using System.ComponentModel;
-using System.Windows;
-using System.Windows.Interop;
-using System.Windows.Media;
-using Bloxstrap.AppData;
-using Bloxstrap.Integrations;
 using Bloxstrap.RobloxInterfaces;
-using Wpf.Ui.Hardware;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
+
     public class ChannelViewModel : NotifyPropertyChangedViewModel
     {
         public ChannelViewModel()
         {
             Task.Run(() => LoadChannelDeployInfo(App.Settings.Prop.Channel));
+
+            // Initialize SelectedPriority from settings
+            _selectedPriority = App.Settings.Prop.SelectedProcessPriority;
         }
 
         public new event PropertyChangedEventHandler? PropertyChanged;
@@ -25,14 +23,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.CheckForUpdates;
             set => App.Settings.Prop.CheckForUpdates = value;
         }
-
-        public bool HighPriority
-        {
-            get => App.Settings.Prop.HighPriority;
-            set => App.Settings.Prop.HighPriority = value;
-        }
-
-
         public bool DisableAnimations
         {
             get => App.Settings.Prop.DisableAnimations;
@@ -43,6 +33,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.WPFSoftwareRender;
             set => App.Settings.Prop.WPFSoftwareRender = value;
+        }
+
+
+        private ProcessPriorityOption _selectedPriority;
+
+        public IReadOnlyList<ProcessPriorityOption> ProcessPriorityOptions { get; } =
+            Enum.GetValues(typeof(ProcessPriorityOption)).Cast<ProcessPriorityOption>().ToList();
+
+        public ProcessPriorityOption SelectedPriority
+        {
+            get => _selectedPriority;
+            set
+            {
+                if (_selectedPriority != value)
+                {
+                    _selectedPriority = value;
+                    App.Settings.Prop.SelectedProcessPriority = value;
+                    OnPropertyChanged(nameof(SelectedPriority));
+                }
+            }
         }
 
         private async Task LoadChannelDeployInfo(string channel)
@@ -78,17 +88,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 ShowLoadingError = true;
                 OnPropertyChanged(nameof(ShowLoadingError));
 
-                // channels that dont exist also throw HttpStatusCode.Unauthorized  
                 if (ex.StatusCode == HttpStatusCode.Unauthorized)
                     ChannelInfoLoadingText = Strings.Menu_Channel_Switcher_Unauthorized;
                 else
-                    ChannelInfoLoadingText = $"An http error has occured ({ex.StatusCode})"; // i dont think we need strings for errors  
+                    ChannelInfoLoadingText = $"An http error has occured ({ex.StatusCode})";
 
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
         }
 
-        public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+        public bool IsRobloxInstallationMissing => string.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) &&
+                                                    string.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public bool ShowLoadingError { get; set; } = false;
         public bool ShowChannelWarning { get; set; } = false;
@@ -115,7 +125,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 const string VersionHashFormat = "version-(.*)";
                 Match match = Regex.Match(value, VersionHashFormat);
-                if (match.Success || String.IsNullOrEmpty(value))
+                if (match.Success || string.IsNullOrEmpty(value))
                 {
                     App.Settings.Prop.ChannelHash = value;
                 }
@@ -129,11 +139,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
         }
 
         public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
-               {
-                   { Strings.Menu_Channel_ChangeAction_Automatic, ChannelChangeMode.Automatic },
-                   { Strings.Menu_Channel_ChangeAction_Prompt, ChannelChangeMode.Prompt },
-                   { Strings.Menu_Channel_ChangeAction_Ignore, ChannelChangeMode.Ignore },
-               };
+        {
+            { Strings.Menu_Channel_ChangeAction_Automatic, ChannelChangeMode.Automatic },
+            { Strings.Menu_Channel_ChangeAction_Prompt, ChannelChangeMode.Prompt },
+            { Strings.Menu_Channel_ChangeAction_Ignore, ChannelChangeMode.Ignore },
+        };
 
         public string SelectedChannelChangeMode
         {

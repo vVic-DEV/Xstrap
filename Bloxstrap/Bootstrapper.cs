@@ -624,20 +624,33 @@ namespace Bloxstrap
             {
                 using var process = Process.Start(startInfo)!;
 
-                // Apply High CPU Priority if enabled in settings
-                if (App.Settings.Prop.HighPriority)
+                // Apply CPU Priority based on user selection in settings
+                try
                 {
-                    try
+                    var selectedPriority = App.Settings.Prop.SelectedProcessPriority;
+
+                    if (selectedPriority != ProcessPriorityOption.Normal)
                     {
-                        process.PriorityClass = ProcessPriorityClass.High;
-                        App.Logger.WriteLine(LOG_IDENT, "Set Roblox process priority to High.");
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to set process priority: {ex}");
-                        System.Windows.MessageBox.Show($"Failed to set High CPU Priority:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        ProcessPriorityClass priorityClass = selectedPriority switch
+                        {
+                            ProcessPriorityOption.Low => ProcessPriorityClass.Idle,
+                            ProcessPriorityOption.BelowNormal => ProcessPriorityClass.BelowNormal,
+                            ProcessPriorityOption.Normal => ProcessPriorityClass.Normal,
+                            ProcessPriorityOption.AboveNormal => ProcessPriorityClass.AboveNormal,
+                            ProcessPriorityOption.High => ProcessPriorityClass.High,
+                            _ => ProcessPriorityClass.Normal
+                        };
+
+                        Process currentProcess = Process.GetCurrentProcess();
+                        currentProcess.PriorityClass = priorityClass;
                     }
                 }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to set process priority: {ex}");
+                    System.Windows.MessageBox.Show($"Failed to set CPU Priority:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
 
                 _appPid = process.Id;
 
