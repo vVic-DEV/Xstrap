@@ -71,7 +71,7 @@
 
         <controls:OptionControl
     Header="Roblox Process Priority"
-    Description="Select the CPU priority for the Roblox process.">
+    Description="Select the CPU priority for Roblox.">
             <ComboBox
         Width="200"
         Margin="5,0,0,0"
