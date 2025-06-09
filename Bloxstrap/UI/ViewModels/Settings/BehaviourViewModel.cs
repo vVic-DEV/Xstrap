@@ -6,10 +6,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
-
-        private string _oldPlayerVersionGuid = "";
-        private string _oldStudioVersionGuid = "";
-
         public bool MultiInstances
         {
             get => App.Settings.Prop.MultiInstanceLaunching;

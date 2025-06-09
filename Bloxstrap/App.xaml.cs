@@ -21,6 +21,9 @@ using System.Windows.Media;
 
 namespace Bloxstrap
 {
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
     public partial class App : Application
     {
 #if QA_BUILD
@@ -29,16 +32,19 @@ namespace Bloxstrap
         public const string ProjectName = "Froststrap";
 #endif
         public const string ProjectOwner = "Meddsam";
-        public const string ProjectRepository = "Meddsam/Froststrap";
+        public const string ProjectRepository = "Meddsam/froststrap";
         public const string ProjectDownloadLink = "https://github.com/Meddsam/Froststrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/Meddsam/Froststrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
+        // one day ill add studio support
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 
+        // simple shorthand for extremely frequently used and long string - this goes under HKCU
         public const string UninstallKey = $@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{ProjectName}";
+
         public const string ApisKey = $"Software\\{ProjectName}";
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
@@ -49,11 +55,7 @@ namespace Bloxstrap
 
         public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
-        public static bool IsActionBuild => !string.IsNullOrEmpty(BuildMetadata.CommitRef);
-
-        public static readonly string RobloxCookiesFilePath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            @"Roblox\LocalStorage\RobloxCookies.dat");
+        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
