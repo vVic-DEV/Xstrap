@@ -13,7 +13,6 @@
 Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/new/choose) or create a bug report in our [Discord server](https://discord.gg/KdR9vpRcUN).
 
 [![License][badge-repo-license]][repo-license]
-[![Workflow][badge-repo-workflow]][repo-actions]
 [![Downloads][badge-repo-downloads]][repo-releases]
 [![Version][badge-repo-latest]][repo-latest]
 [![Discord][badge-discord]][discord-invite]
@@ -65,7 +64,6 @@ Found any bugs? [Submit an issue](https://github.com/Meddsam/Froststrap/issues/n
 
 <!-- Badge Definitions -->
 [badge-repo-license]:    https://img.shields.io/github/license/Meddsam/Froststrap?style=flat-square
-[badge-repo-workflow]:   https://img.shields.io/github/actions/workflow/status/Meddsam/Froststrap/ci-release.yml?branch=main&style=flat-square&label=builds
 [badge-repo-downloads]:  https://img.shields.io/github/downloads/Meddsam/Froststrap/latest/total?style=flat-square&color=981bfe
 [badge-repo-latest]:     https://img.shields.io/github/v/release/Meddsam/Froststrap?style=flat-square&color=7a39fb
 [badge-repo-stars]:      https://img.shields.io/github/stars/Meddsam/Froststrap?style=flat-square&color=dd9900
