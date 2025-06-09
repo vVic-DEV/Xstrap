@@ -624,7 +624,6 @@ namespace Bloxstrap
             {
                 using var process = Process.Start(startInfo)!;
 
-                // Apply CPU Priority based on user selection in settings
                 try
                 {
                     var selectedPriority = App.Settings.Prop.SelectedProcessPriority;
@@ -638,11 +637,32 @@ namespace Bloxstrap
                             ProcessPriorityOption.Normal => ProcessPriorityClass.Normal,
                             ProcessPriorityOption.AboveNormal => ProcessPriorityClass.AboveNormal,
                             ProcessPriorityOption.High => ProcessPriorityClass.High,
+                            ProcessPriorityOption.RealTime => ProcessPriorityClass.RealTime,
                             _ => ProcessPriorityClass.Normal
                         };
 
-                        Process currentProcess = Process.GetCurrentProcess();
-                        currentProcess.PriorityClass = priorityClass;
+                        var robloxProcesses = Process.GetProcessesByName("RobloxPlayerBeta");
+
+                        if (robloxProcesses.Length == 0)
+                        {
+                            System.Windows.MessageBox.Show("Roblox process not found. Priority not applied.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            foreach (var proc in robloxProcesses)
+                            {
+                                try
+                                {
+                                    proc.PriorityClass = priorityClass;
+                                }
+                                catch (Exception ex)
+                                {
+                                    App.Logger.WriteLine(LOG_IDENT, $"Failed to set priority for process {proc.Id}: {ex}");
+                                }
+                            }
+
+                            System.Windows.MessageBox.Show($"Set Roblox process priority to: {priorityClass}", "Priority Applied", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -651,7 +671,7 @@ namespace Bloxstrap
                     System.Windows.MessageBox.Show($"Failed to set CPU Priority:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-
+                // Continue with the rest of your code like _appPid assignment, icon setting, etc.
                 _appPid = process.Id;
 
                 if (App.Settings.Prop.UseOldIcon)
