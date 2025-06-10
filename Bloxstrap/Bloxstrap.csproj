@@ -15,6 +15,18 @@
     <Product>$(AssemblyName)</Product>
     <RootNamespace>Bloxstrap</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\HelpPage\Bootstrapper Issues\ConnectivityIssue.png" />
+    <None Remove="Resources\HelpPage\Bootstrapper Issues\FailedToPreviewError.png" />
+    <None Remove="Resources\HelpPage\Bootstrapper Issues\RobloxWontLaunch.png" />
+    <None Remove="Resources\HelpPage\Bootstrapper Issues\VersionFix.png" />
+    <None Remove="Resources\HelpPage\FastFlagGuide\BufferArray.png" />
+    <None Remove="Resources\HelpPage\FastFlagGuide\LowPolyMeshes.png" />
+    <None Remove="Resources\HelpPage\FastFlagGuide\QualityLevelOverride.png" />
+    <None Remove="Resources\HelpPage\FastFlagGuide\StablePing.png" />
+    <None Remove="Resources\HelpPage\FastFlagGuide\TitleBar.png" />
+  </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
@@ -29,6 +41,27 @@
 	<Resource Include="Resources\CustomModsPage\Fishstrap.png" />
 	<Resource Include="Resources\CustomModsPage\OneShotSolstriceAnniversary.png" />
 	<Resource Include="Resources\Froststrap Custom Background.png" />
+	<Resource Include="Resources\HelpPage\CommonBootstrapper\ConnectivityIssue.png" />
+	<Resource Include="Resources\HelpPage\CommonBootstrapper\FailedToPreviewError.png" />
+	<Resource Include="Resources\HelpPage\CommonBootstrapper\RobloxWontLaunch.png" />
+	<Resource Include="Resources\HelpPage\CommonBootstrapper\VersionFix.png" />
+	<Resource Include="Resources\HelpPage\FastFlagGuide\BufferArray.png" />
+	<Resource Include="Resources\HelpPage\FastFlagGuide\LowPolyMeshes.png" />
+	<Resource Include="Resources\HelpPage\FastFlagGuide\QualityLevelOverride.png" />
+	<Resource Include="Resources\HelpPage\FastFlagGuide\StablePing.png" />
+	<Resource Include="Resources\HelpPage\FastFlagGuide\TitleBar.png" />
+	<Resource Include="Resources\HelpPage\Features\AdvancedFastFlagEditorSettings.png" />
+	<Resource Include="Resources\HelpPage\Features\Cleaner.png" />
+	<Resource Include="Resources\HelpPage\Features\CustomMods.png" />
+	<Resource Include="Resources\HelpPage\Features\DisableHardwareAccel.png" />
+	<Resource Include="Resources\HelpPage\Features\Launcher.png" />
+	<Resource Include="Resources\HelpPage\Features\Logs.png" />
+	<Resource Include="Resources\HelpPage\Features\MessageLogs.png" />
+	<Resource Include="Resources\HelpPage\Features\MultiInstanceLaunching.png" />
+	<Resource Include="Resources\HelpPage\Features\PlayerLogs.png" />
+	<Resource Include="Resources\HelpPage\Features\PresetColumn.png" />
+	<Resource Include="Resources\HelpPage\Features\PresetFlagLists.png" />
+	<Resource Include="Resources\HelpPage\Features\SuggestionBox.png" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
