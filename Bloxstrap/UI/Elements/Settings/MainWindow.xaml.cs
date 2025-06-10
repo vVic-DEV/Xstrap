@@ -18,6 +18,7 @@ using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Common;
+using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -281,5 +282,20 @@ namespace Bloxstrap.UI.Elements.Settings
             else
                 App.SoftTerminate();
         }
+
+        public void ShowLoading(string message = "Loading...")
+        {
+            LoadingOverlayText.Text = message;
+            LoadingOverlay.Visibility = Visibility.Visible;
+            // DO NOT disable RootGrid
+            // RootGrid.IsEnabled = false;
+        }
+
+        public void HideLoading()
+        {
+            LoadingOverlay.Visibility = Visibility.Collapsed;
+            // RootGrid.IsEnabled = true;
+        }
+
     }
 }

@@ -21,6 +21,16 @@
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
 
+    <Window.Resources>
+        <Storyboard x:Key="SpinStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimation
+            Storyboard.TargetName="SpinnerRotateTransform"
+            Storyboard.TargetProperty="Angle"
+            From="0" To="360"
+            Duration="0:0:1" />
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -120,5 +130,38 @@
                 <ui:Button Content="{x:Static resources:Strings.Common_Close}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
+
+        <!-- Loading Overlay -->
+        <Grid x:Name="LoadingOverlay"
+      Visibility="Collapsed"
+      Background="#80000000"
+      Grid.RowSpan="3"
+      Panel.ZIndex="999"
+      IsHitTestVisible="True">
+            <Border HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="220"
+            Height="160"
+            Background="#59000000"
+            CornerRadius="12"
+            Padding="20">
+                <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Vertical"
+                    Margin="0">
+                    <ui:ProgressRing Width="48"
+                             Height="48"
+                             IsIndeterminate="True"
+                             Visibility="Visible" />
+                    <TextBlock x:Name="LoadingOverlayText"
+                       Text="Loading..."
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       TextAlignment="Center"
+                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                       Margin="0,12,0,0" />
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </base:WpfUiWindow>
