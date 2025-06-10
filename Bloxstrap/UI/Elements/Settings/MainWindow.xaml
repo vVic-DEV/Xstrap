@@ -21,16 +21,6 @@
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
 
-    <Window.Resources>
-        <Storyboard x:Key="SpinStoryboard" RepeatBehavior="Forever">
-            <DoubleAnimation
-            Storyboard.TargetName="SpinnerRotateTransform"
-            Storyboard.TargetProperty="Angle"
-            From="0" To="360"
-            Duration="0:0:1" />
-        </Storyboard>
-    </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

@@ -1,10 +1,8 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using Bloxstrap.AppData;
 using Bloxstrap.RobloxInterfaces;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
-
     public class ChannelViewModel : NotifyPropertyChangedViewModel
     {
         private string _oldPlayerVersionGuid = "";
@@ -13,50 +11,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ChannelViewModel()
         {
             Task.Run(() => LoadChannelDeployInfo(App.Settings.Prop.Channel));
-
-            // Initialize SelectedPriority from settings
-            _selectedPriority = App.Settings.Prop.SelectedProcessPriority;
         }
-
-        public new event PropertyChangedEventHandler? PropertyChanged;
-        private new void OnPropertyChanged(string propertyName) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public bool UpdateCheckingEnabled
         {
             get => App.Settings.Prop.CheckForUpdates;
             set => App.Settings.Prop.CheckForUpdates = value;
-        }
-        public bool DisableAnimations
-        {
-            get => App.Settings.Prop.DisableAnimations;
-            set => App.Settings.Prop.DisableAnimations = value;
-        }
-
-        public bool HardwareAcceleration
-        {
-            get => App.Settings.Prop.WPFSoftwareRender;
-            set => App.Settings.Prop.WPFSoftwareRender = value;
-        }
-
-
-        private ProcessPriorityOption _selectedPriority;
-
-        public IReadOnlyList<ProcessPriorityOption> ProcessPriorityOptions { get; } =
-            Enum.GetValues(typeof(ProcessPriorityOption)).Cast<ProcessPriorityOption>().ToList();
-
-        public ProcessPriorityOption SelectedPriority
-        {
-            get => _selectedPriority;
-            set
-            {
-                if (_selectedPriority != value)
-                {
-                    _selectedPriority = value;
-                    App.Settings.Prop.SelectedProcessPriority = value;
-                    OnPropertyChanged(nameof(SelectedPriority));
-                }
-            }
         }
 
         private async Task LoadChannelDeployInfo(string channel)
@@ -101,9 +61,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool IsRobloxInstallationMissing => string.IsNullOrEmpty(App.State.Prop.Player.VersionGuid) &&
-                                                    string.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid);
-
         public bool ShowLoadingError { get; set; } = false;
         public bool ShowChannelWarning { get; set; } = false;
 
@@ -118,7 +75,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 value = value.Trim();
                 Task.Run(() => LoadChannelDeployInfo(value));
 
-                App.Settings.Prop.Channel = value;
+                if (value.ToLower() == "live" || value.ToLower() == "zlive")
+                {
+                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                }
+                else
+                {
+                    App.Settings.Prop.Channel = value;
+                }
             }
         }
 
@@ -129,7 +93,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 const string VersionHashFormat = "version-(.*)";
                 Match match = Regex.Match(value, VersionHashFormat);
-                if (match.Success || string.IsNullOrEmpty(value))
+                if (match.Success || String.IsNullOrEmpty(value))
                 {
                     App.Settings.Prop.ChannelHash = value;
                 }
@@ -173,6 +137,38 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 {
                     App.State.Prop.Player.VersionGuid = _oldPlayerVersionGuid;
                     App.State.Prop.Studio.VersionGuid = _oldStudioVersionGuid;
+                }
+            }
+        }
+
+        public bool DisableAnimations
+        {
+            get => App.Settings.Prop.DisableAnimations;
+            set => App.Settings.Prop.DisableAnimations = value;
+        }
+
+        public bool HardwareAcceleration
+        {
+            get => App.Settings.Prop.WPFSoftwareRender;
+            set => App.Settings.Prop.WPFSoftwareRender = value;
+        }
+
+
+        private ProcessPriorityOption _selectedPriority;
+
+        public IReadOnlyList<ProcessPriorityOption> ProcessPriorityOptions { get; } =
+            Enum.GetValues(typeof(ProcessPriorityOption)).Cast<ProcessPriorityOption>().ToList();
+
+        public ProcessPriorityOption SelectedPriority
+        {
+            get => _selectedPriority;
+            set
+            {
+                if (_selectedPriority != value)
+                {
+                    _selectedPriority = value;
+                    App.Settings.Prop.SelectedProcessPriority = value;
+                    OnPropertyChanged(nameof(SelectedPriority));
                 }
             }
         }
