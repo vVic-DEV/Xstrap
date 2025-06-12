@@ -432,10 +432,15 @@ namespace Bloxstrap
             { QualityLevel.Level21, "21" }
         };
 
+        public bool suspendUndoSnapshot = false;
+
         // to delete a flag, set the value as null
         public void SetValue(string key, object? value)
         {
             const string LOG_IDENT = "FastFlagManager::SetValue";
+
+            if (!suspendUndoSnapshot)
+                SaveUndoSnapshot();
 
             if (value is null)
             {
@@ -448,7 +453,7 @@ namespace Bloxstrap
             {
                 if (Prop.ContainsKey(key))
                 {
-                    if (key == Prop[key].ToString())
+                    if (key == Prop[key]!.ToString())
                         return;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Changing of '{key}' from '{Prop[key]}' to '{value}' is pending");
@@ -522,7 +527,7 @@ namespace Bloxstrap
             // convert all flag values to strings before saving
 
             foreach (var pair in Prop)
-                Prop[pair.Key] = pair.Value.ToString()!;
+                Prop[pair.Key] = pair.Value!.ToString()!;
 
             base.Save();
 
@@ -575,5 +580,64 @@ namespace Bloxstrap
                 };
             }
         }
+
+        private readonly Stack<Dictionary<string, object?>> undoStack = new();
+        private readonly Stack<Dictionary<string, object?>> redoStack = new();
+
+        public void SaveUndoSnapshot()
+        {
+            // Avoid pushing if last snapshot is identical (optional but nice)
+            if (undoStack.Count > 0 && DictionaryEquals(undoStack.Peek(), Prop!))
+                return;
+
+            undoStack.Push(new Dictionary<string, object?>(Prop!));
+            redoStack.Clear();
+        }
+
+        private bool DictionaryEquals(Dictionary<string, object?> a, Dictionary<string, object?> b)
+        {
+            if (a.Count != b.Count)
+                return false;
+
+            foreach (var pair in a)
+            {
+                if (!b.TryGetValue(pair.Key, out var bValue))
+                    return false;
+
+                if (!Equals(pair.Value, bValue))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public void Undo()
+        {
+            if (undoStack.Count == 0)
+                return;
+
+            redoStack.Push(new Dictionary<string, object?>(Prop!));
+
+            var previous = undoStack.Pop();
+
+            Prop.Clear();
+            foreach (var kvp in previous)
+                Prop[kvp.Key] = kvp.Value!;
+        }
+
+        public void Redo()
+        {
+            if (redoStack.Count == 0)
+                return;
+
+            undoStack.Push(new Dictionary<string, object?>(Prop!));
+
+            var next = redoStack.Pop();
+
+            Prop.Clear();
+            foreach (var kvp in next)
+                Prop[kvp.Key] = kvp.Value!;
+        }
+
     }
 }
