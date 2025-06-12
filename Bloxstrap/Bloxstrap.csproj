@@ -15,18 +15,6 @@
     <Product>$(AssemblyName)</Product>
     <RootNamespace>Bloxstrap</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\HelpPage\Bootstrapper Issues\ConnectivityIssue.png" />
-    <None Remove="Resources\HelpPage\Bootstrapper Issues\FailedToPreviewError.png" />
-    <None Remove="Resources\HelpPage\Bootstrapper Issues\RobloxWontLaunch.png" />
-    <None Remove="Resources\HelpPage\Bootstrapper Issues\VersionFix.png" />
-    <None Remove="Resources\HelpPage\FastFlagGuide\BufferArray.png" />
-    <None Remove="Resources\HelpPage\FastFlagGuide\LowPolyMeshes.png" />
-    <None Remove="Resources\HelpPage\FastFlagGuide\QualityLevelOverride.png" />
-    <None Remove="Resources\HelpPage\FastFlagGuide\StablePing.png" />
-    <None Remove="Resources\HelpPage\FastFlagGuide\TitleBar.png" />
-  </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />

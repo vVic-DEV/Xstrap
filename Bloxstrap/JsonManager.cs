@@ -162,9 +162,8 @@ namespace Bloxstrap
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 
-                // Suspend undo snapshots during load
                 App.FastFlags.suspendUndoSnapshot = true;
-                App.FastFlags.SaveUndoSnapshot(); // snapshot before applying profile
+                App.FastFlags.SaveUndoSnapshot();
 
                 if (clearFlags == true)
                 {

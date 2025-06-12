@@ -393,6 +393,36 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Network.Payload6", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.Payload7", value ? "2147483647" : null);
                 App.FastFlags.SetPreset("Network.Payload8", value ? "2147483647" : null);
+                App.FastFlags.SetPreset("Network.Payload9", value ? "2147483647" : null);
+                App.FastFlags.SetPreset("Network.Payload10", value ? "2147483647" : null);
+                App.FastFlags.SetPreset("Network.Payload11", value ? "2147483647" : null);
+            }
+        }
+
+        public bool IncreaseCache
+        {
+            get => App.FastFlags.GetPreset("Cache.Increase1") == "True";
+            set
+            {
+                App.FastFlags.SetPreset("Cache.Increase1", value ? "True" : null);
+                App.FastFlags.SetPreset("Cache.Increase2", value ? "False" : null);
+                App.FastFlags.SetPreset("Cache.Increase3", value ? "True" : null);
+                App.FastFlags.SetPreset("Cache.Increase4", value ? "1" : null);
+                App.FastFlags.SetPreset("Cache.Increase5", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase6", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase7", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase8", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase9", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase10", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase11", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase12", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase13", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase14", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase15", value ? "2147483647" : null);
+                App.FastFlags.SetPreset("Cache.Increase16", value ? "True" : null);
+                App.FastFlags.SetPreset("Cache.Increase17", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase18", value ? "1036372536" : null);
+                App.FastFlags.SetPreset("Cache.Increase19", value ? "1036372536" : null);
             }
         }
 
@@ -709,6 +739,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     "Network.Mtusize",
                     clamped >= 576 ? clamped.ToString() : null
                 );
+            }
+        }
+
+        public int PhysicSender
+        {
+            get
+            {
+                int val1 = int.TryParse(App.FastFlags.GetPreset("Network.Phyics1"), out var x1) ? x1 : 0;
+                int val2 = int.TryParse(App.FastFlags.GetPreset("Network.Phyics2"), out var x2) ? x2 : 0;
+                return val1 + val2;
+            }
+            set
+            {
+                if (value < 60)
+                {
+                    App.FastFlags.SetPreset("Network.Phyics1", null);
+                    App.FastFlags.SetPreset("Network.Phyics2", null);
+                }
+                else
+                {
+                    int clamped = Math.Min(38760, value);
+                    int half = clamped / 2;
+                    int remainder = clamped - half;
+
+                    App.FastFlags.SetPreset("Network.Phyics1", half.ToString());
+                    App.FastFlags.SetPreset("Network.Phyics2", remainder.ToString());
+                }
             }
         }
 

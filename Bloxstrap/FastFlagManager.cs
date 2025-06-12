@@ -56,6 +56,10 @@ namespace Bloxstrap
             { "Network.MaxAssetPreload", "DFIntNumAssetsMaxToPreload" },
             { "Network.PlayerImageDefault", "FStringGetPlayerImageDefaultTimeout" },
 
+            // Physic
+            { "Network.Phyics1", "DFIntS2PhysicsSenderRate" },
+            { "Network.Phyics2", "DFIntDataSenderRate" },
+
             // Payload Limit
             { "Network.Payload1", "DFIntRccMaxPayloadSnd" },
             { "Network.Payload2", "DFIntCliMaxPayloadRcv" },
@@ -65,6 +69,9 @@ namespace Bloxstrap
             { "Network.Payload6", "DFIntRccTcMaxPayloadRcv" },
             { "Network.Payload7", "DFIntCliTcMaxPayloadSnd" },
             { "Network.Payload8", "DFIntRccTcMaxPayloadSnd" },
+            { "Network.Payload9", "DFIntMaxDataPayloadSize" },
+            { "Network.Payload10", "DFIntMaxUREPayloadSingleLimit" },
+            { "Network.Payload11", "DFIntTotalRepPayloadLimit" },
 
             // Disable Ads
             { "UI.DisableAds1", "FFlagAdServiceEnabled" },
@@ -95,6 +102,27 @@ namespace Bloxstrap
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
             { "Debug.Chunks", "FFlagDebugLightGridShowChunks" },
 
+            // Increase Cache Size
+            { "Cache.Increase1", "FFlagClearCacheableContentProviderOnGameLaunch" },
+            { "Cache.Increase2", "DFFlagAlwaysSkipDiskCache" },
+            { "Cache.Increase3", "FFlagUseCachedAudibilityMeasurements" },
+            { "Cache.Increase4", "DFIntCachedPatchLoadDelayMilliseconds" },
+            { "Cache.Increase5", "DFIntHttpCacheCleanScheduleAfterMs" },
+            { "Cache.Increase6", "DFIntHttpCacheCleanUpToAvailableSpaceMiB" },
+            { "Cache.Increase7", "DFIntHttpCacheAsyncWriterMaxPendingSize" },
+            { "Cache.Increase8", "DFIntHttpCacheEvictionExemptionMapMaxSize" },
+            { "Cache.Increase9", "DFIntHttpCacheReportSlowWritesMinDuration" },
+            { "Cache.Increase10", "DFIntMemCacheMaxCapacityMB" },
+            { "Cache.Increase11", "DFIntFileCacheReserveSize" },
+            { "Cache.Increase12", "DFIntThirdPartyInMemoryCacheCapacity" },
+            { "Cache.Increase13", "DFIntSoundServiceCacheCleanupMaxAgeDays" },
+            { "Cache.Increase14", "DFIntUserIdPlayerNameCacheLifetimeSeconds" },
+            { "Cache.Increase15", "DFIntAssetCacheErrorLogHundredthsPercent" },
+            { "Cache.Increase16", "DFFlagHttpTrackSyncWriteCachePhase" },
+            { "Cache.Increase17", "DFIntHttpCachePerfSamplingRate" },
+            { "Cache.Increase18", "DFIntHttpCachePerfHundredthsPercent" },
+            { "Cache.Increase19", "DFIntReportCacheDirSizesHundredthsPercent" },
+
             // Force Logical Processors
             { "System.CpuCore1", "DFIntInterpolationNumParallelTasks" },
             { "System.CpuCore2", "DFIntMegaReplicatorNumParallelTasks" },
@@ -122,10 +150,6 @@ namespace Bloxstrap
             { "Telemetry.CallbackSafety", "DFFlagEmitSafetyTelemetryInCallbackEnable" },
             { "Telemetry.V2PointEncoding", "DFFlagRobloxTelemetryV2PointEncoding" },
             { "Telemetry.ReplaceSeparator", "DFFlagDSTelemetryV2ReplaceSeparator" },
-
-
-
-
             { "Telemetry.TelemetryV2Url", "DFStringTelemetryV2Url" },
             { "Telemetry.Protocol", "FFlagEnableTelemetryProtocol" },
             { "Telemetry.TelemetryService", "FFlagEnableTelemetryService1" },
