@@ -130,7 +130,7 @@
       IsHitTestVisible="True">
             <Border HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Width="220"
+            Width="270"
             Height="160"
             Background="#59000000"
             CornerRadius="12"

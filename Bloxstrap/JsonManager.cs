@@ -135,7 +135,6 @@ namespace Bloxstrap
             if (string.IsNullOrEmpty(name))
                 return;
 
-
             try
             {
                 if (!Directory.Exists(BaseDir))
@@ -163,6 +162,10 @@ namespace Bloxstrap
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 
+                // Suspend undo snapshots during load
+                App.FastFlags.suspendUndoSnapshot = true;
+                App.FastFlags.SaveUndoSnapshot(); // snapshot before applying profile
+
                 if (clearFlags == true)
                 {
                     Prop = settings;
@@ -179,6 +182,8 @@ namespace Bloxstrap
                     }
                 }
 
+                App.FastFlags.suspendUndoSnapshot = false;
+
                 App.FastFlags.Save();
             }
             catch (Exception ex)
@@ -186,6 +191,7 @@ namespace Bloxstrap
                 Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
             }
         }
+
 
         public void LoadPresetProfile(string? name, bool? clearFlags)
         {
@@ -239,6 +245,9 @@ namespace Bloxstrap
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 
+                App.FastFlags.suspendUndoSnapshot = true;
+                App.FastFlags.SaveUndoSnapshot();
+
                 if (clearFlags == true)
                 {
                     Prop = settings;
@@ -254,6 +263,8 @@ namespace Bloxstrap
                         }
                     }
                 }
+
+                App.FastFlags.suspendUndoSnapshot = false;
 
                 App.FastFlags.Save();
             }

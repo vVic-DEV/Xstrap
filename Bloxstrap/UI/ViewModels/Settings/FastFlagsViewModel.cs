@@ -220,11 +220,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool BlockTencent
         {
-            get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "/tencent/";
+            get => App.FastFlags?.GetPreset("Telemetry.Tencent1") == "null";
             set
             {
-                App.FastFlags.SetPreset("Telemetry.Tencent1", value ? "/tencent/" : null);
-                App.FastFlags.SetPreset("Telemetry.Tencent2", value ? "/tencent/" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent1", value ? "null" : null);
+                App.FastFlags.SetPreset("Telemetry.Tencent2", value ? "null" : null);
                 App.FastFlags.SetPreset("Telemetry.Tencent3", value ? "https://www.gov.cn" : null);
                 App.FastFlags.SetPreset("Telemetry.Tencent4", value ? "https://www.gov.cn" : null);
                 App.FastFlags.SetPreset("Telemetry.Tencent5", value ? "False" : null);
